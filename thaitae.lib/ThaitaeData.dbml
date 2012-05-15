@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Thaitae" Class="ThaitaeDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=www.diygang.com;Initial Catalog=Thaitae;User ID=tamujin" SettingsObjectName="thaitae.lib.Properties.Settings" SettingsPropertyName="ThaitaeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="tamujin.League" Member="Leagues">
+    <Type Name="League">
+      <Column Name="LeagueId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LeagueName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LeagueType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LeagueDesc" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="League_Season" Member="Seasons" ThisKey="LeagueId" OtherKey="LeagueId" Type="Season" />
+    </Type>
+  </Table>
+  <Table Name="tamujin.Season" Member="Seasons">
+    <Type Name="Season">
+      <Column Name="LeagueId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TeamId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SeasonDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Season_Match" Member="Matches" ThisKey="SeasonId" OtherKey="SeasonId" Type="Match" />
+      <Association Name="League_Season" Member="League" ThisKey="LeagueId" OtherKey="LeagueId" Type="League" IsForeignKey="true" />
+      <Association Name="Team_Season" Member="Team" ThisKey="TeamId" OtherKey="TeamId" Type="Team" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="tamujin.Team" Member="Teams">
+    <Type Name="Team">
+      <Column Name="TeamId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TeamName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TeamDesc" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Team_Season" Member="Seasons" ThisKey="TeamId" OtherKey="TeamId" Type="Season" />
+      <Association Name="Team_Match" Member="Matches" ThisKey="TeamId" OtherKey="Team1Id" Type="Match" />
+      <Association Name="Team_Match1" Member="Matches1" ThisKey="TeamId" OtherKey="Team2Id" Type="Match" />
+    </Type>
+  </Table>
+  <Table Name="tamujin.Match" Member="Matches">
+    <Type Name="Match">
+      <Column Name="MatchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Team1Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Team2Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeasonId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MatchDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Match_TeamInMatch" Member="TeamInMatches" ThisKey="MatchId" OtherKey="MatchId" Type="TeamInMatch" />
+      <Association Name="Match_PlayerInMatch" Member="PlayerInMatches" ThisKey="MatchId" OtherKey="MatchId" Type="PlayerInMatch" />
+      <Association Name="Match_TeamInMatch1" Member="TeamInMatches1" ThisKey="Team1Id" OtherKey="TeamId" Type="TeamInMatch" />
+      <Association Name="Match_TeamInMatch2" Member="TeamInMatches2" ThisKey="Team2Id" OtherKey="TeamId" Type="TeamInMatch" />
+      <Association Name="Season_Match" Member="Season" ThisKey="SeasonId" OtherKey="SeasonId" Type="Season" IsForeignKey="true" />
+      <Association Name="Team_Match" Member="Team" ThisKey="Team1Id" OtherKey="TeamId" Type="Team" IsForeignKey="true" />
+      <Association Name="Team_Match1" Member="Team1" ThisKey="Team2Id" OtherKey="TeamId" Type="Team" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="tamujin.TeamInMatch" Member="TeamInMatches">
+    <Type Name="TeamInMatch">
+      <Column Name="TeamId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MatchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TeamScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TeamYellowCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TeamRedCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TeamScoreStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TeamInMatch_PlayerInMatch" Member="PlayerInMatches" ThisKey="TeamId" OtherKey="Teamid" Type="PlayerInMatch" />
+      <Association Name="Match_TeamInMatch" Member="Match" ThisKey="MatchId" OtherKey="MatchId" Type="Match" IsForeignKey="true" />
+      <Association Name="Match_TeamInMatch1" Member="Match1" ThisKey="TeamId" OtherKey="Team1Id" Type="Match" IsForeignKey="true" />
+      <Association Name="Match_TeamInMatch2" Member="Match2" ThisKey="TeamId" OtherKey="Team2Id" Type="Match" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="tamujin.PlayerInMatch" Member="PlayerInMatches">
+    <Type Name="PlayerInMatch">
+      <Column Name="PlayerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Teamid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MatchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlayerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerGoalScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlayerYellowCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlayerRedCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Match_PlayerInMatch" Member="Match" ThisKey="MatchId" OtherKey="MatchId" Type="Match" IsForeignKey="true" />
+      <Association Name="TeamInMatch_PlayerInMatch" Member="TeamInMatch" ThisKey="Teamid" OtherKey="TeamId" Type="TeamInMatch" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
