@@ -1,0 +1,6 @@
+D:\tamujin\Thaitae\Thaitae\thaitae.lib\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\tamujin\Thaitae\Thaitae\thaitae.lib\bin\Debug\thaitae.lib.dll.config
+D:\tamujin\Thaitae\Thaitae\thaitae.lib\bin\Debug\thaitae.lib.dll
+D:\tamujin\Thaitae\Thaitae\thaitae.lib\bin\Debug\thaitae.lib.pdb
+D:\tamujin\Thaitae\Thaitae\thaitae.lib\obj\x86\Debug\thaitae.lib.dll
+D:\tamujin\Thaitae\Thaitae\thaitae.lib\obj\x86\Debug\thaitae.lib.pdb

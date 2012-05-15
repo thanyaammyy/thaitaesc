@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\thaitae" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Images/icon/Save-icon.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Images/icon/link_icon.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Images/icon/1uparrow-v.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Images/icon/Delete-icon1.png" publishTime="05/15/2012 13:10:54" />
+    <file relUrl="Scripts/jquery-ui-1.8.20.custom.min.js" publishTime="05/15/2012 13:15:11" />
+    <file relUrl="Images/icon/icon-calendar.gif" publishTime="05/15/2012 13:13:44" />
+    <file relUrl="Images/icon/downArrow.png" publishTime="05/15/2012 13:10:54" />
+    <file relUrl="Backend.Master" publishTime="05/15/2012 15:14:00" />
+    <file relUrl="Images/icon/newIcon.gif" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Styles/images/ui-icons_cd0a0a_256x240.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Images/icon/button_ok.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Images/icon/downTriangle.png" publishTime="05/15/2012 13:10:54" />
+    <file relUrl="Styles/backend.css" publishTime="05/15/2012 13:53:02" />
+    <file relUrl="Styles/images/ui-bg_glass_55_fcf0ba_1x400.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Styles/images/ui-icons_ffffff_256x240.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Images/icon/down.png" publishTime="05/15/2012 13:10:54" />
+    <file relUrl="Images/icon/edit_remove.png" publishTime="05/15/2012 13:10:54" />
+    <file relUrl="Styles/images/ui-bg_inset-soft_15_2b2922_1x100.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Scripts/jquery-1.7.2.min.js" publishTime="05/15/2012 13:15:11" />
+    <file relUrl="Images/icon/pdf_icon.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Styles/images/ui-icons_808080_256x240.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Styles/images/ui-bg_highlight-soft_25_67b021_1x100.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Images/icon/Delete-icon.png" publishTime="05/15/2012 13:10:54" />
+    <file relUrl="Images/icon/Edit-icon.png" publishTime="05/15/2012 13:10:54" />
+    <file relUrl="bin/thaitae.lib.dll" publishTime="05/15/2012 17:08:27" />
+    <file relUrl="bin/Thaitae.Backend.dll" publishTime="05/15/2012 17:08:28" />
+    <file relUrl="Styles/images/ui-bg_highlight-hard_100_fafaf4_1x100.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Images/icon/Green-icon.png" publishTime="05/15/2012 13:10:54" />
+    <file relUrl="Images/icon/icon_external.gif" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Index.aspx" publishTime="05/15/2012 12:10:27" />
+    <file relUrl="Images/icon/edit_add.png" publishTime="05/15/2012 13:10:54" />
+    <file relUrl="Images/icon/Cancel-icon.png" publishTime="05/15/2012 13:10:54" />
+    <file relUrl="Images/icon/Red-icon.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Styles/images/ui-icons_eeeeee_256x240.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Images/icon/upTriangle.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Images/icon/cancelReadBackground.png" publishTime="05/15/2012 13:10:54" />
+    <file relUrl="Images/icon/button-edit.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Images/icon/info-icon.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Images/icon/validation-Icon.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Styles/images/ui-icons_8dc262_256x240.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Images/icon/up.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Images/icon/1downarrow.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="bin/thaitae.lib.pdb" publishTime="05/15/2012 17:08:27" />
+    <file relUrl="Styles/images/ui-icons_847e71_256x240.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Images/icon/1uparrow.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="bin/Thaitae.Backend.pdb" publishTime="05/15/2012 17:08:28" />
+    <file relUrl="Styles/images/ui-bg_highlight-hard_100_f5f3e5_1x100.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Images/icon/bullet_icon.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Images/icon/mail-icon.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="Images/icon/Add-icon.png" publishTime="05/15/2012 13:10:55" />
+    <file relUrl="ForgetPassword.aspx" publishTime="05/15/2012 13:07:28" />
+    <file relUrl="Styles/images/ui-bg_highlight-soft_95_ffedad_1x100.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Styles/images/ui-bg_highlight-hard_15_459e00_1x100.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Styles/images/ui-bg_highlight-hard_95_cccccc_1x100.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Styles/jquery-ui-1.8.20.custom.css" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Login.aspx" publishTime="05/15/2012 13:03:12" />
+    <file relUrl="Images/icon/carleda.jpg" publishTime="05/15/2012 13:10:54" />
+    <file relUrl="Styles/images/ui-bg_gloss-wave_100_ece8da_500x100.png" publishTime="05/15/2012 14:45:22" />
+    <file relUrl="Web.config" publishTime="05/15/2012 17:11:47" />
+  </publishProfile>
+</publishData>
