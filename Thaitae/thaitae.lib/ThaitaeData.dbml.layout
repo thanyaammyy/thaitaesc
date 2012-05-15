@@ -2,12 +2,6 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.5, 8.5" name="ThaitaeData">
   <DataContextMoniker Name="/ThaitaeDataDataContext" />
   <nestedChildShapes>
-    <classShape Id="b15a8688-3d66-4353-8c8f-4c98a5584e29" absoluteBounds="0.5, 0.5, 2, 1.3862939453125">
-      <DataClassMoniker Name="/ThaitaeDataDataContext/ErrorLog" />
-      <nestedChildShapes>
-        <elementListCompartment Id="73d6a211-f175-45e1-8639-2ab08b5c5943" absoluteBounds="0.515, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="62a40102-7e38-4f60-ab10-1939a131a480" absoluteBounds="0.5, 2.625, 2, 1.7708968098958331">
       <DataClassMoniker Name="/ThaitaeDataDataContext/League" />
       <nestedChildShapes>
@@ -62,21 +56,21 @@
         <elementListCompartment Id="87ab5643-de8a-4d97-83fe-933414f5926d" absoluteBounds="9.265, 6.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.25 : 6.78929768880208); (5.25 : 6.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.25 : 6.78929768880208); (5.25 : 6.78929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ThaitaeDataDataContext/Team/Team_TeamSeason" />
       <nodes>
         <classShapeMoniker Id="5ff93f5a-af84-40cc-806a-afe4811a7d3e" />
         <classShapeMoniker Id="112d38bf-e4aa-4e49-b295-e61a21488972" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 6.69314697265625); (9.25 : 6.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 6.69314697265625); (9.25 : 6.69314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ThaitaeDataDataContext/Team/Team_PlayerTeam" />
       <nodes>
         <classShapeMoniker Id="5ff93f5a-af84-40cc-806a-afe4811a7d3e" />
         <classShapeMoniker Id="085c60ab-7003-4528-a5b4-bd96c3ceb430" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(10.25 : 4.9631982421875); (10.25 : 6)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10.25 : 4.9631982421875); (10.25 : 6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ThaitaeDataDataContext/Player/Player_PlayerTeam" />
       <nodes>
         <classShapeMoniker Id="1dff99cb-8d79-43c8-8984-b6660b18558d" />
@@ -89,7 +83,7 @@
         <elementListCompartment Id="6b1bc8ed-d8bf-4f66-9a8c-2f1353905142" absoluteBounds="9.265, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(10.25 : 3); (10.25 : 2.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10.25 : 3); (10.25 : 2.4631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ThaitaeDataDataContext/Player/Player_PlayerMatch" />
       <nodes>
         <classShapeMoniker Id="1dff99cb-8d79-43c8-8984-b6660b18558d" />
@@ -131,33 +125,39 @@
         <classShapeMoniker Id="db827dc2-ade7-4522-87d9-9dcf7bb23bca" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.25 : 1.8862939453125); (7.25 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.25 : 1.8862939453125); (7.25 : 2.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ThaitaeDataDataContext/Match/Match_TeamMatch" />
       <nodes>
         <classShapeMoniker Id="db827dc2-ade7-4522-87d9-9dcf7bb23bca" />
         <classShapeMoniker Id="57276b38-23d4-49a0-8d9d-1390a11e63f0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 1.16189447265625); (9.25 : 1.16189447265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 1.16189447265625); (9.25 : 1.16189447265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ThaitaeDataDataContext/Match/Match_PlayerMatch" />
       <nodes>
         <classShapeMoniker Id="db827dc2-ade7-4522-87d9-9dcf7bb23bca" />
         <classShapeMoniker Id="20995532-3b53-4d15-8ef6-a79375c64efd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.25 : 1.16189447265625); (5.25 : 1.16189447265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.25 : 1.16189447265625); (5.25 : 1.16189447265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ThaitaeDataDataContext/Match/Match_MatchSeason" />
       <nodes>
         <classShapeMoniker Id="db827dc2-ade7-4522-87d9-9dcf7bb23bca" />
         <classShapeMoniker Id="a9405391-d61a-4d20-848c-5c919762ddef" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.25 : 6); (7.25 : 5.09780110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.25 : 6); (7.25 : 5.09780110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ThaitaeDataDataContext/Team/Team_TeamMatch" />
       <nodes>
         <classShapeMoniker Id="5ff93f5a-af84-40cc-806a-afe4811a7d3e" />
         <classShapeMoniker Id="57276b38-23d4-49a0-8d9d-1390a11e63f0" />
       </nodes>
     </associationConnector>
+    <classShape Id="ece7aff6-7b3f-4c66-aece-c056ee49f8e6" absoluteBounds="0.625, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ThaitaeDataDataContext/ErrorLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d7d6fa3-b654-459a-9861-4a2180e060c5" absoluteBounds="0.64000000000000012, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

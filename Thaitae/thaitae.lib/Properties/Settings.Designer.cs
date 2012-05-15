@@ -33,5 +33,16 @@ namespace thaitae.lib.Properties {
                 return ((string)(this["ThaitaeConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=www.diygang.com;Initial Catalog=Thaitae;Persist Security Info=True;Us" +
+            "er ID=tamujin;Password=p@ssw0rd")]
+        public string ThaitaeConnectionString1 {
+            get {
+                return ((string)(this["ThaitaeConnectionString1"]));
+            }
+        }
     }
 }

@@ -30,9 +30,6 @@ namespace thaitae.lib
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertErrorLog(ErrorLog instance);
-    partial void UpdateErrorLog(ErrorLog instance);
-    partial void DeleteErrorLog(ErrorLog instance);
     partial void InsertLeague(League instance);
     partial void UpdateLeague(League instance);
     partial void DeleteLeague(League instance);
@@ -60,10 +57,13 @@ namespace thaitae.lib
     partial void InsertPlayerTeam(PlayerTeam instance);
     partial void UpdatePlayerTeam(PlayerTeam instance);
     partial void DeletePlayerTeam(PlayerTeam instance);
+    partial void InsertErrorLog(ErrorLog instance);
+    partial void UpdateErrorLog(ErrorLog instance);
+    partial void DeleteErrorLog(ErrorLog instance);
     #endregion
 		
 		public ThaitaeDataDataContext() : 
-				base(global::thaitae.lib.Properties.Settings.Default.ThaitaeConnectionString, mappingSource)
+				base(global::thaitae.lib.Properties.Settings.Default.ThaitaeConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -90,14 +90,6 @@ namespace thaitae.lib
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<ErrorLog> ErrorLogs
-		{
-			get
-			{
-				return this.GetTable<ErrorLog>();
-			}
 		}
 		
 		public System.Data.Linq.Table<League> Leagues
@@ -179,114 +171,12 @@ namespace thaitae.lib
 				return this.GetTable<PlayerMatch>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.ErrorLogs")]
-	public partial class ErrorLog : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ErrorId;
-		
-		private string _ErrorMessage;
-		
-		private System.Nullable<System.DateTime> _ErrorDate;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnErrorIdChanging(int value);
-    partial void OnErrorIdChanged();
-    partial void OnErrorMessageChanging(string value);
-    partial void OnErrorMessageChanged();
-    partial void OnErrorDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnErrorDateChanged();
-    #endregion
-		
-		public ErrorLog()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ErrorId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ErrorId
+		public System.Data.Linq.Table<ErrorLog> ErrorLogs
 		{
 			get
 			{
-				return this._ErrorId;
-			}
-			set
-			{
-				if ((this._ErrorId != value))
-				{
-					this.OnErrorIdChanging(value);
-					this.SendPropertyChanging();
-					this._ErrorId = value;
-					this.SendPropertyChanged("ErrorId");
-					this.OnErrorIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ErrorMessage", DbType="NVarChar(MAX)")]
-		public string ErrorMessage
-		{
-			get
-			{
-				return this._ErrorMessage;
-			}
-			set
-			{
-				if ((this._ErrorMessage != value))
-				{
-					this.OnErrorMessageChanging(value);
-					this.SendPropertyChanging();
-					this._ErrorMessage = value;
-					this.SendPropertyChanged("ErrorMessage");
-					this.OnErrorMessageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ErrorDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ErrorDate
-		{
-			get
-			{
-				return this._ErrorDate;
-			}
-			set
-			{
-				if ((this._ErrorDate != value))
-				{
-					this.OnErrorDateChanging(value);
-					this.SendPropertyChanging();
-					this._ErrorDate = value;
-					this.SendPropertyChanged("ErrorDate");
-					this.OnErrorDateChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<ErrorLog>();
 			}
 		}
 	}
@@ -2633,6 +2523,116 @@ namespace thaitae.lib
 				{
 					this._PlayerRedCard = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.ErrorLogs")]
+	public partial class ErrorLog : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ErrorId;
+		
+		private string _ErrorMessage;
+		
+		private System.Nullable<System.DateTime> _ErrorDate;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnErrorIdChanging(int value);
+    partial void OnErrorIdChanged();
+    partial void OnErrorMessageChanging(string value);
+    partial void OnErrorMessageChanged();
+    partial void OnErrorDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnErrorDateChanged();
+    #endregion
+		
+		public ErrorLog()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ErrorId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ErrorId
+		{
+			get
+			{
+				return this._ErrorId;
+			}
+			set
+			{
+				if ((this._ErrorId != value))
+				{
+					this.OnErrorIdChanging(value);
+					this.SendPropertyChanging();
+					this._ErrorId = value;
+					this.SendPropertyChanged("ErrorId");
+					this.OnErrorIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ErrorMessage", DbType="NVarChar(MAX)")]
+		public string ErrorMessage
+		{
+			get
+			{
+				return this._ErrorMessage;
+			}
+			set
+			{
+				if ((this._ErrorMessage != value))
+				{
+					this.OnErrorMessageChanging(value);
+					this.SendPropertyChanging();
+					this._ErrorMessage = value;
+					this.SendPropertyChanged("ErrorMessage");
+					this.OnErrorMessageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ErrorDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ErrorDate
+		{
+			get
+			{
+				return this._ErrorDate;
+			}
+			set
+			{
+				if ((this._ErrorDate != value))
+				{
+					this.OnErrorDateChanging(value);
+					this.SendPropertyChanging();
+					this._ErrorDate = value;
+					this.SendPropertyChanged("ErrorDate");
+					this.OnErrorDateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

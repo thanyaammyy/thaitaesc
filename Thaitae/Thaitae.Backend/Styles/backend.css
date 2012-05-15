@@ -38,3 +38,6 @@ input.passwordEntry
     background-position: left top;
     background-repeat: no-repeat;
 }
+.LoginHeader {
+	color: white;
+}

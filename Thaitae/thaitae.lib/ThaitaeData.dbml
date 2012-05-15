@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Thaitae" Class="ThaitaeDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=www.diygang.com;Initial Catalog=Thaitae;User ID=tamujin" SettingsObjectName="thaitae.lib.Properties.Settings" SettingsPropertyName="ThaitaeConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="tamujin.ErrorLogs" Member="ErrorLogs">
-    <Type Name="ErrorLog">
-      <Column Name="ErrorId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ErrorMessage" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="ErrorDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </Type>
-  </Table>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=www.diygang.com;Initial Catalog=Thaitae;Persist Security Info=True;User ID=tamujin" SettingsObjectName="thaitae.lib.Properties.Settings" SettingsPropertyName="ThaitaeConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="tamujin.League" Member="Leagues">
     <Type Name="League">
       <Column Name="LeagueId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -59,9 +52,9 @@
       <Column Name="MatchId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TeamHomeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TeamAwayId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Match_MatchSeason" Member="MatchSeasons" ThisKey="MatchId" OtherKey="MatchId" Type="MatchSeason" />
       <Association Name="Match_TeamMatch" Member="TeamMatches" ThisKey="MatchId" OtherKey="MatchId" Type="TeamMatch" />
       <Association Name="Match_PlayerMatch" Member="PlayerMatches" ThisKey="MatchId" OtherKey="MatchId" Type="PlayerMatch" />
-      <Association Name="Match_MatchSeason" Member="MatchSeasons" ThisKey="MatchId" OtherKey="MatchId" Type="MatchSeason" />
       <Association Name="Team_Match" Member="Team" ThisKey="TeamHomeId" OtherKey="TeamId" Type="Team" IsForeignKey="true" />
       <Association Name="Team_Match1" Member="Team1" ThisKey="TeamAwayId" OtherKey="TeamId" Type="Team" IsForeignKey="true" />
     </Type>
@@ -87,10 +80,10 @@
       <Column Name="TeamDesc" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="Active" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Team_TeamSeason" Member="TeamSeasons" ThisKey="TeamId" OtherKey="TeamId" Type="TeamSeason" />
-      <Association Name="Team_PlayerTeam" Member="PlayerTeams" ThisKey="TeamId" OtherKey="TeamId" Type="PlayerTeam" />
       <Association Name="Team_Match" Member="Matches" ThisKey="TeamId" OtherKey="TeamHomeId" Type="Match" />
       <Association Name="Team_Match1" Member="Matches1" ThisKey="TeamId" OtherKey="TeamAwayId" Type="Match" />
       <Association Name="Team_TeamMatch" Member="TeamMatches" ThisKey="TeamId" OtherKey="TeamId" Type="TeamMatch" />
+      <Association Name="Team_PlayerTeam" Member="PlayerTeams" ThisKey="TeamId" OtherKey="TeamId" Type="PlayerTeam" />
     </Type>
   </Table>
   <Table Name="tamujin.Player" Member="Players">
@@ -124,6 +117,13 @@
       <Column Name="PlayerRedCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Player_PlayerMatch" Member="Player" ThisKey="PlayerId" OtherKey="PlayerId" Type="Player" IsForeignKey="true" />
       <Association Name="Match_PlayerMatch" Member="Match" ThisKey="MatchId" OtherKey="MatchId" Type="Match" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="tamujin.ErrorLogs" Member="ErrorLogs">
+    <Type Name="ErrorLog">
+      <Column Name="ErrorId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ErrorMessage" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrorDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
