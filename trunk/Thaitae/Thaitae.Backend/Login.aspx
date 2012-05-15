@@ -1,11 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true"
     CodeBehind="Login.aspx.cs" Inherits="Thaitae.Backend.Login" %>
-<%@Register src="CenterControl/Header.ascx" tagName="Header" tagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
-    <uc1:Header ID="header1" runat="server" />
-    <div align="center" style="">
+    <div align="center">
         <asp:login id="LoginUser" runat="server" enableviewstate="false" renderoutertable="false"
             onloggedin="LoginUser_LoggedIn">
             <layouttemplate>
