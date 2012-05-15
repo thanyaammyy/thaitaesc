@@ -1,7 +1,0 @@
-D:\tamujin\Thaitae\Thaitae\Thaitae.Backend\obj\Debug\ResolveAssemblyReference.cache
-D:\tamujin\Thaitae\Thaitae\Thaitae.Backend\bin\Thaitae.Backend.dll
-D:\tamujin\Thaitae\Thaitae\Thaitae.Backend\bin\Thaitae.Backend.pdb
-D:\tamujin\Thaitae\Thaitae\Thaitae.Backend\bin\thaitae.lib.dll
-D:\tamujin\Thaitae\Thaitae\Thaitae.Backend\bin\thaitae.lib.pdb
-D:\tamujin\Thaitae\Thaitae\Thaitae.Backend\obj\Debug\Thaitae.Backend.dll
-D:\tamujin\Thaitae\Thaitae\Thaitae.Backend\obj\Debug\Thaitae.Backend.pdb

@@ -1,5 +1,0 @@
-D:\tamujin\Thaitae\Thaitae\Thaitae\bin\Thaitae.dll
-D:\tamujin\Thaitae\Thaitae\Thaitae\bin\Thaitae.pdb
-D:\tamujin\Thaitae\Thaitae\Thaitae\obj\Debug\ResolveAssemblyReference.cache
-D:\tamujin\Thaitae\Thaitae\Thaitae\obj\Debug\Thaitae.dll
-D:\tamujin\Thaitae\Thaitae\Thaitae\obj\Debug\Thaitae.pdb
