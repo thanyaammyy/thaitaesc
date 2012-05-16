@@ -89,8 +89,12 @@
     <Content Include="Images\icon\validation-Icon.png" />
     <Content Include="Images\thaitae_logo.png" />
     <Content Include="Index.aspx" />
+    <Content Include="League.aspx" />
+    <Content Include="LeagueEdit.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="MatchEdit.aspx" />
+    <Content Include="MatchManagement.aspx" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.custom.min.js" />
     <Content Include="Styles\backend.css" />
@@ -110,6 +114,7 @@
     <Content Include="Styles\images\ui-icons_eeeeee_256x240.png" />
     <Content Include="Styles\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Styles\jquery-ui-1.8.20.custom.css" />
+    <Content Include="TeamManagement.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -156,6 +161,20 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="League.aspx.cs">
+      <DependentUpon>League.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="League.aspx.designer.cs">
+      <DependentUpon>League.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeagueEdit.aspx.cs">
+      <DependentUpon>LeagueEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LeagueEdit.aspx.designer.cs">
+      <DependentUpon>LeagueEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -170,6 +189,20 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MatchEdit.aspx.cs">
+      <DependentUpon>MatchEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatchEdit.aspx.designer.cs">
+      <DependentUpon>MatchEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatchManagement.aspx.cs">
+      <DependentUpon>MatchManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatchManagement.aspx.designer.cs">
+      <DependentUpon>MatchManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -177,6 +210,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="TeamManagement.aspx.cs">
+      <DependentUpon>TeamManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeamManagement.aspx.designer.cs">
+      <DependentUpon>TeamManagement.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Backend.Master" />
