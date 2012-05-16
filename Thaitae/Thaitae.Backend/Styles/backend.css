@@ -1,12 +1,14 @@
 ﻿body
 {
+    background: url(/images/Green-Background.jpg) top repeat;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 #MainContanter
 {
-    margin: 0 auto;
+    margin: 15px auto auto auto;
     width: 1000px;
     background: white !important;
     height: 100%;
@@ -38,6 +40,7 @@ input.passwordEntry
     background-position: left top;
     background-repeat: no-repeat;
 }
-.LoginHeader {
-	color: white;
+.LoginHeader
+{
+    color: white;
 }
