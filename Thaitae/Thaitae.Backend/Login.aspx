@@ -1,9 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true"
-    CodeBehind="Login.aspx.cs" Inherits="Thaitae.Backend.Login" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
-    <div align="center">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Thaitae.Backend.Login1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Administrator Login Page</title>
+    <link href="Styles/backend.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="margin: 25% auto auto auto; width: 300px">
         <asp:login id="LoginUser" runat="server" enableviewstate="false" renderoutertable="false"
             onloggedin="LoginUser_LoggedIn">
             <layouttemplate>
@@ -47,19 +52,18 @@
             font-names="Verdana" font-size="13px" forecolor="#284775" ID="LoginButton" runat="server" CommandName="Login" Text="Log In" ValidationGroup="LoginUserValidationGroup"/>
             </div>
             </div>
-            </div>
             <span class="failureNotification" style="color: red">
                 <asp:Literal ID="FailureText" runat="server"></asp:Literal>
             </span>
             <asp:ValidationSummary ForeColor="red" ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification"
                  ValidationGroup="LoginUserValidationGroup"/>
+                 <div style="width: 305px; text-align: center">
+            <asp:hyperlink id="hplForgetPassword" runat="server" navigateurl="~/ForgetPassword.aspx">Forgot Password?</asp:hyperlink>
+            </div>
+            </div>
         </layouttemplate>
         </asp:login>
-        <asp:label id="Label1" runat="server" forecolor="Red" text="You Have no right to access any property, please contact administrator."
-            visible="False"></asp:label>
-        <br />
-        <div style="width: 305px; text-align: center">
-            <asp:hyperlink id="hplForgetPassword" runat="server" navigateurl="~/ForgetPassword.aspx">Forgot Password?</asp:hyperlink>
-        </div>
     </div>
-</asp:content>
+    </form>
+</body>
+</html>
