@@ -1,8 +1,7 @@
 ﻿body
 {
-    background: url(/images/Green-Background.jpg) top repeat;
+    background: url(/images/Green-Background.jpg) top repeat black;
     margin: 0;
-    padding: 0;
     height: 100%;
 }
 
