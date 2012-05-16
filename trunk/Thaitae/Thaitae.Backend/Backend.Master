@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Backend.master.cs" Inherits="Thaitae.Backend.Backend" %>
-<%@Register src="CenterControl/Header.ascx" tagName="Header" tagPrefix="uc1" %>
-<%@Register src="CenterControl/Footer.ascx" tagName="Footer" tagPrefix="uc2" %>
+
+<%@ Register Src="CenterControl/Header.ascx" TagName="Header" TagPrefix="uc1" %>
+<%@ Register Src="CenterControl/Footer.ascx" TagName="Footer" TagPrefix="uc2" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -12,16 +13,16 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="background: url(/images/Grass_HD_wallpaper.jpg);">
+<body>
     <div id="MainContanter">
-    	<uc1:Header ID="header1" runat="server" />
+        <uc1:header id="header1" runat="server" />
         <form id="form1" runat="server">
         <div>
             <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
             </asp:contentplaceholder>
         </div>
         </form>
-		<uc2:Footer ID="footer1" runat="server" />
+        <uc2:footer id="footer1" runat="server" />
     </div>
 </body>
 </html>
