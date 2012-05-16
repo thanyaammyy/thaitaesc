@@ -55,7 +55,6 @@
     <Content Include="CenterControl\Header.ascx" />
     <Content Include="favicon.ico" />
     <Content Include="ForgetPassword.aspx" />
-    <Content Include="Images\Grass_HD_wallpaper.jpg" />
     <Content Include="Images\Green-Background.jpg" />
     <Content Include="Images\icon\1downarrow.png" />
     <Content Include="Images\icon\1uparrow-v.png" />
