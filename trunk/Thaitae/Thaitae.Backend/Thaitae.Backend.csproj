@@ -97,7 +97,14 @@
     <Content Include="MatchManagement.aspx" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.custom.min.js" />
+    <Content Include="Scripts\menu.js" />
     <Content Include="Styles\backend.css" />
+    <Content Include="Styles\images\item-pointer-mover.gif" />
+    <Content Include="Styles\images\item-pointer.gif" />
+    <Content Include="Styles\images\lava.gif" />
+    <Content Include="Styles\images\lava.png" />
+    <Content Include="Styles\images\main-bg.png" />
+    <Content Include="Styles\images\main-delimiter.png" />
     <Content Include="Styles\images\ui-bg_glass_55_fcf0ba_1x400.png" />
     <Content Include="Styles\images\ui-bg_gloss-wave_100_ece8da_500x100.png" />
     <Content Include="Styles\images\ui-bg_highlight-hard_100_f5f3e5_1x100.png" />
@@ -114,6 +121,7 @@
     <Content Include="Styles\images\ui-icons_eeeeee_256x240.png" />
     <Content Include="Styles\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Styles\jquery-ui-1.8.20.custom.css" />
+    <Content Include="Styles\menu.css" />
     <Content Include="TeamManagement.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

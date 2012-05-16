@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Header.ascx.cs" Inherits="Thaitae.Backend.CenterControl.Header" %>
-<div style="background-color: black" align="center">
+<div style="background-color: rgb(74, 81, 85)" align="center">
 	<img src="/Images/thaitae_logo.png" />
 	<asp:LoginView runat="server" EnableViewState="False">
 		<AnonymousTemplate>
@@ -13,6 +13,14 @@
 					[<asp:HyperLink ID="hplLogout" runat="server" NavigateUrl="~/Logout.aspx" Text="logout"></asp:HyperLink>]
 				</span>
 			</div>
+			<div id="menu">
+						<ul class="menu">
+							<li><a href="#" class="parent"><span>News</span></a></li>
+							<li><a href="#" class="parent"><span>Sulvo Star</span></a></li>
+							<li><a href="#" class="parent"><span>Match Result</span></a></li>
+							<li><a href="#" class="parent"><span>Result Table</span></a></li>
+						</ul>
+					</div>
 		</LoggedInTemplate>
 	</asp:LoginView>
 </div>
