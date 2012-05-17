@@ -15,10 +15,11 @@
 			</div>
 			<div id="menu">
 						<ul class="menu">
-							<li><a href="#" class="parent"><span>News</span></a></li>
-							<li><a href="#" class="parent"><span>Sulvo Star</span></a></li>
-							<li><a href="#" class="parent"><span>Match Result</span></a></li>
-							<li><a href="#" class="parent"><span>Result Table</span></a></li>
+						    <li><a href="/News.aspx" class="parent"><span>News Management</span></a></li>
+							<li><a href="/League.aspx" class="parent"><span>League Management</span></a></li>
+							<li><a href="/Season.aspx" class="parent"><span>Season Management</span></a></li>
+							<li><a href="/TeamManagement.aspx" class="parent"><span>Team Management</span></a></li>
+							<li><a href="/MatchManagement.aspx" class="parent"><span>Match Management</span></a></li>
 						</ul>
 					</div>
 		</LoggedInTemplate>
