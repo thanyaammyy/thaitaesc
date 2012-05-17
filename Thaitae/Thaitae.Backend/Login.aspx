@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="margin: 25% auto auto auto; width: 300px">
+    <div style="margin: 16% auto auto auto; width: 300px">
         <asp:login id="LoginUser" runat="server" enableviewstate="false" renderoutertable="false"
             onloggedin="LoginUser_LoggedIn">
             <layouttemplate>
