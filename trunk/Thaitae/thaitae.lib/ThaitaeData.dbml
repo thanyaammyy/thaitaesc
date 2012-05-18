@@ -52,6 +52,7 @@
       <Column Name="MatchId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TeamHomeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TeamAwayId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Member="MatchDate" Type="System.DateTime" CanBeNull="false" />
       <Association Name="Match_MatchSeason" Member="MatchSeasons" ThisKey="MatchId" OtherKey="MatchId" Type="MatchSeason" />
       <Association Name="Match_TeamMatch" Member="TeamMatches" ThisKey="MatchId" OtherKey="MatchId" Type="TeamMatch" />
       <Association Name="Match_PlayerMatch" Member="PlayerMatches" ThisKey="MatchId" OtherKey="MatchId" Type="PlayerMatch" />

@@ -1186,6 +1186,8 @@ namespace thaitae.lib
 		
 		private int _TeamAwayId;
 		
+		private System.DateTime _MatchDate;
+		
 		private EntitySet<MatchSeason> _MatchSeasons;
 		
 		private EntitySet<TeamMatch> _TeamMatches;
@@ -1204,6 +1206,8 @@ namespace thaitae.lib
     partial void OnTeamHomeIdChanged();
     partial void OnTeamAwayIdChanging(int value);
     partial void OnTeamAwayIdChanged();
+    partial void OnMatchDateChanging(System.DateTime value);
+    partial void OnMatchDateChanged();
     #endregion
 		
 		public Match()
@@ -1279,6 +1283,26 @@ namespace thaitae.lib
 					this._TeamAwayId = value;
 					this.SendPropertyChanged("TeamAwayId");
 					this.OnTeamAwayIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchDate")]
+		public System.DateTime MatchDate
+		{
+			get
+			{
+				return this._MatchDate;
+			}
+			set
+			{
+				if ((this._MatchDate != value))
+				{
+					this.OnMatchDateChanging(value);
+					this.SendPropertyChanging();
+					this._MatchDate = value;
+					this.SendPropertyChanged("MatchDate");
+					this.OnMatchDateChanged();
 				}
 			}
 		}

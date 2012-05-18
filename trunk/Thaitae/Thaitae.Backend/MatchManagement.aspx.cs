@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Trirand.Web.UI.WebControls;
 using thaitae.lib;
+using Trirand.Web.UI.WebControls;
 
 namespace Thaitae.Backend
 {
@@ -22,6 +18,28 @@ namespace Thaitae.Backend
                 {
                     Jqdropdownlist2.Items.Add(new JQListItem { Text = season.SeasonName, Value = season.SeasonId.ToString() });
                 }
+            }
+            JqgridMatch1.DataSource = dc.Matches;
+            JqgridMatch1.DataBind();
+        }
+
+        protected void JqgridMatch1_RowAdding(object sender, JQGridRowAddEventArgs e)
+        {
+        }
+
+        protected void JqgridMatch1_RowDeleting(object sender, JQGridRowDeleteEventArgs e)
+        {
+        }
+
+        protected void JqgridMatch1_RowEditing(object sender, JQGridRowEditEventArgs e)
+        {
+            using (var dc = new ThaitaeDataDataContext())
+            {
+                var match = dc.Matches.Single(item => item.MatchId == Convert.ToInt32(e.RowKey));
+                match.TeamAwayId = Convert.ToInt32(e.RowData["TeamAwayId"]);
+                match.TeamHomeId = Convert.ToInt32(e.RowData["TeamHomeId"]);
+                match.MatchDate = Convert.ToDateTime(e.RowData["MatchDate"]);
+                dc.SubmitChanges();
             }
         }
     }
