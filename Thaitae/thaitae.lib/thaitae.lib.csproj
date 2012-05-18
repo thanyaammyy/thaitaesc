@@ -53,7 +53,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\Mailhelper.cs" />
@@ -63,6 +66,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Serialization\JsonHelper.cs" />
+    <Compile Include="Serialization\JsonSerializationWrapper.cs" />
+    <Compile Include="Serialization\SerializationWrapper.cs" />
+    <Compile Include="Serialization\SerializeHelper.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="ThaitaeData.designer.cs">
       <AutoGen>True</AutoGen>

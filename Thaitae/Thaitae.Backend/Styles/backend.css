@@ -6,9 +6,10 @@
 
 #MainContanter
 {
+    background-color: rgb(74, 81, 85);
+    color: white;
     margin: 15px auto auto auto;
     width: 1000px;
-    background: white !important;
     height: 100%;
 }
 
