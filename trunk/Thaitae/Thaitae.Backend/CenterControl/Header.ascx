@@ -1,10 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Header.ascx.cs" Inherits="Thaitae.Backend.CenterControl.Header" %>
 <div style="background-color: rgb(74, 81, 85)" align="center">
 	<img src="/Images/thaitae_logo.png" />
-	<asp:LoginView runat="server" EnableViewState="False">
+	<%--<asp:LoginView runat="server" EnableViewState="False">
 		<AnonymousTemplate>
 		</AnonymousTemplate>
-		<LoggedInTemplate>
+		<LoggedInTemplate>--%>
 			<div align="right">
 				<span class="LoginHeader">Welcome :
 					<asp:LoginName ID="HeadLoginName" runat="server" />
@@ -22,6 +22,6 @@
 							<li><a href="/MatchManagement.aspx" class="parent"><span>Match Management</span></a></li>
 						</ul>
 					</div>
-		</LoggedInTemplate>
-	</asp:LoginView>
+		<%--</LoggedInTemplate>
+	</asp:LoginView>--%>
 </div>
