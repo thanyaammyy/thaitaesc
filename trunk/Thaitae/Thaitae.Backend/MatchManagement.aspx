@@ -6,14 +6,14 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#test1').datetimepicker();
+            $("#ddlLeague");
         });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <cc1:JQDropDownList ID="Jqdropdownlist1" runat="server" Width="100">
-    </cc1:JQDropDownList>
-    <cc1:JQDropDownList ID="Jqdropdownlist2" runat="server" Width="150">
-    </cc1:JQDropDownList>
+    <input type="text" id="test1" />
+    <select id="ddlLeague" runat="server">
+    </select>
     <cc1:JQGrid ID="JqgridMatch1" runat="server" AutoWidth="True" OnRowEditing="JqgridMatch1_RowEditing"
         OnRowDeleting="JqgridMatch1_RowDeleting" OnRowAdding="JqgridMatch1_RowAdding">
         <Columns>
@@ -33,7 +33,6 @@
             ShowRefreshButton="True" ShowSearchButton="True" />
         <AppearanceSettings ShowRowNumbers="true" />
     </cc1:JQGrid>
-    <input type="text" id="test1" />
     <cc1:JQDatePicker runat="server" ID="MatchDate1" DateFormat="dd/MM/yyy H:mm:ss" DisplayMode="ControlEditor"
         ShowOn="Both" />
 </asp:Content>
