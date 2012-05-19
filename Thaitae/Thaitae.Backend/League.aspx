@@ -12,11 +12,14 @@
             <cc1:JQGridColumn DataField="LeagueId"  PrimaryKey="True" Width="55" Visible="False"/>
             <cc1:JQGridColumn HeaderText="Edit Actions" EditActionIconsColumn="true"  Width="50" TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="League Name" DataField="LeagueName" Editable="True" TextAlign="Center" />
-            <cc1:JQGridColumn HeaderText="League Type" DataField="LeagueTypeName" Editable="True" EditType="DropDown" EditValues="4:Normal League;8:Champion League;12:FA Cup;16:Custom League" TextAlign="Center"/>
+            <cc1:JQGridColumn HeaderText="League Type" DataField="LeagueTypeName" Editable="True" EditType="DropDown" EditorControlID="ddlLeague" TextAlign="Center"/>
             <cc1:JQGridColumn HeaderText="Description" DataField="LeagueDesc" Editable="True" TextAlign="Center"/>
             <cc1:JQGridColumn HeaderText="Status" DataField="ActiveName" Editable="True" EditType="DropDown" EditValues="0:InActive;1:Active" TextAlign="Center"/>
         </Columns>
         <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True" ShowRefreshButton="True" ShowSearchButton="True" />
         <AppearanceSettings ShowRowNumbers="true" /> 
     </cc1:JQGrid>
+	
+	<asp:DropDownList runat="server" ID="ddlLeague">
+    </asp:DropDownList>
 </asp:content>
