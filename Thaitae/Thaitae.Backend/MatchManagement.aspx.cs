@@ -10,15 +10,11 @@ namespace Thaitae.Backend
         protected void Page_Load(object sender, EventArgs e)
         {
             var dc = new ThaitaeDataDataContext();
-            var leagueList = dc.Leagues.Where(item => item.Active == 1);
-            foreach (var league in leagueList)
-            {
-                Jqdropdownlist1.Items.Add(new JQListItem { Text = league.LeagueName, Value = league.LeagueId.ToString() });
-                foreach (var season in league.Seasons)
-                {
-                    Jqdropdownlist2.Items.Add(new JQListItem { Text = season.SeasonName, Value = season.SeasonId.ToString() });
-                }
-            }
+            var leagueList = dc.Leagues.Where(item => item.Active == 1).Select(item => new { item.LeagueId, item.LeagueName });
+            ddlLeague.DataSource = leagueList;
+            ddlLeague.DataTextField = "LeagueName";
+            ddlLeague.DataValueField = "LeagueId";
+            ddlLeague.DataBind();
             JqgridMatch1.DataSource = dc.Matches;
             JqgridMatch1.DataBind();
         }

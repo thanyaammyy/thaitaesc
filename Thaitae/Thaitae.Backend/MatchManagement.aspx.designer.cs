@@ -13,22 +13,13 @@ namespace Thaitae.Backend {
     public partial class MatchManagement {
         
         /// <summary>
-        /// Jqdropdownlist1 control.
+        /// ddlLeague control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Trirand.Web.UI.WebControls.JQDropDownList Jqdropdownlist1;
-        
-        /// <summary>
-        /// Jqdropdownlist2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Trirand.Web.UI.WebControls.JQDropDownList Jqdropdownlist2;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlLeague;
         
         /// <summary>
         /// JqgridMatch1 control.
