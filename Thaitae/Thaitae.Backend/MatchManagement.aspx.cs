@@ -27,8 +27,6 @@ namespace Thaitae.Backend
             using (var dc = new ThaitaeDataDataContext())
             {
                 var match = dc.Matches.Single(item => item.MatchId == Convert.ToInt32(e.RowKey));
-                match.TeamAwayId = Convert.ToInt32(e.RowData["TeamAwayId"]);
-                match.TeamHomeId = Convert.ToInt32(e.RowData["TeamHomeId"]);
                 match.MatchDate = Convert.ToDateTime(e.RowData["MatchDateFormat"]);
                 dc.SubmitChanges();
             }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using thaitae.lib;
 
 namespace Thaitae.Backend
 {
@@ -11,7 +12,14 @@ namespace Thaitae.Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
+
+		protected void ddlLeague_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (((DropDownList)sender).SelectedValue != "")
+			{
+				Session["leagueid"] = ddlLeague.SelectedValue;
+			}
+		}
     }
 }

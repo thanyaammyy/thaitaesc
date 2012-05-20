@@ -14,10 +14,6 @@
             <cc1:JQGridColumn DataField="MatchId" PrimaryKey="True" Width="55" Visible="False" />
             <cc1:JQGridColumn HeaderText="Edit Actions" EditActionIconsColumn="true" Width="50"
                 TextAlign="Center" />
-            <cc1:JQGridColumn HeaderText="Home Team " DataField="TeamHomeId" Editable="True"
-                TextAlign="Center" />
-            <cc1:JQGridColumn HeaderText="Away Team " DataField="TeamAwayId" Editable="True"
-                TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="Match Date" EditorControlID="MatchDate1" DataField="MatchDateFormat"
                 EditType="DatePicker" Editable="True" TextAlign="Center" />
         </Columns>
