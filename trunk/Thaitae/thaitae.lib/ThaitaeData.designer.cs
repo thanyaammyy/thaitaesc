@@ -197,6 +197,8 @@ namespace thaitae.lib
 		
 		private int _Active;
 		
+		private int _OrderIndex;
+		
 		private EntitySet<Season> _Seasons;
 		
     #region Extensibility Method Definitions
@@ -213,6 +215,8 @@ namespace thaitae.lib
     partial void OnLeagueDescChanged();
     partial void OnActiveChanging(int value);
     partial void OnActiveChanged();
+    partial void OnOrderIndexChanging(int value);
+    partial void OnOrderIndexChanged();
     #endregion
 		
 		public League()
@@ -317,6 +321,26 @@ namespace thaitae.lib
 					this._Active = value;
 					this.SendPropertyChanged("Active");
 					this.OnActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderIndex")]
+		public int OrderIndex
+		{
+			get
+			{
+				return this._OrderIndex;
+			}
+			set
+			{
+				if ((this._OrderIndex != value))
+				{
+					this.OnOrderIndexChanging(value);
+					this.SendPropertyChanging();
+					this._OrderIndex = value;
+					this.SendPropertyChanged("OrderIndex");
+					this.OnOrderIndexChanged();
 				}
 			}
 		}
@@ -1182,19 +1206,11 @@ namespace thaitae.lib
 		
 		private int _MatchId;
 		
-		private int _TeamHomeId;
-		
-		private int _TeamAwayId;
-		
 		private System.DateTime _MatchDate;
 		
 		private EntitySet<MatchSeason> _MatchSeasons;
 		
 		private EntitySet<TeamMatch> _TeamMatches;
-		
-		private EntityRef<Team> _Team;
-		
-		private EntityRef<Team> _Team1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1202,10 +1218,6 @@ namespace thaitae.lib
     partial void OnCreated();
     partial void OnMatchIdChanging(int value);
     partial void OnMatchIdChanged();
-    partial void OnTeamHomeIdChanging(int value);
-    partial void OnTeamHomeIdChanged();
-    partial void OnTeamAwayIdChanging(int value);
-    partial void OnTeamAwayIdChanged();
     partial void OnMatchDateChanging(System.DateTime value);
     partial void OnMatchDateChanged();
     #endregion
@@ -1214,8 +1226,6 @@ namespace thaitae.lib
 		{
 			this._MatchSeasons = new EntitySet<MatchSeason>(new Action<MatchSeason>(this.attach_MatchSeasons), new Action<MatchSeason>(this.detach_MatchSeasons));
 			this._TeamMatches = new EntitySet<TeamMatch>(new Action<TeamMatch>(this.attach_TeamMatches), new Action<TeamMatch>(this.detach_TeamMatches));
-			this._Team = default(EntityRef<Team>);
-			this._Team1 = default(EntityRef<Team>);
 			OnCreated();
 		}
 		
@@ -1235,54 +1245,6 @@ namespace thaitae.lib
 					this._MatchId = value;
 					this.SendPropertyChanged("MatchId");
 					this.OnMatchIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamHomeId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int TeamHomeId
-		{
-			get
-			{
-				return this._TeamHomeId;
-			}
-			set
-			{
-				if ((this._TeamHomeId != value))
-				{
-					if (this._Team.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTeamHomeIdChanging(value);
-					this.SendPropertyChanging();
-					this._TeamHomeId = value;
-					this.SendPropertyChanged("TeamHomeId");
-					this.OnTeamHomeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamAwayId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int TeamAwayId
-		{
-			get
-			{
-				return this._TeamAwayId;
-			}
-			set
-			{
-				if ((this._TeamAwayId != value))
-				{
-					if (this._Team1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTeamAwayIdChanging(value);
-					this.SendPropertyChanging();
-					this._TeamAwayId = value;
-					this.SendPropertyChanged("TeamAwayId");
-					this.OnTeamAwayIdChanged();
 				}
 			}
 		}
@@ -1330,74 +1292,6 @@ namespace thaitae.lib
 			set
 			{
 				this._TeamMatches.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Team_Match", Storage="_Team", ThisKey="TeamHomeId", OtherKey="TeamId", IsForeignKey=true)]
-		public Team Team
-		{
-			get
-			{
-				return this._Team.Entity;
-			}
-			set
-			{
-				Team previousValue = this._Team.Entity;
-				if (((previousValue != value) 
-							|| (this._Team.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Team.Entity = null;
-						previousValue.Matches.Remove(this);
-					}
-					this._Team.Entity = value;
-					if ((value != null))
-					{
-						value.Matches.Add(this);
-						this._TeamHomeId = value.TeamId;
-					}
-					else
-					{
-						this._TeamHomeId = default(int);
-					}
-					this.SendPropertyChanged("Team");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Team_Match1", Storage="_Team1", ThisKey="TeamAwayId", OtherKey="TeamId", IsForeignKey=true)]
-		public Team Team1
-		{
-			get
-			{
-				return this._Team1.Entity;
-			}
-			set
-			{
-				Team previousValue = this._Team1.Entity;
-				if (((previousValue != value) 
-							|| (this._Team1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Team1.Entity = null;
-						previousValue.Matches1.Remove(this);
-					}
-					this._Team1.Entity = value;
-					if ((value != null))
-					{
-						value.Matches1.Add(this);
-						this._TeamAwayId = value.TeamId;
-					}
-					else
-					{
-						this._TeamAwayId = default(int);
-					}
-					this.SendPropertyChanged("Team1");
-				}
 			}
 		}
 		
@@ -1468,6 +1362,8 @@ namespace thaitae.lib
 		
 		private System.Nullable<int> _TeamGoalAgainst;
 		
+		private bool _TeamHome;
+		
 		private EntityRef<Match> _Match;
 		
 		private EntityRef<Team> _Team;
@@ -1492,6 +1388,8 @@ namespace thaitae.lib
     partial void OnTeamStatusChanged();
     partial void OnTeamGoalAgainstChanging(System.Nullable<int> value);
     partial void OnTeamGoalAgainstChanged();
+    partial void OnTeamHomeChanging(bool value);
+    partial void OnTeamHomeChanged();
     #endregion
 		
 		public TeamMatch()
@@ -1669,6 +1567,26 @@ namespace thaitae.lib
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamHome")]
+		public bool TeamHome
+		{
+			get
+			{
+				return this._TeamHome;
+			}
+			set
+			{
+				if ((this._TeamHome != value))
+				{
+					this.OnTeamHomeChanging(value);
+					this.SendPropertyChanging();
+					this._TeamHome = value;
+					this.SendPropertyChanged("TeamHome");
+					this.OnTeamHomeChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Match_TeamMatch", Storage="_Match", ThisKey="MatchId", OtherKey="MatchId", IsForeignKey=true)]
 		public Match Match
 		{
@@ -1774,10 +1692,6 @@ namespace thaitae.lib
 		
 		private EntitySet<TeamSeason> _TeamSeasons;
 		
-		private EntitySet<Match> _Matches;
-		
-		private EntitySet<Match> _Matches1;
-		
 		private EntitySet<TeamMatch> _TeamMatches;
 		
 		private EntitySet<PlayerTeam> _PlayerTeams;
@@ -1799,8 +1713,6 @@ namespace thaitae.lib
 		public Team()
 		{
 			this._TeamSeasons = new EntitySet<TeamSeason>(new Action<TeamSeason>(this.attach_TeamSeasons), new Action<TeamSeason>(this.detach_TeamSeasons));
-			this._Matches = new EntitySet<Match>(new Action<Match>(this.attach_Matches), new Action<Match>(this.detach_Matches));
-			this._Matches1 = new EntitySet<Match>(new Action<Match>(this.attach_Matches1), new Action<Match>(this.detach_Matches1));
 			this._TeamMatches = new EntitySet<TeamMatch>(new Action<TeamMatch>(this.attach_TeamMatches), new Action<TeamMatch>(this.detach_TeamMatches));
 			this._PlayerTeams = new EntitySet<PlayerTeam>(new Action<PlayerTeam>(this.attach_PlayerTeams), new Action<PlayerTeam>(this.detach_PlayerTeams));
 			OnCreated();
@@ -1899,32 +1811,6 @@ namespace thaitae.lib
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Team_Match", Storage="_Matches", ThisKey="TeamId", OtherKey="TeamHomeId")]
-		public EntitySet<Match> Matches
-		{
-			get
-			{
-				return this._Matches;
-			}
-			set
-			{
-				this._Matches.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Team_Match1", Storage="_Matches1", ThisKey="TeamId", OtherKey="TeamAwayId")]
-		public EntitySet<Match> Matches1
-		{
-			get
-			{
-				return this._Matches1;
-			}
-			set
-			{
-				this._Matches1.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Team_TeamMatch", Storage="_TeamMatches", ThisKey="TeamId", OtherKey="TeamId")]
 		public EntitySet<TeamMatch> TeamMatches
 		{
@@ -1981,30 +1867,6 @@ namespace thaitae.lib
 		{
 			this.SendPropertyChanging();
 			entity.Team = null;
-		}
-		
-		private void attach_Matches(Match entity)
-		{
-			this.SendPropertyChanging();
-			entity.Team = this;
-		}
-		
-		private void detach_Matches(Match entity)
-		{
-			this.SendPropertyChanging();
-			entity.Team = null;
-		}
-		
-		private void attach_Matches1(Match entity)
-		{
-			this.SendPropertyChanging();
-			entity.Team1 = this;
-		}
-		
-		private void detach_Matches1(Match entity)
-		{
-			this.SendPropertyChanging();
-			entity.Team1 = null;
 		}
 		
 		private void attach_TeamMatches(TeamMatch entity)

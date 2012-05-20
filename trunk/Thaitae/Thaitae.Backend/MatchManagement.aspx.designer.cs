@@ -13,15 +13,6 @@ namespace Thaitae.Backend {
     public partial class MatchManagement {
         
         /// <summary>
-        /// ddlLeague control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlLeague;
-        
-        /// <summary>
         /// JqgridMatch1 control.
         /// </summary>
         /// <remarks>
@@ -38,5 +29,14 @@ namespace Thaitae.Backend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Trirand.Web.UI.WebControls.JQDatePicker MatchDate1;
+        
+        /// <summary>
+        /// objectMatchData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource objectMatchData;
     }
 }
