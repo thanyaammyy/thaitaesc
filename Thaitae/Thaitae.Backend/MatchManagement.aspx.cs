@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using thaitae.lib;
 using Trirand.Web.UI.WebControls;
@@ -11,12 +12,6 @@ namespace Thaitae.Backend
         {
             var dc = new ThaitaeDataDataContext();
             var leagueList = dc.Leagues.Where(item => item.Active == 1).Select(item => new { item.LeagueId, item.LeagueName });
-            ddlLeague.DataSource = leagueList;
-            ddlLeague.DataTextField = "LeagueName";
-            ddlLeague.DataValueField = "LeagueId";
-            ddlLeague.DataBind();
-            JqgridMatch1.DataSource = dc.Matches;
-            JqgridMatch1.DataBind();
         }
 
         protected void JqgridMatch1_RowAdding(object sender, JQGridRowAddEventArgs e)
@@ -34,7 +29,7 @@ namespace Thaitae.Backend
                 var match = dc.Matches.Single(item => item.MatchId == Convert.ToInt32(e.RowKey));
                 match.TeamAwayId = Convert.ToInt32(e.RowData["TeamAwayId"]);
                 match.TeamHomeId = Convert.ToInt32(e.RowData["TeamHomeId"]);
-                match.MatchDate = Convert.ToDateTime(e.RowData["MatchDate"]);
+                match.MatchDate = Convert.ToDateTime(e.RowData["MatchDateFormat"]);
                 dc.SubmitChanges();
             }
         }
