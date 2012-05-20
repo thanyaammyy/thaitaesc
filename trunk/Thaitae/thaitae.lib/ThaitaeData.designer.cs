@@ -434,7 +434,7 @@ namespace thaitae.lib
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeagueId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeagueId", DbType="Int NOT NULL")]
 		public int LeagueId
 		{
 			get
@@ -690,7 +690,7 @@ namespace thaitae.lib
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamId", DbType="Int NOT NULL")]
 		public int TeamId
 		{
 			get
@@ -714,7 +714,7 @@ namespace thaitae.lib
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonId", DbType="Int NOT NULL")]
 		public int SeasonId
 		{
 			get
@@ -1065,7 +1065,7 @@ namespace thaitae.lib
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonId", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonId")]
 		public int SeasonId
 		{
 			get
@@ -1273,7 +1273,7 @@ namespace thaitae.lib
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchId", DbType="Int NOT NULL")]
 		public int MatchId
 		{
 			get
@@ -1297,7 +1297,7 @@ namespace thaitae.lib
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamId", DbType="Int NOT NULL")]
 		public int TeamId
 		{
 			get
@@ -2090,7 +2090,7 @@ namespace thaitae.lib
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerId", DbType="Int", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerId", DbType="Int")]
 		public System.Nullable<int> PlayerId
 		{
 			get
@@ -2114,7 +2114,7 @@ namespace thaitae.lib
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchId", DbType="Int", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchId", DbType="Int")]
 		public System.Nullable<int> MatchId
 		{
 			get

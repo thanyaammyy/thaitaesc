@@ -14,7 +14,7 @@
   <Table Name="tamujin.Season" Member="Seasons">
     <Type Name="Season">
       <Column Name="SeasonId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="LeagueId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LeagueId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SeasonName" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="SeasonDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Season_TeamSeason" Member="TeamSeasons" ThisKey="SeasonId" OtherKey="SeasonId" Type="TeamSeason" />
@@ -25,8 +25,8 @@
   <Table Name="tamujin.TeamSeason" Member="TeamSeasons">
     <Type Name="TeamSeason">
       <Column Name="TeamSeasonId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TeamId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SeasonId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TeamId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SeasonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TeamMatchPlayed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TeamWon" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TeamDrew" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -43,7 +43,7 @@
     <Type Name="Match">
       <Column Name="MatchId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="MatchDate" Type="System.DateTime" CanBeNull="false" />
-      <Column Name="SeasonId" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SeasonId" Type="System.Int32" CanBeNull="false" />
       <Association Name="Match_TeamMatch" Member="TeamMatches" ThisKey="MatchId" OtherKey="MatchId" Type="TeamMatch" />
       <Association Name="Match_PlayerMatch" Member="PlayerMatches" ThisKey="MatchId" OtherKey="MatchId" Type="PlayerMatch" />
       <Association Name="Season_Match" Member="Season" ThisKey="SeasonId" OtherKey="SeasonId" Type="Season" IsForeignKey="true" />
@@ -52,8 +52,8 @@
   <Table Name="tamujin.TeamMatch" Member="TeamMatches">
     <Type Name="TeamMatch">
       <Column Name="TeamMatchId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MatchId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TeamId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TeamId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TeamGoalFor" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TeamYellowCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TeamRedCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -91,8 +91,8 @@
   <Table Name="tamujin.PlayerMatch" Member="PlayerMatches">
     <Type Name="PlayerMatch">
       <Column Name="PlayerMatchId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PlayerId" Type="System.Int32" DbType="Int" IsPrimaryKey="true" CanBeNull="true" />
-      <Column Name="MatchId" Type="System.Int32" DbType="Int" IsPrimaryKey="true" CanBeNull="true" />
+      <Column Name="PlayerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MatchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PlayerGoal" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PlayerYellowCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PlayerRedCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
