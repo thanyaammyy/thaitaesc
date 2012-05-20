@@ -13,16 +13,6 @@ namespace thaitae.lib
             set { MatchDate = Convert.ToDateTime(value); }
         }
 
-        public string TeamHomeString
-        {
-            get
-            {
-                if (TeamHomeId == Team.TeamId)
-                    return Team.TeamName;
-                else
-                    return Team.TeamName;
-            }
-            set { }
-        }
+		public string TeamHomeString { get; set; }
     }
 }
