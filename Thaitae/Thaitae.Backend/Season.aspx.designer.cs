@@ -13,6 +13,15 @@ namespace Thaitae.Backend {
     public partial class Season {
         
         /// <summary>
+        /// updatepanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatepanel1;
+        
+        /// <summary>
         /// ddlLeague control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace Thaitae.Backend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlLeague;
+        
+        /// <summary>
+        /// ddlLeagueEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlLeagueEdit;
         
         /// <summary>
         /// JqgridSeason control.
