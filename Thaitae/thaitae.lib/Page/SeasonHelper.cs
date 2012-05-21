@@ -15,6 +15,12 @@ namespace thaitae.lib.Page
 			return dc.Where(item => item.LeagueId == leagueId).ToList();
 		}
 
+		public static IEnumerable<Season> ListSeasonItems()
+		{
+			var dc = new ThaitaeDataDataContext().Seasons;
+			return dc.ToList();
+		}
+
 		 public static void InsertSeason(Season objSeason)
         {
             using (var dc = new ThaitaeDataDataContext())

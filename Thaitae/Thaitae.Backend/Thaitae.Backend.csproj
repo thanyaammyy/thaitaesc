@@ -95,10 +95,8 @@
     <Content Include="Images\thaitae_logo.png" />
     <Content Include="Index.aspx" />
     <Content Include="League.aspx" />
-    <Content Include="LeagueEdit.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
-    <Content Include="MatchEdit.aspx" />
     <Content Include="MatchManagement.aspx" />
     <Content Include="News.aspx" />
     <Content Include="Scripts\grid.locale-en.js" />
@@ -230,13 +228,6 @@
     <Compile Include="League.aspx.designer.cs">
       <DependentUpon>League.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LeagueEdit.aspx.cs">
-      <DependentUpon>LeagueEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LeagueEdit.aspx.designer.cs">
-      <DependentUpon>LeagueEdit.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -250,13 +241,6 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MatchEdit.aspx.cs">
-      <DependentUpon>MatchEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MatchEdit.aspx.designer.cs">
-      <DependentUpon>MatchEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="MatchManagement.aspx.cs">
       <DependentUpon>MatchManagement.aspx</DependentUpon>
