@@ -68,6 +68,7 @@
     <Compile Include="Partial\League.cs" />
     <Compile Include="Partial\Match.cs" />
     <Compile Include="Partial\Team.cs" />
+    <Compile Include="Partial\TeamSeason.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

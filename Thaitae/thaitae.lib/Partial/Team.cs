@@ -1,4 +1,6 @@
-﻿namespace thaitae.lib
+﻿using System;
+
+namespace thaitae.lib
 {
     public partial class Team
     {
@@ -16,5 +18,7 @@
                 return Active == 1 ? "Active" : "Inactive";
             }
         }
+
+        public Guid Guid { get; set; }
     }
 }
