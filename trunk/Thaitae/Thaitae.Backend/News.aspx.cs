@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -32,12 +33,33 @@ namespace Thaitae.Backend
 
 		protected void JqgridNews_RowEditing(object sender, Trirand.Web.UI.WebControls.JQGridRowEditEventArgs e)
 		{
+			const string path = "~/NewsImages/";
 			using (var dc = new ThaitaeDataDataContext())
 			{
 				var news = dc.News.Single(item => item.newsId == Convert.ToInt32(e.RowKey));
 				news.newsTopic = e.RowData["newsTopic"];
 				news.newsContent = e.RowData["newsContent"];
-				news.picture = e.RowData["Picture"];
+				if (pictureHidden==null)
+				{
+					news.picture = e.RowData["Picture"];
+				}
+				else
+				{			
+					var pathServer = Server.MapPath(path);
+					var fileName = pathServer + e.RowKey + ".jpg";
+					var fileStream = new FileStream(pictureHidden.ToString(), FileMode.Open);
+					try
+					{
+						System.Drawing.Image image = System.Drawing.Image.FromStream(fileStream);
+						image.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+					}
+					finally
+					{
+						fileStream.Close();
+					}
+
+					news.picture = fileName;
+				}
 				dc.SubmitChanges();
 			}
 		}
