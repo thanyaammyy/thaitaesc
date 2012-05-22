@@ -57,6 +57,9 @@ namespace thaitae.lib
     partial void InsertErrorLog(ErrorLog instance);
     partial void UpdateErrorLog(ErrorLog instance);
     partial void DeleteErrorLog(ErrorLog instance);
+    partial void InsertNew(New instance);
+    partial void UpdateNew(New instance);
+    partial void DeleteNew(New instance);
     #endregion
 		
 		public ThaitaeDataDataContext() : 
@@ -158,6 +161,14 @@ namespace thaitae.lib
 			get
 			{
 				return this.GetTable<ErrorLog>();
+			}
+		}
+		
+		public System.Data.Linq.Table<New> News
+		{
+			get
+			{
+				return this.GetTable<New>();
 			}
 		}
 	}
@@ -2372,6 +2383,140 @@ namespace thaitae.lib
 					this._ErrorDate = value;
 					this.SendPropertyChanged("ErrorDate");
 					this.OnErrorDateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.News")]
+	public partial class New : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _newsId;
+		
+		private string _newsTopic;
+		
+		private string _newsContent;
+		
+		private string _picture;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnnewsIdChanging(int value);
+    partial void OnnewsIdChanged();
+    partial void OnnewsTopicChanging(string value);
+    partial void OnnewsTopicChanged();
+    partial void OnnewsContentChanging(string value);
+    partial void OnnewsContentChanged();
+    partial void OnpictureChanging(string value);
+    partial void OnpictureChanged();
+    #endregion
+		
+		public New()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_newsId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int newsId
+		{
+			get
+			{
+				return this._newsId;
+			}
+			set
+			{
+				if ((this._newsId != value))
+				{
+					this.OnnewsIdChanging(value);
+					this.SendPropertyChanging();
+					this._newsId = value;
+					this.SendPropertyChanged("newsId");
+					this.OnnewsIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_newsTopic", DbType="VarChar(MAX)")]
+		public string newsTopic
+		{
+			get
+			{
+				return this._newsTopic;
+			}
+			set
+			{
+				if ((this._newsTopic != value))
+				{
+					this.OnnewsTopicChanging(value);
+					this.SendPropertyChanging();
+					this._newsTopic = value;
+					this.SendPropertyChanged("newsTopic");
+					this.OnnewsTopicChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_newsContent", DbType="VarChar(MAX)")]
+		public string newsContent
+		{
+			get
+			{
+				return this._newsContent;
+			}
+			set
+			{
+				if ((this._newsContent != value))
+				{
+					this.OnnewsContentChanging(value);
+					this.SendPropertyChanging();
+					this._newsContent = value;
+					this.SendPropertyChanged("newsContent");
+					this.OnnewsContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_picture", DbType="VarChar(MAX)")]
+		public string picture
+		{
+			get
+			{
+				return this._picture;
+			}
+			set
+			{
+				if ((this._picture != value))
+				{
+					this.OnpictureChanging(value);
+					this.SendPropertyChanging();
+					this._picture = value;
+					this.SendPropertyChanged("picture");
+					this.OnpictureChanged();
 				}
 			}
 		}
