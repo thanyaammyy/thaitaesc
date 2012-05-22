@@ -107,4 +107,12 @@
       <Column Name="ErrorDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="tamujin.News" Member="News">
+    <Type Name="New">
+      <Column Name="newsId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="newsTopic" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="newsContent" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="picture" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>
