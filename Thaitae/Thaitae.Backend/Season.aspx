@@ -1,17 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true"
-	CodeBehind="Season.aspx.cs" Inherits="Thaitae.Backend.Season" %>
+    CodeBehind="Season.aspx.cs" Inherits="Thaitae.Backend.Season" %>
 
 <%@ Register Assembly="Trirand.Web" Namespace="Trirand.Web.UI.WebControls" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-	<h2>
-		Season Management</h2>
-	<asp:UpdatePanel ID="updatepanel1" UpdateMode="Conditional" runat="server">
-		<ContentTemplate>
-			<asp:DropDownList runat="server" ID="ddlLeague" DataSourceID="LeagueDataSource" AppendDataBoundItems="True"
+<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
+    <h2>
+        Season Management</h2>
+    <asp:updatepanel id="updatepanel1" updatemode="Conditional" runat="server">
+        <contenttemplate>
+			<asp:DropDownList runat="server" ID="ddlLeague" DataSourceID="LeagueDataSource"
 				DataTextField="LeagueName" DataValueField="LeagueId" AutoPostBack="True" OnSelectedIndexChanged="ddlLeague_SelectedIndexChanged">
-				<asp:ListItem Value="0">Select League</asp:ListItem>
 			</asp:DropDownList>
 			<asp:DropDownList runat="server" ID="ddlLeagueEdit" DataSourceID="LeagueDataSource"
 				DataTextField="LeagueName" DataValueField="LeagueId" >
@@ -33,16 +32,16 @@
 					ShowRefreshButton="True" ShowSearchButton="True" />
 				<AppearanceSettings ShowRowNumbers="true" />
 			</cc1:JQGrid>
-		</ContentTemplate>
-	</asp:UpdatePanel>
-	<asp:ObjectDataSource ID="LeagueDataSource" DataObjectTypeName="thaitae.lib.League"
-		SelectMethod="SelectLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server">
-	</asp:ObjectDataSource>
-	<asp:ObjectDataSource DataObjectTypeName="thaitae.lib.Season" ID="SeasonDataSource"
-		 InsertMethod="InsertSeason" UpdateMethod="UpdateSeason" DeleteMethod="DeleteSeason"
-		runat="server" SelectMethod="SelectSeasonItems" TypeName="thaitae.lib.Page.SeasonHelper">
-		<SelectParameters>
+		</contenttemplate>
+    </asp:updatepanel>
+    <asp:objectdatasource id="LeagueDataSource" dataobjecttypename="thaitae.lib.League"
+        selectmethod="SelectLeagueItems" typename="thaitae.lib.Page.LeagueHelper" runat="server">
+    </asp:objectdatasource>
+    <asp:objectdatasource dataobjecttypename="thaitae.lib.Season" id="SeasonDataSource"
+        insertmethod="InsertSeason" updatemethod="UpdateSeason" deletemethod="DeleteSeason"
+        runat="server" selectmethod="SelectSeasonItems" typename="thaitae.lib.Page.SeasonHelper">
+        <selectparameters>
 			<asp:SessionParameter Name="LeagueId" SessionField="LeagueId" Type="Int32" />
-		</SelectParameters>
-	</asp:ObjectDataSource>
-</asp:Content>
+		</selectparameters>
+    </asp:objectdatasource>
+</asp:content>

@@ -12,14 +12,21 @@ namespace Thaitae.Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (Session["leagueid"] != null)
+                {
+                    ddlLeague.SelectedValue = (string)Session["leagueid"];
+                }
+            }
         }
 
-		protected void ddlLeague_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			if (((DropDownList)sender).SelectedValue != "")
-			{
-				Session["leagueid"] = ddlLeague.SelectedValue;
-			}
-		}
+        protected void ddlLeague_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (((DropDownList)sender).SelectedValue != "")
+            {
+                Session["leagueid"] = ddlLeague.SelectedValue;
+            }
+        }
     }
 }

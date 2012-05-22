@@ -50,8 +50,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Trirand.Web, Version=4.4.0.0, Culture=neutral, PublicKeyToken=e2819dc449af3295, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Trirand.Web">
+      <HintPath>..\..\Trirand.Web.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -40,8 +40,8 @@ namespace thaitae.lib.Page
                 Match linqMatch = (from dataItem in dc.Matches
                                    where dataItem.MatchId == objMatch.MatchId
                                    select dataItem).First();
-				linqMatch.MatchDate = Convert.ToDateTime(objMatch.SeasonId);
-                linqMatch.MatchDate = Convert.ToDateTime(objMatch.MatchDateFormat);
+                linqMatch.MatchDate = Convert.ToDateTime(objMatch.SeasonId);
+                linqMatch.MatchDate = objMatch.MatchDate;
                 try
                 {
                     dc.SubmitChanges();

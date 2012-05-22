@@ -11,30 +11,28 @@ namespace thaitae.lib
         {
             LeagueName = "";
             LeagueDesc = "";
-            Active = 1;
         }
+
         public string LeagueTypeName
         {
             get
             {
-                if(LeagueType == 4)
+                if (LeagueType == 4)
                 {
                     return "Normal League";
                 }
-                else if (LeagueType == 8)
+                if (LeagueType == 8)
                 {
                     return "Champion League";
                 }
-                else if (LeagueType == 12)
+                if (LeagueType == 12)
                 {
                     return "FA Cup";
                 }
-                else
-                {
-                    return "Custom League";
-                }
+                return "Custom League";
             }
         }
+
         public string ActiveName
         {
             get
@@ -43,10 +41,7 @@ namespace thaitae.lib
                 {
                     return "Active";
                 }
-                else
-                {
-                    return "Inactive";
-                }
+                return "Inactive";
             }
         }
     }

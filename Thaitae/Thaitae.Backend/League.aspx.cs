@@ -5,8 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Trirand.Web.UI.WebControls;
 using thaitae.lib;
+using Trirand.Web.UI.WebControls;
 
 namespace Thaitae.Backend
 {
@@ -17,12 +17,6 @@ namespace Thaitae.Backend
             var dc = new ThaitaeDataDataContext();
             JqgridLeague1.DataSource = dc.Leagues;
             JqgridLeague1.DataBind();
-			var leagueList = dc.Leagues.Where(item => item.Active == 1).Select(item => new { item.LeagueId, item.LeagueName });
-			ddlLeague.DataSource = leagueList;
-			ddlLeague.DataTextField = "LeagueName";
-			ddlLeague.DataValueField = "LeagueId";
-			ddlLeague.DataBind();
-
         }
 
         protected void JqgridLeague1_RowEditing(object sender, Trirand.Web.UI.WebControls.JQGridRowEditEventArgs e)
@@ -33,7 +27,7 @@ namespace Thaitae.Backend
                 league.LeagueName = e.RowData["LeagueName"];
                 league.LeagueType = Convert.ToInt32(e.RowData["LeagueTypeName"]);
                 league.LeagueDesc = e.RowData["LeagueDesc"];
-                league.Active = Convert.ToInt32(e.RowData["ActiveName"]);
+                league.Active = Convert.ToByte(e.RowData["ActiveName"]);
                 dc.SubmitChanges();
             }
         }
@@ -57,7 +51,7 @@ namespace Thaitae.Backend
                     LeagueName = e.RowData["LeagueName"],
                     LeagueType = Convert.ToInt32(e.RowData["LeagueTypeName"]),
                     LeagueDesc = e.RowData["LeagueDesc"],
-                    Active = Convert.ToInt32(e.RowData["ActiveName"])
+                    Active = Convert.ToByte(e.RowData["ActiveName"])
                 });
                 dc.SubmitChanges();
             }
