@@ -68,15 +68,19 @@ namespace Thaitae.Backend
             if (Session["seasonid"] == null) return;
             using (var dc = new ThaitaeDataDataContext())
             {
-                dc.Teams.InsertOnSubmit(new thaitae.lib.Team
+                var objTeam = new Team
+                                  {
+                                      TeamName = e.RowData["TeamName"],
+                                      TeamDesc = e.RowData["TeamDesc"],
+                                      Active = Convert.ToByte(e.RowData["ActiveName"]),
+                                      Guid = Guid.NewGuid()
+                                  };
+                dc.Teams.InsertOnSubmit(objTeam);
+                dc.SubmitChanges();
+                dc.TeamSeasons.InsertOnSubmit(new TeamSeason
                 {
-                    TeamName = e.RowData["TeamName"],
-                    TeamDesc = e.RowData["TeamDesc"],
-                    Active = Convert.ToByte(e.RowData["ActiveName"])
-                });
-                dc.TeamSeasons.InsertOnSubmit(new thaitae.lib.TeamSeason
-                {
-                    SeasonId = Convert.ToInt32(Session["seasonid"])
+                    SeasonId = Convert.ToInt32(Session["seasonid"]),
+                    TeamId = objTeam.TeamId
                 });
                 dc.SubmitChanges();
             }

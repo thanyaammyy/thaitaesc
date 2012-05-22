@@ -4,21 +4,20 @@
 <%@ Register Assembly="Trirand.Web" Namespace="Trirand.Web.UI.WebControls" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>
         Team Management</h2>
-    <asp:updatepanel id="updateTeamPanel" updatemode="Conditional" runat="server">
-        <contenttemplate>
-            <asp:DropDownList runat="server" ID="ddlLeague" DataSourceID="LeagueDataSource"
-				DataTextField="LeagueName" DataValueField="LeagueId" AutoPostBack="True" OnSelectedIndexChanged="ddlLeague_SelectedIndexChanged">
-			</asp:DropDownList>
-			<asp:DropDownList runat="server" ID="ddlSeason" DataSourceID="SeasonDataSource"
-				DataTextField="SeasonName" DataValueField="SeasonId" AutoPostBack="True"
-				onselectedindexchanged="ddlSeason_SelectedIndexChanged">
-			</asp:DropDownList>
-			<cc1:JQGrid ID="JqgridTeam" AutoWidth="True" runat="server" onrowdeleting="JqgridTeam_RowDeleting"
-				onrowediting="JqgridTeam_RowEditing">
-				<Columns>
+    <asp:UpdatePanel ID="updateTeamPanel" UpdateMode="Conditional" runat="server">
+        <ContentTemplate>
+            <asp:DropDownList runat="server" ID="ddlLeague" DataSourceID="LeagueDataSource" DataTextField="LeagueName"
+                DataValueField="LeagueId" AutoPostBack="True" OnSelectedIndexChanged="ddlLeague_SelectedIndexChanged">
+            </asp:DropDownList>
+            <asp:DropDownList runat="server" ID="ddlSeason" DataSourceID="SeasonDataSource" DataTextField="SeasonName"
+                DataValueField="SeasonId" AutoPostBack="True" OnSelectedIndexChanged="ddlSeason_SelectedIndexChanged">
+            </asp:DropDownList>
+            <cc1:JQGrid ID="JqgridTeam" AutoWidth="True" runat="server" onrowdeleting="JqgridTeam_RowDeleting"
+                onrowediting="JqgridTeam_RowEditing" OnRowAdding="JqgridTeam_RowAdding">
+                <columns>
 					<cc1:JQGridColumn DataField="TeamId" Visible="False" />
 					<cc1:JQGridColumn DataField="SeasonId" Visible="False" />
 					<cc1:JQGridColumn DataField="TeamSeasonId" PrimaryKey="True" Visible="False" />
@@ -28,7 +27,7 @@
 						TextAlign="Center"/>
 					<cc1:JQGridColumn HeaderText="Description" DataField="TeamDesc" Editable="True"
 						TextAlign="Center"/>
-						 <cc1:JQGridColumn HeaderText="Status" DataField="ActiveName" Editable="True" EditType="DropDown" EditValues="0:InActive;1:Active" TextAlign="Center"/>
+						 <cc1:JQGridColumn HeaderText="Status" DataField="ActiveName" Editable="True" EditType="DropDown" EditValues="1:Active;0:InActive" TextAlign="Center"/>
                     <cc1:JQGridColumn HeaderText="P" DataField="TeamMatchPlayed"
 						TextAlign="Center"/>
                     <cc1:JQGridColumn HeaderText="W" DataField="TeamWon"
@@ -45,22 +44,22 @@
 					    TextAlign="Center"/>
                     <cc1:JQGridColumn HeaderText="Pts" DataField="TeamPts"
 					    TextAlign="Center"/>
-				</Columns>
-				<AddDialogSettings CloseAfterAdding="False" />
-				<EditDialogSettings CloseAfterEditing="True" />
-				<ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
-					ShowRefreshButton="True" ShowSearchButton="True" />
-				<AppearanceSettings ShowRowNumbers="true" />
-			</cc1:JQGrid>
-		</contenttemplate>
-    </asp:updatepanel>
-    <asp:objectdatasource id="LeagueDataSource" dataobjecttypename="thaitae.lib.League"
-        selectmethod="SelectLeagueItems" typename="thaitae.lib.Page.LeagueHelper" runat="server">
-    </asp:objectdatasource>
-    <asp:objectdatasource id="SeasonDataSource" dataobjecttypename="thaitae.lib.Season"
-        selectmethod="ListSeasonItems" typename="thaitae.lib.Page.SeasonHelper" runat="server">
-        <selectparameters>
-			<asp:SessionParameter Name="LeagueId" SessionField="LeagueId" Type="Int32" />
-		</selectparameters>
-    </asp:objectdatasource>
-</asp:content>
+				</columns>
+                <adddialogsettings closeafteradding="False" />
+                <editdialogsettings closeafterediting="True" />
+                <toolbarsettings showeditbutton="True" showdeletebutton="true" showaddbutton="True"
+                    showrefreshbutton="True" showsearchbutton="True" />
+                <appearancesettings showrownumbers="true" />
+            </cc1:JQGrid>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <asp:ObjectDataSource ID="LeagueDataSource" DataObjectTypeName="thaitae.lib.League"
+        SelectMethod="SelectLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server">
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="SeasonDataSource" DataObjectTypeName="thaitae.lib.Season"
+        SelectMethod="ListSeasonItems" TypeName="thaitae.lib.Page.SeasonHelper" runat="server">
+        <SelectParameters>
+            <asp:SessionParameter Name="LeagueId" SessionField="LeagueId" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+</asp:Content>
