@@ -13,6 +13,33 @@ namespace Thaitae.Backend {
     public partial class News {
         
         /// <summary>
+        /// contHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField contHidden;
+        
+        /// <summary>
+        /// topicHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField topicHidden;
+        
+        /// <summary>
+        /// pictureHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField pictureHidden;
+        
+        /// <summary>
         /// JqgridNews control.
         /// </summary>
         /// <remarks>

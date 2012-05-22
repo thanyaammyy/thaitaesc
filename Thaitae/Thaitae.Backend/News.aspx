@@ -10,6 +10,7 @@
 		}
 
 		function getTextAreaValue() {
+			$("#contHidden").val = $("#newsCont").val();
 			return $("#newsCont").val();
 		}
 		function createFile() {
@@ -18,6 +19,7 @@
 		}
 
 		function getFileValue() {
+			$("#pictureHidden").val = $("#filePicture").val();
 			return $("#filePicture").val();
 		}
 		function createTextbox() {
@@ -26,7 +28,8 @@
 		}
 
 		function getTextboxValue() {
-			return $("#filePicture").val();
+			$("#topicHidden").val = $("#topic").val();
+			return $("#topic").val();
 		}
 	</script>
 </asp:Content>
@@ -34,6 +37,9 @@
 	<h2>
 		News Management
 	</h2>
+	<asp:HiddenField runat="server" ID="contHidden"/>
+	<asp:HiddenField runat="server" ID="topicHidden"/>
+	<asp:HiddenField runat="server" ID="pictureHidden"/>
 	<cc1:JQGrid ID="JqgridNews" runat="server" AutoWidth="True" OnRowAdding="JqgridNews_RowAdding"
 		OnRowDeleting="JqgridNews_RowDeleting" OnRowEditing="JqgridNews_RowEditing">
 		<Columns>
