@@ -1008,7 +1008,7 @@ namespace thaitae.lib
 		
 		private System.DateTime _MatchDate;
 		
-		private int _SeasonId;
+		private System.Nullable<int> _SeasonId;
 		
 		private EntitySet<TeamMatch> _TeamMatches;
 		
@@ -1024,7 +1024,7 @@ namespace thaitae.lib
     partial void OnMatchIdChanged();
     partial void OnMatchDateChanging(System.DateTime value);
     partial void OnMatchDateChanged();
-    partial void OnSeasonIdChanging(int value);
+    partial void OnSeasonIdChanging(System.Nullable<int> value);
     partial void OnSeasonIdChanged();
     #endregion
 		
@@ -1077,7 +1077,7 @@ namespace thaitae.lib
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonId")]
-		public int SeasonId
+		public System.Nullable<int> SeasonId
 		{
 			get
 			{
@@ -1153,7 +1153,7 @@ namespace thaitae.lib
 					}
 					else
 					{
-						this._SeasonId = default(int);
+						this._SeasonId = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Season");
 				}
