@@ -12,13 +12,12 @@
 			<asp:DropDownList runat="server" ID="ddlLeague" DataSourceID="LeagueDataSource"
 				DataTextField="LeagueName" DataValueField="LeagueId" AutoPostBack="True" OnSelectedIndexChanged="ddlLeague_SelectedIndexChanged">
 			</asp:DropDownList>
-			<asp:DropDownList runat="server" ID="ddlLeagueEdit" DataSourceID="LeagueDataSource"
-				DataTextField="LeagueName" DataValueField="LeagueId" >
-			</asp:DropDownList>
-			<cc1:JQGrid ID="JqgridSeason" AutoWidth="True" DataSourceID="SeasonDataSource" runat="server">
+			<cc1:JQGrid ID="JqgridSeason" AutoWidth="True" runat="server" 
+				onrowadding="JqgridSeason_RowAdding" onrowdeleting="JqgridSeason_RowDeleting" 
+				onrowediting="JqgridSeason_RowEditing">
 				<Columns>
 					<cc1:JQGridColumn DataField="SeasonId" PrimaryKey="True" Width="55" Visible="False" />
-					<cc1:JQGridColumn DataField="LeagueId" Editable="True" EditType="DropDown" EditorControlID="ddlLeagueEdit" Width="55" Visible="False" />
+					<cc1:JQGridColumn DataField="LeagueId" Visible="False" />
 					<cc1:JQGridColumn HeaderText="Edit Actions" EditActionIconsColumn="true" Width="50"
 						TextAlign="Center" />
 					<cc1:JQGridColumn HeaderText="Season Name" DataField="SeasonName" Editable="True"
@@ -36,12 +35,5 @@
     </asp:updatepanel>
     <asp:objectdatasource id="LeagueDataSource" dataobjecttypename="thaitae.lib.League"
         selectmethod="SelectLeagueItems" typename="thaitae.lib.Page.LeagueHelper" runat="server">
-    </asp:objectdatasource>
-    <asp:objectdatasource dataobjecttypename="thaitae.lib.Season" id="SeasonDataSource"
-        insertmethod="InsertSeason" updatemethod="UpdateSeason" deletemethod="DeleteSeason"
-        runat="server" selectmethod="SelectSeasonItems" typename="thaitae.lib.Page.SeasonHelper">
-        <selectparameters>
-			<asp:SessionParameter Name="LeagueId" SessionField="LeagueId" Type="Int32" />
-		</selectparameters>
     </asp:objectdatasource>
 </asp:content>
