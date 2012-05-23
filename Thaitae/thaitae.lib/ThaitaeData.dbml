@@ -96,6 +96,7 @@
       <Column Name="PlayerGoal" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PlayerYellowCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PlayerRedCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Member="TeamId" Type="System.Int32" CanBeNull="false" />
       <Association Name="Player_PlayerMatch" Member="Player" ThisKey="PlayerId" OtherKey="PlayerId" Type="Player" IsForeignKey="true" />
       <Association Name="Match_PlayerMatch" Member="Match" ThisKey="MatchId" OtherKey="MatchId" Type="Match" IsForeignKey="true" />
     </Type>

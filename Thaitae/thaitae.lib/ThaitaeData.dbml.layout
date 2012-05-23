@@ -51,13 +51,13 @@
         <classShapeMoniker Id="112d38bf-e4aa-4e49-b295-e61a21488972" />
       </nodes>
     </associationConnector>
-    <classShape Id="20995532-3b53-4d15-8ef6-a79375c64efd" absoluteBounds="9.25, 0.5, 2, 1.9631982421875">
+    <classShape Id="20995532-3b53-4d15-8ef6-a79375c64efd" absoluteBounds="9.25, 0.5, 2, 2.1554996744791666">
       <DataClassMoniker Name="/ThaitaeDataDataContext/PlayerMatch" />
       <nestedChildShapes>
-        <elementListCompartment Id="6b1bc8ed-d8bf-4f66-9a8c-2f1353905142" absoluteBounds="9.265, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6b1bc8ed-d8bf-4f66-9a8c-2f1353905142" absoluteBounds="9.265, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(10.25 : 3); (10.25 : 2.4631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(10.25 : 3); (10.25 : 2.65549967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ThaitaeDataDataContext/Player/Player_PlayerMatch" />
       <nodes>
         <classShapeMoniker Id="1dff99cb-8d79-43c8-8984-b6660b18558d" />
@@ -85,7 +85,7 @@
         <classShapeMoniker Id="57276b38-23d4-49a0-8d9d-1390a11e63f0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 1.19314697265625); (9.25 : 1.19314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.25 : 1.19314697265625); (9.25 : 1.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ThaitaeDataDataContext/Match/Match_PlayerMatch" />
       <nodes>
         <classShapeMoniker Id="db827dc2-ade7-4522-87d9-9dcf7bb23bca" />
