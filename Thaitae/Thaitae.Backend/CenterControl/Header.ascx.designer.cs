@@ -11,32 +11,5 @@ namespace Thaitae.Backend.CenterControl {
     
     
     public partial class Header {
-        
-        /// <summary>
-        /// HeadLoginName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginName HeadLoginName;
-        
-        /// <summary>
-        /// hplChangePassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplChangePassword;
-        
-        /// <summary>
-        /// hplLogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplLogout;
     }
 }

@@ -173,7 +173,7 @@ namespace thaitae.lib
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.League")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="thaitae.League")]
 	public partial class League : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -383,7 +383,7 @@ namespace thaitae.lib
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.Season")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="thaitae.Season")]
 	public partial class Season : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -614,7 +614,7 @@ namespace thaitae.lib
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.TeamSeason")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="thaitae.TeamSeason")]
 	public partial class TeamSeason : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -998,7 +998,7 @@ namespace thaitae.lib
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.Match")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="thaitae.Match")]
 	public partial class Match : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -1205,7 +1205,7 @@ namespace thaitae.lib
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.TeamMatch")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="thaitae.TeamMatch")]
 	public partial class TeamMatch : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -1541,7 +1541,7 @@ namespace thaitae.lib
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.Team")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="thaitae.Team")]
 	public partial class Team : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -1759,7 +1759,7 @@ namespace thaitae.lib
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.Player")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="thaitae.Player")]
 	public partial class Player : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -2034,7 +2034,7 @@ namespace thaitae.lib
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.PlayerMatch")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="thaitae.PlayerMatch")]
 	public partial class PlayerMatch : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -2322,7 +2322,7 @@ namespace thaitae.lib
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.ErrorLogs")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="thaitae.ErrorLogs")]
 	public partial class ErrorLog : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -2432,7 +2432,7 @@ namespace thaitae.lib
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.News")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="thaitae.News")]
 	public partial class New : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		

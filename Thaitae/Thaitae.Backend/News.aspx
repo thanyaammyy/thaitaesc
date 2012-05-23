@@ -4,7 +4,6 @@
 <%@ Register TagPrefix="cc1" Namespace="Trirand.Web.UI.WebControls" Assembly="Trirand.Web, Version=4.4.0.0, Culture=neutral, PublicKeyToken=e2819dc449af3295" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
-        $("#example1").timepicker({});
         function createTextArea(value, editOptions) {
             var textarea = $("<textarea>", { id: "newsCont", cols: "100", rows: "10", value: value });
             return textarea;
@@ -35,7 +34,6 @@
     <h2>
         News Management
     </h2>
-    <input type="text" name="example1" id="example1" value="">
     <cc1:JQGrid ID="JqgridNews" runat="server" AutoWidth="True" OnRowAdding="JqgridNews_RowAdding"
         OnRowDeleting="JqgridNews_RowDeleting" OnRowEditing="JqgridNews_RowEditing">
         <Columns>

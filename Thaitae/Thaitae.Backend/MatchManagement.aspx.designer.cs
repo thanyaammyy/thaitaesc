@@ -22,15 +22,6 @@ namespace Thaitae.Backend {
         protected global::Trirand.Web.UI.WebControls.JQGrid JqgridMatch1;
         
         /// <summary>
-        /// MatchDate1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Trirand.Web.UI.WebControls.JQDatePicker MatchDate1;
-        
-        /// <summary>
         /// objectMatchData control.
         /// </summary>
         /// <remarks>
