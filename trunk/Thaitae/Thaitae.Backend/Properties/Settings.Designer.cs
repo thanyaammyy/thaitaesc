@@ -13,7 +13,7 @@ namespace Thaitae.Backend.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -26,21 +26,12 @@ namespace Thaitae.Backend.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=www.diygang.com;Integrated Security=false;Initial Catalog=Thaitae;Per" +
-            "sist Security Info=True;User ID=tamujin;Password=p@ssw0rd ;Application Name=Thai" +
-            "tae")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=www.thaitaesc.com;Integrated Security=false;Initial Catalog=thaitaeDB" +
+            ";Persist Security Info=True;User ID=thaitae;Password=p@ssw0rd ;Application Name=" +
+            "Thaitae")]
         public string Setting {
             get {
                 return ((string)(this["Setting"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Setting1 {
-            get {
-                return ((string)(this["Setting1"]));
             }
         }
     }

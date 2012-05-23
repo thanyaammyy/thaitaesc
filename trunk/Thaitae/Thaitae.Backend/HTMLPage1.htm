@@ -14,4 +14,8 @@
 </html>
 <script type="text/javascript">
     $('#test1').datetimepicker();
+    function addNewRow() {
+        var grid = $("#<%= JQGrid1.ClientID %>");
+        grid.addRow();
+    }
 </script>

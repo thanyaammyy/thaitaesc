@@ -1,6 +1,8 @@
 ﻿body
 {
-    background: url(/images/Green-Background.jpg) repeat;
+    background: url("/images/Green-Background.jpg") repeat !important;
+    background-color: black;
+    width: 100%;
     margin: 0;
 }
 
@@ -42,4 +44,9 @@ input.passwordEntry
 .LoginHeader
 {
     color: white;
+}
+
+#ui-datepicker-div
+{
+    z-index: 999 !important;
 }
