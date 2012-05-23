@@ -2052,6 +2052,8 @@ namespace thaitae.lib
 		
 		private System.Nullable<int> _PlayerRedCard;
 		
+		private int _TeamId;
+		
 		private EntityRef<Player> _Player;
 		
 		private EntityRef<Match> _Match;
@@ -2072,6 +2074,8 @@ namespace thaitae.lib
     partial void OnPlayerYellowCardChanged();
     partial void OnPlayerRedCardChanging(System.Nullable<int> value);
     partial void OnPlayerRedCardChanged();
+    partial void OnTeamIdChanging(int value);
+    partial void OnTeamIdChanged();
     #endregion
 		
 		public PlayerMatch()
@@ -2205,6 +2209,26 @@ namespace thaitae.lib
 					this._PlayerRedCard = value;
 					this.SendPropertyChanged("PlayerRedCard");
 					this.OnPlayerRedCardChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamId")]
+		public int TeamId
+		{
+			get
+			{
+				return this._TeamId;
+			}
+			set
+			{
+				if ((this._TeamId != value))
+				{
+					this.OnTeamIdChanging(value);
+					this.SendPropertyChanging();
+					this._TeamId = value;
+					this.SendPropertyChanged("TeamId");
+					this.OnTeamIdChanged();
 				}
 			}
 		}
