@@ -22,7 +22,7 @@ namespace Thaitae.Backend
 			if (!IsImage(e.RowData["Picture"])) return;
 			using (var dc = new ThaitaeDataDataContext())
 			{
-				var news = new thaitae.lib.New
+				var news = new New
 				        {
 				           	newsContent = e.RowData["newsContent"],
 				           	newsTopic = e.RowData["newsTopic"],
@@ -96,7 +96,7 @@ namespace Thaitae.Backend
 
 		private static bool IsImage(string path)
 		{
-			var format = Path.GetExtension(path);
+			var format = Path.GetFileName(path);
 			var regEx = new Regex("([^\\s]+(\\.(?i)(jpg|png|gif|bmp))$)");
 			return format != null && regEx.IsMatch(format);
 		}
