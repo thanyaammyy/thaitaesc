@@ -14,12 +14,16 @@ namespace Thaitae.Backend
         {
             if (!IsPostBack)
             {
-                if (Session["seasonid"] != null && Session["leagueid"] != null)
-                {
-                    ddlLeague.SelectedValue = (string)Session["leagueid"];
-                    ddlSeason.SelectedValue = (string)Session["seasonid"];
-                    JqgridTeamBinding(Convert.ToInt32(Session["seasonid"]));
-                }
+				if (Session["seasonid"] == null) return;
+				if (Convert.ToInt32(Session["seasonid"]) == 0) return;
+
+				if (Session["leagueid"] == null) return;
+				if (Convert.ToInt32(Session["leagueid"]) == 0) return;
+
+                ddlLeague.SelectedValue = (string)Session["leagueid"];
+                ddlSeason.SelectedValue = (string)Session["seasonid"];
+                JqgridTeamBinding(Convert.ToInt32(Session["seasonid"]));
+                
             }
         }
 
@@ -66,6 +70,7 @@ namespace Thaitae.Backend
         protected void JqgridTeam_RowAdding(object sender, Trirand.Web.UI.WebControls.JQGridRowAddEventArgs e)
         {
             if (Session["seasonid"] == null) return;
+			if (Convert.ToInt32(Session["seasonid"]) == 0) return;
             using (var dc = new ThaitaeDataDataContext())
             {
                 var objTeam = new Team
