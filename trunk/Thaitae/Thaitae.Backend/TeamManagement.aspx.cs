@@ -40,6 +40,7 @@ namespace Thaitae.Backend
         {
             if (ddlSeason.SelectedValue == "") return;
             Session["seasonid"] = ddlSeason.SelectedValue;
+
         }
 
         protected void JqgridTeam_RowDeleting(object sender, Trirand.Web.UI.WebControls.JQGridRowDeleteEventArgs e)
@@ -96,9 +97,46 @@ namespace Thaitae.Backend
             using (var dc = new ThaitaeDataDataContext())
             {
                 var teamSeasonList = dc.TeamSeasons.Join(dc.Teams, teamSeason => teamSeason.TeamId, team => team.TeamId, (teamSeason, team) => new { teamSeason.SeasonId, team.TeamId, team.TeamName, team.TeamDesc, team.ActiveName, teamSeason.TeamSeasonId, teamSeason.TeamDrew, teamSeason.TeamGoalAgainst, teamSeason.TeamGoalDiff, teamSeason.TeamGoalFor, teamSeason.TeamLoss, teamSeason.TeamMatchPlayed, teamSeason.TeamPts, teamSeason.TeamWon }).Where(teamSeason => teamSeason.SeasonId == seasonId).ToList();
-                JqgridTeam.DataSource = teamSeasonList;
+				JqgridTeam.DataSource = teamSeasonList;
                 JqgridTeam.DataBind();
             }
         }
+		
+		public void GenerateMatch(int seasonId)
+		{
+			using (var dc = new ThaitaeDataDataContext())
+			{
+				var teamSeasonList = dc.TeamSeasons.Join(dc.Teams, teamSeason => teamSeason.TeamId, team => team.TeamId, (teamSeason, team) => new { teamSeason.SeasonId, team.TeamId }).Where(teamSeason => teamSeason.SeasonId == seasonId).ToList();
+				for (var i = 0; i < teamSeasonList.Count;i++ )
+				{
+					for (var j = 0; j < teamSeasonList.Count;j++ )
+					{
+						var match = new Match();
+						match.SeasonId = seasonId;
+						match.MatchDate = DateTime.Now;
+						match.TeamHomeId = teamSeasonList[i].TeamId;
+						if(teamSeasonList[i].TeamId !=teamSeasonList[j].TeamId)
+						{
+							match.TeamAwayId = teamSeasonList[j].TeamId;
+							var exist = dc.Matches.Count(
+								item => item.SeasonId == seasonId && item.TeamHomeId == match.TeamHomeId && item.TeamAwayId == match.TeamAwayId);
+							if(exist==0)
+							{
+								dc.Matches.InsertOnSubmit(match);
+								dc.SubmitChanges();
+							}
+						}
+					}
+				}
+			}
+		}
+
+		protected void Button1_Click(object sender, EventArgs e)
+		{
+			if (Session["seasonid"] == null) return;
+			if (Convert.ToInt32(Session["seasonid"]) == 0) return;
+			ddlSeason.SelectedValue = (string)Session["seasonid"];
+			GenerateMatch(Convert.ToInt32(Session["seasonid"]));
+		}
     }
 }
