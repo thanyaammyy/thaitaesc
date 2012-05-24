@@ -21,7 +21,6 @@
                     <cc1:JQGridColumn DataField="TeamId" Visible="False" />
                     <cc1:JQGridColumn DataField="SeasonId" Visible="False" />
                     <cc1:JQGridColumn DataField="TeamSeasonId" PrimaryKey="True" Visible="False" />
-                    <cc1:JQGridColumn HeaderText="Edit" EditActionIconsColumn="true" Width="100" TextAlign="Center" />
                     <cc1:JQGridColumn HeaderText="Name" DataField="TeamName" Editable="True" TextAlign="Center" />
                     <cc1:JQGridColumn HeaderText="Description" DataField="TeamDesc" Editable="True" TextAlign="Center" />
                     <cc1:JQGridColumn HeaderText="Status" DataField="ActiveName" Editable="True" EditType="DropDown"
@@ -40,6 +39,10 @@
                 <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
                     ShowRefreshButton="True" ShowSearchButton="True" />
                 <AppearanceSettings ShowRowNumbers="true" />
+				<AddDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
+					CloseAfterAdding="True" Caption="Add Team" ClearAfterAdding="True"></AddDialogSettings>
+				<EditDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
+					CloseAfterEditing="True" Caption="Edit Team"></EditDialogSettings>
             </cc1:JQGrid>
         </ContentTemplate>
     </asp:UpdatePanel>

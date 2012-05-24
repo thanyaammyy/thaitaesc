@@ -11,9 +11,7 @@
         OnRowDeleting="JqgridLeague1_RowDeleting" OnRowAdding="JqgridLeague1_RowAdding">
         <Columns>
             <cc1:JQGridColumn DataField="LeagueId" PrimaryKey="True" Width="55" Visible="False" />
-            <cc1:JQGridColumn HeaderText="Edit Actions" EditActionIconsColumn="true" Width="50"
-                TextAlign="Center" />
-            <cc1:JQGridColumn HeaderText="League Name" DataField="LeagueName" Editable="True"
+           <cc1:JQGridColumn HeaderText="League Name" DataField="LeagueName" Editable="True"
                 TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="League Type" EditType="DropDown" DataField="LeagueTypeName"
                 EditValues="4:Normal League;8:Champion League;12:FA Cup;16:Custom League" Editable="True"
@@ -26,5 +24,9 @@
         <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
             ShowRefreshButton="True" ShowSearchButton="True" />
         <AppearanceSettings ShowRowNumbers="true" />
+		<AddDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
+			CloseAfterAdding="True" Caption="Add League" ClearAfterAdding="True"></AddDialogSettings>
+		<EditDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
+			CloseAfterEditing="True" Caption="Edit League"></EditDialogSettings>
     </cc1:JQGrid>
 </asp:content>
