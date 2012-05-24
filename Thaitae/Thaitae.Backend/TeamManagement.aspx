@@ -55,4 +55,5 @@
             <asp:SessionParameter Name="LeagueId" SessionField="LeagueId" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
+	<asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Button" />
 </asp:Content>
