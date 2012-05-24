@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -18,34 +19,33 @@ namespace Thaitae.Backend
 
         protected void JqgridNews_RowAdding(object sender, Trirand.Web.UI.WebControls.JQGridRowAddEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
-            {
-                var news = new thaitae.lib.New
-                        {
-                            newsContent = e.RowData["newsContent"],
-                            newsTopic = e.RowData["newsTopic"],
-                        };
-                dc.News.InsertOnSubmit(news);
-                dc.SubmitChanges();
-                const string path = "~/NewsImages/";
-                var pathServer = Server.MapPath(path);
-                var fileName = pathServer + news.newsId + ".jpg";
-                if (string.IsNullOrEmpty(e.RowData["Picture"]))
-                {
-                    var fileStream = new FileStream(e.RowData["Picture"], FileMode.OpenOrCreate);
-                    try
-                    {
-                        var image = System.Drawing.Image.FromStream(fileStream);
-                        image.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    }
-                    finally
-                    {
-                        fileStream.Close();
-                    }
-                    news.picture = fileName;
-                    dc.SubmitChanges();
-                }
-            }
+			if (!IsImage(e.RowData["Picture"])) return;
+			using (var dc = new ThaitaeDataDataContext())
+			{
+				var news = new thaitae.lib.New
+				        {
+				           	newsContent = e.RowData["newsContent"],
+				           	newsTopic = e.RowData["newsTopic"],
+				        };
+				dc.News.InsertOnSubmit(news);
+				dc.SubmitChanges();
+				const string path = "~/NewsImages/";
+				var pathServer = Server.MapPath(path);
+				var fileName = pathServer+ news.newsId + ".jpg";
+				var fileStream = new FileStream(e.RowData["Picture"], FileMode.OpenOrCreate);
+				try
+				{
+					var image = System.Drawing.Image.FromStream(fileStream);
+					image.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+				}
+				finally
+				{
+					fileStream.Close();
+				}
+				news.picture = fileName;
+				dc.SubmitChanges();
+
+			}
         }
 
         protected void JqgridNews_RowDeleting(object sender, Trirand.Web.UI.WebControls.JQGridRowDeleteEventArgs e)
@@ -61,6 +61,7 @@ namespace Thaitae.Backend
         protected void JqgridNews_RowEditing(object sender, Trirand.Web.UI.WebControls.JQGridRowEditEventArgs e)
         {
             const string path = "~/NewsImages/";
+			if (!IsImage(e.RowData["Picture"])) return;
             using (var dc = new ThaitaeDataDataContext())
             {
                 var news = dc.News.Single(item => item.newsId == Convert.ToInt32(e.RowKey));
@@ -92,5 +93,12 @@ namespace Thaitae.Backend
             JqgridNews.DataSource = seasonList;
             JqgridNews.DataBind();
         }
+
+		private static bool IsImage(string path)
+		{
+			var format = Path.GetExtension(path);
+			var regEx = new Regex("([^\\s]+(\\.(?i)(jpg|png|gif|bmp))$)");
+			return format != null && regEx.IsMatch(format);
+		}
     }
 }

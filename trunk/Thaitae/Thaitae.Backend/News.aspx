@@ -38,7 +38,6 @@
         OnRowDeleting="JqgridNews_RowDeleting" OnRowEditing="JqgridNews_RowEditing">
         <Columns>
             <cc1:JQGridColumn DataField="NewsId" PrimaryKey="True" Width="55" Visible="False" />
-            <cc1:JQGridColumn HeaderText="Edit Actions" EditActionIconsColumn="True" EditActionIconsEditDialogEnabled="True" Width="20" TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="Topic" DataField="NewsTopic" EditType="Custom" EditTypeCustomCreateElement="createTextbox"
                 EditTypeCustomGetValue="getTextboxValue" Editable="True" Width="90" TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="Contents" EditType="Custom" EditTypeCustomCreateElement="createTextArea"
@@ -50,7 +49,7 @@
         <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
             ShowRefreshButton="True" ShowSearchButton="True" />
         <AppearanceSettings ShowRowNumbers="true" />
-        <AddDialogSettings Width="700" Modal="True" TopOffset="180" LeftOffset="300" Height="300" CloseAfterAdding="True"
+        <AddDialogSettings Width="700" ClearAfterAdding="True" Modal="True" TopOffset="180" LeftOffset="300" Height="300" CloseAfterAdding="True"
             Caption="Add News"></AddDialogSettings>
         <EditDialogSettings Width="700" Modal="True" TopOffset="180" LeftOffset="300" Height="300" CloseAfterEditing="True"
             Caption="Edit News"></EditDialogSettings>
