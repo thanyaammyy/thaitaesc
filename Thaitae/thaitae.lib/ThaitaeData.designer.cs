@@ -1010,6 +1010,10 @@ namespace thaitae.lib
 		
 		private System.Nullable<int> _SeasonId;
 		
+		private System.Nullable<int> _TeamHomeId;
+		
+		private System.Nullable<int> _TeamAwayId;
+		
 		private EntitySet<TeamMatch> _TeamMatches;
 		
 		private EntitySet<PlayerMatch> _PlayerMatches;
@@ -1026,6 +1030,10 @@ namespace thaitae.lib
     partial void OnMatchDateChanged();
     partial void OnSeasonIdChanging(System.Nullable<int> value);
     partial void OnSeasonIdChanged();
+    partial void OnTeamHomeIdChanging(System.Nullable<int> value);
+    partial void OnTeamHomeIdChanged();
+    partial void OnTeamAwayIdChanging(System.Nullable<int> value);
+    partial void OnTeamAwayIdChanged();
     #endregion
 		
 		public Match()
@@ -1096,6 +1104,46 @@ namespace thaitae.lib
 					this._SeasonId = value;
 					this.SendPropertyChanged("SeasonId");
 					this.OnSeasonIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamHomeId")]
+		public System.Nullable<int> TeamHomeId
+		{
+			get
+			{
+				return this._TeamHomeId;
+			}
+			set
+			{
+				if ((this._TeamHomeId != value))
+				{
+					this.OnTeamHomeIdChanging(value);
+					this.SendPropertyChanging();
+					this._TeamHomeId = value;
+					this.SendPropertyChanged("TeamHomeId");
+					this.OnTeamHomeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamAwayId")]
+		public System.Nullable<int> TeamAwayId
+		{
+			get
+			{
+				return this._TeamAwayId;
+			}
+			set
+			{
+				if ((this._TeamAwayId != value))
+				{
+					this.OnTeamAwayIdChanging(value);
+					this.SendPropertyChanging();
+					this._TeamAwayId = value;
+					this.SendPropertyChanged("TeamAwayId");
+					this.OnTeamAwayIdChanged();
 				}
 			}
 		}
@@ -2322,7 +2370,7 @@ namespace thaitae.lib
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="thaitae.ErrorLogs")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="tamujin.ErrorLogs")]
 	public partial class ErrorLog : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		

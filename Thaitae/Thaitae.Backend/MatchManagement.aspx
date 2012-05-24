@@ -5,12 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         function bindCalendarDialog() {
-            $('#MatchDate').blur();
-            $('#MatchDate').datetimepicker();
-        }
-        function bindCalendarCell() {
-            $('#1_MatchDate').blur();
-            $('#1_MatchDate').datetimepicker();
+            $('input[id][name$="MatchDate"]').datetimepicker();
         }
     </script>
 </asp:Content>
@@ -21,6 +16,10 @@
             <cc1:JQGridColumn DataField="SeasonId" Visible="False" />
             <cc1:JQGridColumn HeaderText="Edit Actions" EditActionIconsColumn="true" Width="50"
                 TextAlign="Center" />
+            <cc1:JQGridColumn HeaderText="Home Team" DataType="String" DataField="TeamHomeIdName"
+                EditType="DropDown" Editable="True" TextAlign="Center" />
+            <cc1:JQGridColumn HeaderText="Away Team" DataType="String" DataField="TeamAwayIdName"
+                EditType="DropDown" Editable="True" TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="Match Date" DataType="DateTime" DataFormatString="{0:dd/MM/yyyy HH:mm}"
                 DataField="MatchDate" EditType="TextBox" Editable="True" TextAlign="Center" />
         </Columns>
@@ -29,8 +28,8 @@
         <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
             ShowRefreshButton="True" ShowSearchButton="True" />
         <AppearanceSettings ShowRowNumbers="true" />
-        <ClientSideEvents RowSelect="bindCalendarCell" AfterEditDialogShown="bindCalendarDialog"
-            AfterAddDialogShown="bindCalendarDialog"></ClientSideEvents>
+        <ClientSideEvents AfterAddDialogShown="bindCalendarDialog" RowSelect="bindCalendarDialog">
+        </ClientSideEvents>
     </cc1:JQGrid>
     <asp:ObjectDataSource ID="objectMatchData" runat="server" DataObjectTypeName="thaitae.lib.Match"
         SelectMethod="SelectItems" TypeName="thaitae.lib.Page.MatchHelper"></asp:ObjectDataSource>
