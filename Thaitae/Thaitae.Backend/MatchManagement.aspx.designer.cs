@@ -13,6 +13,42 @@ namespace Thaitae.Backend {
     public partial class MatchManagement {
         
         /// <summary>
+        /// updateTeamPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updateTeamPanel;
+        
+        /// <summary>
+        /// ddlLeague control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlLeague;
+        
+        /// <summary>
+        /// ddlSeason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSeason;
+        
+        /// <summary>
+        /// ddlTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTeam;
+        
+        /// <summary>
         /// JqgridMatch1 control.
         /// </summary>
         /// <remarks>
@@ -22,12 +58,30 @@ namespace Thaitae.Backend {
         protected global::Trirand.Web.UI.WebControls.JQGrid JqgridMatch1;
         
         /// <summary>
-        /// objectMatchData control.
+        /// LeagueDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource objectMatchData;
+        protected global::System.Web.UI.WebControls.ObjectDataSource LeagueDataSource;
+        
+        /// <summary>
+        /// TeamDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource TeamDataSource;
+        
+        /// <summary>
+        /// SeasonDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource SeasonDataSource;
     }
 }
