@@ -4,11 +4,11 @@
 <%@ Register Assembly="Trirand.Web" Namespace="Trirand.Web.UI.WebControls" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
     <h2>
         Team Management</h2>
-    <asp:UpdatePanel ID="updateTeamPanel" UpdateMode="Conditional" runat="server">
-        <ContentTemplate>
+    <asp:updatepanel id="updateTeamPanel" updatemode="Conditional" runat="server">
+        <contenttemplate>
             <asp:DropDownList runat="server" ID="ddlLeague" DataSourceID="LeagueDataSource" DataTextField="LeagueName"
                 DataValueField="LeagueId" AutoPostBack="True" OnSelectedIndexChanged="ddlLeague_SelectedIndexChanged">
             </asp:DropDownList>
@@ -44,16 +44,15 @@
 				<EditDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
 					CloseAfterEditing="True" Caption="Edit Team"></EditDialogSettings>
             </cc1:JQGrid>
-        </ContentTemplate>
-    </asp:UpdatePanel>
-    <asp:ObjectDataSource ID="LeagueDataSource" DataObjectTypeName="thaitae.lib.League"
-        SelectMethod="SelectLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server">
-    </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="SeasonDataSource" DataObjectTypeName="thaitae.lib.Season"
-        SelectMethod="ListSeasonItems" TypeName="thaitae.lib.Page.SeasonHelper" runat="server">
-        <SelectParameters>
+        </contenttemplate>
+    </asp:updatepanel>
+    <asp:objectdatasource id="LeagueDataSource" dataobjecttypename="thaitae.lib.League"
+        selectmethod="SelectLeagueItems" typename="thaitae.lib.Page.LeagueHelper" runat="server">
+    </asp:objectdatasource>
+    <asp:objectdatasource id="SeasonDataSource" dataobjecttypename="thaitae.lib.Season"
+        selectmethod="ListSeasonItems" typename="thaitae.lib.Page.SeasonHelper" runat="server">
+        <selectparameters>
             <asp:SessionParameter Name="LeagueId" SessionField="LeagueId" Type="Int32" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
-	<asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Button" />
-</asp:Content>
+        </selectparameters>
+    </asp:objectdatasource>
+</asp:content>

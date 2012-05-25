@@ -60,11 +60,83 @@ namespace Thaitae.Backend
 
         private void JqgridMatchBinding(int seasonId)
         {
+            var dc = new ThaitaeDataDataContext().Matches;
+            var matchSeasonList = dc.Where(item => item.SeasonId == seasonId).ToList();
+            JqgridMatch1.DataSource = matchSeasonList;
+            JqgridMatch1.DataBind();
+        }
+
+        protected void JqgridAwayTeam_DataRequesting(object sender, JQGridDataRequestEventArgs e)
+        {
+        }
+
+        protected void JqgridHomeTeam_DataRequesting(object sender, JQGridDataRequestEventArgs e)
+        {
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (Session["seasonid"] == null) return;
+            if (Convert.ToInt32(Session["seasonid"]) == 0) return;
+            GenerateMatch(Convert.ToInt32(Session["seasonid"]));
+        }
+
+        public void GenerateMatch(int seasonId)
+        {
             using (var dc = new ThaitaeDataDataContext())
             {
-                var matchSeasonList = dc.Matches.Where(item => item.SeasonId == seasonId).ToList();
-                JqgridMatch1.DataSource = matchSeasonList;
-                JqgridMatch1.DataBind();
+                var teamSeasonList = dc.TeamSeasons.Join(dc.Teams, teamSeason => teamSeason.TeamId, team => team.TeamId, (teamSeason, team) => new { teamSeason.SeasonId, team.TeamId }).Where(teamSeason => teamSeason.SeasonId == seasonId).ToList();
+                for (var i = 0; i < teamSeasonList.Count; i++)
+                {
+                    for (var j = 0; j < teamSeasonList.Count; j++)
+                    {
+                        if (teamSeasonList[i].TeamId != teamSeasonList[j].TeamId)
+                        {
+                            var matchExist = dc.Matches.Count(
+                                item => item.SeasonId == seasonId && item.TeamHomeId == teamSeasonList[i].TeamId && item.TeamAwayId == teamSeasonList[j].TeamId);
+                            if (matchExist == 0)
+                            {
+                                var match = new Match
+                                {
+                                    SeasonId = seasonId,
+                                    MatchDate = DateTime.Now,
+                                    TeamHomeId = teamSeasonList[i].TeamId,
+                                    TeamAwayId = teamSeasonList[j].TeamId
+                                };
+                                dc.Matches.InsertOnSubmit(match);
+                                dc.SubmitChanges();
+                                var teamHomeExist =
+                                    dc.TeamMatches.Count(
+                                        item => item.MatchId == match.MatchId && item.TeamId == match.TeamHomeId);
+                                if (teamHomeExist == 0)
+                                {
+                                    var teamHomeMatch = new TeamMatch
+                                                            {
+                                                                MatchId = match.MatchId,
+                                                                TeamId = match.TeamHomeId,
+                                                                TeamHome = 1
+                                                            };
+                                    dc.TeamMatches.InsertOnSubmit(teamHomeMatch);
+                                    dc.SubmitChanges();
+                                }
+                                var teamAwayExist =
+                                    dc.TeamMatches.Count(
+                                        item => item.MatchId == match.MatchId && item.TeamId == match.TeamAwayId);
+                                if (teamAwayExist == 0)
+                                {
+                                    var teamAwayMatch = new TeamMatch
+                                                            {
+                                                                MatchId = match.MatchId,
+                                                                TeamId = match.TeamAwayId,
+                                                                TeamHome = 0
+                                                            };
+                                    dc.TeamMatches.InsertOnSubmit(teamAwayMatch);
+                                    dc.SubmitChanges();
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
