@@ -1010,9 +1010,9 @@ namespace thaitae.lib
 		
 		private System.Nullable<int> _SeasonId;
 		
-		private System.Nullable<int> _TeamHomeId;
+		private int _TeamHomeId;
 		
-		private System.Nullable<int> _TeamAwayId;
+		private int _TeamAwayId;
 		
 		private EntitySet<TeamMatch> _TeamMatches;
 		
@@ -1030,9 +1030,9 @@ namespace thaitae.lib
     partial void OnMatchDateChanged();
     partial void OnSeasonIdChanging(System.Nullable<int> value);
     partial void OnSeasonIdChanged();
-    partial void OnTeamHomeIdChanging(System.Nullable<int> value);
+    partial void OnTeamHomeIdChanging(int value);
     partial void OnTeamHomeIdChanged();
-    partial void OnTeamAwayIdChanging(System.Nullable<int> value);
+    partial void OnTeamAwayIdChanging(int value);
     partial void OnTeamAwayIdChanged();
     #endregion
 		
@@ -1109,7 +1109,7 @@ namespace thaitae.lib
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamHomeId")]
-		public System.Nullable<int> TeamHomeId
+		public int TeamHomeId
 		{
 			get
 			{
@@ -1129,7 +1129,7 @@ namespace thaitae.lib
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamAwayId")]
-		public System.Nullable<int> TeamAwayId
+		public int TeamAwayId
 		{
 			get
 			{
@@ -1275,7 +1275,7 @@ namespace thaitae.lib
 		
 		private System.Nullable<int> _TeamGoalAgainst;
 		
-		private bool _TeamHome;
+		private int _TeamHome;
 		
 		private EntityRef<Match> _Match;
 		
@@ -1301,7 +1301,7 @@ namespace thaitae.lib
     partial void OnTeamStatusChanged();
     partial void OnTeamGoalAgainstChanging(System.Nullable<int> value);
     partial void OnTeamGoalAgainstChanged();
-    partial void OnTeamHomeChanging(bool value);
+    partial void OnTeamHomeChanging(int value);
     partial void OnTeamHomeChanged();
     #endregion
 		
@@ -1481,7 +1481,7 @@ namespace thaitae.lib
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamHome")]
-		public bool TeamHome
+		public int TeamHome
 		{
 			get
 			{

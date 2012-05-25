@@ -44,8 +44,8 @@
       <Column Name="MatchId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="MatchDate" Type="System.DateTime" CanBeNull="false" />
       <Column Name="SeasonId" Type="System.Int32" CanBeNull="true" />
-      <Column Member="TeamHomeId" Type="System.Int32" CanBeNull="true" />
-      <Column Member="TeamAwayId" Type="System.Int32" CanBeNull="true" />
+      <Column Name="TeamHomeId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TeamAwayId" Type="System.Int32" CanBeNull="false" />
       <Association Name="Match_TeamMatch" Member="TeamMatches" ThisKey="MatchId" OtherKey="MatchId" Type="TeamMatch" />
       <Association Name="Match_PlayerMatch" Member="PlayerMatches" ThisKey="MatchId" OtherKey="MatchId" Type="PlayerMatch" />
       <Association Name="Season_Match" Member="Season" ThisKey="SeasonId" OtherKey="SeasonId" Type="Season" IsForeignKey="true" />
@@ -61,7 +61,7 @@
       <Column Name="TeamRedCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TeamStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TeamGoalAgainst" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TeamHome" Type="System.Boolean" CanBeNull="false" />
+      <Column Name="TeamHome" Type="System.Int32" CanBeNull="false" />
       <Association Name="Match_TeamMatch" Member="Match" ThisKey="MatchId" OtherKey="MatchId" Type="Match" IsForeignKey="true" />
       <Association Name="Team_TeamMatch" Member="Team" ThisKey="TeamId" OtherKey="TeamId" Type="Team" IsForeignKey="true" />
     </Type>
