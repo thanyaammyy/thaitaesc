@@ -12,7 +12,7 @@
 			<asp:DropDownList runat="server" ID="ddlLeague" DataSourceID="LeagueDataSource" DataTextField="LeagueName"
 				DataValueField="LeagueId" AutoPostBack="True" OnSelectedIndexChanged="ddlLeague_SelectedIndexChanged">
 			</asp:DropDownList>
-			<cc1:JQGrid ID="JqgridSeason" AutoWidth="True" runat="server" OnRowAdding="JqgridSeason_RowAdding"
+			<cc1:JQGrid ID="JqgridSeason" AutoWidth="True" runat="server" OnRowAdding="JqgridSeason_RowAdding" Height="100%"
 				OnRowDeleting="JqgridSeason_RowDeleting" OnRowEditing="JqgridSeason_RowEditing">
 				<Columns>
 					<cc1:JQGridColumn DataField="SeasonId" PrimaryKey="True" Width="55" Visible="False" />
