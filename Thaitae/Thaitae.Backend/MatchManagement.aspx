@@ -3,6 +3,12 @@
 
 <%@ Register Assembly="Trirand.Web" Namespace="Trirand.Web.UI.WebControls" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .ui-autocomplete-loading
+        {
+            background: white url('loading.gif') right center no-repeat;
+        }
+    </style>
     <script type="text/javascript">
         function bindCalendarDialog() {
             $('input[id][name$="MatchDate"]').datetimepicker();
@@ -35,30 +41,27 @@
             <asp:DropDownList runat="server" ID="ddlSeason" DataSourceID="SeasonDataSource" DataTextField="SeasonName"
                 DataValueField="SeasonId" AutoPostBack="True" OnSelectedIndexChanged="ddlSeason_SelectedIndexChanged">
             </asp:DropDownList>
+            <asp:DropDownList runat="server" ID="ddlTeam" DataSourceID="TeamDataSource" DataTextField="TeamName"
+                DataValueField="TeamName">
+            </asp:DropDownList>
             <asp:Button ID="GenMatch" ClientIDMode="Static" runat="server" OnClick="Button1_Click"
                 Text="Generate Match"></asp:Button>
-            <asp:DropDownList runat="server" ID="ddlTeam" DataSourceID="TeamDataSource" DataTextField="TeamName"
-                DataValueField="TeamId" AutoPostBack="True">
-            </asp:DropDownList>
-            <cc1:JQGrid ID="JqgridMatch1" runat="server" AutoWidth="True" OnRowAdding="JqgridMatch1_RowAdding"
-                OnRowDeleting="JqgridMatch1_RowDeleting" OnRowEditing="JqgridMatch1_RowEditing"
-                Height="100%" Width="100%">
+            <cc1:JQGrid ID="JqgridMatch1" runat="server" AutoWidth="True" OnRowEditing="JqgridMatch1_RowEditing"
+                OnSearching="JqgridMatch1_Searching" Height="100%">
                 <Columns>
                     <cc1:JQGridColumn DataField="MatchId" PrimaryKey="True" Visible="False" />
                     <cc1:JQGridColumn DataField="SeasonId" Visible="False" />
                     <cc1:JQGridColumn HeaderText="Edit Actions" EditActionIconsColumn="true" Width="50"
-                        TextAlign="Center" />
-                    <cc1:JQGridColumn HeaderText="Home Team" DataType="String" DataField="TeamHomeIdName"
-                        EditType="DropDown" EditorControlID="ddlTeam" Editable="True" TextAlign="Center" />
+                        TextAlign="Center" Searchable="False" />
+                    <cc1:JQGridColumn HeaderText="Home Team" DataType="String" DataField="TeamName" TextAlign="Center"
+                        Searchable="True" SearchType="DropDown" SearchControlID="ddlTeam" SearchToolBarOperation="Contains" />
                     <cc1:JQGridColumn HeaderText="Away Team" DataType="String" DataField="TeamAwayIdName"
-                        EditType="DropDown" EditorControlID="ddlTeam" Editable="True" TextAlign="Center" />
+                        TextAlign="Center" Searchable="True" SearchType="DropDown" SearchControlID="ddlTeam"
+                        SearchToolBarOperation="Contains" />
                     <cc1:JQGridColumn HeaderText="Match Date" DataType="DateTime" DataFormatString="{0:dd/MM/yyyy HH:mm}"
-                        DataField="MatchDate" EditType="TextBox" Editable="True" TextAlign="Center" />
+                        DataField="MatchDate" EditType="TextBox" Editable="True" TextAlign="Center" Searchable="False" />
                 </Columns>
-                <AddDialogSettings CloseAfterAdding="True" />
-                <EditDialogSettings CloseAfterEditing="True" />
-                <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
-                    ShowRefreshButton="True" ShowSearchButton="True" />
+                <ToolBarSettings ShowRefreshButton="True" ShowSearchToolBar="True" />
                 <AppearanceSettings ShowRowNumbers="true" />
                 <ClientSideEvents AfterAddDialogShown="bindCalendarDialog" RowSelect="bindCalendarDialog"
                     SubGridRowExpanded="showSubGrids" />
