@@ -7,7 +7,7 @@
 <asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
     <h2>
         League Management</h2>
-    <cc1:JQGrid ID="JqgridLeague1" runat="server" AutoWidth="True" OnRowEditing="JqgridLeague1_RowEditing"
+    <cc1:JQGrid ID="JqgridLeague1" runat="server" AutoWidth="True" OnRowEditing="JqgridLeague1_RowEditing" Height="100%"
         OnRowDeleting="JqgridLeague1_RowDeleting" OnRowAdding="JqgridLeague1_RowAdding">
         <Columns>
             <cc1:JQGridColumn DataField="LeagueId" PrimaryKey="True" Width="55" Visible="False" />
