@@ -1827,6 +1827,8 @@ namespace thaitae.lib
 		
 		private int _TeamId;
 		
+		private int _SeasonId;
+		
 		private EntitySet<PlayerMatch> _PlayerMatches;
 		
 		private EntityRef<Team> _Team;
@@ -1849,6 +1851,8 @@ namespace thaitae.lib
     partial void OnActiveChanged();
     partial void OnTeamIdChanging(int value);
     partial void OnTeamIdChanged();
+    partial void OnSeasonIdChanging(int value);
+    partial void OnSeasonIdChanged();
     #endregion
 		
 		public Player()
@@ -1998,6 +2002,26 @@ namespace thaitae.lib
 					this._TeamId = value;
 					this.SendPropertyChanged("TeamId");
 					this.OnTeamIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonId")]
+		public int SeasonId
+		{
+			get
+			{
+				return this._SeasonId;
+			}
+			set
+			{
+				if ((this._SeasonId != value))
+				{
+					this.OnSeasonIdChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonId = value;
+					this.SendPropertyChanged("SeasonId");
+					this.OnSeasonIdChanged();
 				}
 			}
 		}
