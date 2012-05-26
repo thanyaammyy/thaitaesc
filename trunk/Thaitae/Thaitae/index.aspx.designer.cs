@@ -10,60 +10,60 @@
 namespace Thaitae {
     
     
-    public partial class Thaitae {
+    public partial class index {
         
         /// <summary>
-        /// head control.
+        /// updateTeamPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.UpdatePanel updateTeamPanel;
         
         /// <summary>
-        /// header1 control.
+        /// JQGridMatchResult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Thaitae.CenterControl.Header header1;
+        protected global::Trirand.Web.UI.WebControls.JQGrid JQGridMatchResult;
         
         /// <summary>
-        /// form1 control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// JQGridSulvoStar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::Trirand.Web.UI.WebControls.JQGrid JQGridSulvoStar;
         
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// UpdatePanel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
         
         /// <summary>
-        /// footer1 control.
+        /// JQGridMatches control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Thaitae.CenterControl.Footer footer1;
+        protected global::Trirand.Web.UI.WebControls.JQGrid JQGridMatches;
     }
 }

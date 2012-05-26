@@ -60,6 +60,7 @@
     <Content Include="favicon.ico" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Images\Green-Background.jpg" />
+    <Content Include="Images\header.png" />
     <Content Include="Images\icon\1downarrow.png" />
     <Content Include="Images\icon\1uparrow-v.png" />
     <Content Include="Images\icon\1uparrow.png" />
