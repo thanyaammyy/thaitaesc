@@ -35,19 +35,6 @@ namespace Thaitae.Backend
             Session["seasonid"] = ddlSeason.SelectedValue;
         }
 
-        protected void JqgridMatch1_RowAdding(object sender, JQGridRowAddEventArgs e)
-        {
-            if (Session["seasonid"] == null || (int)Session["seasonid"] == 0) return;
-            //if (e.RowData[""])
-            using (var dc = new ThaitaeDataDataContext())
-            {
-            }
-        }
-
-        protected void JqgridMatch1_RowDeleting(object sender, JQGridRowDeleteEventArgs e)
-        {
-        }
-
         protected void JqgridMatch1_RowEditing(object sender, JQGridRowEditEventArgs e)
         {
             using (var dc = new ThaitaeDataDataContext())
@@ -138,6 +125,12 @@ namespace Thaitae.Backend
                     }
                 }
             }
+        }
+
+        protected void JqgridMatch1_Searching(object sender, JQGridSearchEventArgs e)
+        {
+            if (e.SearchString == "[All]")
+                e.Cancel = true;
         }
     }
 }
