@@ -64,5 +64,14 @@ namespace thaitae.lib.Page
                 dc.SubmitChanges();
             }
         }
+
+		public static IEnumerable<Match> MatcheShowing(int leagueId)
+		{
+			var dc = new ThaitaeDataDataContext();
+			var league = dc.Leagues.Single(items => items.LeagueId == leagueId);
+			var seasons = dc.Seasons.OrderByDescending(item => item.SeasonId).First(items => items.LeagueId == league.LeagueId);
+			var matches = dc.Matches.Where(item => item.SeasonId == seasons.SeasonId).ToList();
+			return matches;
+		}
     }
 }
