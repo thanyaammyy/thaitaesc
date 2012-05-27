@@ -7,7 +7,7 @@ namespace thaitae.lib
 {
     public partial class Match
     {
-        public string TeamName
+        public string TeamHomeIdName
         {
             get
             {

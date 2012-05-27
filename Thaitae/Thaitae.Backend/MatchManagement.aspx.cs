@@ -55,10 +55,16 @@ namespace Thaitae.Backend
 
         protected void JqgridAwayTeam_DataRequesting(object sender, JQGridDataRequestEventArgs e)
         {
+            var teamAwayMatchList = new ThaitaeDataDataContext().TeamMatches.Where(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 1).ToList();
+            JqgridAwayTeam.DataSource = teamAwayMatchList;
+            JqgridAwayTeam.DataBind();
         }
 
         protected void JqgridHomeTeam_DataRequesting(object sender, JQGridDataRequestEventArgs e)
         {
+            var teamHomeMatchList = new ThaitaeDataDataContext().TeamMatches.Where(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 0).ToList();
+            JqgridHomeTeam.DataSource = teamHomeMatchList;
+            JqgridHomeTeam.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -131,6 +137,14 @@ namespace Thaitae.Backend
         {
             if (e.SearchString == "[All]")
                 e.Cancel = true;
+        }
+
+        protected void JqgridAwayPlayer_DataRequesting(object sender, JQGridDataRequestEventArgs e)
+        {
+        }
+
+        protected void JqgridHomePlayer_DataRequesting(object sender, JQGridDataRequestEventArgs e)
+        {
         }
     }
 }
