@@ -55,14 +55,14 @@ namespace Thaitae.Backend
 
         protected void JqgridAwayTeam_DataRequesting(object sender, JQGridDataRequestEventArgs e)
         {
-            var teamAwayMatchList = new ThaitaeDataDataContext().TeamMatches.Where(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 1).ToList();
+            var teamAwayMatchList = new ThaitaeDataDataContext().TeamMatches.Where(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 0).ToList();
             JqgridAwayTeam.DataSource = teamAwayMatchList;
             JqgridAwayTeam.DataBind();
         }
 
         protected void JqgridHomeTeam_DataRequesting(object sender, JQGridDataRequestEventArgs e)
         {
-            var teamHomeMatchList = new ThaitaeDataDataContext().TeamMatches.Where(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 0).ToList();
+            var teamHomeMatchList = new ThaitaeDataDataContext().TeamMatches.Where(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 1).ToList();
             JqgridHomeTeam.DataSource = teamHomeMatchList;
             JqgridHomeTeam.DataBind();
         }
@@ -145,6 +145,87 @@ namespace Thaitae.Backend
 
         protected void JqgridHomePlayer_DataRequesting(object sender, JQGridDataRequestEventArgs e)
         {
+        }
+
+        protected void JqgridHomeTeam_RowEditing(object sender, JQGridRowEditEventArgs e)
+        {
+            using (var dc = new ThaitaeDataDataContext())
+            {
+                var team = dc.TeamMatches.Single(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 1);
+                team.TeamGoalFor = Convert.ToInt32(e.RowData["TeamGoalFor"]);
+                team.TeamRedCard = Convert.ToInt32(e.RowData["TeamRedCard"]);
+                team.TeamYellowCard = Convert.ToInt32(e.RowData["TeamYellowCard"]);
+                var teamAgainst = dc.TeamMatches.Single(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 0);
+                teamAgainst.TeamGoalAgainst = Convert.ToInt32(e.RowData["TeamGoalFor"]);
+                if (team.TeamGoalFor < teamAgainst.TeamGoalFor)
+                {
+                    team.TeamStatus = 3;
+                    teamAgainst.TeamStatus = 1;
+                }
+                else if (team.TeamGoalFor > teamAgainst.TeamGoalFor)
+                {
+                    team.TeamStatus = 1;
+                    teamAgainst.TeamStatus = 3;
+                }
+                else
+                {
+                    team.TeamStatus = 2;
+                    teamAgainst.TeamStatus = 2;
+                }
+                dc.SubmitChanges();
+            }
+        }
+
+        protected void JqgridAwayTeam_RowEditing(object sender, JQGridRowEditEventArgs e)
+        {
+            using (var dc = new ThaitaeDataDataContext())
+            {
+                var team = dc.TeamMatches.Single(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 0);
+                team.TeamGoalFor = Convert.ToInt32(e.RowData["TeamGoalFor"]);
+                team.TeamRedCard = Convert.ToInt32(e.RowData["TeamRedCard"]);
+                team.TeamYellowCard = Convert.ToInt32(e.RowData["TeamYellowCard"]);
+                var teamAgainst = dc.TeamMatches.Single(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 1);
+                teamAgainst.TeamGoalAgainst = Convert.ToInt32(e.RowData["TeamGoalFor"]);
+                if (team.TeamGoalFor < teamAgainst.TeamGoalFor)
+                {
+                    team.TeamStatus = 3;
+                    teamAgainst.TeamStatus = 1;
+                }
+                else if (team.TeamGoalFor > teamAgainst.TeamGoalFor)
+                {
+                    team.TeamStatus = 1;
+                    teamAgainst.TeamStatus = 3;
+                }
+                else
+                {
+                    team.TeamStatus = 2;
+                    teamAgainst.TeamStatus = 2;
+                }
+                dc.SubmitChanges();
+            }
+        }
+
+        protected void JqgridAwayPlayer_RowEditing(object sender, JQGridRowEditEventArgs e)
+        {
+        }
+
+        protected void JqgridHomePlayer_RowEditing(object sender, JQGridRowEditEventArgs e)
+        {
+        }
+
+        public void CalculateAllResult(int leagueId, int seasonId)
+        {
+            using (var dc = new ThaitaeDataDataContext())
+            {
+                var league = dc.Leagues.Single(items => items.LeagueId == leagueId);
+                var seasons = dc.Seasons.OrderByDescending(item => item.SeasonId).First(items => items.LeagueId == league.LeagueId);
+                var teamSeasons = dc.TeamSeasons.Where(item => item.SeasonId == seasons.SeasonId).ToList();
+                foreach (var teamSeason in teamSeasons)
+                {
+                    TeamSeason season = teamSeason;
+                    var teamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == season.TeamId && item.TeamStatus != 0);
+                }
+            }
         }
     }
 }
