@@ -3,15 +3,7 @@
 
 <%@ Register Assembly="Trirand.Web" Namespace="Trirand.Web.UI.WebControls" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .ui-autocomplete-loading
-        {
-            background: white url('loading.gif') right center no-repeat;
-        }
-    </style>
     <script type="text/javascript">
-        var grid_id;
-        var lastSelection;
         function setGridCss() {
             $(".ui-jqgrid-bdiv").css("overflow-x", "hidden");
         }
@@ -47,27 +39,6 @@
             $("#gbox_" + subgrid_id + "_tJqgridAwayTeam th.ui-th-column-header").html(teamAway);
             setGridCss();
             grid_id = subgrid_id;
-        }
-
-        
-        
-
-        function editHomeTeamRow(id) {
-            if (id && id !== lastSelection) {
-                var grid = jQuery("#gbox_" + grid_id + "_tJqgridHomeTeam");
-                grid.restoreRow(lastSelection);
-                grid.editRow(id, true);
-                lastSelection = id;
-            }
-        }
-
-        function editAwayTeamRow(id) {
-            if (id && id !== lastSelection) {
-                var grid = jQuery("#"+grid_id);
-                grid.restoreRow(lastSelection);
-                grid.editRow(id, true);
-                lastSelection = id;
-            }
         }
     </script>
 </asp:Content>
@@ -110,15 +81,17 @@
                 <HierarchySettings HierarchyMode="Parent" />
             </cc1:JQGrid>
             <cc1:JQGrid ID="JqgridHomeTeam" runat="server" OnDataRequesting="JqgridHomeTeam_DataRequesting"
-                Height="100%" Width="465">
+                Height="100%" Width="465" OnRowEditing="JqgridHomeTeam_RowEditing" EditInlineCellSettings="">
                 <Columns>
                     <cc1:JQGridColumn DataField="TeamMatchId" PrimaryKey="True" Visible="False" DataType="Int" />
+                    <cc1:JQGridColumn HeaderText="Edit" EditActionIconsColumn="true" EditActionIconsDeleteEnabled="False"
+                        Width="40" TextAlign="Center" Searchable="False" />
                     <cc1:JQGridColumn HeaderText="Team Goal" DataField="TeamGoalFor" DataType="Int" Editable="True"
-                        TextAlign="Center" />
+                        TextAlign="Center" EditType="TextBox" />
                     <cc1:JQGridColumn HeaderText="Team Yellow Card" DataField="TeamYellowCard" DataType="Int"
-                        Editable="True" TextAlign="Center" />
+                        Editable="True" EditType="TextBox" TextAlign="Center" />
                     <cc1:JQGridColumn HeaderText="Team Red Card" DataField="TeamRedCard" DataType="Int"
-                        Editable="True" TextAlign="Center" />
+                        Editable="True" TextAlign="Center" EditType="TextBox" />
                 </Columns>
                 <HeaderGroups>
                     <cc1:JQGridHeaderGroup StartColumnName="TeamGoalFor" NumberOfColumns="3" TitleText="TeamHome" />
@@ -126,30 +99,32 @@
                 <HierarchySettings HierarchyMode="ParentAndChild" />
                 <ClientSideEvents RowSelect="editHomeTeamRow" SubGridRowExpanded="showHomePlayerGrid">
                 </ClientSideEvents>
-                <PagerSettings ScrollBarPaging="False"></PagerSettings>
             </cc1:JQGrid>
             <cc1:JQGrid ID="JqgridHomePlayer" runat="server" OnDataRequesting="JqgridHomePlayer_DataRequesting"
-                Height="100%">
+                Height="100%" OnRowEditing="JqgridHomePlayer_RowEditing">
                 <Columns>
                     <cc1:JQGridColumn DataField="PlayerMatchId" PrimaryKey="True" Visible="False" DataType="Int" />
+                    <cc1:JQGridColumn HeaderText="Edit" EditActionIconsColumn="true" EditActionIconsDeleteEnabled="False"
+                        Width="40" TextAlign="Center" Searchable="False" />
                     <cc1:JQGridColumn HeaderText="Player Condition" DataField="PlayerCondition" DataType="String"
-                        Editable="True" TextAlign="Center" />
+                        TextAlign="Center" />
                     <cc1:JQGridColumn HeaderText="Player Number" DataField="PlayerName" DataType="Int"
                         Editable="True" TextAlign="Center" />
                 </Columns>
                 <HierarchySettings HierarchyMode="Child" />
-                <PagerSettings ScrollBarPaging="False"></PagerSettings>
             </cc1:JQGrid>
             <cc1:JQGrid ID="JqgridAwayTeam" runat="server" OnDataRequesting="JqgridAwayTeam_DataRequesting"
-                Height="100%" Width="465">
+                Height="100%" Width="465" OnRowEditing="JqgridAwayTeam_RowEditing">
                 <Columns>
                     <cc1:JQGridColumn DataField="TeamMatchId" PrimaryKey="True" Visible="False" DataType="Int" />
+                    <cc1:JQGridColumn HeaderText="Edit" EditActionIconsColumn="true" EditActionIconsDeleteEnabled="False"
+                        Width="40" TextAlign="Center" Searchable="False" />
                     <cc1:JQGridColumn HeaderText="Team Goal" DataField="TeamGoalFor" DataType="Int" Editable="True"
-                        TextAlign="Center" />
+                        TextAlign="Center" EditType="TextBox" />
                     <cc1:JQGridColumn HeaderText="Team Yellow Card" DataField="TeamYellowCard" DataType="Int"
-                        Editable="True" TextAlign="Center" />
+                        Editable="True" TextAlign="Center" EditType="TextBox" />
                     <cc1:JQGridColumn HeaderText="Team Red Card" DataField="TeamRedCard" DataType="Int"
-                        Editable="True" TextAlign="Center" />
+                        Editable="True" TextAlign="Center" EditType="TextBox" />
                 </Columns>
                 <HeaderGroups>
                     <cc1:JQGridHeaderGroup StartColumnName="TeamGoalFor" NumberOfColumns="3" TitleText="TeamAway" />
@@ -159,16 +134,17 @@
                 <HierarchySettings HierarchyMode="ParentAndChild" />
             </cc1:JQGrid>
             <cc1:JQGrid ID="JqgridAwayPlayer" runat="server" OnDataRequesting="JqgridAwayPlayer_DataRequesting"
-                Height="100%">
+                Height="100%" OnRowEditing="JqgridAwayPlayer_RowEditing">
                 <Columns>
                     <cc1:JQGridColumn DataField="PlayerMatchId" PrimaryKey="True" Visible="False" DataType="Int" />
+                    <cc1:JQGridColumn HeaderText="Edit" EditActionIconsColumn="true" EditActionIconsDeleteEnabled="False"
+                        Width="40" TextAlign="Center" Searchable="False" />
                     <cc1:JQGridColumn HeaderText="Player Condition" DataField="PlayerCondition" DataType="String"
                         Editable="True" TextAlign="Center" />
                     <cc1:JQGridColumn HeaderText="Player Number" DataField="PlayerName" DataType="Int"
                         Editable="True" TextAlign="Center" />
                 </Columns>
                 <HierarchySettings HierarchyMode="Child" />
-                <PagerSettings ScrollBarPaging="False"></PagerSettings>
             </cc1:JQGrid>
         </ContentTemplate>
     </asp:UpdatePanel>
