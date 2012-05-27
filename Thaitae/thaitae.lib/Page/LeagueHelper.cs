@@ -16,5 +16,12 @@ namespace thaitae.lib.Page
                 return leagueList;
             }
         }
+
+		public static IEnumerable<League> SelectLeague()
+		{
+			var dc = new ThaitaeDataDataContext();
+			var league = dc.Leagues;
+			return league;
+		}
     }
 }

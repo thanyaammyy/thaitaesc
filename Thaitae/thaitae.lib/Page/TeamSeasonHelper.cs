@@ -17,5 +17,18 @@ namespace thaitae.lib.Page
 				new { teamSeason.TeamSeasonId, team.TeamName, teamSeason.TeamMatchPlayed, teamSeason.TeamDrew, teamSeason.TeamGoalAgainst, teamSeason.TeamGoalFor, teamSeason.TeamLoss, teamSeason.TeamPts, teamSeason.TeamWon }).ToList();
 			return teamSeasonList;
 		}
+		public static IEnumerable<Player> SulvoStar(int leagueId)
+		{
+			var dc = new ThaitaeDataDataContext();
+			var sulvoList = new List<Player>();
+			var league = dc.Leagues.Single(items => items.LeagueId == leagueId);
+			var seasons = dc.Seasons.OrderByDescending(item => item.SeasonId).First(items => items.LeagueId == league.LeagueId);
+			var teamList = dc.TeamSeasons.Where(item => item.SeasonId == seasons.SeasonId).ToList();
+			foreach (var sulvos in teamList.Select(t => dc.Players.Where(item => item.SeasonId == seasons.SeasonId && item.TeamId == t.TeamId).ToList()))
+			{
+				sulvoList.AddRange(sulvos);
+			}
+			return sulvoList.OrderByDescending(item=>item.PlayerGoal);
+		}
 	}
 }
