@@ -76,6 +76,15 @@ namespace Thaitae.Backend {
         protected global::Trirand.Web.UI.WebControls.JQGrid JqgridHomeTeam;
         
         /// <summary>
+        /// JqgridHomePlayer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Trirand.Web.UI.WebControls.JQGrid JqgridHomePlayer;
+        
+        /// <summary>
         /// JqgridAwayTeam control.
         /// </summary>
         /// <remarks>
@@ -85,13 +94,13 @@ namespace Thaitae.Backend {
         protected global::Trirand.Web.UI.WebControls.JQGrid JqgridAwayTeam;
         
         /// <summary>
-        /// TeamAutoComplete1 control.
+        /// JqgridAwayPlayer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Trirand.Web.UI.WebControls.JQAutoComplete TeamAutoComplete1;
+        protected global::Trirand.Web.UI.WebControls.JQGrid JqgridAwayPlayer;
         
         /// <summary>
         /// LeagueDataSource control.
