@@ -42,11 +42,11 @@
         }
     </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
     <h2>
         Match Management</h2>
-    <asp:UpdatePanel ID="updateTeamPanel" UpdateMode="Conditional" runat="server">
-        <ContentTemplate>
+    <asp:updatepanel id="updateTeamPanel" updatemode="Conditional" runat="server">
+        <contenttemplate>
             <asp:DropDownList runat="server" ID="ddlLeague" DataSourceID="LeagueDataSource" DataTextField="LeagueName"
                 DataValueField="LeagueId" AutoPostBack="True" OnSelectedIndexChanged="ddlLeague_SelectedIndexChanged">
             </asp:DropDownList>
@@ -78,10 +78,10 @@
                 <AppearanceSettings ShowRowNumbers="true" />
                 <ClientSideEvents RowSelect="bindCalendarDialog" SubGridRowExpanded="showSubGrids"
                     LoadComplete="setGridCss" />
-                <HierarchySettings HierarchyMode="Parent" />
+                <HierarchySettings HierarchyMode="Parent" ExpandOnLoad="True" />
             </cc1:JQGrid>
             <cc1:JQGrid ID="JqgridHomeTeam" runat="server" OnDataRequesting="JqgridHomeTeam_DataRequesting"
-                Height="100%" Width="465" OnRowEditing="JqgridHomeTeam_RowEditing" EditInlineCellSettings="">
+                Height="100%" Width="465" OnRowEditing="JqgridHomeTeam_RowEditing">
                 <Columns>
                     <cc1:JQGridColumn DataField="TeamMatchId" PrimaryKey="True" Visible="False" DataType="Int" />
                     <cc1:JQGridColumn HeaderText="Edit" EditActionIconsColumn="true" EditActionIconsDeleteEnabled="False"
@@ -96,22 +96,24 @@
                 <HeaderGroups>
                     <cc1:JQGridHeaderGroup StartColumnName="TeamGoalFor" NumberOfColumns="3" TitleText="TeamHome" />
                 </HeaderGroups>
-                <HierarchySettings HierarchyMode="ParentAndChild" />
-                <ClientSideEvents RowSelect="editHomeTeamRow" SubGridRowExpanded="showHomePlayerGrid">
+                <HierarchySettings HierarchyMode="ParentAndChild" ExpandOnLoad="True"  />
+                <ClientSideEvents SubGridRowExpanded="showHomePlayerGrid">
                 </ClientSideEvents>
             </cc1:JQGrid>
             <cc1:JQGrid ID="JqgridHomePlayer" runat="server" OnDataRequesting="JqgridHomePlayer_DataRequesting"
-                Height="100%" OnRowEditing="JqgridHomePlayer_RowEditing">
+                Height="100%" AutoWidth="True" OnRowEditing="JqgridHomePlayer_RowEditing">
                 <Columns>
                     <cc1:JQGridColumn DataField="PlayerMatchId" PrimaryKey="True" Visible="False" DataType="Int" />
                     <cc1:JQGridColumn HeaderText="Edit" EditActionIconsColumn="true" EditActionIconsDeleteEnabled="False"
                         Width="40" TextAlign="Center" Searchable="False" />
                     <cc1:JQGridColumn HeaderText="Player Condition" DataField="PlayerCondition" DataType="String"
                         TextAlign="Center" />
-                    <cc1:JQGridColumn HeaderText="Player Number" DataField="PlayerName" DataType="Int"
+                    <cc1:JQGridColumn HeaderText="Player Number" DataField="PlayerNumber" DataType="Int"
+                        Editable="True" TextAlign="Center" />
+                    <cc1:JQGridColumn HeaderText="Player Name" DataField="PlayerName" DataType="String"
                         Editable="True" TextAlign="Center" />
                 </Columns>
-                <HierarchySettings HierarchyMode="Child" />
+                <HierarchySettings HierarchyMode="Child" ExpandOnLoad="True" />
             </cc1:JQGrid>
             <cc1:JQGrid ID="JqgridAwayTeam" runat="server" OnDataRequesting="JqgridAwayTeam_DataRequesting"
                 Height="100%" Width="465" OnRowEditing="JqgridAwayTeam_RowEditing">
@@ -129,38 +131,40 @@
                 <HeaderGroups>
                     <cc1:JQGridHeaderGroup StartColumnName="TeamGoalFor" NumberOfColumns="3" TitleText="TeamAway" />
                 </HeaderGroups>
-                <ClientSideEvents RowSelect="editAwayTeamRow" SubGridRowExpanded="showAwayPlayerGrid">
+                <ClientSideEvents SubGridRowExpanded="showAwayPlayerGrid">
                 </ClientSideEvents>
-                <HierarchySettings HierarchyMode="ParentAndChild" />
+                <HierarchySettings HierarchyMode="ParentAndChild" ExpandOnLoad="True" />
             </cc1:JQGrid>
             <cc1:JQGrid ID="JqgridAwayPlayer" runat="server" OnDataRequesting="JqgridAwayPlayer_DataRequesting"
-                Height="100%" OnRowEditing="JqgridAwayPlayer_RowEditing">
+                Height="100%" AutoWidth="True" OnRowEditing="JqgridAwayPlayer_RowEditing">
                 <Columns>
                     <cc1:JQGridColumn DataField="PlayerMatchId" PrimaryKey="True" Visible="False" DataType="Int" />
                     <cc1:JQGridColumn HeaderText="Edit" EditActionIconsColumn="true" EditActionIconsDeleteEnabled="False"
                         Width="40" TextAlign="Center" Searchable="False" />
                     <cc1:JQGridColumn HeaderText="Player Condition" DataField="PlayerCondition" DataType="String"
                         Editable="True" TextAlign="Center" />
-                    <cc1:JQGridColumn HeaderText="Player Number" DataField="PlayerName" DataType="Int"
+                    <cc1:JQGridColumn HeaderText="Player Number" DataField="PlayerNumber" DataType="Int"
+                        Editable="True" TextAlign="Center" />
+                    <cc1:JQGridColumn HeaderText="Player Name" DataField="PlayerName" DataType="String"
                         Editable="True" TextAlign="Center" />
                 </Columns>
-                <HierarchySettings HierarchyMode="Child" />
+                <HierarchySettings HierarchyMode="Child" ExpandOnLoad="True" />
             </cc1:JQGrid>
-        </ContentTemplate>
-    </asp:UpdatePanel>
-    <asp:ObjectDataSource ID="LeagueDataSource" DataObjectTypeName="thaitae.lib.League"
-        SelectMethod="SelectLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server">
-    </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="TeamDataSource" DataObjectTypeName="" SelectMethod="ListTeamItems"
-        TypeName="thaitae.lib.Page.TeamHelper" runat="server">
-        <SelectParameters>
+        </contenttemplate>
+    </asp:updatepanel>
+    <asp:objectdatasource id="LeagueDataSource" dataobjecttypename="thaitae.lib.League"
+        selectmethod="SelectLeagueItems" typename="thaitae.lib.Page.LeagueHelper" runat="server">
+    </asp:objectdatasource>
+    <asp:objectdatasource id="TeamDataSource" dataobjecttypename="" selectmethod="ListTeamItems"
+        typename="thaitae.lib.Page.TeamHelper" runat="server">
+        <selectparameters>
             <asp:SessionParameter Name="SeasonId" SessionField="SeasonId" Type="Int32" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="SeasonDataSource" DataObjectTypeName="thaitae.lib.Season"
-        SelectMethod="ListSeasonItems" TypeName="thaitae.lib.Page.SeasonHelper" runat="server">
-        <SelectParameters>
+        </selectparameters>
+    </asp:objectdatasource>
+    <asp:objectdatasource id="SeasonDataSource" dataobjecttypename="thaitae.lib.Season"
+        selectmethod="ListSeasonItems" typename="thaitae.lib.Page.SeasonHelper" runat="server">
+        <selectparameters>
             <asp:SessionParameter Name="LeagueId" SessionField="LeagueId" Type="Int32" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
-</asp:Content>
+        </selectparameters>
+    </asp:objectdatasource>
+</asp:content>
