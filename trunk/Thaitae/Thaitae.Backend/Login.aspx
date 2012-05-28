@@ -57,9 +57,9 @@
             </span>
             <asp:ValidationSummary ForeColor="red" ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification"
                  ValidationGroup="LoginUserValidationGroup"/>
-                 <div style="width: 305px; text-align: center">
+                 <%--<div style="width: 305px; text-align: center">
             <asp:hyperlink id="hplForgetPassword" runat="server" navigateurl="~/ForgetPassword.aspx">Forgot Password?</asp:hyperlink>
-            </div>
+            </div>--%>
             </div>
         </layouttemplate>
         </asp:login>

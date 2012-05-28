@@ -1,15 +1,15 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Header.ascx.cs" Inherits="Thaitae.Backend.CenterControl.Header" %>
 <div style="background-color: rgb(74, 81, 85)" align="center">
-    <img src="/Images/thaitae_logo.png" />
-    <asp:LoginView runat="server" EnableViewState="False">
-        <AnonymousTemplate>
-        </AnonymousTemplate>
-        <LoggedInTemplate>
+    <img src="../Images/header.png" />
+    <asp:loginview runat="server" enableviewstate="False">
+        <anonymoustemplate>
+        </anonymoustemplate>
+        <loggedintemplate>
             <div align="right">
                 <span class="LoginHeader">Welcome :
                     <asp:LoginName ID="HeadLoginName" runat="server" />
-                    <asp:HyperLink ID="hplChangePassword" ForeColor="White" runat="server" NavigateUrl="~/ForgetPassword.aspx"
-                        Text="change password"></asp:HyperLink>
+                    <%--<asp:HyperLink ID="hplChangePassword" ForeColor="White" runat="server" NavigateUrl="~/ForgetPassword.aspx"
+                        Text="change password"></asp:HyperLink>--%>
                     [<asp:HyperLink ID="hplLogout" ForeColor="Red" runat="server" NavigateUrl="~/Logout.aspx"
                         Text="logout"></asp:HyperLink>] </span>
             </div>
@@ -22,6 +22,6 @@
                     <li><a href="/MatchManagement.aspx" class="parent"><span>Match Management</span></a></li>
                 </ul>
             </div>
-        </LoggedInTemplate>
-    </asp:LoginView>
+        </loggedintemplate>
+    </asp:loginview>
 </div>

@@ -43,7 +43,7 @@
     <Type Name="Match">
       <Column Name="MatchId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="MatchDate" Type="System.DateTime" CanBeNull="false" />
-      <Column Name="SeasonId" Type="System.Int32" CanBeNull="true" />
+      <Column Name="SeasonId" Type="System.Int32" CanBeNull="false" />
       <Column Name="TeamHomeId" Type="System.Int32" CanBeNull="false" />
       <Column Name="TeamAwayId" Type="System.Int32" CanBeNull="false" />
       <Association Name="Match_TeamMatch" Member="TeamMatches" ThisKey="MatchId" OtherKey="MatchId" Type="TeamMatch" />
@@ -62,6 +62,7 @@
       <Column Name="TeamStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TeamGoalAgainst" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TeamHome" Type="System.Int32" CanBeNull="false" />
+      <Column Member="SeasonId" Type="System.Int32" CanBeNull="false" />
       <Association Name="Match_TeamMatch" Member="Match" ThisKey="MatchId" OtherKey="MatchId" Type="Match" IsForeignKey="true" />
       <Association Name="Team_TeamMatch" Member="Team" ThisKey="TeamId" OtherKey="TeamId" Type="Team" IsForeignKey="true" />
     </Type>
@@ -80,13 +81,14 @@
   <Table Name="thaitae.Player" Member="Players">
     <Type Name="Player">
       <Column Name="PlayerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PlayerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PlayerGoal" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PlayerRedCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PlayerYellowCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Active" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TeamId" Type="System.Int32" CanBeNull="false" />
-      <Column Member="SeasonId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="SeasonId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="PlayerName" Type="System.String" CanBeNull="false" />
+      <Column Name="PlayerNumber" Type="System.Int32" CanBeNull="false" />
       <Association Name="Player_PlayerMatch" Member="PlayerMatches" ThisKey="PlayerId" OtherKey="PlayerId" Type="PlayerMatch" />
       <Association Name="Team_Player" Member="Team" ThisKey="PlayerId" OtherKey="TeamId" Type="Team" IsForeignKey="true" />
     </Type>
@@ -100,6 +102,7 @@
       <Column Name="PlayerYellowCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PlayerRedCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TeamId" Type="System.Int32" CanBeNull="false" />
+      <Column Member="SeasonId" Type="System.Int32" CanBeNull="false" />
       <Association Name="Player_PlayerMatch" Member="Player" ThisKey="PlayerId" OtherKey="PlayerId" Type="Player" IsForeignKey="true" />
       <Association Name="Match_PlayerMatch" Member="Match" ThisKey="MatchId" OtherKey="MatchId" Type="Match" IsForeignKey="true" />
     </Type>

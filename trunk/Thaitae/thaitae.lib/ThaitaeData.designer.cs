@@ -1008,7 +1008,7 @@ namespace thaitae.lib
 		
 		private System.DateTime _MatchDate;
 		
-		private System.Nullable<int> _SeasonId;
+		private int _SeasonId;
 		
 		private int _TeamHomeId;
 		
@@ -1028,7 +1028,7 @@ namespace thaitae.lib
     partial void OnMatchIdChanged();
     partial void OnMatchDateChanging(System.DateTime value);
     partial void OnMatchDateChanged();
-    partial void OnSeasonIdChanging(System.Nullable<int> value);
+    partial void OnSeasonIdChanging(int value);
     partial void OnSeasonIdChanged();
     partial void OnTeamHomeIdChanging(int value);
     partial void OnTeamHomeIdChanged();
@@ -1085,7 +1085,7 @@ namespace thaitae.lib
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonId")]
-		public System.Nullable<int> SeasonId
+		public int SeasonId
 		{
 			get
 			{
@@ -1201,7 +1201,7 @@ namespace thaitae.lib
 					}
 					else
 					{
-						this._SeasonId = default(Nullable<int>);
+						this._SeasonId = default(int);
 					}
 					this.SendPropertyChanged("Season");
 				}
@@ -1277,6 +1277,8 @@ namespace thaitae.lib
 		
 		private int _TeamHome;
 		
+		private int _SeasonId;
+		
 		private EntityRef<Match> _Match;
 		
 		private EntityRef<Team> _Team;
@@ -1303,6 +1305,8 @@ namespace thaitae.lib
     partial void OnTeamGoalAgainstChanged();
     partial void OnTeamHomeChanging(int value);
     partial void OnTeamHomeChanged();
+    partial void OnSeasonIdChanging(int value);
+    partial void OnSeasonIdChanged();
     #endregion
 		
 		public TeamMatch()
@@ -1496,6 +1500,26 @@ namespace thaitae.lib
 					this._TeamHome = value;
 					this.SendPropertyChanged("TeamHome");
 					this.OnTeamHomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonId")]
+		public int SeasonId
+		{
+			get
+			{
+				return this._SeasonId;
+			}
+			set
+			{
+				if ((this._SeasonId != value))
+				{
+					this.OnSeasonIdChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonId = value;
+					this.SendPropertyChanged("SeasonId");
+					this.OnSeasonIdChanged();
 				}
 			}
 		}
@@ -1815,8 +1839,6 @@ namespace thaitae.lib
 		
 		private int _PlayerId;
 		
-		private string _PlayerName;
-		
 		private System.Nullable<int> _PlayerGoal;
 		
 		private System.Nullable<int> _PlayerRedCard;
@@ -1829,6 +1851,10 @@ namespace thaitae.lib
 		
 		private int _SeasonId;
 		
+		private string _PlayerName;
+		
+		private int _PlayerNumber;
+		
 		private EntitySet<PlayerMatch> _PlayerMatches;
 		
 		private EntityRef<Team> _Team;
@@ -1839,8 +1865,6 @@ namespace thaitae.lib
     partial void OnCreated();
     partial void OnPlayerIdChanging(int value);
     partial void OnPlayerIdChanged();
-    partial void OnPlayerNameChanging(string value);
-    partial void OnPlayerNameChanged();
     partial void OnPlayerGoalChanging(System.Nullable<int> value);
     partial void OnPlayerGoalChanged();
     partial void OnPlayerRedCardChanging(System.Nullable<int> value);
@@ -1853,6 +1877,10 @@ namespace thaitae.lib
     partial void OnTeamIdChanged();
     partial void OnSeasonIdChanging(int value);
     partial void OnSeasonIdChanged();
+    partial void OnPlayerNameChanging(string value);
+    partial void OnPlayerNameChanged();
+    partial void OnPlayerNumberChanging(int value);
+    partial void OnPlayerNumberChanged();
     #endregion
 		
 		public Player()
@@ -1882,26 +1910,6 @@ namespace thaitae.lib
 					this._PlayerId = value;
 					this.SendPropertyChanged("PlayerId");
 					this.OnPlayerIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string PlayerName
-		{
-			get
-			{
-				return this._PlayerName;
-			}
-			set
-			{
-				if ((this._PlayerName != value))
-				{
-					this.OnPlayerNameChanging(value);
-					this.SendPropertyChanging();
-					this._PlayerName = value;
-					this.SendPropertyChanged("PlayerName");
-					this.OnPlayerNameChanged();
 				}
 			}
 		}
@@ -2026,6 +2034,46 @@ namespace thaitae.lib
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerName", CanBeNull=false)]
+		public string PlayerName
+		{
+			get
+			{
+				return this._PlayerName;
+			}
+			set
+			{
+				if ((this._PlayerName != value))
+				{
+					this.OnPlayerNameChanging(value);
+					this.SendPropertyChanging();
+					this._PlayerName = value;
+					this.SendPropertyChanged("PlayerName");
+					this.OnPlayerNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerNumber")]
+		public int PlayerNumber
+		{
+			get
+			{
+				return this._PlayerNumber;
+			}
+			set
+			{
+				if ((this._PlayerNumber != value))
+				{
+					this.OnPlayerNumberChanging(value);
+					this.SendPropertyChanging();
+					this._PlayerNumber = value;
+					this.SendPropertyChanged("PlayerNumber");
+					this.OnPlayerNumberChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Player_PlayerMatch", Storage="_PlayerMatches", ThisKey="PlayerId", OtherKey="PlayerId")]
 		public EntitySet<PlayerMatch> PlayerMatches
 		{
@@ -2126,6 +2174,8 @@ namespace thaitae.lib
 		
 		private int _TeamId;
 		
+		private int _SeasonId;
+		
 		private EntityRef<Player> _Player;
 		
 		private EntityRef<Match> _Match;
@@ -2148,6 +2198,8 @@ namespace thaitae.lib
     partial void OnPlayerRedCardChanged();
     partial void OnTeamIdChanging(int value);
     partial void OnTeamIdChanged();
+    partial void OnSeasonIdChanging(int value);
+    partial void OnSeasonIdChanged();
     #endregion
 		
 		public PlayerMatch()
@@ -2301,6 +2353,26 @@ namespace thaitae.lib
 					this._TeamId = value;
 					this.SendPropertyChanged("TeamId");
 					this.OnTeamIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeasonId")]
+		public int SeasonId
+		{
+			get
+			{
+				return this._SeasonId;
+			}
+			set
+			{
+				if ((this._SeasonId != value))
+				{
+					this.OnSeasonIdChanging(value);
+					this.SendPropertyChanging();
+					this._SeasonId = value;
+					this.SendPropertyChanged("SeasonId");
+					this.OnSeasonIdChanged();
 				}
 			}
 		}

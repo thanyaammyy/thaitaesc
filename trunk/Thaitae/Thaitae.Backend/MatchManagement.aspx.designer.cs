@@ -112,15 +112,6 @@ namespace Thaitae.Backend {
         protected global::System.Web.UI.WebControls.ObjectDataSource LeagueDataSource;
         
         /// <summary>
-        /// TeamDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource TeamDataSource;
-        
-        /// <summary>
         /// SeasonDataSource control.
         /// </summary>
         /// <remarks>
