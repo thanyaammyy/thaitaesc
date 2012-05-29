@@ -14,7 +14,7 @@
            <cc1:JQGridColumn HeaderText="League Name" DataField="LeagueName" Editable="True"
                 TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="League Type" EditType="DropDown" DataField="LeagueTypeName"
-                EditValues="4:Normal League;8:Champion League;12:FA Cup;16:Custom League" Editable="True"
+                EditValues="4:Normal" Editable="True"
                 TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="Description" DataField="LeagueDesc" Editable="True"
                 TextAlign="Center" />

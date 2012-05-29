@@ -4,10 +4,15 @@
 <%@ Register Assembly="Trirand.Web" Namespace="Trirand.Web.UI.WebControls" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
-        $('#<%=JqgridMatch1.ClientID %>').trigger('reloadGrid');
         function bindCalendarDialog() {
             $('input[id][name$="MatchDate"]').blur();
             $('input[id][name$="MatchDate"]').datetimepicker();
+            $("#gs_MatchDate").datepicker();
+        }
+        function bindCalendarDialog() {
+            $('input[id][name$="MatchDate"]').blur();
+            $('input[id][name$="MatchDate"]').datetimepicker();
+            $("#gs_MatchDate").datepicker();
         }
         function showHomePlayerGrid(subgrid_id, row_id) {
             showSubGrid_JqgridHomePlayer(subgrid_id, row_id, "", "JqgridHomePlayer");
@@ -62,13 +67,15 @@
                     <cc1:JQGridColumn HeaderText="Away Team" DataType="String" DataField="TeamAwayIdName"
                         TextAlign="Center" Searchable="True" SearchType="DropDown" SearchControlID="ddlTeam"
                         SearchToolBarOperation="Contains" />
-                    <cc1:JQGridColumn HeaderText="Match Date" DataType="DateTime" DataFormatString="{0:dd/mm/yyyy HH:mm}"
+                    <cc1:JQGridColumn HeaderText="Match Date" DataType="DateTime" DataFormatString="{0:dd/MM/yyyy HH:mm}"
                         DataField="MatchDate" EditType="TextBox" Editable="True" SearchType="TextBox"
                         SearchToolBarOperation="Contains" TextAlign="Center" Searchable="True" />
                 </Columns>
                 <ToolBarSettings ShowRefreshButton="True" ShowSearchToolBar="True" />
+                <SearchToolBarSettings SearchToolBarAction="SearchOnEnter"></SearchToolBarSettings>
                 <AppearanceSettings ShowRowNumbers="true" />
-                <ClientSideEvents RowSelect="bindCalendarDialog" SubGridRowExpanded="showSubGrids" />
+                <ClientSideEvents RowSelect="bindCalendarDialog" LoadComplete="bindCalendarDialog"
+                    SubGridRowExpanded="showSubGrids" />
                 <HierarchySettings HierarchyMode="Parent" />
             </cc1:JQGrid>
         </ContentTemplate>

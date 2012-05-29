@@ -10,9 +10,6 @@ namespace Thaitae.Backend
 {
     public partial class MatchManagement : System.Web.UI.Page
     {
-        private int _seasonId;
-        private int _leagueId;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -30,7 +27,6 @@ namespace Thaitae.Backend
         {
             if (ddlLeague.SelectedValue == "") return;
             Session["leagueid"] = ddlLeague.SelectedValue;
-            _leagueId = Convert.ToInt32(Session["leagueid"]);
             Session.Remove("seasonid");
         }
 
@@ -38,7 +34,6 @@ namespace Thaitae.Backend
         {
             if (ddlSeason.SelectedValue == "") return;
             Session["seasonid"] = ddlSeason.SelectedValue;
-            _seasonId = Convert.ToInt32(Session["seasonid"]);
         }
 
         protected void JqgridMatch1_RowEditing(object sender, JQGridRowEditEventArgs e)
@@ -293,82 +288,66 @@ namespace Thaitae.Backend
 
         protected void JqgridAwayPlayer_RowEditing(object sender, JQGridRowEditEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
-            {
-                var playerMatch = dc.PlayerMatches.Single(item => item.PlayerMatchId == Convert.ToInt32(e.RowKey));
-                var playerCheck =
-                    dc.Players.Count(
-                        item =>
-                        item.SeasonId == _seasonId && item.TeamId == playerMatch.TeamId &&
-                        item.PlayerNumber == Convert.ToInt32(e.RowData["PlayerNumber"]));
-                if (playerCheck == 0)
-                {
-                    var player = new Player
-                    {
-                        PlayerNumber = Convert.ToInt32(e.RowData["PlayerNumber"]),
-                        PlayerName = e.RowData["PlayerName"],
-                        TeamId = playerMatch.TeamId,
-                        SeasonId = _seasonId
-                    };
-                    dc.Players.InsertOnSubmit(player);
-                    dc.SubmitChanges();
-                    playerMatch.PlayerId = player.PlayerId;
-                    CalculatePlayerResult(player);
-                }
-                else
-                {
-                    var player =
-                    dc.Players.Single(
-                        item =>
-                        item.SeasonId == _seasonId && item.TeamId == playerMatch.TeamId &&
-                        item.PlayerNumber == Convert.ToInt32(e.RowData["PlayerNumber"]));
-                    playerMatch.PlayerId = player.PlayerId;
-                    if (e.RowData["PlayerName"] != "")
-                    {
-                        player.PlayerName = e.RowData["PlayerName"];
-                    }
-                    CalculatePlayerResult(player);
-                }
-                dc.SubmitChanges();
-            }
+            var playerMatchId = Convert.ToInt32(e.RowKey);
+            var playerNumber = Convert.ToInt32(e.RowData["PlayerNumber"]);
+            var playerName = e.RowData["PlayerName"];
+            var player = CalculatePlayerMatch(playerMatchId, playerNumber, playerName);
+            CalculatePlayerResult(player);
         }
 
         protected void JqgridHomePlayer_RowEditing(object sender, JQGridRowEditEventArgs e)
         {
+            var playerMatchId = Convert.ToInt32(e.RowKey);
+            var playerNumber = Convert.ToInt32(e.RowData["PlayerNumber"]);
+            var playerName = e.RowData["PlayerName"];
+            var player = CalculatePlayerMatch(playerMatchId, playerNumber, playerName);
+            CalculatePlayerResult(player);
+        }
+
+        public Player CalculatePlayerMatch(int playerMatchId, int playerNumber, string playerName)
+        {
+            Player playerUpdate = null;
             using (var dc = new ThaitaeDataDataContext())
             {
-                var playerMatch = dc.PlayerMatches.Single(item => item.PlayerMatchId == Convert.ToInt32(e.RowKey));
+                var playerMatch = dc.PlayerMatches.Single(item => item.PlayerMatchId == playerMatchId);
                 var playerCheck =
                     dc.Players.Count(
                         item =>
-                        item.SeasonId == _seasonId && item.TeamId == playerMatch.TeamId &&
-                        item.PlayerNumber == Convert.ToInt32(e.RowData["PlayerNumber"]));
+                        item.SeasonId == playerMatch.SeasonId && item.TeamId == playerMatch.TeamId &&
+                        item.PlayerNumber == playerNumber);
                 if (playerCheck == 0)
                 {
                     var player = new Player
                     {
-                        PlayerNumber = Convert.ToInt32(e.RowData["PlayerNumber"]),
-                        PlayerName = e.RowData["PlayerName"],
+                        PlayerNumber = playerNumber,
+                        PlayerName = playerName,
                         TeamId = playerMatch.TeamId,
-                        SeasonId = _seasonId
+                        SeasonId = playerMatch.SeasonId
                     };
                     dc.Players.InsertOnSubmit(player);
                     dc.SubmitChanges();
                     playerMatch.PlayerId = player.PlayerId;
-                    CalculatePlayerResult(player);
+                    dc.SubmitChanges();
+                    playerUpdate = player;
                 }
                 else
                 {
                     var player =
                     dc.Players.Single(
                         item =>
-                        item.SeasonId == _seasonId && item.TeamId == playerMatch.TeamId &&
-                        item.PlayerNumber == Convert.ToInt32(e.RowData["PlayerNumber"]));
+                        item.SeasonId == playerMatch.SeasonId && item.TeamId == playerMatch.TeamId &&
+                        item.PlayerNumber == playerNumber);
                     playerMatch.PlayerId = player.PlayerId;
-                    CalculatePlayerResult(player);
+                    playerMatch.PlayerId = player.PlayerId;
+                    if (!string.IsNullOrEmpty(playerName))
+                    {
+                        player.PlayerName = playerName;
+                    }
+                    dc.SubmitChanges();
+                    playerUpdate = player;
                 }
-                dc.SubmitChanges();
             }
+            return playerUpdate;
         }
 
         public void CalculateTeamResult(TeamMatch team, TeamMatch teamAgainst)
@@ -376,7 +355,7 @@ namespace Thaitae.Backend
             using (var dc = new ThaitaeDataDataContext())
             {
                 var teamUpdate = dc.TeamSeasons.Single(item => item.TeamId == team.TeamId);
-                teamUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && team.TeamStatus != 0);
+                teamUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && item.TeamStatus != 0);
                 teamUpdate.TeamDrew = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && item.TeamStatus == 2);
                 var teamgoalAgainstSum =
                     dc.TeamMatches.Where(item => item.TeamId == team.TeamId && item.TeamStatus != 0).Sum(
@@ -394,7 +373,7 @@ namespace Thaitae.Backend
                 teamUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && item.TeamStatus == 1);
                 teamUpdate.TeamPts = (teamUpdate.TeamWon * 3) + (teamUpdate.TeamDrew);
                 var teamAgainstUpdate = dc.TeamSeasons.Single(item => item.TeamId == teamAgainst.TeamId);
-                teamAgainstUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && teamAgainst.TeamStatus != 0);
+                teamAgainstUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus != 0);
                 teamAgainstUpdate.TeamDrew = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus == 2);
                 var teamAgainstgoalAgainstSum =
                     dc.TeamMatches.Where(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus != 0).Sum(
