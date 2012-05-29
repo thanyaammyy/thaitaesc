@@ -60,6 +60,7 @@ namespace Thaitae.Backend
                     var teamSeasonList = dc.TeamSeasons.Where(item => item.SeasonId == season.SeasonId).ToList();
                     dc.TeamSeasons.DeleteAllOnSubmit(teamSeasonList);
                     var matchList = dc.Matches.Where(item => item.SeasonId == season.SeasonId).ToList();
+                    dc.Matches.DeleteAllOnSubmit(matchList);
                     foreach (var match in matchList)
                     {
                         var teamMatchList = dc.TeamMatches.Where(item => item.MatchId == match.MatchId).ToList();
