@@ -12,25 +12,25 @@ namespace thaitae.lib.Page
             using (var dc = new ThaitaeDataDataContext())
             {
                 var leagueList = new List<League> { new League() { LeagueId = 0, LeagueName = "Select League" } };
-                leagueList.AddRange(dc.Leagues.Where(item => item.Active == 1).ToList());
+                leagueList.AddRange(dc.Leagues.ToList());
                 return leagueList;
             }
         }
 
-		public static IEnumerable<League> SelectLeague()
-		{
-			IEnumerable<League> leagues = new List<League>();
-			var dc = new ThaitaeDataDataContext();
-			var leagueCount = dc.Leagues.Count();
-			if (leagueCount > 0) leagues = dc.Leagues.Where(item=>item.Active==1).ToList();
-			return leagues;
-		}
+        public static IEnumerable<League> SelectLeague()
+        {
+            IEnumerable<League> leagues = new List<League>();
+            var dc = new ThaitaeDataDataContext();
+            var leagueCount = dc.Leagues.Count();
+            if (leagueCount > 0) leagues = dc.Leagues.Where(item => item.Active == 1).ToList();
+            return leagues;
+        }
 
-		public static League GetLeague(int leagueId)
-		{
-			var dc = new ThaitaeDataDataContext();
-			var league = dc.Leagues.Single(item=>item.LeagueId==leagueId);
-			return league;
-		}
+        public static League GetLeague(int leagueId)
+        {
+            var dc = new ThaitaeDataDataContext();
+            var league = dc.Leagues.Single(item => item.LeagueId == leagueId);
+            return league;
+        }
     }
 }
