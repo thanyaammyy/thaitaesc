@@ -23,5 +23,12 @@ namespace thaitae.lib.Page
 			var league = dc.Leagues;
 			return league;
 		}
+
+		public static League GetLeague(int leagueId)
+		{
+			var dc = new ThaitaeDataDataContext();
+			var league = dc.Leagues.Single(item=>item.LeagueId==leagueId);
+			return league;
+		}
     }
 }

@@ -3,19 +3,12 @@
 
 
 <p align="center" style="font-size:12px; font-family: Helvetica; color:#EDEDED">
-  <a href="../index.aspx" id="index.html" >Home</a> l 
-  <a href="#" id="AboutUs.html" >About us</a> l 
-  <a href="#" id="News.html" >News</a> l 
-  <a href="#" id="PricePromotion.html" >Price & Promotion</a> l 
-  <a href="#" id="Premier.html" >Premier</a> l 
-  <a href="#" id="Division1.html" >Division1</a> l 
-  <a href="#" id="Division2.html" >Division2</a> l 
-  <a href="#" id="Division3.html" >Division3</a> l 
-  <a href="#" id="Division4.html" >Division4</a> l 
-  <a href="#" id="ChampionsLeague.html">Champions League</a> l 
-  <a href="#" id="FACup.html" >FA Cup</a> l 
-  <a href="#" id="Gallery.html" >Gallery</a> l 
-  <a href="#" id="ContactUs.html" >Contact us</a>
+  <a href="../Index.aspx" id="indexF" >Home</a> l
+  <a href="../AboutUs.aspx" id="aboutUsF" >About us</a> l 
+  <a href="../News.aspx" id="newsF" >News</a> l 
+  <a href="../PricePromotion.aspx" id="pricePromotionF" >Price & Promotion</a> l 
+  <a href="../Gallery.aspx" id="galleryF" >Gallery</a> l 
+  <a href="../ContactUs.aspx" id="contactUsF" >Contact us</a>
   
   </p>
   
