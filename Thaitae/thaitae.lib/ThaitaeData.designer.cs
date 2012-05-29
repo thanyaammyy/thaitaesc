@@ -341,7 +341,7 @@ namespace thaitae.lib
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Picture", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Picture")]
 		public string Picture
 		{
 			get

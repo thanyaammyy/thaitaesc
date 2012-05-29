@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using thaitae.lib;
-using Trirand.Web.UI.WebControls;
 using System.IO;
 using System.Text.RegularExpressions;
+
 
 namespace Thaitae.Backend
 {
@@ -23,6 +18,8 @@ namespace Thaitae.Backend
 
         protected void JqgridLeague1_RowEditing(object sender, Trirand.Web.UI.WebControls.JQGridRowEditEventArgs e)
         {
+			const string path = "~/LeagueImages/";
+			if (!IsImage(e.RowData["Picture"])) return;
             using (var dc = new ThaitaeDataDataContext())
             {
                 var league = dc.Leagues.Single(item => item.LeagueId == Convert.ToInt32(e.RowKey));
@@ -30,7 +27,23 @@ namespace Thaitae.Backend
                 league.LeagueType = Convert.ToInt32(e.RowData["LeagueTypeName"]);
                 league.LeagueDesc = e.RowData["LeagueDesc"];
                 league.Active = Convert.ToByte(e.RowData["ActiveName"]);
-                dc.SubmitChanges();
+
+				var pathServer = Server.MapPath(path);
+				var name = league.LeagueId + ".jpg";
+				var fileName = pathServer + name;
+				var fileStream = new FileStream(e.RowData["Picture"], FileMode.OpenOrCreate);
+				try
+				{
+					var image = System.Drawing.Image.FromStream(fileStream);
+					image.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+				}
+				finally
+				{
+					fileStream.Close();
+				}
+
+				league.Picture = "www.thaitaesc.com/Admin/LeagueImages/" + name;
+				dc.SubmitChanges();
             }
         }
 
@@ -73,7 +86,7 @@ namespace Thaitae.Backend
 				{
 					fileStream.Close();
 				}
-				league.Picture = "www.thaitaesc.com/Admin/LeagueImages/" + fileName;
+				league.Picture = "www.thaitaesc.com/Admin/LeagueImages/" + name;
 				dc.SubmitChanges();
 
             }
