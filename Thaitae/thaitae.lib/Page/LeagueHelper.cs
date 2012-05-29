@@ -19,9 +19,11 @@ namespace thaitae.lib.Page
 
 		public static IEnumerable<League> SelectLeague()
 		{
+			IEnumerable<League> leagues = new List<League>();
 			var dc = new ThaitaeDataDataContext();
-			var league = dc.Leagues;
-			return league;
+			var leagueCount = dc.Leagues.Count();
+			if (leagueCount > 0) leagues = dc.Leagues.ToList();
+			return leagues;
 		}
 
 		public static League GetLeague(int leagueId)

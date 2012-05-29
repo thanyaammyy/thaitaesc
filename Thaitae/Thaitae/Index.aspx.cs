@@ -22,10 +22,14 @@ namespace Thaitae
 				}
 				else
 				{
-					var leagueId = ListLeague.First().LeagueId;
-					JqgridMatchFullResultBinding(leagueId);
-					JqgridMatchBinding(leagueId);
-					JqgridSulvoStarBinding(leagueId);
+					if(ListLeague.Count()>0)
+					{
+						var leagueId = ListLeague.First().LeagueId;
+						JqgridMatchFullResultBinding(leagueId);
+						JqgridMatchBinding(leagueId);
+						JqgridSulvoStarBinding(leagueId);
+					}
+					
 				}
 
 			}
