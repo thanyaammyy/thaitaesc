@@ -14,17 +14,16 @@ namespace Thaitae.Backend
         {
             if (!IsPostBack)
             {
-				if (Session["leagueid"] == null) return;
-				if (Convert.ToInt32(Session["leagueid"]) == 0) return;
+                if (Session["leagueid"] == null) return;
+                if (Convert.ToInt32(Session["leagueid"]) == 0) return;
                 ddlLeague.SelectedValue = (string)Session["leagueid"];
                 JqgridSeasonBinding(Convert.ToInt32(Session["leagueid"]));
-                
             }
         }
 
         protected void ddlLeague_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (((DropDownList)sender).SelectedValue != "")
+            if (ddlLeague.SelectedValue != "")
             {
                 Session["leagueid"] = ddlLeague.SelectedValue;
                 Session.Remove("seasonid");
@@ -33,8 +32,8 @@ namespace Thaitae.Backend
 
         protected void JqgridSeason_RowAdding(object sender, Trirand.Web.UI.WebControls.JQGridRowAddEventArgs e)
         {
-			if (Session["leagueid"] == null) return;
-			if (Convert.ToInt32(Session["leagueid"]) == 0)return;
+            if (Session["leagueid"] == null) return;
+            if (Convert.ToInt32(Session["leagueid"]) == 0) return;
             using (var dc = new ThaitaeDataDataContext())
             {
                 dc.Seasons.InsertOnSubmit(new thaitae.lib.Season
