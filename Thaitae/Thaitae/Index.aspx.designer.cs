@@ -13,24 +13,6 @@ namespace Thaitae {
     public partial class index {
         
         /// <summary>
-        /// UpdatePanelMatchResult control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelMatchResult;
-        
-        /// <summary>
-        /// JQGridMatchResult control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Trirand.Web.UI.WebControls.JQGrid JQGridMatchResult;
-        
-        /// <summary>
         /// UpdatePanel2 control.
         /// </summary>
         /// <remarks>
@@ -38,15 +20,6 @@ namespace Thaitae {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
-        
-        /// <summary>
-        /// lbMatchResult control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbMatchResult;
         
         /// <summary>
         /// GetLeague1 control.
@@ -76,13 +49,13 @@ namespace Thaitae {
         protected global::Trirand.Web.UI.WebControls.JQGrid JQGridMatchFullResult;
         
         /// <summary>
-        /// lbSulvoStar control.
+        /// JQGridMatches control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbSulvoStar;
+        protected global::Trirand.Web.UI.WebControls.JQGrid JQGridMatches;
         
         /// <summary>
         /// JQGridSulvoStar control.
@@ -92,23 +65,5 @@ namespace Thaitae {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Trirand.Web.UI.WebControls.JQGrid JQGridSulvoStar;
-        
-        /// <summary>
-        /// lbMatch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbMatch;
-        
-        /// <summary>
-        /// JQGridMatches control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Trirand.Web.UI.WebControls.JQGrid JQGridMatches;
     }
 }

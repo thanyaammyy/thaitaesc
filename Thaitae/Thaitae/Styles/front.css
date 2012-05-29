@@ -20,3 +20,6 @@ div#copyright {
 }
 div#copyright a { color:#eee; }
 div#copyright a:hover { color:#222; }
+a img{
+border:0;
+}
