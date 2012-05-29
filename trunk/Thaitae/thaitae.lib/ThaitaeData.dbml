@@ -8,7 +8,7 @@
       <Column Name="LeagueDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Active" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="OrderIndex" Type="System.Int32" CanBeNull="false" />
-      <Column Member="Picture" Type="System.String" CanBeNull="false" />
+      <Column Name="Picture" Type="System.String" CanBeNull="true" />
       <Association Name="League_Season" Member="Seasons" ThisKey="LeagueId" OtherKey="LeagueId" Type="Season" />
     </Type>
   </Table>

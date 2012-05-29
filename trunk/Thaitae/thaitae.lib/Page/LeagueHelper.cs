@@ -22,7 +22,7 @@ namespace thaitae.lib.Page
 			IEnumerable<League> leagues = new List<League>();
 			var dc = new ThaitaeDataDataContext();
 			var leagueCount = dc.Leagues.Count();
-			if (leagueCount > 0) leagues = dc.Leagues.ToList();
+			if (leagueCount > 0) leagues = dc.Leagues.Where(item=>item.Active==1).ToList();
 			return leagues;
 		}
 

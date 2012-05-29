@@ -29,7 +29,7 @@
                 TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="Status" DataField="ActiveName" Editable="True" EditType="DropDown"
                 EditValues="0:InActive;1:Active" TextAlign="Center" />
-			<cc1:JQGridColumn HeaderText="Icon" DataField="Picture" Editable="True" Visible="False"
+			<cc1:JQGridColumn HeaderText="Icon" DataField="Picture" Editable="True" Visible="True"
                 EditType="Custom" EditTypeCustomCreateElement="createFile" EditTypeCustomGetValue="getFileValue"
                 TextAlign="Center" />
         </Columns>
