@@ -29,8 +29,7 @@ namespace Thaitae.Backend
                 dc.News.InsertOnSubmit(news);
                 dc.SubmitChanges();
                 if (!IsImage(e.RowData["Picture"])) return;
-                const string path = "~/NewsImages/";
-                var pathServer = Page.MapPath(path);
+				const string pathServer = "NewsImages/";
                 var fileName = pathServer + news.newsId + ".jpg";
                 var fileStream = new FileStream(e.RowData["Picture"], FileMode.OpenOrCreate);
                 try
@@ -65,9 +64,8 @@ namespace Thaitae.Backend
                 news.newsTopic = e.RowData["newsTopic"];
                 news.newsContent = e.RowData["newsContent"];
                 dc.SubmitChanges();
-                const string path = "~/NewsImages/";
                 if (!IsImage(e.RowData["Picture"])) return;
-                var pathServer = Page.MapPath(path);
+				const string pathServer = "NewsImages/";
                 var fileName = pathServer + e.RowKey + ".jpg";
                 var fileStream = new FileStream(e.RowData["Picture"], FileMode.OpenOrCreate);
                 try
