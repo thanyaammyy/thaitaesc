@@ -49,9 +49,11 @@
         <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
             ShowRefreshButton="True" ShowSearchButton="True" />
         <AppearanceSettings ShowRowNumbers="true" />
-        <AddDialogSettings Width="700" ClearAfterAdding="True" Modal="True" TopOffset="180"
-            LeftOffset="300" Height="300" CloseAfterAdding="True" Caption="Add News"></AddDialogSettings>
-        <EditDialogSettings Width="700" Modal="True" TopOffset="180" LeftOffset="300" Height="300"
-            CloseAfterEditing="True" Caption="Edit News"></EditDialogSettings>
+		<DeleteDialogSettings LeftOffset="497" TopOffset="241"></DeleteDialogSettings>
+        <AddDialogSettings Width="700" ClearAfterAdding="True" Modal="True" TopOffset="180" LeftOffset="300" Height="300" CloseAfterAdding="True"
+            Caption="Add News"></AddDialogSettings>
+        <EditDialogSettings Width="700" Modal="True" TopOffset="180" LeftOffset="300" Height="300" CloseAfterEditing="True"
+            Caption="Edit News"></EditDialogSettings>
+
     </cc1:JQGrid>
 </asp:Content>

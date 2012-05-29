@@ -39,6 +39,7 @@
                 <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
                     ShowRefreshButton="True" ShowSearchButton="True" />
                 <AppearanceSettings ShowRowNumbers="true" />
+				<DeleteDialogSettings LeftOffset="497" TopOffset="241"></DeleteDialogSettings>
 				<AddDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
 					CloseAfterAdding="True" Caption="Add Team" ClearAfterAdding="True"></AddDialogSettings>
 				<EditDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
