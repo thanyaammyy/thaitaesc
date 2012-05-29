@@ -1,15 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Thaitae.Master" AutoEventWireup="true"
-	CodeBehind="index.aspx.cs" Inherits="Thaitae.index" %>
+	CodeBehind="Index.aspx.cs" Inherits="Thaitae.index" %>
 
 <%@ Import Namespace="System.Globalization" %>
 <%@ Register Assembly="Trirand.Web" Namespace="Trirand.Web.UI.WebControls" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>ไทยเตะซ็อกเกอร์คลับ l www.thaitaesc.com</title>
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('#tabs').tabs();
 			$('#datepicker').datepicker({
 				inline: true
 			});
+			//			<% Session["LeagueId"] = 1;%>
 		});
 
 

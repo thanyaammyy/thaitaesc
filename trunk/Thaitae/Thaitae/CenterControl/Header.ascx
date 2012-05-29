@@ -9,10 +9,10 @@
     <div id="menu">
     <ul class="menu">
      
-        <li><a href="../index.aspx" id="index.html"><span>Home&nbsp;&nbsp;&nbsp;</span></a></li>
-        <li><a href="#" id="AboutUs.html" ><span>&nbsp;&nbsp;&nbsp;&nbsp;About us&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
-        <li><a href="#" id="News.html" ><span>&nbsp;&nbsp;&nbsp;&nbsp;News&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
-        <li><a href="#" id="PricePromotion.html"><span>&nbsp;&nbsp;&nbsp;&nbsp;Price & Promotion&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
+        <li><a href="../Index.aspx" id="indexH"><span>Home&nbsp;&nbsp;&nbsp;</span></a></li>
+        <li><a href="../AboutUs.aspx" id="aboutUsH" ><span>&nbsp;&nbsp;&nbsp;&nbsp;About us&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
+        <li><a href="../News.aspx" id="newsH" ><span>&nbsp;&nbsp;&nbsp;&nbsp;News&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
+        <li><a href="../PricePromotion.aspx" id="pricePromotionH"><span>&nbsp;&nbsp;&nbsp;&nbsp;Price & Promotion&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
         
         
         <li><a href="#" class="parent"><span>&nbsp;&nbsp;&nbsp;&nbsp;League&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
@@ -24,12 +24,12 @@
                   <li><a href="#" id="Division3.html"><span>Division3</span></a></li>
                    <li><a href="#" id="Division4.html"><span>Division4</span></a></li>
             </ul>
-        
+        </li>
        
-        <li><a href="#" id="ChampionsLeague.html"><span>&nbsp;&nbsp;&nbsp;&nbsp;Champions League&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
-        <li><a href="#" id="FACup.html"><span>&nbsp;&nbsp;&nbsp;&nbsp;FA Cup&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>     
-        <li><a href="#" id="Gallery.html"><span>&nbsp;&nbsp;&nbsp;Gallery&nbsp;&nbsp;&nbsp;</span></a></li>
-        <li class="last"><a href="#" id="ContactUs.html"><span>&nbsp;Contact us&nbsp;</span></a></li>
+        <li><a href="../ChampionLeague.aspx" id="championsLeague"><span>&nbsp;&nbsp;&nbsp;&nbsp;Champions League&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
+        <li><a href="../FACup.aspx" id="faCup"><span>&nbsp;&nbsp;&nbsp;&nbsp;FA Cup&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>     
+        <li><a href="../Gallery.aspx" id="galleryH"><span>&nbsp;&nbsp;&nbsp;Gallery&nbsp;&nbsp;&nbsp;</span></a></li>
+        <li class="last"><a href="../ContactUs.aspx" id="contactUsH"><span>&nbsp;Contact us&nbsp;</span></a></li>
     </ul>
   </div> 
   </td>

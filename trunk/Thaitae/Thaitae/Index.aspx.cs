@@ -16,26 +16,24 @@ namespace Thaitae
 			{
 				if (Session["LeagueId"] != null && Session["LeagueId"].ToString()!="")
 				{
-					
 					JqgridMatchFullResultBinding(Convert.ToInt32(Session["LeagueId"]));
 					JqgridMatchResultBinding(Convert.ToInt32(Session["LeagueId"]));
 					JqgridMatchBinding(Convert.ToInt32(Session["LeagueId"]));
 					JqgridSulvoStarBinding(Convert.ToInt32(Session["LeagueId"]));
-					//SetLabelPage(Convert.ToInt32(Session["LeagueId"]));
+					SetLabelPage(Convert.ToInt32(Session["LeagueId"]));
 				}
 				
 			}
 			
 		}
 
-		//public void SetLabelPage(int leagueId)
-		//{
-		//    var league = LeagueHelper.SelectLeague(leagueId);
-		//    lbMatch.Text = league.LeagueName;
-		//    lbMatchResult.Text = league.LeagueName;
-		//    lbSulvoStar.Text = league.LeagueName;
-		//    lbTab.Text = league.LeagueName;
-		//}
+		public void SetLabelPage(int leagueId)
+		{
+			var league = LeagueHelper.GetLeague(leagueId);
+			lbMatch.Text = league.LeagueName;
+			lbMatchResult.Text = league.LeagueName;
+			lbSulvoStar.Text = league.LeagueName;
+		}
 
 		public void JqgridMatchFullResultBinding(int leagueId)
 		{
