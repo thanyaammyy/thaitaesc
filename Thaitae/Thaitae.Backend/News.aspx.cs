@@ -30,7 +30,7 @@ namespace Thaitae.Backend
 				dc.SubmitChanges();
 				if (!IsImage(e.RowData["Picture"])) return;
 				const string path = "~/NewsImages/";
-				var pathServer = Server.MapPath(path);
+				var pathServer = Page.MapPath(path);
 				var fileName = pathServer+ news.newsId + ".jpg";
 				var fileStream = new FileStream(e.RowData["Picture"], FileMode.OpenOrCreate);
 				try
@@ -68,7 +68,7 @@ namespace Thaitae.Backend
 
 				const string path = "~/NewsImages/";
 				if (!IsImage(e.RowData["Picture"])) return;
-                var pathServer = Server.MapPath(path);
+                var pathServer = Page.MapPath(path);
                 var fileName = pathServer + e.RowKey + ".jpg";
                 var fileStream = new FileStream(e.RowData["Picture"], FileMode.OpenOrCreate);
                 try
