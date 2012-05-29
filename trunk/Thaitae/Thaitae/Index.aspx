@@ -9,24 +9,25 @@
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$('#tabs').tabs();
-			$('#datepicker').datepicker({
-				inline: true
-			});
-			//			<% Session["LeagueId"] = 1;%>
 		});
 
-
+		function setNameLabel() {
+			var name = $("td[aria-describedby=ContentPlaceHolder1_JQGridMatchFullResult_leagueName]").html();
+			$("label[class=setNameLabel]").html(name);
+		}
 
 		function tabClick(a) {
 			var id = a.id;
+			
 			$("#GetLeague1").val(id);
 			$("#PostButton1").click();
+			setNameLabel(name);
 		}
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 	<div align="center">
-		<table>
+		<table width="1000px">
 			<tr>
 				<td colspan="2" rowspan="4">
 					<p>
@@ -241,35 +242,6 @@
 					</a>--%>
 				</td>
 				<td valign="top">
-					<p align="center" style="font-size: 16px">
-						&nbsp;</p>
-					<p align="center" style="font-size: 16px">
-						ผลการแข่งขัน Premier
-					</p>
-					<p align="center" style="font-size: 12px">
-						ประจำวันที่
-						<%=DateTime.Now.ToString("dd MMM yyyy", new CultureInfo("th-TH")) %></p>
-					<p align="center" style="font-size: 12px">
-						&nbsp;</p>
-					<asp:UpdatePanel ID="UpdatePanelMatchResult" UpdateMode="Always" runat="server">
-						<ContentTemplate>
-							<cc1:JQGrid ID="JQGridMatchResult" AutoWidth="True" runat="server" Height="100%">
-								<Columns>
-									<cc1:JQGridColumn DataField="TeamSeasonId" PrimaryKey="True" Visible="False" />
-									<cc1:JQGridColumn HeaderText="ทีม" DataField="TeamName" TextAlign="Center" />
-									<cc1:JQGridColumn HeaderText="คะแนน" DataField="TeamPts" TextAlign="Center" />
-								</Columns>
-								<ToolBarSettings ShowRefreshButton="True" />
-								<AppearanceSettings ShowRowNumbers="true" />
-							</cc1:JQGrid>
-						</ContentTemplate>
-					</asp:UpdatePanel>
-					<a href="#">
-						<p align="right" style="font-size: 12px">
-							view all</p>
-					</a>
-					<p>
-						&nbsp;</p>
 				</td>
 			</tr>
 			<tr align="center">
@@ -287,18 +259,16 @@
 						<ul>
 							<%foreach (var league in ListLeague)%>
 							<%{%>
-							<li><a href="#fixTab" id="<%=league.LeagueId%>" onclick="tabClick(this)">
+							<li><a href="#fixTab" id="<%=league.LeagueId%>" rel="<%=league.LeagueName%>" onclick="tabClick(this)">
 								<%=league.LeagueName%>
 							</a></li>
 							<%}%>
 						</ul>
 						<div id="fixTab">
-							<asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Always" runat="server">
+							<asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" runat="server">
 								<ContentTemplate>
 									<div style="font-size: 14px;" align="center">
-										ตารางคะแนน
-										<asp:Label ID="lbMatchResult" runat="server">
-										</asp:Label>
+										ตารางคะแนน <label class="setNameLabel" id="lbMatchResult"></label>
 									</div>
 									<br />
 									<asp:HiddenField ID="GetLeague1" ClientIDMode="Static" runat="server" />
@@ -307,6 +277,7 @@
 									</div>
 									<cc1:JQGrid ID="JQGridMatchFullResult" AutoWidth="True" runat="server" Height="100%">
 										<Columns>
+											<cc1:JQGridColumn  DataField="leagueName" Visible="False" />
 											<cc1:JQGridColumn DataField="TeamSeasonId" PrimaryKey="True" Visible="False" />
 											<cc1:JQGridColumn HeaderText="ทีม" DataField="TeamName" TextAlign="Center" />
 											<cc1:JQGridColumn HeaderText="แข่ง" DataField="TeamMatchPlayed" TextAlign="Center" />
@@ -318,12 +289,30 @@
 										</Columns>
 										<ToolBarSettings ShowRefreshButton="True" />
 										<AppearanceSettings ShowRowNumbers="true" />
+										<ClientSideEvents LoadComplete="setNameLabel"></ClientSideEvents>
 									</cc1:JQGrid>
 									<br />
+									<div style="font-size: 14px" align="center">
+										สรุปผลการแข่งขัน <label class="setNameLabel" id="lbMatch"></label>
+									</div>
+									<br />
+									<cc1:JQGrid ID="JQGridMatches" AutoWidth="True" runat="server" Height="100%">
+										<Columns>
+											<cc1:JQGridColumn DataField="MatchId" PrimaryKey="True" Visible="False" />
+											<cc1:JQGridColumn HeaderText="ทีมเหย้า" DataField="TeamHomeIdName" TextAlign="Center" />
+											<cc1:JQGridColumn HeaderText="ผลการแข่งขัน" DataField="MatchScore" TextAlign="Center" />
+											<cc1:JQGridColumn HeaderText="ทีมเยือน" DataField="TeamAwayIdName" TextAlign="Center" />
+											<cc1:JQGridColumn HeaderText="วันที่" DataType="DateTime" DataFormatString="{0:dd/MM/yyyy}"
+												DataField="MatchDate" TextAlign="Center" />
+											<cc1:JQGridColumn HeaderText="เวลา" DataType="DateTime" DataFormatString="{0:HH:mm}"
+												DataField="MatchDate" TextAlign="Center" />
+										</Columns>
+										<ToolBarSettings ShowRefreshButton="True" />
+										<AppearanceSettings ShowRowNumbers="true" />
+									</cc1:JQGrid>
 									<br />
 									<div style="font-size: 14px" align="center">
-										ดาวซัลโว
-										<asp:Label ID="lbSulvoStar" runat="server"> </asp:Label>
+										ดาวซัลโว <label class="setNameLabel" id="lbSulvoStar"></label>
 									</div>
 									<br />
 									<cc1:JQGrid ID="JQGridSulvoStar" AutoWidth="True" runat="server" Height="100%">
@@ -336,43 +325,10 @@
 										<ToolBarSettings ShowRefreshButton="True" />
 										<AppearanceSettings ShowRowNumbers="true" />
 									</cc1:JQGrid>
-									<table width="985">
-										<tr>
-											<td width="728">
-												<br />
-												<br />
-												<div style="font-size: 14px" align="center">
-													ตารางการแข่งขัน
-													<asp:Label ID="lbMatch" runat="server"></asp:Label>
-												</div>
-												<br />
-												<cc1:JQGrid ID="JQGridMatches" AutoWidth="True" runat="server" Height="100%">
-													<Columns>
-														<cc1:JQGridColumn DataField="MatchId" PrimaryKey="True" Visible="False" />
-														<cc1:JQGridColumn HeaderText="ทีมเหย้า" DataField="TeamHomeIdName" TextAlign="Center" />
-														<cc1:JQGridColumn HeaderText="ทีมเยือน" DataField="TeamAwayIdName" TextAlign="Center" />
-														<cc1:JQGridColumn HeaderText="วันที่" DataType="DateTime" DataFormatString="{0:dd/MM/yyyy}"
-															DataField="MatchDate" TextAlign="Center" />
-														<cc1:JQGridColumn HeaderText="เวลา" DataType="DateTime" DataFormatString="{0:HH:mm}"
-															DataField="MatchDate" TextAlign="Center" />
-													</Columns>
-													<ToolBarSettings ShowRefreshButton="True" />
-													<AppearanceSettings ShowRowNumbers="true" />
-												</cc1:JQGrid>
 								</ContentTemplate>
 							</asp:UpdatePanel>
 						</div>
 					</div>
-				</td>
-				<td width="244" align="center">
-					<!-- Datepicker -->
-					<h2 class="demoHeaders">
-						ปฎิทินการแข่งขัน</h2>
-					<p>
-						&nbsp;</p>
-					<div id="datepicker">
-					</div>
-				</td>
 			</tr>
 		</table>
 	</div>

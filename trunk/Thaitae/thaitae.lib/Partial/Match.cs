@@ -32,5 +32,17 @@ namespace thaitae.lib
                 }
             }
         }
+		public string MatchScore
+		{
+			get
+			{
+				using (var dc = new ThaitaeDataDataContext())
+				{
+					var teamAwayGoal= dc.TeamMatches.Single(item => item.TeamId == TeamAwayId&&item.MatchId==MatchId).TeamGoalFor;
+					var teamHomeGaol = dc.TeamMatches.Single(item => item.TeamId == TeamHomeId && item.MatchId == MatchId).TeamGoalFor;
+					return teamHomeGaol+" - "+teamAwayGoal;
+				}
+			}
+		}
     }
 }

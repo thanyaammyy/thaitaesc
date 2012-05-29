@@ -17,34 +17,25 @@ namespace Thaitae
 				if (Session["LeagueId"] != null && Session["LeagueId"].ToString()!="")
 				{
 					JqgridMatchFullResultBinding(Convert.ToInt32(Session["LeagueId"]));
-					JqgridMatchResultBinding(Convert.ToInt32(Session["LeagueId"]));
 					JqgridMatchBinding(Convert.ToInt32(Session["LeagueId"]));
 					JqgridSulvoStarBinding(Convert.ToInt32(Session["LeagueId"]));
-					SetLabelPage(Convert.ToInt32(Session["LeagueId"]));
 				}
-				
+				else
+				{
+					var leagueId = ListLeague.First().LeagueId;
+					JqgridMatchFullResultBinding(leagueId);
+					JqgridMatchBinding(leagueId);
+					JqgridSulvoStarBinding(leagueId);
+				}
+
 			}
 			
-		}
-
-		public void SetLabelPage(int leagueId)
-		{
-			var league = LeagueHelper.GetLeague(leagueId);
-			lbMatch.Text = league.LeagueName;
-			lbMatchResult.Text = league.LeagueName;
-			lbSulvoStar.Text = league.LeagueName;
 		}
 
 		public void JqgridMatchFullResultBinding(int leagueId)
 		{
 			JQGridMatchFullResult.DataSource = TeamSeasonHelper.MatchResult(leagueId);
 			JQGridMatchFullResult.DataBind();
-		}
-
-		public void JqgridMatchResultBinding(int leagueId)
-		{
-			JQGridMatchResult.DataSource = TeamSeasonHelper.MatchResult(leagueId);
-			JQGridMatchResult.DataBind();
 		}
 
 		public void JqgridSulvoStarBinding(int leagueId)

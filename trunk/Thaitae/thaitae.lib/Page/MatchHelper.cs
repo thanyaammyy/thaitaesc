@@ -67,10 +67,15 @@ namespace thaitae.lib.Page
 
 		public static IEnumerable<Match> MatcheShowing(int leagueId)
 		{
+			IEnumerable<Match> matches = null;
 			var dc = new ThaitaeDataDataContext();
 			var league = dc.Leagues.Single(items => items.LeagueId == leagueId);
-			var seasons = dc.Seasons.OrderByDescending(item => item.SeasonId).First(items => items.LeagueId == league.LeagueId);
-			var matches = dc.Matches.Where(item => item.SeasonId == seasons.SeasonId).ToList();
+			var seasoncount = dc.Seasons.Count(items => items.LeagueId == league.LeagueId);
+			if (seasoncount > 0)
+			{
+				var seasons = dc.Seasons.OrderByDescending(item => item.SeasonId).First(items => items.LeagueId == league.LeagueId);
+				matches = dc.Matches.OrderByDescending(item=>item.MatchDate).Where(item => item.SeasonId == seasons.SeasonId&&item.MatchDate<DateTime.Now.AddDays(1)).ToList();
+			}
 			return matches;
 		}
     }
