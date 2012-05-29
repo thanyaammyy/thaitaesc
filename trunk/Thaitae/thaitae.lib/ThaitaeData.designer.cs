@@ -191,6 +191,8 @@ namespace thaitae.lib
 		
 		private int _OrderIndex;
 		
+		private string _Picture;
+		
 		private EntitySet<Season> _Seasons;
 		
     #region Extensibility Method Definitions
@@ -209,6 +211,8 @@ namespace thaitae.lib
     partial void OnActiveChanged();
     partial void OnOrderIndexChanging(int value);
     partial void OnOrderIndexChanged();
+    partial void OnPictureChanging(string value);
+    partial void OnPictureChanged();
     #endregion
 		
 		public League()
@@ -333,6 +337,26 @@ namespace thaitae.lib
 					this._OrderIndex = value;
 					this.SendPropertyChanged("OrderIndex");
 					this.OnOrderIndexChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Picture", CanBeNull=false)]
+		public string Picture
+		{
+			get
+			{
+				return this._Picture;
+			}
+			set
+			{
+				if ((this._Picture != value))
+				{
+					this.OnPictureChanging(value);
+					this.SendPropertyChanging();
+					this._Picture = value;
+					this.SendPropertyChanged("Picture");
+					this.OnPictureChanged();
 				}
 			}
 		}

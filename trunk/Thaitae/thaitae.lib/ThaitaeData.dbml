@@ -8,6 +8,7 @@
       <Column Name="LeagueDesc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Active" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="OrderIndex" Type="System.Int32" CanBeNull="false" />
+      <Column Member="Picture" Type="System.String" CanBeNull="false" />
       <Association Name="League_Season" Member="Seasons" ThisKey="LeagueId" OtherKey="LeagueId" Type="Season" />
     </Type>
   </Table>
@@ -63,7 +64,7 @@
       <Column Name="TeamGoalAgainst" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TeamHome" Type="System.Int32" CanBeNull="false" />
       <Column Name="SeasonId" Type="System.Int32" CanBeNull="false" />
-      <Column Member="TeamEdited" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TeamEdited" Type="System.Int32" CanBeNull="false" />
       <Association Name="Match_TeamMatch" Member="Match" ThisKey="MatchId" OtherKey="MatchId" Type="Match" IsForeignKey="true" />
       <Association Name="Team_TeamMatch" Member="Team" ThisKey="TeamId" OtherKey="TeamId" Type="Team" IsForeignKey="true" />
     </Type>

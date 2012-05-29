@@ -7,7 +7,6 @@
         function bindCalendarDialog() {
             $('input[id][name$="MatchDate"]').blur();
             $('input[id][name$="MatchDate"]').datetimepicker();
-            $("#gs_MatchDate").datepicker();
         }
         function bindCalendarDialog() {
             $('input[id][name$="MatchDate"]').blur();
@@ -68,13 +67,12 @@
                         TextAlign="Center" Searchable="True" SearchType="DropDown" SearchControlID="ddlTeam"
                         SearchToolBarOperation="Contains" />
                     <cc1:JQGridColumn HeaderText="Match Date" DataType="DateTime" DataFormatString="{0:dd/MM/yyyy HH:mm}"
-                        DataField="MatchDate" EditType="TextBox" Editable="True" SearchType="TextBox"
-                        SearchToolBarOperation="Contains" TextAlign="Center" Searchable="True" />
+                        DataField="MatchDate" EditType="TextBox" Editable="True" TextAlign="Center" Searchable= "false" />
                 </Columns>
                 <ToolBarSettings ShowRefreshButton="True" ShowSearchToolBar="True" />
                 <SearchToolBarSettings SearchToolBarAction="SearchOnEnter"></SearchToolBarSettings>
                 <AppearanceSettings ShowRowNumbers="true" />
-                <ClientSideEvents RowSelect="bindCalendarDialog" LoadComplete="bindCalendarDialog"
+                <ClientSideEvents RowSelect="bindCalendarDialog"
                     SubGridRowExpanded="showSubGrids" />
                 <HierarchySettings HierarchyMode="Parent" />
             </cc1:JQGrid>

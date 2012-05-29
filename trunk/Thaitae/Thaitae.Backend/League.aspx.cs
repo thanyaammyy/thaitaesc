@@ -7,6 +7,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using thaitae.lib;
 using Trirand.Web.UI.WebControls;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Thaitae.Backend
 {
@@ -44,17 +46,44 @@ namespace Thaitae.Backend
 
         protected void JqgridLeague1_RowAdding(object sender, Trirand.Web.UI.WebControls.JQGridRowAddEventArgs e)
         {
+			if (!IsImage(e.RowData["Picture"])) return;
             using (var dc = new ThaitaeDataDataContext())
             {
-                dc.Leagues.InsertOnSubmit(new thaitae.lib.League
-                {
-                    LeagueName = e.RowData["LeagueName"],
-                    LeagueType = Convert.ToInt32(e.RowData["LeagueTypeName"]),
-                    LeagueDesc = e.RowData["LeagueDesc"],
-                    Active = Convert.ToByte(e.RowData["ActiveName"])
-                });
+				var league = new thaitae.lib.League
+            	{
+					LeagueName = e.RowData["LeagueName"],
+					LeagueType = Convert.ToInt32(e.RowData["LeagueTypeName"]),
+					LeagueDesc = e.RowData["LeagueDesc"],
+					Active = Convert.ToByte(e.RowData["ActiveName"])
+            	};
+            	dc.Leagues.InsertOnSubmit(league);
                 dc.SubmitChanges();
+
+				const string path = "~/LeagueImages/";
+				var pathServer = Server.MapPath(path);
+				var name = league.LeagueId + ".jpg";
+				var fileName = pathServer + name;
+				var fileStream = new FileStream(e.RowData["Picture"], FileMode.OpenOrCreate);
+				try
+				{
+					var image = System.Drawing.Image.FromStream(fileStream);
+					image.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+				}
+				finally
+				{
+					fileStream.Close();
+				}
+				league.Picture = "www.thaitaesc.com/Admin/LeagueImages/" + fileName;
+				dc.SubmitChanges();
+
             }
         }
+
+		private static bool IsImage(string path)
+		{
+			var format = Path.GetFileName(path);
+			var regEx = new Regex("([^\\s]+(\\.(?i)(jpg|png|gif|bmp))$)");
+			return format != null && regEx.IsMatch(format);
+		}
     }
 }
