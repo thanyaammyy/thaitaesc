@@ -15,6 +15,7 @@ namespace Thaitae.Backend
 
         protected void LoginUser_LoggedIn(object sender, EventArgs e)
         {
+			Response.Redirect("News.aspx");
         }
     }
 }

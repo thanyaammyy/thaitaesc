@@ -95,6 +95,7 @@
     <Content Include="Images\thaitae_logo.png" />
     <Content Include="Index.aspx" />
     <Content Include="League.aspx" />
+    <Content Include="LeagueImages\esb_help.png" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="MatchManagement.aspx" />

@@ -3,6 +3,15 @@
 
 <%@ Register Assembly="Trirand.Web" Namespace="Trirand.Web.UI.WebControls" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+		<script type="text/javascript">
+			function createFile(value, editOptions) {
+				var file = $("<input>", { type: "file", id: "filePicture", width: "200px", value: value });
+				return file;
+			}
+			function getFileValue(elem) {
+				return $(elem).val();
+			}
+		</script>
 </asp:Content>
 <asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
     <h2>
@@ -20,6 +29,9 @@
                 TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="Status" DataField="ActiveName" Editable="True" EditType="DropDown"
                 EditValues="0:InActive;1:Active" TextAlign="Center" />
+			<cc1:JQGridColumn HeaderText="Icon" DataField="Picture" Editable="True" Visible="False"
+                EditType="Custom" EditTypeCustomCreateElement="createFile" EditTypeCustomGetValue="getFileValue"
+                TextAlign="Center" />
         </Columns>
         <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
             ShowRefreshButton="True" ShowSearchButton="True" />

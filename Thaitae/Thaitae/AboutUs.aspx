@@ -6,8 +6,7 @@
 	<title>About us l www.thaitaesc.com</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-	<div align="center">
-		<table width="1000" border="0" align="center" cellpadding="3" cellspacing="3">
+		<table style="text-align: center" width="1000" border="0" align="center" cellpadding="3" cellspacing="3">
 			<tr>
 				<td width="900" height="131" align="center">
 					<h1>
@@ -110,5 +109,4 @@
 				</td>
 			</tr>
 		</table>
-	</div>
 </asp:Content>
