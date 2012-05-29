@@ -30,12 +30,12 @@
         }
     </script>
 </asp:Content>
-<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>
         News Management
     </h2>
     <cc1:JQGrid ID="JqgridNews" runat="server" AutoWidth="True" OnRowAdding="JqgridNews_RowAdding"
-        OnRowDeleting="JqgridNews_RowDeleting" OnRowEditing="JqgridNews_RowEditing">
+        OnRowDeleting="JqgridNews_RowDeleting" OnRowEditing="JqgridNews_RowEditing" Height="100%">
         <Columns>
             <cc1:JQGridColumn DataField="NewsId" PrimaryKey="True" Width="55" Visible="False" />
             <cc1:JQGridColumn HeaderText="Topic" DataField="NewsTopic" EditType="Custom" EditTypeCustomCreateElement="createTextbox"
@@ -49,10 +49,9 @@
         <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
             ShowRefreshButton="True" ShowSearchButton="True" />
         <AppearanceSettings ShowRowNumbers="true" />
-        <AddDialogSettings Width="700" ClearAfterAdding="True" Modal="True" TopOffset="180" LeftOffset="300" Height="300" CloseAfterAdding="True"
-            Caption="Add News"></AddDialogSettings>
-        <EditDialogSettings Width="700" Modal="True" TopOffset="180" LeftOffset="300" Height="300" CloseAfterEditing="True"
-            Caption="Edit News"></EditDialogSettings>
-
+        <AddDialogSettings Width="700" ClearAfterAdding="True" Modal="True" TopOffset="180"
+            LeftOffset="300" Height="300" CloseAfterAdding="True" Caption="Add News"></AddDialogSettings>
+        <EditDialogSettings Width="700" Modal="True" TopOffset="180" LeftOffset="300" Height="300"
+            CloseAfterEditing="True" Caption="Edit News"></EditDialogSettings>
     </cc1:JQGrid>
-</asp:content>
+</asp:Content>
