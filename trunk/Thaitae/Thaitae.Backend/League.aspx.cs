@@ -18,8 +18,7 @@ namespace Thaitae.Backend
 
         protected void JqgridLeague1_RowEditing(object sender, Trirand.Web.UI.WebControls.JQGridRowEditEventArgs e)
         {
-			const string path = "~/LeagueImages/";
-			if (!IsImage(e.RowData["Picture"])) return;
+			
             using (var dc = new ThaitaeDataDataContext())
             {
                 var league = dc.Leagues.Single(item => item.LeagueId == Convert.ToInt32(e.RowKey));
@@ -28,6 +27,8 @@ namespace Thaitae.Backend
                 league.LeagueDesc = e.RowData["LeagueDesc"];
                 league.Active = Convert.ToByte(e.RowData["ActiveName"]);
 
+				const string path = "~/LeagueImages/";
+				if (!IsImage(e.RowData["Picture"])) return;
 				var pathServer = Server.MapPath(path);
 				var name = league.LeagueId + ".jpg";
 				var fileName = pathServer + name;
@@ -59,7 +60,7 @@ namespace Thaitae.Backend
 
         protected void JqgridLeague1_RowAdding(object sender, Trirand.Web.UI.WebControls.JQGridRowAddEventArgs e)
         {
-			if (!IsImage(e.RowData["Picture"])) return;
+			
             using (var dc = new ThaitaeDataDataContext())
             {
 				var league = new thaitae.lib.League
@@ -71,7 +72,7 @@ namespace Thaitae.Backend
             	};
             	dc.Leagues.InsertOnSubmit(league);
                 dc.SubmitChanges();
-
+				if (!IsImage(e.RowData["Picture"])) return;
 				const string path = "~/LeagueImages/";
 				var pathServer = Server.MapPath(path);
 				var name = league.LeagueId + ".jpg";
