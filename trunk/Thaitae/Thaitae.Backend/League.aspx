@@ -36,7 +36,7 @@
         <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
             ShowRefreshButton="True" ShowSearchButton="True" />
         <AppearanceSettings ShowRowNumbers="true" />
-		<DeleteDialogSettings Width="516" LeftOffset="380" TopOffset="140" DeleteMessage="ถ้าคุณลบ League ข้อมูล team, season, match ของลีคนี้จะถูกลบทั้งหมด คุณยังต้องการลบ League นี้หรือไม่"></DeleteDialogSettings>
+		<DeleteDialogSettings Width="516" LeftOffset="497" TopOffset="241" DeleteMessage="ถ้าคุณลบ League ข้อมูล team, season, match ของลีคนี้จะถูกลบทั้งหมด คุณยังต้องการลบ League นี้หรือไม่"></DeleteDialogSettings>
 		<AddDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
 			CloseAfterAdding="True" Caption="Add League" ClearAfterAdding="True"></AddDialogSettings>
 		<EditDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
