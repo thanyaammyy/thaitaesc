@@ -260,7 +260,7 @@
 							<%foreach (var league in ListLeague)%>
 							<%{%>
 							<li><a href="#fixTab" id="<%=league.LeagueId%>" rel="<%=league.LeagueName%>" onclick="tabClick(this)">
-							    	<%if(string.IsNullOrEmpty(league.Picture))%>
+							    	<%if(!string.IsNullOrEmpty(league.Picture))%>
 									<%{%>
 									<img src="<%=league.Picture%>" width="32px" height="32px" />&nbsp;
 									<%}%>

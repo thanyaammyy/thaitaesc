@@ -42,7 +42,7 @@ namespace Thaitae.Backend
 					fileStream.Close();
 				}
 
-				league.Picture = "www.thaitaesc.com/Admin/LeagueImages/" + name;
+				league.Picture = "http://www.thaitaesc.com/Admin/LeagueImages/" + name;
 				dc.SubmitChanges();
             }
         }
@@ -86,7 +86,7 @@ namespace Thaitae.Backend
 				{
 					fileStream.Close();
 				}
-				league.Picture = "www.thaitaesc.com/Admin/LeagueImages/" + name;
+				league.Picture = "http://www.thaitaesc.com/Admin/LeagueImages/" + name;
 				dc.SubmitChanges();
 
             }
