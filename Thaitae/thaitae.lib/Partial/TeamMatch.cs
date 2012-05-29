@@ -14,6 +14,7 @@ namespace thaitae.lib
             TeamRedCard = 0;
             TeamYellowCard = 0;
             TeamStatus = 0;
+            TeamEdited = 0;
         }
     }
 }

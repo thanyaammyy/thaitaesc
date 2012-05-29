@@ -1,6 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Header.ascx.cs" Inherits="Thaitae.Backend.CenterControl.Header" %>
 <div style="background-color: rgb(74, 81, 85)" align="center">
-    <img src="../Images/header.png" />
     <asp:loginview runat="server" enableviewstate="False">
         <anonymoustemplate>
         </anonymoustemplate>
