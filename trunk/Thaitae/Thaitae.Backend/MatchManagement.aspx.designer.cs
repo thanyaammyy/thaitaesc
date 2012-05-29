@@ -40,15 +40,6 @@ namespace Thaitae.Backend {
         protected global::System.Web.UI.WebControls.DropDownList ddlSeason;
         
         /// <summary>
-        /// ddlTeam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTeam;
-        
-        /// <summary>
         /// GenMatch control.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace Thaitae.Backend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Trirand.Web.UI.WebControls.JQGrid JqgridMatch1;
+        
+        /// <summary>
+        /// ddlTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTeam;
         
         /// <summary>
         /// JqgridHomeTeam control.
@@ -110,6 +110,15 @@ namespace Thaitae.Backend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource LeagueDataSource;
+        
+        /// <summary>
+        /// TeamDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource TeamDataSource;
         
         /// <summary>
         /// SeasonDataSource control.

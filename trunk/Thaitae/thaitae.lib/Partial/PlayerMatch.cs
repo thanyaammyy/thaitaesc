@@ -31,8 +31,26 @@ namespace thaitae.lib
             get
             {
                 if (PlayerId == null)
-                    return "Enter Number";
-                return PlayerId.ToString();
+                    return "";
+                using (var dc = new ThaitaeDataDataContext())
+                {
+                    var playerNumber = dc.Players.Single(item => item.PlayerId == PlayerId).PlayerNumber;
+                    return playerNumber.ToString();
+                }
+            }
+        }
+
+        public string PlayerName
+        {
+            get
+            {
+                if (PlayerId == null)
+                    return "";
+                using (var dc = new ThaitaeDataDataContext())
+                {
+                    var playerName = dc.Players.Single(item => item.PlayerId == PlayerId).PlayerName;
+                    return playerName.ToString();
+                }
             }
         }
     }
