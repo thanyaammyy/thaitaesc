@@ -57,10 +57,10 @@
                     <cc1:JQGridColumn DataField="SeasonId" Visible="False" />
                     <cc1:JQGridColumn HeaderText="Set Date" Width="30" EditActionIconsColumn="true" EditActionIconsDeleteEnabled="False"
                         TextAlign="Center" Searchable="False" />
-                    <cc1:JQGridColumn HeaderText="Home Team" DataType="String" DataField="TeamHomeIdName"
+                    <cc1:JQGridColumn HeaderText="Home Team" DataType="String" DataField="TeamHomeIdNameExtend"
                         TextAlign="Center" Searchable="True" SearchType="DropDown" SearchControlID="ddlTeam"
                         SearchToolBarOperation="Contains" />
-                    <cc1:JQGridColumn HeaderText="Away Team" DataType="String" DataField="TeamAwayIdName"
+                    <cc1:JQGridColumn HeaderText="Away Team" DataType="String" DataField="TeamAwayIdNameExtend"
                         TextAlign="Center" Searchable="True" SearchType="DropDown" SearchControlID="ddlTeam"
                         SearchToolBarOperation="Contains" />
                     <cc1:JQGridColumn HeaderText="Match Date" DataType="DateTime" DataFormatString="{0:dd/MM/yyyy HH:mm}"
