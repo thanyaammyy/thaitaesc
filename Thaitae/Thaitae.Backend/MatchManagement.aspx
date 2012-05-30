@@ -8,11 +8,6 @@
             $('input[id][name$="MatchDate"]').blur();
             $('input[id][name$="MatchDate"]').datetimepicker();
         }
-        function bindCalendarDialog() {
-            $('input[id][name$="MatchDate"]').blur();
-            $('input[id][name$="MatchDate"]').datetimepicker();
-            $("#gs_MatchDate").datepicker();
-        }
         function showHomePlayerGrid(subgrid_id, row_id) {
             showSubGrid_JqgridHomePlayer(subgrid_id, row_id, "", "JqgridHomePlayer");
             $("#p_" + subgrid_id + "_tJqgridHomePlayer").hide();
@@ -40,11 +35,11 @@
         }
     </script>
 </asp:Content>
-<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>
         Match Management</h2>
-    <asp:updatepanel id="updateTeamPanel" updatemode="Conditional" runat="server">
-        <contenttemplate>
+    <asp:UpdatePanel ID="updateTeamPanel" UpdateMode="Conditional" runat="server">
+        <ContentTemplate>
             <asp:DropDownList runat="server" ID="ddlLeague" DataSourceID="LeagueDataSource" DataTextField="LeagueName"
                 DataValueField="LeagueId" AutoPostBack="True" OnSelectedIndexChanged="ddlLeague_SelectedIndexChanged">
             </asp:DropDownList>
@@ -69,20 +64,19 @@
                         TextAlign="Center" Searchable="True" SearchType="DropDown" SearchControlID="ddlTeam"
                         SearchToolBarOperation="Contains" />
                     <cc1:JQGridColumn HeaderText="Match Date" DataType="DateTime" DataFormatString="{0:dd/MM/yyyy HH:mm}"
-                        DataField="MatchDate" EditType="TextBox" Editable="True" TextAlign="Center" Searchable= "false" />
+                        DataField="MatchDate" EditType="TextBox" Editable="True" TextAlign="Center" Searchable="false" />
                 </Columns>
                 <ToolBarSettings ShowRefreshButton="True" ShowSearchToolBar="True" />
                 <SearchToolBarSettings SearchToolBarAction="SearchOnEnter"></SearchToolBarSettings>
                 <AppearanceSettings ShowRowNumbers="true" />
-                <ClientSideEvents RowSelect="bindCalendarDialog"
-                    SubGridRowExpanded="showSubGrids" />
+                <ClientSideEvents RowSelect="bindCalendarDialog" SubGridRowExpanded="showSubGrids" />
                 <HierarchySettings HierarchyMode="Parent" />
             </cc1:JQGrid>
-        </contenttemplate>
-    </asp:updatepanel>
-    <asp:dropdownlist runat="server" id="ddlTeam" datasourceid="TeamDataSource" datatextfield="TeamName"
-        datavaluefield="TeamName">
-    </asp:dropdownlist>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <asp:DropDownList runat="server" ID="ddlTeam" DataSourceID="TeamDataSource" DataTextField="TeamName"
+        DataValueField="TeamName">
+    </asp:DropDownList>
     <cc1:JQGrid ID="JqgridHomeTeam" runat="server" OnDataRequesting="JqgridHomeTeam_DataRequesting"
         Height="100%" Width="465" OnRowEditing="JqgridHomeTeam_RowEditing">
         <Columns>
@@ -152,19 +146,19 @@
         </Columns>
         <HierarchySettings HierarchyMode="Child" />
     </cc1:JQGrid>
-    <asp:objectdatasource id="LeagueDataSource" dataobjecttypename="thaitae.lib.League"
-        selectmethod="SelectLeagueItems" typename="thaitae.lib.Page.LeagueHelper" runat="server">
-    </asp:objectdatasource>
-    <asp:objectdatasource id="TeamDataSource" dataobjecttypename="" selectmethod="ListTeamItems"
-        typename="thaitae.lib.Page.TeamHelper" runat="server">
-        <selectparameters>
+    <asp:ObjectDataSource ID="LeagueDataSource" DataObjectTypeName="thaitae.lib.League"
+        SelectMethod="SelectLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server">
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="TeamDataSource" DataObjectTypeName="" SelectMethod="ListTeamItems"
+        TypeName="thaitae.lib.Page.TeamHelper" runat="server">
+        <SelectParameters>
             <asp:SessionParameter Name="SeasonId" SessionField="SeasonId" Type="Int32" />
-        </selectparameters>
-    </asp:objectdatasource>
-    <asp:objectdatasource id="SeasonDataSource" dataobjecttypename="thaitae.lib.Season"
-        selectmethod="ListSeasonItems" typename="thaitae.lib.Page.SeasonHelper" runat="server">
-        <selectparameters>
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="SeasonDataSource" DataObjectTypeName="thaitae.lib.Season"
+        SelectMethod="ListSeasonItems" TypeName="thaitae.lib.Page.SeasonHelper" runat="server">
+        <SelectParameters>
             <asp:SessionParameter Name="LeagueId" SessionField="LeagueId" Type="Int32" />
-        </selectparameters>
-    </asp:objectdatasource>
-</asp:content>
+        </SelectParameters>
+    </asp:ObjectDataSource>
+</asp:Content>

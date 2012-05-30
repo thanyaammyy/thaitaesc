@@ -72,6 +72,7 @@
     <Compile Include="Page\TeamSeasonHelper.cs" />
     <Compile Include="Partial\League.cs" />
     <Compile Include="Partial\Match.cs" />
+    <Compile Include="Partial\New.cs" />
     <Compile Include="Partial\Player.cs" />
     <Compile Include="Partial\PlayerMatch.cs" />
     <Compile Include="Partial\Team.cs" />

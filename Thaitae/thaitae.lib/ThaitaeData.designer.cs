@@ -2638,6 +2638,8 @@ namespace thaitae.lib
 		
 		private string _picture;
 		
+		private int _newsType;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2650,6 +2652,8 @@ namespace thaitae.lib
     partial void OnnewsContentChanged();
     partial void OnpictureChanging(string value);
     partial void OnpictureChanged();
+    partial void OnnewsTypeChanging(int value);
+    partial void OnnewsTypeChanged();
     #endregion
 		
 		public New()
@@ -2733,6 +2737,26 @@ namespace thaitae.lib
 					this._picture = value;
 					this.SendPropertyChanged("picture");
 					this.OnpictureChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_newsType")]
+		public int newsType
+		{
+			get
+			{
+				return this._newsType;
+			}
+			set
+			{
+				if ((this._newsType != value))
+				{
+					this.OnnewsTypeChanging(value);
+					this.SendPropertyChanging();
+					this._newsType = value;
+					this.SendPropertyChanged("newsType");
+					this.OnnewsTypeChanged();
 				}
 			}
 		}
