@@ -40,11 +40,11 @@
         }
     </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
     <h2>
         Match Management</h2>
-    <asp:UpdatePanel ID="updateTeamPanel" UpdateMode="Conditional" runat="server">
-        <ContentTemplate>
+    <asp:updatepanel id="updateTeamPanel" updatemode="Conditional" runat="server">
+        <contenttemplate>
             <asp:DropDownList runat="server" ID="ddlLeague" DataSourceID="LeagueDataSource" DataTextField="LeagueName"
                 DataValueField="LeagueId" AutoPostBack="True" OnSelectedIndexChanged="ddlLeague_SelectedIndexChanged">
             </asp:DropDownList>
@@ -53,6 +53,8 @@
             </asp:DropDownList>
             <asp:Button ID="GenMatch" ClientIDMode="Static" runat="server" OnClick="Button1_Click"
                 Text="Generate Match"></asp:Button>
+            <asp:Button ID="ForceUpdate" ClientIDMode="Static" runat="server" OnClick="ForceUpdate_Click"
+                Text="Force Calculate Match"></asp:Button>
             <cc1:JQGrid ID="JqgridMatch1" runat="server" AutoWidth="True" OnRowEditing="JqgridMatch1_RowEditing"
                 OnSearching="JqgridMatch1_Searching" Height="100%">
                 <Columns>
@@ -76,11 +78,11 @@
                     SubGridRowExpanded="showSubGrids" />
                 <HierarchySettings HierarchyMode="Parent" />
             </cc1:JQGrid>
-        </ContentTemplate>
-    </asp:UpdatePanel>
-    <asp:DropDownList runat="server" ID="ddlTeam" DataSourceID="TeamDataSource" DataTextField="TeamName"
-        DataValueField="TeamName">
-    </asp:DropDownList>
+        </contenttemplate>
+    </asp:updatepanel>
+    <asp:dropdownlist runat="server" id="ddlTeam" datasourceid="TeamDataSource" datatextfield="TeamName"
+        datavaluefield="TeamName">
+    </asp:dropdownlist>
     <cc1:JQGrid ID="JqgridHomeTeam" runat="server" OnDataRequesting="JqgridHomeTeam_DataRequesting"
         Height="100%" Width="465" OnRowEditing="JqgridHomeTeam_RowEditing">
         <Columns>
@@ -150,19 +152,19 @@
         </Columns>
         <HierarchySettings HierarchyMode="Child" />
     </cc1:JQGrid>
-    <asp:ObjectDataSource ID="LeagueDataSource" DataObjectTypeName="thaitae.lib.League"
-        SelectMethod="SelectLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server">
-    </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="TeamDataSource" DataObjectTypeName="" SelectMethod="ListTeamItems"
-        TypeName="thaitae.lib.Page.TeamHelper" runat="server">
-        <SelectParameters>
+    <asp:objectdatasource id="LeagueDataSource" dataobjecttypename="thaitae.lib.League"
+        selectmethod="SelectLeagueItems" typename="thaitae.lib.Page.LeagueHelper" runat="server">
+    </asp:objectdatasource>
+    <asp:objectdatasource id="TeamDataSource" dataobjecttypename="" selectmethod="ListTeamItems"
+        typename="thaitae.lib.Page.TeamHelper" runat="server">
+        <selectparameters>
             <asp:SessionParameter Name="SeasonId" SessionField="SeasonId" Type="Int32" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="SeasonDataSource" DataObjectTypeName="thaitae.lib.Season"
-        SelectMethod="ListSeasonItems" TypeName="thaitae.lib.Page.SeasonHelper" runat="server">
-        <SelectParameters>
+        </selectparameters>
+    </asp:objectdatasource>
+    <asp:objectdatasource id="SeasonDataSource" dataobjecttypename="thaitae.lib.Season"
+        selectmethod="ListSeasonItems" typename="thaitae.lib.Page.SeasonHelper" runat="server">
+        <selectparameters>
             <asp:SessionParameter Name="LeagueId" SessionField="LeagueId" Type="Int32" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
-</asp:Content>
+        </selectparameters>
+    </asp:objectdatasource>
+</asp:content>

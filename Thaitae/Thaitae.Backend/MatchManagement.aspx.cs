@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Web.UI.WebControls;
 using thaitae.lib;
 using Trirand.Web.UI.WebControls;
 
@@ -204,8 +203,10 @@ namespace Thaitae.Backend
                         team.TeamStatus = 2;
                         teamAgainst.TeamStatus = 2;
                     }
+                    dc.SubmitChanges();
                     CalculateTeamResult(team, teamAgainst);
                 }
+                dc.SubmitChanges();
                 var removePlayerList =
                 dc.PlayerMatches.Where(item => item.TeamId == team.TeamId && item.MatchId == team.MatchId && item.SeasonId == team.SeasonId);
                 dc.PlayerMatches.DeleteAllOnSubmit(removePlayerList);
@@ -259,8 +260,10 @@ namespace Thaitae.Backend
                         team.TeamStatus = 2;
                         teamAgainst.TeamStatus = 2;
                     }
+                    dc.SubmitChanges();
                     CalculateTeamResult(team, teamAgainst);
                 }
+                dc.SubmitChanges();
                 var removePlayerList =
                     dc.PlayerMatches.Where(item => item.TeamId == team.TeamId && item.MatchId == team.MatchId && item.SeasonId == team.SeasonId);
                 dc.PlayerMatches.DeleteAllOnSubmit(removePlayerList);
@@ -394,6 +397,39 @@ namespace Thaitae.Backend
             }
         }
 
+        public void ForceUpdateTeamResult()
+        {
+            if (Session["seasonid"] == null) return;
+            if (Convert.ToInt32(Session["seasonid"]) == 0) return;
+            using (var dc = new ThaitaeDataDataContext())
+            {
+                var seasonid = Convert.ToInt32(Session["seasonid"]);
+                var teamSeasonList = dc.TeamSeasons.Where(item => item.SeasonId == seasonid).ToList();
+                foreach (var teamSeason in teamSeasonList)
+                {
+                    var teamUpdate = dc.TeamSeasons.Single(item => item.TeamId == teamSeason.TeamId);
+                    teamUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.TeamStatus != 0);
+                    teamUpdate.TeamDrew = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.TeamStatus == 2);
+                    var teamgoalAgainstSum =
+                        dc.TeamMatches.Where(item => item.TeamId == teamSeason.TeamId && item.TeamStatus != 0).Sum(
+                            item => item.TeamGoalAgainst);
+                    if (teamgoalAgainstSum != null)
+                        teamUpdate.TeamGoalAgainst = (int)teamgoalAgainstSum;
+
+                    var teamgoalForSum =
+                        dc.TeamMatches.Where(item => item.TeamId == teamSeason.TeamId && item.TeamStatus != 0).Sum(
+                            item => item.TeamGoalFor);
+                    if (teamgoalForSum != null)
+                        teamUpdate.TeamGoalFor = (int)teamgoalForSum;
+                    teamUpdate.TeamGoalDiff = teamUpdate.TeamGoalFor - teamUpdate.TeamGoalAgainst;
+                    teamUpdate.TeamLoss = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.TeamStatus == 3);
+                    teamUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.TeamStatus == 1);
+                    teamUpdate.TeamPts = (teamUpdate.TeamWon * 3) + (teamUpdate.TeamDrew);
+                    dc.SubmitChanges();
+                }
+            }
+        }
+
         public void CalculatePlayerResult(Player player)
         {
             using (var dc = new ThaitaeDataDataContext())
@@ -413,6 +449,11 @@ namespace Thaitae.Backend
                         item.PlayerYellowCard == 1 && item.PlayerId == player.PlayerId && item.TeamId == player.TeamId && item.SeasonId == player.SeasonId);
                 dc.SubmitChanges();
             }
+        }
+
+        protected void ForceUpdate_Click(object sender, EventArgs e)
+        {
+            ForceUpdateTeamResult();
         }
     }
 }
