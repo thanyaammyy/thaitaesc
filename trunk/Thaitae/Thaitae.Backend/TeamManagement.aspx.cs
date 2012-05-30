@@ -59,8 +59,8 @@ namespace Thaitae.Backend
             {
                 var teamSeason = dc.TeamSeasons.Single(item => item.TeamSeasonId == Convert.ToInt32(e.RowKey));
                 var team = dc.Teams.Single(item => item.TeamId == teamSeason.TeamId);
-                team.TeamName = e.RowData["TeamName"];
-                team.TeamDesc = e.RowData["TeamDesc"];
+                team.TeamName = e.RowData["TeamName"].Trim();
+                team.TeamDesc = e.RowData["TeamDesc"].Trim();
                 team.Active = Convert.ToByte(e.RowData["ActiveName"]);
                 dc.SubmitChanges();
             }
@@ -74,8 +74,8 @@ namespace Thaitae.Backend
             {
                 var objTeam = new Team
                                   {
-                                      TeamName = e.RowData["TeamName"],
-                                      TeamDesc = e.RowData["TeamDesc"],
+                                      TeamName = e.RowData["TeamName"].Trim(),
+                                      TeamDesc = e.RowData["TeamDesc"].Trim(),
                                       Active = Convert.ToByte(e.RowData["ActiveName"]),
                                       Guid = Guid.NewGuid()
                                   };
