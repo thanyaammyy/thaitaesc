@@ -65,18 +65,36 @@ namespace thaitae.lib.Page
             }
         }
 
-		public static IEnumerable<Match> MatcheShowing(int leagueId)
-		{
-			IEnumerable<Match> matches = null;
-			var dc = new ThaitaeDataDataContext();
-			var league = dc.Leagues.Single(items => items.LeagueId == leagueId);
-			var seasoncount = dc.Seasons.Count(items => items.LeagueId == league.LeagueId);
-			if (seasoncount > 0)
-			{
-				var seasons = dc.Seasons.OrderByDescending(item => item.SeasonId).First(items => items.LeagueId == league.LeagueId);
-				matches = dc.Matches.OrderByDescending(item=>item.MatchDate).Where(item => item.SeasonId == seasons.SeasonId&&item.MatchDate<DateTime.Now.AddDays(1)).ToList();
-			}
-			return matches;
-		}
+        public static IEnumerable<Match> MatcheShowing(int leagueId)
+        {
+            IEnumerable<Match> matches = null;
+            var matchFilteredList = new List<Match>();
+            var dc = new ThaitaeDataDataContext();
+            var league = dc.Leagues.Single(items => items.LeagueId == leagueId);
+            var seasoncount = dc.Seasons.Count(items => items.LeagueId == league.LeagueId);
+            if (seasoncount > 0)
+            {
+                var seasons = dc.Seasons.OrderByDescending(item => item.SeasonId).First(items => items.LeagueId == league.LeagueId);
+                matches = dc.Matches.OrderByDescending(item => item.MatchDate).Where(item => item.SeasonId == seasons.SeasonId && item.MatchDate < DateTime.Now.AddDays(1)).ToList();
+                foreach (var match in matches)
+                {
+                    var checkNotEdited = false;
+                    var teamMatchList = dc.TeamMatches.Where(item => item.MatchId == match.MatchId).ToList();
+                    foreach (var teamMatch in teamMatchList)
+                    {
+                        if (teamMatch.TeamEdited == 0)
+                        {
+                            checkNotEdited = true;
+                        }
+                    }
+                    if (checkNotEdited == false)
+                    {
+                        matchFilteredList.Add(match);
+                    }
+                }
+                matches = matchFilteredList;
+            }
+            return matches;
+        }
     }
 }
