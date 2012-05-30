@@ -25,6 +25,7 @@ namespace Thaitae.Backend
                         {
                             newsContent = e.RowData["newsContent"],
                             newsTopic = e.RowData["newsTopic"],
+                            newsType = Convert.ToInt32(e.RowData["NewsTypeName"])
                         };
                 dc.News.InsertOnSubmit(news);
                 dc.SubmitChanges();
@@ -64,6 +65,7 @@ namespace Thaitae.Backend
                 var news = dc.News.Single(item => item.newsId == Convert.ToInt32(e.RowKey));
                 news.newsTopic = e.RowData["newsTopic"];
                 news.newsContent = e.RowData["newsContent"];
+                news.newsType = Convert.ToInt32(e.RowData["NewsTypeName"]);
                 dc.SubmitChanges();
                 const string path = "~/NewsImages/";
                 if (!IsImage(e.RowData["Picture"])) return;
