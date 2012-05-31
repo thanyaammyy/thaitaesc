@@ -3,18 +3,20 @@
 
 <%@ Register TagPrefix="cc1" Namespace="Trirand.Web.UI.WebControls" Assembly="Trirand.Web, Version=4.4.0.0, Culture=neutral, PublicKeyToken=e2819dc449af3295" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Styles/uploadify.css" rel="stylesheet" type="text/css" />
-    <script src="Scripts/jquery.uploadify-3.1.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         function getUploadDify() {
             $("#Picture").uploadify({
-                'swf': 'Scripts/uploadify.swf',
-                'uploader': 'Upload.ashx'
+            	'swf': 'Scripts/uploadify.swf',
+            	'buttonText': 'Browse',
+            	'uploadify': 'Upload.ashx',
+                'folder': 'NewsImages',
+                'fileTypeDesc' : 'Image Files',
+                'fileTypeExts': '*.gif;*.bmp;*.jpeg; *.jpg; *.png'
             });
         }
 
         function uploadFile() {
-            $('#Picture').uploadifyUpload();
+        	$('#Picture').uploadify('upload');
             return false;
         }
 
