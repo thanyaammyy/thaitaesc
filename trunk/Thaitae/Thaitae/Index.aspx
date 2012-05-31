@@ -296,6 +296,7 @@
 										<ToolBarSettings ShowRefreshButton="True" />
 										<AppearanceSettings ShowRowNumbers="true" />
 										<ClientSideEvents LoadComplete="setNameLabel"></ClientSideEvents>
+                                        <PagerSettings PageSize="20"></PagerSettings>
 									</cc1:JQGrid>
 									<br />
 									<div style="font-size: 14px" align="center">

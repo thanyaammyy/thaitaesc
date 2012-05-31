@@ -375,6 +375,8 @@ namespace Thaitae.Backend
                 teamUpdate.TeamLoss = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && item.TeamStatus == 3);
                 teamUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && item.TeamStatus == 1);
                 teamUpdate.TeamPts = (teamUpdate.TeamWon * 3) + (teamUpdate.TeamDrew);
+                teamUpdate.TeamYellowCard = dc.Players.Where(item => item.TeamId == teamUpdate.TeamId && item.SeasonId == teamUpdate.SeasonId).Sum(item => item.PlayerYellowCard);
+                teamUpdate.TeamRedCard = dc.Players.Where(item => item.TeamId == teamUpdate.TeamId && item.SeasonId == teamUpdate.SeasonId).Sum(item => item.PlayerRedCard);
                 var teamAgainstUpdate = dc.TeamSeasons.Single(item => item.TeamId == teamAgainst.TeamId);
                 teamAgainstUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus != 0);
                 teamAgainstUpdate.TeamDrew = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus == 2);
@@ -393,6 +395,8 @@ namespace Thaitae.Backend
                 teamAgainstUpdate.TeamLoss = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus == 3);
                 teamAgainstUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus == 1);
                 teamAgainstUpdate.TeamPts = (teamAgainstUpdate.TeamWon * 3) + (teamAgainstUpdate.TeamDrew);
+                teamAgainstUpdate.TeamYellowCard = dc.Players.Where(item => item.TeamId == teamAgainstUpdate.TeamId && item.SeasonId == teamAgainstUpdate.SeasonId).Sum(item => item.PlayerYellowCard);
+                teamAgainstUpdate.TeamRedCard = dc.Players.Where(item => item.TeamId == teamAgainstUpdate.TeamId && item.SeasonId == teamAgainstUpdate.SeasonId).Sum(item => item.PlayerRedCard);
                 dc.SubmitChanges();
             }
         }
@@ -424,6 +428,8 @@ namespace Thaitae.Backend
                     teamUpdate.TeamGoalDiff = teamUpdate.TeamGoalFor - teamUpdate.TeamGoalAgainst;
                     teamUpdate.TeamLoss = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.TeamStatus == 3);
                     teamUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.TeamStatus == 1);
+                    teamUpdate.TeamYellowCard = dc.Players.Where(item => item.TeamId == teamUpdate.TeamId && item.SeasonId == teamUpdate.SeasonId).Sum(item => item.PlayerYellowCard);
+                    teamUpdate.TeamRedCard = dc.Players.Where(item => item.TeamId == teamUpdate.TeamId && item.SeasonId == teamUpdate.SeasonId).Sum(item => item.PlayerRedCard);
                     teamUpdate.TeamPts = (teamUpdate.TeamWon * 3) + (teamUpdate.TeamDrew);
                     dc.SubmitChanges();
                 }
