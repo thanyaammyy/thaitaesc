@@ -93,6 +93,7 @@
     <Content Include="Images\icon\upTriangle.png" />
     <Content Include="Images\icon\validation-Icon.png" />
     <Content Include="Images\thaitae_logo.png" />
+    <Content Include="Images\uploadify-cancel.png" />
     <Content Include="Index.aspx" />
     <Content Include="League.aspx" />
     <Content Include="LeagueImages\esb_help.png" />
@@ -144,7 +145,9 @@
     <Content Include="Scripts\jquery.ui.sortable.js" />
     <Content Include="Scripts\jquery.ui.tabs.js" />
     <Content Include="Scripts\jquery.ui.widget.js" />
+    <Content Include="Scripts\jquery.uploadify-3.1.min.js" />
     <Content Include="Scripts\menu.js" />
+    <Content Include="Scripts\uploadify.swf" />
     <Content Include="Season.aspx" />
     <Content Include="Styles\backend.css" />
     <Content Include="Styles\images\item-pointer-mover.gif" />
@@ -174,6 +177,7 @@
     <Content Include="Styles\ui.jqdropdownlist.css" />
     <Content Include="Styles\ui.jqgrid.css" />
     <Content Include="Styles\ui.jqtreeview.css" />
+    <Content Include="Styles\uploadify.css" />
     <Content Include="TeamManagement.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -277,6 +281,9 @@
     <Compile Include="TeamManagement.aspx.designer.cs">
       <DependentUpon>TeamManagement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Upload.ashx.cs">
+      <DependentUpon>Upload.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Backend.Master" />
@@ -284,6 +291,7 @@
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Upload.ashx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\thaitae.lib\thaitae.lib.csproj">
