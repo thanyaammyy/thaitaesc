@@ -3,7 +3,21 @@
 
 <%@ Register TagPrefix="cc1" Namespace="Trirand.Web.UI.WebControls" Assembly="Trirand.Web, Version=4.4.0.0, Culture=neutral, PublicKeyToken=e2819dc449af3295" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="Styles/uploadify.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery.uploadify-3.1.min.js" type="text/javascript"></script>
     <script type="text/javascript">
+        function getUploadDify() {
+            $("#Picture").uploadify({
+                'swf': 'Scripts/uploadify.swf',
+                'uploader': 'Upload.ashx'
+            });
+        }
+
+        function uploadFile() {
+            $('#Picture').uploadifyUpload();
+            return false;
+        }
+
         function createTextArea(value, editOptions) {
             var textarea = $("<textarea>", { id: "newsCont", cols: "100", rows: "10", value: value });
             return textarea;
@@ -13,7 +27,7 @@
             return $(elem).val();
         }
         function createFile(value, editOptions) {
-            var file = $("<input>", { type: "file", id: "filePicture", width: "300px", value: value });
+            var file = $("<input>", { type: "file", id: "filePicture" });
             return file;
         }
 
@@ -30,7 +44,7 @@
         }
     </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
     <h2>
         News Management
     </h2>
@@ -56,5 +70,7 @@
             LeftOffset="300" Height="300" CloseAfterAdding="True" Caption="Add News"></AddDialogSettings>
         <EditDialogSettings Width="700" Modal="True" TopOffset="180" LeftOffset="300" Height="300"
             CloseAfterEditing="True" Caption="Edit News"></EditDialogSettings>
+        <ClientSideEvents AfterAddDialogShown="getUploadDify" AfterEditDialogShown="getUploadDify"
+            BeforeSubmitCell="uploadFile"></ClientSideEvents>
     </cc1:JQGrid>
-</asp:Content>
+</asp:content>

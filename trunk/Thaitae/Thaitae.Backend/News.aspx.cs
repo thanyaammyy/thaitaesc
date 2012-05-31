@@ -30,20 +30,7 @@ namespace Thaitae.Backend
                 dc.News.InsertOnSubmit(news);
                 dc.SubmitChanges();
                 if (!IsImage(e.RowData["Picture"])) return;
-                const string path = "~/NewsImages/";
-                var pathServer = Server.MapPath(path);
-                var fileName = pathServer + news.newsId + ".jpg";
-                var fileStream = new FileStream(e.RowData["Picture"], FileMode.OpenOrCreate);
-                try
-                {
-                    var image = System.Drawing.Image.FromStream(fileStream);
-                    image.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-                }
-                finally
-                {
-                    fileStream.Close();
-                }
-                news.picture = fileName;
+                news.picture = e.RowData["Picture"];
                 dc.SubmitChanges();
             }
         }
@@ -67,22 +54,8 @@ namespace Thaitae.Backend
                 news.newsContent = e.RowData["newsContent"];
                 news.newsType = Convert.ToInt32(e.RowData["NewsTypeName"]);
                 dc.SubmitChanges();
-                const string path = "~/NewsImages/";
                 if (!IsImage(e.RowData["Picture"])) return;
-                var pathServer = Server.MapPath(path);
-                var fileName = pathServer + e.RowKey + ".jpg";
-                var fileStream = new FileStream(e.RowData["Picture"], FileMode.OpenOrCreate);
-                try
-                {
-                    var image = System.Drawing.Image.FromStream(fileStream);
-                    image.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-                }
-                finally
-                {
-                    fileStream.Close();
-                }
-
-                news.picture = fileName;
+                news.picture = e.RowData["Picture"];
                 dc.SubmitChanges();
             }
         }
