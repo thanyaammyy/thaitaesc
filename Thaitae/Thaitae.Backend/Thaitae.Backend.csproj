@@ -101,6 +101,7 @@
     <Content Include="MatchManagement.aspx" />
     <Content Include="News.aspx" />
     <Content Include="Scripts\grid.locale-en.js" />
+    <Content Include="Scripts\grid.locale-th.js" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.custom.min.js" />
     <Content Include="Scripts\jquery-ui-i18n.js" />

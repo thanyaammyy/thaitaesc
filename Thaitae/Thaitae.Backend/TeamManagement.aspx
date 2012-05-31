@@ -32,6 +32,8 @@
                     <cc1:JQGridColumn HeaderText="F" DataField="TeamGoalFor" TextAlign="Center" />
                     <cc1:JQGridColumn HeaderText="A" DataField="TeamGoalAgainst" TextAlign="Center" />
                     <cc1:JQGridColumn HeaderText="GD" DataField="TeamGoalDiff" TextAlign="Center" />
+                    <cc1:JQGridColumn HeaderText="Yellow.C" DataField="TeamYellowCard" TextAlign="Center" />
+                    <cc1:JQGridColumn HeaderText="Red.C" DataField="TeamRedCard" TextAlign="Center" />
                     <cc1:JQGridColumn HeaderText="Pts" DataField="TeamPts" TextAlign="Center" />
                 </Columns>
                 <AddDialogSettings CloseAfterAdding="True" />
@@ -44,6 +46,7 @@
 					CloseAfterAdding="True" Caption="Add Team" ClearAfterAdding="True"></AddDialogSettings>
 				<EditDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
 					CloseAfterEditing="True" Caption="Edit Team"></EditDialogSettings>
+                <PagerSettings PageSize="20"></PagerSettings>
             </cc1:JQGrid>
         </contenttemplate>
     </asp:updatepanel>

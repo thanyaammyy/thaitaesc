@@ -666,6 +666,10 @@ namespace thaitae.lib
 		
 		private int _TeamGoalDiff;
 		
+		private int _TeamYellowCard;
+		
+		private int _TeamRedCard;
+		
 		private EntityRef<Team> _Team;
 		
 		private EntityRef<Season> _Season;
@@ -696,6 +700,10 @@ namespace thaitae.lib
     partial void OnTeamPtsChanged();
     partial void OnTeamGoalDiffChanging(int value);
     partial void OnTeamGoalDiffChanged();
+    partial void OnTeamYellowCardChanging(int value);
+    partial void OnTeamYellowCardChanged();
+    partial void OnTeamRedCardChanging(int value);
+    partial void OnTeamRedCardChanged();
     #endregion
 		
 		public TeamSeason()
@@ -929,6 +937,46 @@ namespace thaitae.lib
 					this._TeamGoalDiff = value;
 					this.SendPropertyChanged("TeamGoalDiff");
 					this.OnTeamGoalDiffChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamYellowCard")]
+		public int TeamYellowCard
+		{
+			get
+			{
+				return this._TeamYellowCard;
+			}
+			set
+			{
+				if ((this._TeamYellowCard != value))
+				{
+					this.OnTeamYellowCardChanging(value);
+					this.SendPropertyChanging();
+					this._TeamYellowCard = value;
+					this.SendPropertyChanged("TeamYellowCard");
+					this.OnTeamYellowCardChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamRedCard")]
+		public int TeamRedCard
+		{
+			get
+			{
+				return this._TeamRedCard;
+			}
+			set
+			{
+				if ((this._TeamRedCard != value))
+				{
+					this.OnTeamRedCardChanging(value);
+					this.SendPropertyChanging();
+					this._TeamRedCard = value;
+					this.SendPropertyChanged("TeamRedCard");
+					this.OnTeamRedCardChanged();
 				}
 			}
 		}
@@ -1887,11 +1935,11 @@ namespace thaitae.lib
 		
 		private int _PlayerId;
 		
-		private System.Nullable<int> _PlayerGoal;
+		private int _PlayerGoal;
 		
-		private System.Nullable<int> _PlayerRedCard;
+		private int _PlayerRedCard;
 		
-		private System.Nullable<int> _PlayerYellowCard;
+		private int _PlayerYellowCard;
 		
 		private int _Active;
 		
@@ -1913,11 +1961,11 @@ namespace thaitae.lib
     partial void OnCreated();
     partial void OnPlayerIdChanging(int value);
     partial void OnPlayerIdChanged();
-    partial void OnPlayerGoalChanging(System.Nullable<int> value);
+    partial void OnPlayerGoalChanging(int value);
     partial void OnPlayerGoalChanged();
-    partial void OnPlayerRedCardChanging(System.Nullable<int> value);
+    partial void OnPlayerRedCardChanging(int value);
     partial void OnPlayerRedCardChanged();
-    partial void OnPlayerYellowCardChanging(System.Nullable<int> value);
+    partial void OnPlayerYellowCardChanging(int value);
     partial void OnPlayerYellowCardChanged();
     partial void OnActiveChanging(int value);
     partial void OnActiveChanged();
@@ -1963,7 +2011,7 @@ namespace thaitae.lib
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerGoal", DbType="Int")]
-		public System.Nullable<int> PlayerGoal
+		public int PlayerGoal
 		{
 			get
 			{
@@ -1983,7 +2031,7 @@ namespace thaitae.lib
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerRedCard", DbType="Int")]
-		public System.Nullable<int> PlayerRedCard
+		public int PlayerRedCard
 		{
 			get
 			{
@@ -2003,7 +2051,7 @@ namespace thaitae.lib
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerYellowCard", DbType="Int")]
-		public System.Nullable<int> PlayerYellowCard
+		public int PlayerYellowCard
 		{
 			get
 			{

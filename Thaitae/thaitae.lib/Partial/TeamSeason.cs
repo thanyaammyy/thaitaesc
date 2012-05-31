@@ -17,6 +17,8 @@ namespace thaitae.lib
             TeamMatchPlayed = 0;
             TeamPts = 0;
             TeamWon = 0;
+            TeamRedCard = 0;
+            TeamYellowCard = 0;
         }
     }
 }

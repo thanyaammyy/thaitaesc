@@ -36,6 +36,8 @@
       <Column Name="TeamGoalAgainst" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TeamPts" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TeamGoalDiff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TeamYellowCard" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TeamRedCard" Type="System.Int32" CanBeNull="false" />
       <Association Name="Team_TeamSeason" Member="Team" ThisKey="TeamId" OtherKey="TeamId" Type="Team" IsForeignKey="true" />
       <Association Name="Season_TeamSeason" Member="Season" ThisKey="SeasonId" OtherKey="SeasonId" Type="Season" IsForeignKey="true" />
     </Type>
@@ -83,9 +85,9 @@
   <Table Name="thaitae.Player" Member="Players">
     <Type Name="Player">
       <Column Name="PlayerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PlayerGoal" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PlayerRedCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PlayerYellowCard" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlayerGoal" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="PlayerRedCard" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="PlayerYellowCard" Type="System.Int32" DbType="Int" CanBeNull="false" />
       <Column Name="Active" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TeamId" Type="System.Int32" CanBeNull="false" />
       <Column Name="SeasonId" Type="System.Int32" CanBeNull="false" />
@@ -122,7 +124,7 @@
       <Column Name="newsTopic" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="newsContent" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="picture" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Member="newsType" Type="System.Int32" CanBeNull="false" />
+      <Column Name="newsType" Type="System.Int32" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

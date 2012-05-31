@@ -14,10 +14,10 @@
         <elementListCompartment Id="734b4d6f-916f-4666-84f6-92100cec3dc1" absoluteBounds="3.265, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="112d38bf-e4aa-4e49-b295-e61a21488972" absoluteBounds="3.25, 4.875, 2, 2.9247054036458331">
+    <classShape Id="112d38bf-e4aa-4e49-b295-e61a21488972" absoluteBounds="3.25, 4.875, 2, 3.3093082682291666">
       <DataClassMoniker Name="/ThaitaeDataDataContext/TeamSeason" />
       <nestedChildShapes>
-        <elementListCompartment Id="100e9681-3293-4542-8222-0699169a299c" absoluteBounds="3.2649999999999997, 5.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="100e9681-3293-4542-8222-0699169a299c" absoluteBounds="3.2649999999999997, 5.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="db827dc2-ade7-4522-87d9-9dcf7bb23bca" absoluteBounds="6.25, 0.5, 2, 1.7708968098958331">
