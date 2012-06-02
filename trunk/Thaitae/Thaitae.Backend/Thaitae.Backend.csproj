@@ -310,9 +310,6 @@
     <Compile Include="TestUpload.aspx.designer.cs">
       <DependentUpon>TestUpload.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Upload.ashx.cs">
-      <DependentUpon>Upload.ashx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Backend.Master" />
