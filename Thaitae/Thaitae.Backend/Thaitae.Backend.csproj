@@ -96,11 +96,26 @@
     <Content Include="Images\uploadify-cancel.png" />
     <Content Include="Index.aspx" />
     <Content Include="League.aspx" />
-    <Content Include="LeagueImages\esb_help.png" />
+    <Content Include="LeagueImages\9.png" />
+    <Content Include="LeagueImages\12.png" />
+    <Content Include="LeagueImages\13.png" />
+    <Content Include="LeagueImages\10.png" />
+    <Content Include="LeagueImages\11.png" />
+    <Content Include="LeagueImages\8.png" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="MatchManagement.aspx" />
     <Content Include="News.aspx" />
+    <Content Include="NewsImages\1.jpg" />
+    <Content Include="NewsImages\10.jpg" />
+    <Content Include="NewsImages\2.jpg" />
+    <Content Include="NewsImages\3.jpg" />
+    <Content Include="NewsImages\4.jpg" />
+    <Content Include="NewsImages\5.jpg" />
+    <Content Include="NewsImages\6.jpg" />
+    <Content Include="NewsImages\7.jpg" />
+    <Content Include="NewsImages\8.jpg" />
+    <Content Include="NewsImages\9.jpg" />
     <Content Include="Scripts\grid.locale-en.js" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.custom.min.js" />
@@ -144,7 +159,6 @@
     <Content Include="Scripts\jquery.ui.sortable.js" />
     <Content Include="Scripts\jquery.ui.tabs.js" />
     <Content Include="Scripts\jquery.ui.widget.js" />
-    <Content Include="Scripts\jquery.uploadify-3.1.min.js" />
     <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\swfobject.js" />
     <Content Include="Scripts\uploadify.swf" />
@@ -315,7 +329,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewsImages\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
