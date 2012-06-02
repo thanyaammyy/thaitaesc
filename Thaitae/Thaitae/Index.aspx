@@ -15,7 +15,7 @@
                 $('.thumbs li').removeClass('show');
                 $(this).addClass('show');
                 $('.slideshow li').removeClass('show');
-                $($('.slideshow li')[count-1]).addClass('show');
+                $($('.slideshow li')[count - 1]).addClass('show');
             });
         });
         function slideShow(speed) {
