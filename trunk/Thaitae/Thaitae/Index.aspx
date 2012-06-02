@@ -8,8 +8,80 @@
     <title>ไทยเตะซ็อกเกอร์คลับ l www.thaitaesc.com</title>
     <script type="text/javascript">
         $(document).ready(function () {
+            slideShow(5000);
             $('#tabs').tabs();
+            $('.thumbs li').bind('click', function (e) {
+                var count = $(this).attr('rel');
+                $('.thumbs li').removeClass('show');
+                $(this).addClass('show');
+                $('.slideshow li').removeClass('show');
+                $($('.slideshow li')[count-1]).addClass('show');
+            });
         });
+        function slideShow(speed) {
+
+            //append a LI item to the UL list for displaying caption
+            $('ul.slideshow').append('<li id="slideshow-caption" class="caption"><div class="slideshow-caption-container"><h3></h3><p></p></div></li>');
+
+            //Set the opacity of all images to 0
+            $('ul.slideshow li').css({ opacity: 0.0 });
+
+            //Get the first image and display it (set it to full opacity)
+            $('ul.slideshow li:first').css({ opacity: 1.0 }).addClass('show');
+
+            //Get the caption of the first image from REL attribute and display it
+            $('#slideshow-caption h3').html($('ul.slideshow li.show').find('img').attr('title'));
+            $('#slideshow-caption p').html($('ul.slideshow li.show').find('img').attr('alt'));
+
+            //Display the caption
+            $('#slideshow-caption').css({ opacity: 0.7, bottom: 0 });
+
+            //Call the gallery function to run the slideshow
+            var timer = setInterval('gallery()', speed);
+
+            //pause the slideshow on mouse over
+            $('ul.slideshow').hover(
+                function () {
+                    clearInterval(timer);
+                },
+                function () {
+                    timer = setInterval('gallery()', speed);
+                }
+            );
+
+        }
+
+        function gallery() {
+
+            //if no IMGs have the show class, grab the first image
+            var current = ($('ul.slideshow li.show') ? $('ul.slideshow li.show') : $('#ul.slideshow li:first'));
+
+            //trying to avoid speed issue
+            if (current.queue('fx').length == 0) {
+
+                //Get next image, if it reached the end of the slideshow, rotate it back to the first image
+                var next = ((current.next().length) ? ((current.next().attr('id') == 'slideshow-caption') ? $('ul.slideshow li:first') : current.next()) : $('ul.slideshow li:first'));
+
+                //Get next image caption
+                var title = next.find('img').attr('title');
+                var desc = next.find('img').attr('alt');
+
+                //Set the fade in effect for the next image, show class has higher z-index
+                next.css({ opacity: 0.0 }).addClass('show').animate({ opacity: 1.0 }, 1000);
+
+                //Hide the caption first, and then set and display the caption
+                $('#slideshow-caption').slideToggle(300, function () {
+                    $('#slideshow-caption h3').html(title);
+                    $('#slideshow-caption p').html(desc);
+                    $('#slideshow-caption').slideToggle(500);
+                });
+
+                //Hide the current image
+                current.animate({ opacity: 0.0 }, 1000).removeClass('show');
+
+            }
+
+        }
 
         function setNameLabel() {
             var name = $("td[aria-describedby=ContentPlaceHolder1_JQGridMatchFullResult_leagueName]").html();
@@ -30,16 +102,54 @@
         <table width="1000px">
             <tr>
                 <td colspan="2" rowspan="4">
-                    <p>
-                        <br />
-                        <br />
-                    </p>
-                    <h1>
-                        &nbsp;</h1>
                     <h1>
                         <strong>THAITAE HOT NEWS</strong>
                         <!------------------------------------- THE CONTENT ------------------------------------------------->
                     </h1>
+                    <ul class="slideshow">
+                        <li class="show"><a href="#">
+                            <img src="http://admin.thaitaesc.com/NewsImages/1.jpg" title="Slide 1" alt="Short Description1" /></a></li>
+                        <li><a href="#">
+                            <img src="http://admin.thaitaesc.com/NewsImages/2.jpg" title="Slide 2" alt="Short Description2" /></a></li>
+                        <li><a href="#">
+                            <img src="http://admin.thaitaesc.com/NewsImages/3.jpg" title="Slide 3" alt="Short Description3" /></a></li>
+                        <li><a href="#">
+                            <img src="http://admin.thaitaesc.com/NewsImages/4.jpg" title="Slide 4" alt="Short Description4" /></a></li>
+                        <li><a href="#">
+                            <img src="http://admin.thaitaesc.com/NewsImages/5.jpg" title="Slide 5" alt="Short Description5" /></a></li>
+                        <li><a href="#">
+                            <img src="http://admin.thaitaesc.com/NewsImages/6.jpg" title="Slide 6" alt="Short Description6" /></a></li>
+                        <li><a href="#">
+                            <img src="http://admin.thaitaesc.com/NewsImages/7.jpg" title="Slide 7" alt="Short Description7" /></a></li>
+                        <li><a href="#">
+                            <img src="http://admin.thaitaesc.com/NewsImages/8.jpg" title="Slide 8" alt="Short Description8" /></a></li>
+                        <li><a href="#">
+                            <img src="http://admin.thaitaesc.com/NewsImages/9.jpg" title="Slide 9" alt="Short Description9" /></a></li>
+                        <li><a href="#">
+                            <img src="http://admin.thaitaesc.com/NewsImages/10.jpg" title="Slide 10" alt="Short Description10" /></a></li>
+                    </ul>
+                    <ul class="thumbs">
+                        <li class="show" rel="1">
+                            <img src="http://admin.thaitaesc.com/NewsImages/1.jpg" title="Slide 1" alt="Short Description1" /></li>
+                        <li rel="2">
+                            <img src="http://admin.thaitaesc.com/NewsImages/2.jpg" title="Slide 2" alt="Short Description2" /></li>
+                        <li rel="3">
+                            <img src="http://admin.thaitaesc.com/NewsImages/3.jpg" title="Slide 3" alt="Short Description3" /></li>
+                        <li rel="4">
+                            <img src="http://admin.thaitaesc.com/NewsImages/4.jpg" title="Slide 4" alt="Short Description4" /></li>
+                        <li rel="5">
+                            <img src="http://admin.thaitaesc.com/NewsImages/5.jpg" title="Slide 5" alt="Short Description5" /></li>
+                        <li rel="6">
+                            <img src="http://admin.thaitaesc.com/NewsImages/6.jpg" title="Slide 6" alt="Short Description6" /></li>
+                        <li rel="7">
+                            <img src="http://admin.thaitaesc.com/NewsImages/7.jpg" title="Slide 7" alt="Short Description7" /></li>
+                        <li rel="8">
+                            <img src="http://admin.thaitaesc.com/NewsImages/8.jpg" title="Slide 8" alt="Short Description8" /></li>
+                        <li rel="9">
+                            <img src="http://admin.thaitaesc.com/NewsImages/9.jpg" title="Slide 9" alt="Short Description9" /></li>
+                        <li rel="10">
+                            <img src="http://admin.thaitaesc.com/NewsImages/10.jpg" title="Slide 10" alt="Short Description10" /></li>
+                    </ul>
                 </td>
                 <td width="224" height="84">
                     <a href="https://www.facebook.com/pages/Red-Seed-Fan-Page/191171527608027?ref=ts&amp;sk=wall">
@@ -61,27 +171,6 @@
             <tr>
                 <td height="81" align="center">
                     <img src="/Styles/images/B-Facebook.png" width="200" height="75" />
-                </td>
-            </tr>
-            <tr>
-                <td height="329" colspan="2" align="center">
-                    <%--<img src="images/test-new.png" width="655" height="230" />
-					<br />
-					<a href="News.html">
-						<p align="right" style="font-size: 12px">
-							view all</p>
-					</a>--%>
-                </td>
-                <td valign="top">
-                </td>
-            </tr>
-            <tr align="center">
-                <td height="126" colspan="3" valign="middle">
-                    <p>
-                        <a href="http://www.dafabet.com/th.html">
-                            <img src="/Styles/images/th.gif" width="490" height="120" align="middle" /></a></p>
-                    <p>
-                        &nbsp;</p>
                 </td>
             </tr>
             <tr>
