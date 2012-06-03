@@ -70,6 +70,7 @@
     <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.custom.min.js" />
     <Content Include="Scripts\jquery-ui-timepicker-addon.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
     <Content Include="Scripts\jquery.easing.js" />
     <Content Include="Scripts\jquery.jqAutoComplete.min.js" />
     <Content Include="Scripts\jquery.jqChart.exporting.min.js" />

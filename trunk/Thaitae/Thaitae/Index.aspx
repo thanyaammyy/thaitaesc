@@ -42,6 +42,12 @@
 
         $(document).ready(function () {
             $('#tabs').tabs();
+            var cookie = $.cookie("LeagueId");
+            if (cookie != null) {
+                $('#tabs ul li').removeClass("ui-tabs-selected ui-state-active");
+                var a = $('#tabs ul li').find('a[id=' + cookie + ']');
+                a.parent("li").addClass("ui-tabs-selected ui-state-active");
+            }
             myTimer = setTimeout("showNext()", 8000);
             $('ul.slideshow li').css({ opacity: 0.0 });
             $('ul.slideshow li:first').css({ opacity: 1.0 }).addClass('show');
@@ -61,9 +67,7 @@
         }
 
         function tabClick(a) {
-            var id = a.id;
-
-            $("#GetLeague1").val(id);
+            $.cookie("LeagueId", a.id, { expires: 7 });
             $("#PostButton1").click();
             setNameLabel(name);
         }
@@ -179,7 +183,6 @@
                                         </label>
                                     </div>
                                     <br />
-                                    <asp:HiddenField ID="GetLeague1" ClientIDMode="Static" runat="server" />
                                     <div style="display: none">
                                         <asp:Button ID="PostButton1" ClientIDMode="Static" runat="server" OnClick="PostButton1_Click" />
                                     </div>

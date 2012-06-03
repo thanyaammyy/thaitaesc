@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using thaitae.lib;
 using thaitae.lib.Page;
 
@@ -15,11 +16,12 @@ namespace Thaitae
             ListLeague = LeagueHelper.SelectLeague();
             if (!IsPostBack)
             {
-                if (Session["LeagueId"] != null && Session["LeagueId"].ToString() != "")
+                var httpCookie = Request.Cookies["LeagueId"];
+                if (httpCookie != null && httpCookie.Value != "")
                 {
-                    JqgridMatchFullResultBinding(Convert.ToInt32(Session["LeagueId"]));
-                    JqgridMatchBinding(Convert.ToInt32(Session["LeagueId"]));
-                    JqgridSulvoStarBinding(Convert.ToInt32(Session["LeagueId"]));
+                    JqgridMatchFullResultBinding(Convert.ToInt32(httpCookie.Value));
+                    JqgridMatchBinding(Convert.ToInt32(httpCookie.Value));
+                    JqgridSulvoStarBinding(Convert.ToInt32(httpCookie.Value));
                 }
                 else
                 {
@@ -54,7 +56,6 @@ namespace Thaitae
 
         protected void PostButton1_Click(object sender, EventArgs e)
         {
-            Session["LeagueId"] = GetLeague1.Value;
         }
     }
 }
