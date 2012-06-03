@@ -9,8 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <div style="margin: 16% auto auto auto; width: 300px">
-        <asp:login id="LoginUser" runat="server" enableviewstate="false" renderoutertable="false"
-            onloggedin="LoginUser_LoggedIn">
+        <asp:login id="LoginUser" runat="server" enableviewstate="false" renderoutertable="false">
             <layouttemplate>
             <div style="background-color: #F7F6F3; border-style: solid; border-width: 1px; font-size: 15px; font-family: Verdana; width: 280px;" >
             <div style="padding: 3px">
