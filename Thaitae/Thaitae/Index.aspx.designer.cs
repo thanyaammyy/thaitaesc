@@ -22,15 +22,6 @@ namespace Thaitae {
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
         
         /// <summary>
-        /// GetLeague1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField GetLeague1;
-        
-        /// <summary>
         /// PostButton1 control.
         /// </summary>
         /// <remarks>
