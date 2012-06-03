@@ -85,8 +85,8 @@ ul.slideshow img
 ul.thumbs
 {
     list-style: none;
-    width: 210px;
-    margin: 0;
+    width: 208px;
+    margin: 0px 0px 0px 2px;
     padding: 0;
     position: relative;
     float: left;
@@ -94,28 +94,25 @@ ul.thumbs
 
 ul.thumbs li
 {
-    list-style: none;
-    width: 96px;
+     width: 100px;
+    height: 74px;
     margin: 0;
     padding: 0;
     position: relative;
     float: left;
     cursor: pointer;
-    border:2px solid silver;	
-	background:#fff;
-	padding:2px;
+    border: 2px solid #fff;
 }
 
-ul.thumbs li.show{
-	border:2px solid #000;	
-	background:#fff;
-	padding:2px;
+ul.thumbs li.show
+{
+    border: 2px solid #000;
 }
 
 ul.thumbs img
 {
-    width: 96px;
-    height: 70px;
+    width: 100px;
+    height: 74px;
 }
 
 ul.slideshow li
@@ -130,7 +127,7 @@ ul.slideshow li.show
     z-index: 500;
 }
 
-ul img
+ul.slideshow img
 {
     border: none;
 }
@@ -145,6 +142,7 @@ ul img
     color: #fff;
     background: #000;
     z-index: 500;
+    opacity: 0.7;
 }
 
 #slideshow-caption .slideshow-caption-container
