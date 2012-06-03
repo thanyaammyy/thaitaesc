@@ -2,8 +2,8 @@
 <div align="center">
 	<table width="1000" border="0" cellpadding="3" cellspacing="5">
 		<tr>
-			<td colspan="3" align="center" bgcolor="#000000">
-				<img src="../Styles/images/Header.jpg" width="1000" height="238" />
+			<td colspan="3" align="right" style="width:1000px; height: 238px; background-image: url(../Styles/images/Header.jpg)">
+                <img src="../Styles/images/th.gif" />
 			</td>
 		</tr>
 		<tr>
@@ -13,7 +13,7 @@
 						<li><a href="../Index.aspx" id="indexH"><span>&nbsp;Home&nbsp;</span></a></li>
 						<li><a href="../AboutUs.aspx" id="aboutUsH"><span>&nbsp;About us&nbsp;</span></a></li>
 						<li><a href="../News.aspx" id="newsH"><span>&nbsp;News&nbsp;</span></a></li>
-						<li><a href="../PricePromotion.aspx" id="pricePromotionH"><span>&nbsp;Price & Promotion&nbsp;</span></a></li>
+						<li><a href="../PricePromotion.aspx" id="pricePromotionH"><span>Price & Promotion</span></a></li>
 						<li><a href="#" class="parent"><span>League</span></a>
 							<div>
 								<ul>
@@ -26,8 +26,8 @@
 								</ul>
 							</div>
 						</li>
-						<li><a href="../ChampionLeague.aspx" id="championsLeague"><span>&nbsp;Champions League&nbsp;</span></a></li>
-						<li><a href="../FACup.aspx" id="faCup"><span>&nbsp;FA Cup&nbsp;</span></a></li>
+						<li><a href="../ChampionLeague.aspx" id="championsLeague"><span>Champions League</span></a></li>
+						<li><a href="../FACup.aspx" id="faCup"><span>FA Cup</span></a></li>
 						<li><a href="../Gallery.aspx" id="galleryH"><span>&nbsp;Gallery&nbsp;</span></a></li>
 						<li class="last"><a href="../ContactUs.aspx" id="contactUsH"><span>&nbsp;Contact us&nbsp;</span></a></li>
 					</ul>
