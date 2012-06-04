@@ -30,11 +30,36 @@
         $(document).ready(function () {
             $("body div:last").remove();
         });
+        $(window).load(function () {
+            var theWindow = $(window),
+	    $bg = $("#Background1"),
+	    aspectRatio = $bg.width() / $bg.height();
+
+            function resizeBg() {
+
+                if ((theWindow.width() / theWindow.height()) < aspectRatio) {
+                    $bg
+		    	.removeClass()
+		    	.addClass('bgheight');
+                } else {
+                    $bg
+		    	.removeClass()
+		    	.addClass('bgwidth');
+                }
+
+            }
+
+            theWindow.resize(function () {
+                resizeBg();
+            }).trigger("resize");
+        });
+
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <img id="Background1" src="Styles/images/bg_2.JPG" />
     <div id="MainContanter">
         <uc1:Header ID="header1" runat="server" />
         <form id="form1" runat="server">
