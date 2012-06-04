@@ -64,8 +64,10 @@
         <uc1:Header ID="header1" runat="server" />
         <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" />
+		<div align="center" style="background-color: white; width: 1000px; margin: auto;">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
+		</div>
         </form>
         <uc2:Footer ID="footer1" runat="server" />
     </div>
