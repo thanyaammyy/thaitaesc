@@ -2,8 +2,8 @@
 <div align="center">
 	<table width="1000" border="0" cellpadding="3" cellspacing="5">
 		<tr>
-			<td colspan="3" align="right" style="width:1000px; height: 238px; background-image: url(../Styles/images/Header.jpg)">
-                <img src="../Styles/images/th.gif" />
+			<td colspan="3" align="right" style="width: 1000px; height: 238px; background-image: url(../Styles/images/Header.jpg)">
+				<img src="../Styles/images/th.gif" />
 			</td>
 		</tr>
 		<tr>
@@ -17,12 +17,12 @@
 						<li><a href="#" class="parent"><span>League</span></a>
 							<div>
 								<ul>
-									<li><a href="#" id="Premier.html"><span>Premier</span></a></li>
-									<li><a href="#" id="Championship.html"><span>Championship</span></a></li>
-									<li><a href="#" id="Division1.html"><span>Division1</span></a></li>
-									<li><a href="#" id="Division2.html"><span>Division2</span></a></li>
-									<li><a href="#" id="Division3.html"><span>Division3</span></a></li>
-									<li><a href="#" id="Division4.html"><span>Division4</span></a></li>
+									<%foreach (var league in ListLeague)%>
+									<%{%>
+									<li><a href="javascript:void(0);" id="<%=league.LeagueId%>" rel="<%=league.LeagueName%>" onclick="window.location='LeagueTemplate.aspx?leagueId=<%=league.LeagueId%>'">
+										<%=league.LeagueName%>
+									</a></li>
+									<%}%>
 								</ul>
 							</div>
 						</li>
