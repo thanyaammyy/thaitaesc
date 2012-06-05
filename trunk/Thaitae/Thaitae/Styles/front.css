@@ -192,6 +192,7 @@ ul.slideshow img
     width: 50%;
     text-align: left;
     font-family: Arial,sans-serif;
+	cursor: pointer;
 }
 .tableScoope
 {
@@ -209,3 +210,16 @@ ul.slideshow img
     height: 64px;
 }
 /*Scoope news*/
+
+/*News Template*/
+.NewsTopic {
+	text-align: center;
+}
+.NewsImage {
+	text-align: center;
+	width: 400px;
+	height: 350px;
+	padding: 2px;
+	border: brown ridge;
+}
+/*News Template*/

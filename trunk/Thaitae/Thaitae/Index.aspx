@@ -40,6 +40,11 @@
             showImage(next);
         }
 
+        function NewsTemplateRender(div) {
+        	var url = "NewsTemplate.aspx?newsId="+div.id;
+        	window.open(url, '_blank');
+        }
+
         $(document).ready(function () {
             $('#tabs').tabs();
             var cookie = $.cookie("LeagueId");
@@ -165,82 +170,26 @@
                             <strong>ข่าวเด่นอื่นๆ</strong>
                             <!------------------------------------- THE CONTENT ------------------------------------------------->
                         </h1>
-                    <div class="Scoope">
+						<%foreach (var scoope in ListScoope)%>
+                            <%{%>
+                    <div id="<%=scoope.newsId%>" onclick="NewsTemplateRender(this)" class="Scoope">
                         <table class="tableScoope">
                             <tr>
                                 <td colspan="2">
-                                    <span class="headingScoope">สมัครด่วน</span>
+                                    <span class="headingScoope"><%=scoope.newsTopic%></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <img class="imgScoope" src="http://admin.thaitaesc.com/NewsImages/Thumbs/1_thumb.jpg" />
+                                    <img class="imgScoope" src="<%=scoope.NewsThumb%>" />
                                 </td>
-                                <td valign="top">
-                                    ด่วน ด้วน ด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วน ด่วน ด้วน ด่วน
-                                    ด้วนด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วน ด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วนด่วน
-                                    ด้วน
+                                <td valign="top" style="word-break: break-all">
+                                    <%=scoope.NewsBrief%> ....
                                 </td>
                             </tr>
                         </table>
                     </div>
-                    <div class="Scoope">
-                        <table class="tableScoope">
-                            <tr>
-                                <td colspan="2">
-                                    <span class="headingScoope">สมัครด่วน</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img class="imgScoope" src="http://admin.thaitaesc.com/NewsImages/Thumbs/1_thumb.jpg" />
-                                </td>
-                                <td valign="top">
-                                    ด่วน ด้วน ด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วน ด่วน ด้วน ด่วน
-                                    ด้วนด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วน ด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วนด่วน
-                                    ด้วน
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="Scoope">
-                        <table class="tableScoope">
-                            <tr>
-                                <td colspan="2">
-                                    <span class="headingScoope">สมัครด่วน</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img class="imgScoope" src="http://admin.thaitaesc.com/NewsImages/Thumbs/1_thumb.jpg" />
-                                </td>
-                                <td valign="top">
-                                    ด่วน ด้วน ด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วน ด่วน ด้วน ด่วน
-                                    ด้วนด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วน ด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วนด่วน
-                                    ด้วน
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="Scoope">
-                        <table class="tableScoope">
-                            <tr>
-                                <td colspan="2">
-                                    <span class="headingScoope">สมัครด่วน</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img class="imgScoope" src="http://admin.thaitaesc.com/NewsImages/Thumbs/1_thumb.jpg" />
-                                </td>
-                                <td valign="top">
-                                    ด่วน ด้วน ด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วน ด่วน ด้วน ด่วน
-                                    ด้วนด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วน ด่วน ด้วน ด่วน ด้วนด่วน ด้วน ด่วน ด้วนด่วน
-                                    ด้วน
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+					<%}%>
                 </td>
                 <td>
                     Banners

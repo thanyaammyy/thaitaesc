@@ -66,6 +66,7 @@
     <Compile Include="Helper\Mailhelper.cs" />
     <Compile Include="Page\MatchHelper.cs" />
     <Compile Include="Page\LeagueHelper.cs" />
+    <Compile Include="Page\NewsHelper.cs" />
     <Compile Include="Page\PlayerMatchHelper.cs" />
     <Compile Include="Page\SeasonHelper.cs" />
     <Compile Include="Page\TeamHelper.cs" />
