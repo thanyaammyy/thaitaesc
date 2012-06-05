@@ -64,6 +64,7 @@
     <Content Include="Gallery.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="News.aspx" />
+    <Content Include="NewsTemplate.aspx" />
     <Content Include="PricePromotion.aspx" />
     <Content Include="Scripts\grid.locale-en.js" />
     <Content Include="Scripts\grid.locale-th.js" />
@@ -283,6 +284,13 @@
     </Compile>
     <Compile Include="News.aspx.designer.cs">
       <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsTemplate.aspx.cs">
+      <DependentUpon>NewsTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewsTemplate.aspx.designer.cs">
+      <DependentUpon>NewsTemplate.aspx</DependentUpon>
     </Compile>
     <Compile Include="PricePromotion.aspx.cs">
       <DependentUpon>PricePromotion.aspx</DependentUpon>

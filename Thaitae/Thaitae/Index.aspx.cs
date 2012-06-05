@@ -10,10 +10,12 @@ namespace Thaitae
     public partial class index : System.Web.UI.Page
     {
         public IEnumerable<League> ListLeague = new List<League>();
+		public IEnumerable<New> ListScoope= new List<New>(); 
 
         protected void Page_Load(object sender, EventArgs e)
         {
             ListLeague = LeagueHelper.SelectLeague();
+        	ListScoope = NewsHelper.ScoopeList();
             if (!IsPostBack)
             {
                 var httpCookie = Request.Cookies["LeagueId"];
