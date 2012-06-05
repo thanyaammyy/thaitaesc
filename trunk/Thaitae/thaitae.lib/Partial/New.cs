@@ -25,26 +25,26 @@ namespace thaitae.lib
             }
         }
 
-    	public string NewsBrief
-    	{
-    		get
-    		{
-				if(newsContent.Length>=140)
-				{
-					return newsContent.Substring(0, 140);
-				}
-				return newsContent;
-    		}
-    	}
+        public string NewsBrief
+        {
+            get
+            {
+                if (newsContent.Length >= 140)
+                {
+                    return newsContent.Substring(0, 140);
+                }
+                return newsContent;
+            }
+        }
 
-    	public string NewsThumb
-    	{
-    		get
-    		{
-    			var front = picture.Replace("http://admin.thaitaesc.com/NewsImages", "http://admin.thaitaesc.com/NewsImages/Thumbs/");
-				var thumb = front.Replace(".jpg", "_thumb.jpg");
-    			return thumb;
-    		}
-    	}
+        //public string NewsThumb
+        //{
+        //    get
+        //    {
+        //        var front = picture.Replace("http://admin.thaitaesc.com/NewsImages/", "http://admin.thaitaesc.com/NewsImages/Thumbs/");
+        //        var thumb = front.Replace(".jpg", "_thumb.jpg");
+        //        return thumb;
+        //    }
+        //}
     }
 }
