@@ -41,8 +41,8 @@
         }
 
         function NewsTemplateRender(div) {
-        	var url = "NewsTemplate.aspx?newsId="+div.id;
-        	window.open(url, '_blank');
+            var url = "NewsTemplate.aspx?newsId=" + div.id;
+            window.open(url, '_blank');
         }
 
         $(document).ready(function () {
@@ -167,29 +167,31 @@
             <tr>
                 <td colspan="2">
                     <h1>
-                            <strong>ข่าวเด่นอื่นๆ</strong>
-                            <!------------------------------------- THE CONTENT ------------------------------------------------->
-                        </h1>
-						<%foreach (var scoope in ListScoope)%>
-                            <%{%>
+                        <strong>ข่าวเด่นอื่นๆ</strong>
+                        <!------------------------------------- THE CONTENT ------------------------------------------------->
+                    </h1>
+                    <%foreach (var scoope in ListScoope)%>
+                    <%{%>
                     <div id="<%=scoope.newsId%>" onclick="NewsTemplateRender(this)" class="Scoope">
                         <table class="tableScoope">
                             <tr>
                                 <td colspan="2">
-                                    <span class="headingScoope"><%=scoope.newsTopic%></span>
+                                    <span class="headingScoope">
+                                        <%=scoope.newsTopic%></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <img class="imgScoope" src="<%=scoope.NewsThumb%>" />
+                                    <img class="imgScoope" width="100" height="74" src="<%=scoope.picture%>" />
                                 </td>
                                 <td valign="top" style="word-break: break-all">
-                                    <%=scoope.NewsBrief%> ....
+                                    <%=scoope.NewsBrief%>
+                                    ....
                                 </td>
                             </tr>
                         </table>
                     </div>
-					<%}%>
+                    <%}%>
                 </td>
                 <td>
                     Banners
