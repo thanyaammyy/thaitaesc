@@ -71,7 +71,7 @@ namespace Thaitae.Backend
         private static bool IsImage(string path)
         {
             var format = Path.GetFileName(path);
-            var regEx = new Regex("([^\\s]+(\\.(?i)(jpg|png|gif|bmp))$)");
+            var regEx = new Regex("([^\\s]+(\\.(?i)(jpeg|jpg|png|gif|bmp))$)");
             return format != null && regEx.IsMatch(format);
         }
     }
