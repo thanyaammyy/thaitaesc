@@ -63,6 +63,7 @@
     <Content Include="FACup.aspx" />
     <Content Include="Gallery.aspx" />
     <Content Include="Index.aspx" />
+    <Content Include="LeagueTemplate.aspx" />
     <Content Include="News.aspx" />
     <Content Include="NewsTemplate.aspx" />
     <Content Include="PricePromotion.aspx" />
@@ -277,6 +278,13 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeagueTemplate.aspx.cs">
+      <DependentUpon>LeagueTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LeagueTemplate.aspx.designer.cs">
+      <DependentUpon>LeagueTemplate.aspx</DependentUpon>
     </Compile>
     <Compile Include="News.aspx.cs">
       <DependentUpon>News.aspx</DependentUpon>
