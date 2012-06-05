@@ -171,6 +171,7 @@
     <Content Include="Styles\uploadify-cancel.png" />
     <Content Include="Styles\uploadify.css" />
     <Content Include="TeamManagement.aspx" />
+    <Content Include="UploadFile.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -272,6 +273,13 @@
     </Compile>
     <Compile Include="TeamManagement.aspx.designer.cs">
       <DependentUpon>TeamManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadFile.aspx.cs">
+      <DependentUpon>UploadFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadFile.aspx.designer.cs">
+      <DependentUpon>UploadFile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

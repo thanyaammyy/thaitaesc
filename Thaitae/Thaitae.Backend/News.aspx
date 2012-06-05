@@ -4,6 +4,22 @@
 <%@ Register TagPrefix="cc1" Namespace="Trirand.Web.UI.WebControls" Assembly="Trirand.Web, Version=4.4.0.0, Culture=neutral, PublicKeyToken=e2819dc449af3295" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
+        function bindFileUpload() {
+            $('#Picture').bind('click', function () {
+                var grid = $("#<%=JqgridNews.ClientID%>");
+                var rowid = grid.jqGrid('getGridParam', 'selrow');
+                popup('UploadFile.aspx?id=' + rowid, '', 300, 100);
+            });
+        }
+
+        function popup(url, name, windowWidth, windowHeight) {
+            var myleft = (screen.width) ? (screen.width - windowWidth) / 2 : 100;
+            var mytop = (screen.height) ? (screen.height - windowHeight) / 2 : 100;
+            var properties = "width=" + windowWidth + ",height=" + windowHeight;
+            properties += ",scrollbars=no, top=" + mytop + ",left=" + myleft;
+            window.open(url, name, properties);
+        }
+
         function createTextArea(value, editOptions) {
             var textarea = $("<textarea>", { id: "newsCont", cols: "100", rows: "10", value: value });
             return textarea;
@@ -13,7 +29,7 @@
             return $(elem).val();
         }
         function createFile(value, editOptions) {
-            var file = $("<input>", { type: "file", id: "filePicture" });
+            var file = $("<input>", { type: "button", id: "filePicture", value: "Upload File" });
             return file;
         }
 
@@ -56,5 +72,7 @@
             LeftOffset="300" Height="300" CloseAfterAdding="True" Caption="Add News"></AddDialogSettings>
         <EditDialogSettings Width="700" Modal="True" TopOffset="180" LeftOffset="300" Height="300"
             CloseAfterEditing="True" Caption="Edit News"></EditDialogSettings>
+        <ClientSideEvents AfterEditDialogShown="bindFileUpload" AfterAddDialogShown="bindFileUpload">
+        </ClientSideEvents>
     </cc1:JQGrid>
 </asp:Content>
