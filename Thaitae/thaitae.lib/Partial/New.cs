@@ -11,6 +11,7 @@ namespace thaitae.lib
         {
             newsTopic = "";
             newsContent = "";
+			picture = "http://admin.thaitaesc.com/NewsImages/noImage.jpg";
         }
 
         public string NewsTypeName
@@ -37,14 +38,14 @@ namespace thaitae.lib
             }
         }
 
-        //public string NewsThumb
-        //{
-        //    get
-        //    {
-        //        var front = picture.Replace("http://admin.thaitaesc.com/NewsImages/", "http://admin.thaitaesc.com/NewsImages/Thumbs/");
-        //        var thumb = front.Replace(".jpg", "_thumb.jpg");
-        //        return thumb;
-        //    }
-        //}
+		public string NewsThumb
+		{
+			get
+			{
+				var front = picture.Replace("http://admin.thaitaesc.com/NewsImages/", "http://admin.thaitaesc.com/NewsImages/Thumbs/");
+				var	thumb = front.Replace(".jpg", "_thumb.jpg");
+				return thumb;
+			}
+		}
     }
 }
