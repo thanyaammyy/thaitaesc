@@ -30,9 +30,9 @@ namespace thaitae.lib
         {
             get
             {
-                if (newsContent.Length >= 140)
+                if (newsContent.Length >= 120)
                 {
-                    return newsContent.Substring(0, 140);
+                    return newsContent.Substring(0, 120);
                 }
                 return newsContent;
             }
@@ -47,5 +47,18 @@ namespace thaitae.lib
 				return thumb;
 			}
 		}
+
+		public string NewsImageTopicContent
+    	{
+			get
+			{
+				return  "<div style='cursor:pointer;'><h2>" + newsTopic + "</h2><br/>" + NewsBrief+"</div>";
+			}
+    	}
+
+    	public string NewsPicture
+    	{
+			get { return "<div style='cursor:pointer;'><img width='100px' height='74px' src='" + NewsThumb + "'/></div>"; }
+    	}
     }
 }
