@@ -78,12 +78,12 @@
         }
     </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
     <div align="center">
         <table width="1000px" style="background-color: white">
             <tr>
                 <td colspan="2" rowspan="4">
-                    <h1>
+                    <h1 style="text-align: center">
                         <strong>เกาะติด ขอบสนาม</strong>
                         <!------------------------------------- THE CONTENT ------------------------------------------------->
                     </h1>
@@ -142,26 +142,28 @@
                                 alt="Short Description10" /></li>
                     </ul>
                 </td>
-                <td width="224" height="84">
+                <td style="text-align: center">
                     <a href="https://www.facebook.com/pages/Red-Seed-Fan-Page/191171527608027?ref=ts&amp;sk=wall">
                         <img src="/Styles/images/B-Redseed.png" width="200" height="75" align="middle" /></a>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style="text-align: center">
                     <a href="http://www.tamudosports.com/">
                         <img src="/Styles/images/B-tamudo.png" width="220" height="75" align="middle" /></a>
                 </td>
             </tr>
             <tr>
-                <td height="77">
+                <td style="text-align: center" height="77">
                     <a href="http://www.b-ingready.com/">
-                        <img src="/Styles/images/B-Bing.png" width="220" height="75" align="middle" /></a>
+                        <img src="/Styles/images/B-Bing.png" width="220" height="75" /></a>
                 </td>
             </tr>
             <tr>
-                <td height="81" align="center">
-                    <img src="/Styles/images/B-Facebook.png" width="200" height="75" />
+                <td style="text-align: center">
+                    <div style="width: 260px;" class="fb-like" data-href="http://www.thaitaesc.com" data-send="true"
+                        data-width="190" data-show-faces="true">
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -194,7 +196,6 @@
                     <%}%>
                 </td>
                 <td>
-                    Banners
                 </td>
             </tr>
             <tr>
@@ -213,8 +214,8 @@
                             <%}%>
                         </ul>
                         <div id="fixTab">
-                            <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" runat="server">
-                                <ContentTemplate>
+                            <asp:updatepanel id="UpdatePanel2" updatemode="Conditional" runat="server">
+                                <contenttemplate>
                                     <div style="font-size: 14px;" align="center">
                                         ตารางคะแนน
                                         <label class="setNameLabel" id="lbMatchResult">
@@ -281,11 +282,11 @@
                                         <ToolBarSettings ShowRefreshButton="True" />
                                         <AppearanceSettings ShowRowNumbers="true" />
                                     </cc1:JQGrid>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
+                                </contenttemplate>
+                            </asp:updatepanel>
                         </div>
                     </div>
             </tr>
         </table>
     </div>
-</asp:Content>
+</asp:content>
