@@ -84,7 +84,6 @@ namespace Thaitae.Backend
                             dc.SubmitChanges();
                         }
                     }
-
                     return "File uploaded successfully";
                 }
                 else
