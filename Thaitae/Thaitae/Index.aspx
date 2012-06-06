@@ -78,69 +78,99 @@
         }
     </script>
 </asp:Content>
-<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div align="center">
         <table width="1000px" style="background-color: white">
             <tr>
-                <td colspan="2" rowspan="4">
-                    <h1 style="text-align: center">
-                        <strong>เกาะติด ขอบสนาม</strong>
-                        <!------------------------------------- THE CONTENT ------------------------------------------------->
-                    </h1>
-                    <ul class="slideshow">
-                        <li class="show" rel="1">
-                            <img src="http://admin.thaitaesc.com/NewsImages/1.jpg" title="Slide 1" alt="Short Description1" /></li>
-                        <li rel="2">
-                            <img src="http://admin.thaitaesc.com/NewsImages/2.jpg" title="Slide 2" alt="Short Description2" /></li>
-                        <li rel="3">
-                            <img src="http://admin.thaitaesc.com/NewsImages/3.jpg" title="Slide 3" alt="Short Description3" /></li>
-                        <li rel="4">
-                            <img src="http://admin.thaitaesc.com/NewsImages/4.jpg" title="Slide 4" alt="Short Description4" /></li>
-                        <li rel="5">
-                            <img src="http://admin.thaitaesc.com/NewsImages/5.jpg" title="Slide 5" alt="Short Description5" /></li>
-                        <li rel="6">
-                            <img src="http://admin.thaitaesc.com/NewsImages/6.jpg" title="Slide 6" alt="Short Description6" /></li>
-                        <li rel="7">
-                            <img src="http://admin.thaitaesc.com/NewsImages/7.jpg" title="Slide 7" alt="Short Description7" /></li>
-                        <li rel="8">
-                            <img src="http://admin.thaitaesc.com/NewsImages/8.jpg" title="Slide 8" alt="Short Description8" /></li>
-                        <li rel="9">
-                            <img src="http://admin.thaitaesc.com/NewsImages/9.jpg" title="Slide 9" alt="Short Description9" /></li>
-                        <li rel="10">
-                            <img src="http://admin.thaitaesc.com/NewsImages/10.jpg" title="Slide 10" alt="Short Description10" /></li>
-                    </ul>
-                    <ul class="thumbs">
-                        <li class="show" rel="1">
-                            <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/1_thumb.jpg" title="Slide 1"
-                                alt="Short Description1" /></li>
-                        <li rel="2">
-                            <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/2_thumb.jpg" title="Slide 2"
-                                alt="Short Description2" /></li>
-                        <li rel="3">
-                            <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/3_thumb.jpg" title="Slide 3"
-                                alt="Short Description3" /></li>
-                        <li rel="4">
-                            <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/4_thumb.jpg" title="Slide 4"
-                                alt="Short Description4" /></li>
-                        <li rel="5">
-                            <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/5_thumb.jpg" title="Slide 5"
-                                alt="Short Description5" /></li>
-                        <li rel="6">
-                            <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/6_thumb.jpg" title="Slide 6"
-                                alt="Short Description6" /></li>
-                        <li rel="7">
-                            <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/7_thumb.jpg" title="Slide 7"
-                                alt="Short Description7" /></li>
-                        <li rel="8">
-                            <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/8_thumb.jpg" title="Slide 8"
-                                alt="Short Description8" /></li>
-                        <li rel="9">
-                            <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/9_thumb.jpg" title="Slide 9"
-                                alt="Short Description9" /></li>
-                        <li rel="10">
-                            <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/10_thumb.jpg" title="Slide 10"
-                                alt="Short Description10" /></li>
-                    </ul>
+                <td style="vertical-align: top" colspan="2" rowspan="4">
+                    <div id="hotnewsBlog">
+                        <h1 style="text-align: center">
+                            <strong>เกาะติด ขอบสนาม</strong>
+                            <!------------------------------------- THE CONTENT ------------------------------------------------->
+                        </h1>
+                        <ul class="slideshow">
+                            <li class="show" rel="1">
+                                <img src="http://admin.thaitaesc.com/NewsImages/1.jpg" title="Slide 1" alt="Short Description1" /></li>
+                            <li rel="2">
+                                <img src="http://admin.thaitaesc.com/NewsImages/2.jpg" title="Slide 2" alt="Short Description2" /></li>
+                            <li rel="3">
+                                <img src="http://admin.thaitaesc.com/NewsImages/3.jpg" title="Slide 3" alt="Short Description3" /></li>
+                            <li rel="4">
+                                <img src="http://admin.thaitaesc.com/NewsImages/4.jpg" title="Slide 4" alt="Short Description4" /></li>
+                            <li rel="5">
+                                <img src="http://admin.thaitaesc.com/NewsImages/5.jpg" title="Slide 5" alt="Short Description5" /></li>
+                            <li rel="6">
+                                <img src="http://admin.thaitaesc.com/NewsImages/6.jpg" title="Slide 6" alt="Short Description6" /></li>
+                            <li rel="7">
+                                <img src="http://admin.thaitaesc.com/NewsImages/7.jpg" title="Slide 7" alt="Short Description7" /></li>
+                            <li rel="8">
+                                <img src="http://admin.thaitaesc.com/NewsImages/8.jpg" title="Slide 8" alt="Short Description8" /></li>
+                            <li rel="9">
+                                <img src="http://admin.thaitaesc.com/NewsImages/9.jpg" title="Slide 9" alt="Short Description9" /></li>
+                            <li rel="10">
+                                <img src="http://admin.thaitaesc.com/NewsImages/10.jpg" title="Slide 10" alt="Short Description10" /></li>
+                        </ul>
+                        <ul class="thumbs">
+                            <li class="show" rel="1">
+                                <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/1_thumb.jpg" title="Slide 1"
+                                    alt="Short Description1" /></li>
+                            <li rel="2">
+                                <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/2_thumb.jpg" title="Slide 2"
+                                    alt="Short Description2" /></li>
+                            <li rel="3">
+                                <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/3_thumb.jpg" title="Slide 3"
+                                    alt="Short Description3" /></li>
+                            <li rel="4">
+                                <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/4_thumb.jpg" title="Slide 4"
+                                    alt="Short Description4" /></li>
+                            <li rel="5">
+                                <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/5_thumb.jpg" title="Slide 5"
+                                    alt="Short Description5" /></li>
+                            <li rel="6">
+                                <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/6_thumb.jpg" title="Slide 6"
+                                    alt="Short Description6" /></li>
+                            <li rel="7">
+                                <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/7_thumb.jpg" title="Slide 7"
+                                    alt="Short Description7" /></li>
+                            <li rel="8">
+                                <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/8_thumb.jpg" title="Slide 8"
+                                    alt="Short Description8" /></li>
+                            <li rel="9">
+                                <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/9_thumb.jpg" title="Slide 9"
+                                    alt="Short Description9" /></li>
+                            <li rel="10">
+                                <img src="http://admin.thaitaesc.com/NewsImages/Thumbs/10_thumb.jpg" title="Slide 10"
+                                    alt="Short Description10" /></li>
+                        </ul>
+                    </div>
+                    <div style="margin: auto" id="ScoopeBlog">
+                        <h1 style="text-align: center">
+                            <strong>ข่าวเด่นอื่นๆ</strong>
+                            <!------------------------------------- THE CONTENT ------------------------------------------------->
+                        </h1>
+                        <%foreach (var scoope in ListScoope)%>
+                        <%{%>
+                        <div id="<%=scoope.newsId%>" onclick="NewsTemplateRender(this)" class="Scoope">
+                            <table class="tableScoope">
+                                <tr>
+                                    <td colspan="2">
+                                        <span class="headingScoope">
+                                            <%=scoope.newsTopic%></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img class="imgScoope" width="100" height="74" src="<%=scoope.picture%>" />
+                                    </td>
+                                    <td valign="top" style="word-break: break-all">
+                                        <%=scoope.NewsBrief%>
+                                        ....
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <%}%>
+                    </div>
                 </td>
                 <td style="text-align: center">
                     <a href="https://www.facebook.com/pages/Red-Seed-Fan-Page/191171527608027?ref=ts&amp;sk=wall">
@@ -161,41 +191,14 @@
             </tr>
             <tr>
                 <td style="text-align: center">
-                    <div style="width: 260px;" class="fb-like" data-href="http://www.thaitaesc.com" data-send="true"
-                        data-width="190" data-show-faces="true">
+                    <div style="width: 260px;" class="fb-like-box" data-href="https://www.facebook.com/pages/%E0%B8%AA%E0%B8%99%E0%B8%B2%E0%B8%A1%E0%B8%9F%E0%B8%B8%E0%B8%95%E0%B8%9A%E0%B8%AD%E0%B8%A5%E0%B9%84%E0%B8%97%E0%B8%A2%E0%B9%80%E0%B8%95%E0%B8%B0/471760466173117"
+                        data-width="250" data-show-faces="true" data-border-color="#8B1209" data-stream="true"
+                        data-header="true">
                     </div>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <h1>
-                        <strong>ข่าวเด่นอื่นๆ</strong>
-                        <!------------------------------------- THE CONTENT ------------------------------------------------->
-                    </h1>
-                    <%foreach (var scoope in ListScoope)%>
-                    <%{%>
-                    <div id="<%=scoope.newsId%>" onclick="NewsTemplateRender(this)" class="Scoope">
-                        <table class="tableScoope">
-                            <tr>
-                                <td colspan="2">
-                                    <span class="headingScoope">
-                                        <%=scoope.newsTopic%></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img class="imgScoope" width="100" height="74" src="<%=scoope.picture%>" />
-                                </td>
-                                <td valign="top" style="word-break: break-all">
-                                    <%=scoope.NewsBrief%>
-                                    ....
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <%}%>
-                </td>
-                <td>
                 </td>
             </tr>
             <tr>
@@ -214,8 +217,8 @@
                             <%}%>
                         </ul>
                         <div id="fixTab">
-                            <asp:updatepanel id="UpdatePanel2" updatemode="Conditional" runat="server">
-                                <contenttemplate>
+                            <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" runat="server">
+                                <ContentTemplate>
                                     <div style="font-size: 14px;" align="center">
                                         ตารางคะแนน
                                         <label class="setNameLabel" id="lbMatchResult">
@@ -282,11 +285,11 @@
                                         <ToolBarSettings ShowRefreshButton="True" />
                                         <AppearanceSettings ShowRowNumbers="true" />
                                     </cc1:JQGrid>
-                                </contenttemplate>
-                            </asp:updatepanel>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
                         </div>
                     </div>
             </tr>
         </table>
     </div>
-</asp:content>
+</asp:Content>
