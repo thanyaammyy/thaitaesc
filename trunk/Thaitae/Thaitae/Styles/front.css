@@ -3,7 +3,8 @@
     position: relative;
 }
 
-a.whiteLink {
+a.whiteLink
+{
     color: white;
 }
 
@@ -187,12 +188,13 @@ ul.slideshow img
 .Scoope
 {
     float: left;
-    margin: 0;
-    padding: 0;
-    width: 50%;
+    margin: 1px;
+    padding: 1px;
+    width: 48%;
     text-align: left;
     font-family: Arial,sans-serif;
-	cursor: pointer;
+    cursor: pointer;
+    border: brown ridge;
 }
 .tableScoope
 {
@@ -212,14 +214,16 @@ ul.slideshow img
 /*Scoope news*/
 
 /*News Template*/
-.NewsTopic {
-	text-align: center;
+.NewsTopic
+{
+    text-align: center;
 }
-.NewsImage {
-	text-align: center;
-	width: 400px;
-	height: 350px;
-	padding: 2px;
-	border: brown ridge;
+.NewsImage
+{
+    text-align: center;
+    width: 400px;
+    height: 350px;
+    padding: 2px;
+    border: brown ridge;
 }
 /*News Template*/
