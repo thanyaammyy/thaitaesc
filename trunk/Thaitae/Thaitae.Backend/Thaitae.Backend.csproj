@@ -136,6 +136,7 @@
     <Content Include="Scripts\jquery.jqChart.min.js" />
     <Content Include="Scripts\jquery.jqDatePicker.min.js" />
     <Content Include="Scripts\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\jquery.jqGrid.src.js" />
     <Content Include="Scripts\jquery.jqTreeView.min.js" />
     <Content Include="Scripts\jquery.ui.datepicker-th.js" />
     <Content Include="Scripts\menu.js" />

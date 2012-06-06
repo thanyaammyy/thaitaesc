@@ -8,7 +8,18 @@
             $('#Picture').bind('click', function () {
                 var grid = $("#<%=JqgridNews.ClientID%>");
                 var rowid = grid.jqGrid('getGridParam', 'selrow');
-                popup('UploadFile.aspx?id=' + rowid, '', 300, 100);
+                var page = 'UploadFile.aspx?newsid=' + rowid;
+                var $dialog = $('<div style="width:300px"></div>')
+                .html('<iframe scrolling="no" style="border: 0px; " src="' + page + '" width="300px" height="100px"></iframe>')
+                .dialog({
+                    autoOpen: false,
+                    modal: true,
+                    height: 300,
+                    width: 100,
+                    title: "Upload File"
+                });
+                $dialog.dialog('open');
+                //popup('UploadFile.aspx?id=' + rowid, '', 300, 100);
             });
         }
 
@@ -46,7 +57,7 @@
         }
     </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
     <h2>
         News Management
     </h2>
@@ -75,4 +86,4 @@
         <ClientSideEvents AfterEditDialogShown="bindFileUpload" AfterAddDialogShown="bindFileUpload">
         </ClientSideEvents>
     </cc1:JQGrid>
-</asp:Content>
+</asp:content>
