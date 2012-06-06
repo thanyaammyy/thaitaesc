@@ -11,11 +11,13 @@ namespace Thaitae
     {
         public IEnumerable<League> ListLeague = new List<League>();
 		public IEnumerable<New> ListScoope= new List<New>(); 
+		public IEnumerable<New> ListHotNews=new List<New>(); 
 
         protected void Page_Load(object sender, EventArgs e)
         {
             ListLeague = LeagueHelper.SelectLeague();
         	ListScoope = NewsHelper.ScoopeList();
+        	ListHotNews = NewsHelper.HotNewsList();
             if (!IsPostBack)
             {
                 var httpCookie = Request.Cookies["LeagueId"];
