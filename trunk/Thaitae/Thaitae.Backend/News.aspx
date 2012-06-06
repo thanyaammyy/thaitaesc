@@ -9,13 +9,13 @@
                 var grid = $("#<%=JqgridNews.ClientID%>");
                 var rowid = grid.jqGrid('getGridParam', 'selrow');
                 var page = 'UploadFile.aspx?newsid=' + rowid;
-                var $dialog = $('<div style="width:300px"></div>')
-                .html('<iframe scrolling="no" style="border: 0px; " src="' + page + '" width="300px" height="100px"></iframe>')
+                var $dialog = $('<div></div>')
+                .html('<iframe scrolling="no" style="border: 0px; " src="' + page + '" width="100%" height="100%"></iframe>')
                 .dialog({
                     autoOpen: false,
                     modal: true,
-                    height: 300,
-                    width: 100,
+                    height: 200,
+                    width: 300,
                     title: "Upload File"
                 });
                 $dialog.dialog('open');

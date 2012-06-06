@@ -21,14 +21,14 @@ namespace Thaitae.Backend
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Request.QueryString["newsid"]))
+            if (!string.IsNullOrEmpty(Request.QueryString["newsid"]))
             {
                 _fileIdName = Request.QueryString["newsid"];
                 _savePath = ConfigurationManager.AppSettings["newsFolderPath"];
                 _fileType = "news";
             }
 
-            if (string.IsNullOrEmpty(Request.QueryString["leagueid"]))
+            if (!string.IsNullOrEmpty(Request.QueryString["leagueid"]))
             {
                 _fileIdName = Request.QueryString["leagueid"];
                 _savePath = ConfigurationManager.AppSettings["leagueFolderPath"];
@@ -56,8 +56,8 @@ namespace Thaitae.Backend
                 if (FileUpload1.PostedFile.ContentLength <= 2048000)
                 {
                     var tempPath = Server.MapPath(folderName) + "\\Temp\\" + _fileIdName + "_" + fileName;
-                    var serverPath = Server.MapPath(folderName) + "\\" + _fileIdName;
-                    var thumbPath = Server.MapPath(folderName) + "\\Thumbs\\" + _fileIdName + "_thumb";
+                    var serverPath = Server.MapPath(folderName) + "\\" + _fileIdName + ".jpg";
+                    var thumbPath = Server.MapPath(folderName) + "\\Thumbs\\" + _fileIdName + "_thumb.jpg";
                     FileUpload1.PostedFile.SaveAs(tempPath);
                     var myimg = System.Drawing.Image.FromFile(tempPath);
                     if (_fileType.Equals("news"))
@@ -69,7 +69,8 @@ namespace Thaitae.Backend
                         using (var dc = new ThaitaeDataDataContext())
                         {
                             var newsObject = dc.News.Single(item => item.newsId == Convert.ToInt32(_fileIdName));
-                            newsObject.picture = ConfigurationManager.AppSettings["ServerNewsPath"] + _fileIdName + "." + myimg.RawFormat;
+                            newsObject.picture = ConfigurationManager.AppSettings["ServerNewsPath"] + _fileIdName + ".jpg";
+                            dc.SubmitChanges();
                         }
                     }
                     else
@@ -79,7 +80,8 @@ namespace Thaitae.Backend
                         using (var dc = new ThaitaeDataDataContext())
                         {
                             var leagueObject = dc.Leagues.Single(item => item.LeagueId == Convert.ToInt32(_fileIdName));
-                            leagueObject.Picture = ConfigurationManager.AppSettings["ServerLeaguePath"] + _fileIdName + "." + myimg.RawFormat;
+                            leagueObject.Picture = ConfigurationManager.AppSettings["ServerLeaguePath"] + _fileIdName + ".jpg";
+                            dc.SubmitChanges();
                         }
                     }
 
