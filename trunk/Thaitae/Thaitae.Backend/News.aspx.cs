@@ -29,9 +29,6 @@ namespace Thaitae.Backend
                         };
                 dc.News.InsertOnSubmit(news);
                 dc.SubmitChanges();
-                if (!IsImage(e.RowData["Picture"])) return;
-                news.picture = e.RowData["Picture"];
-                dc.SubmitChanges();
             }
         }
 
@@ -54,9 +51,6 @@ namespace Thaitae.Backend
                 news.newsContent = e.RowData["newsContent"];
                 news.newsType = Convert.ToInt32(e.RowData["NewsTypeName"]);
                 dc.SubmitChanges();
-                if (!IsImage(e.RowData["Picture"])) return;
-                news.picture = e.RowData["Picture"];
-                dc.SubmitChanges();
             }
         }
 
@@ -66,13 +60,6 @@ namespace Thaitae.Backend
             var seasonList = dc.ToList();
             JqgridNews.DataSource = seasonList;
             JqgridNews.DataBind();
-        }
-
-        private static bool IsImage(string path)
-        {
-            var format = Path.GetFileName(path);
-            var regEx = new Regex("([^\\s]+(\\.(?i)(jpeg|jpg|png|gif|bmp))$)");
-            return format != null && regEx.IsMatch(format);
         }
     }
 }

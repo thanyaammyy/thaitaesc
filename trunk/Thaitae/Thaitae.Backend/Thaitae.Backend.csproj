@@ -116,6 +116,8 @@
     <Content Include="NewsImages\7.jpg" />
     <Content Include="NewsImages\8.jpg" />
     <Content Include="NewsImages\9.jpg" />
+    <Content Include="NewsImages\noImage.jpg" />
+    <Content Include="NewsImages\Thumbs\noimage_thumb.jpg" />
     <Content Include="NewsImages\Thumbs\10_thumb.jpg" />
     <Content Include="NewsImages\Thumbs\1_thumb.jpg" />
     <Content Include="NewsImages\Thumbs\2_thumb.jpg" />
