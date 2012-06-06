@@ -29,5 +29,14 @@ namespace thaitae.lib.Page
 			if (count > 0) listNews = dc.News.OrderByDescending(item => item.newsId).ToList();
 			return listNews;
 		}
+
+		public static IEnumerable<New> HotNewsList()
+		{
+			IEnumerable<New> hotNewsList = new List<New>();
+			var dc = new ThaitaeDataDataContext();
+			var count = dc.News.Count();
+			if (count > 0) hotNewsList = dc.News.OrderByDescending(item => item.newsId).Where(item => item.newsType == 1).Take(10).ToList();
+			return hotNewsList;
+		}
 	}
 }
