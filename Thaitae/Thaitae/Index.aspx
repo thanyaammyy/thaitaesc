@@ -74,7 +74,7 @@
         function tabClick(a) {
             $.cookie("LeagueId", a.id, { expires: 7 });
             $("#PostButton1").click();
-            setNameLabel(name);
+            setNameLabel();
         }
     </script>
 </asp:Content>
