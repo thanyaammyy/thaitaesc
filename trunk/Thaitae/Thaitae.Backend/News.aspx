@@ -19,16 +19,7 @@
                     title: "Upload File"
                 });
                 $dialog.dialog('open');
-                //popup('UploadFile.aspx?id=' + rowid, '', 300, 100);
             });
-        }
-
-        function popup(url, name, windowWidth, windowHeight) {
-            var myleft = (screen.width) ? (screen.width - windowWidth) / 2 : 100;
-            var mytop = (screen.height) ? (screen.height - windowHeight) / 2 : 100;
-            var properties = "width=" + windowWidth + ",height=" + windowHeight;
-            properties += ",scrollbars=no, top=" + mytop + ",left=" + myleft;
-            window.open(url, name, properties);
         }
 
         function createTextArea(value, editOptions) {
@@ -71,8 +62,8 @@
                 EditTypeCustomGetValue="getTextboxValue" Editable="True" Width="90" TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="Contents" EditType="Custom" EditTypeCustomCreateElement="createTextArea"
                 EditTypeCustomGetValue="getTextAreaValue" DataField="NewsContent" Editable="True" />
-            <cc1:JQGridColumn HeaderText="Picture" DataField="Picture" Editable="True" Visible="True"
-                EditType="Custom" EditTypeCustomCreateElement="createFile" EditTypeCustomGetValue="getFileValue"
+            <cc1:JQGridColumn HeaderText="Picture" DataField="ShowPictureThumb" Editable="True"
+                Visible="True" EditType="Custom" EditTypeCustomCreateElement="createFile" EditTypeCustomGetValue="getFileValue"
                 TextAlign="Center" />
         </Columns>
         <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
