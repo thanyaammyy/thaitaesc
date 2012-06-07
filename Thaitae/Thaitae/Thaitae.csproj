@@ -66,6 +66,7 @@
     <Content Include="LeagueTemplate.aspx" />
     <Content Include="News.aspx" />
     <Content Include="NewsTemplate.aspx" />
+    <Content Include="PlayerMatchResult.aspx" />
     <Content Include="PricePromotion.aspx" />
     <Content Include="Scripts\grid.locale-en.js" />
     <Content Include="Scripts\grid.locale-th.js" />
@@ -80,6 +81,7 @@
     <Content Include="Scripts\jquery.jqGrid.min.js" />
     <Content Include="Scripts\jquery.jqGrid.src.js" />
     <Content Include="Scripts\jquery.jqTreeView.min.js" />
+    <Content Include="Scripts\jquery.qtip-1.0.0-rc3.js" />
     <Content Include="Scripts\jquery.ui.datepicker-th.js" />
     <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\script.js" />
@@ -300,6 +302,13 @@
     </Compile>
     <Compile Include="NewsTemplate.aspx.designer.cs">
       <DependentUpon>NewsTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerMatchResult.aspx.cs">
+      <DependentUpon>PlayerMatchResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlayerMatchResult.aspx.designer.cs">
+      <DependentUpon>PlayerMatchResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="PricePromotion.aspx.cs">
       <DependentUpon>PricePromotion.aspx</DependentUpon>
