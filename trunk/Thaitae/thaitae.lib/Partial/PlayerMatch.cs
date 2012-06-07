@@ -26,6 +26,18 @@ namespace thaitae.lib
             }
         }
 
+        public string PlayerConditionThai
+        {
+            get
+            {
+                if (PlayerGoal == 1)
+                    return "ผู้ทำประตู";
+                if (PlayerRedCard == 1)
+                    return "โดนใบแดง";
+                return "โดนใบเหลือง";
+            }
+        }
+
         public string PlayerNumber
         {
             get

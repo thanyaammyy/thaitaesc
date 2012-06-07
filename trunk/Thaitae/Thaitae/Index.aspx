@@ -76,6 +76,42 @@
             $("#PostButton1").click();
             setNameLabel();
         }
+
+        function matchDetail() {
+            var grid = $("#<%=JQGridMatches.ClientID%>");
+            var matchid = grid.jqGrid('getGridParam', 'selrow');
+            $(grid.find("tr[id="+matchid+"]")).qtip({
+                content: {
+                    url: 'PlayerMatchResult.aspx',
+                    data: { MatchId: matchid },
+                    method: 'get'
+                },
+                position: {
+                    corner: {
+                        tooltip: 'bottomMiddle', // Use the corner...
+                        target: 'topMiddle' // ...and opposite corner
+                    },
+                    adjust: { x: -150, y: 0 }
+                },
+                show: {
+                    when: { event: 'click' }, // Don't specify a show event
+                    ready: true // Show the tooltip when ready
+                },
+                hide: { when: 'mouseout', fixed: true },
+                style: {
+                    width: { min: 400 },
+                    border: {
+                        width: 5,
+                        radius: 10
+                    },
+                    padding: 10,
+                    textAlign: 'center',
+                    tip: true, // Give it a speech bubble tip with automatic corner detection
+                    name: 'red' // Style it according to the preset 'cream' style
+                }
+
+            });
+        }
     </script>
 </asp:Content>
 <asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
@@ -229,6 +265,7 @@
                                         </Columns>
                                         <ToolBarSettings ShowRefreshButton="True" />
                                         <AppearanceSettings ShowRowNumbers="true" />
+                                        <ClientSideEvents RowSelect="matchDetail"></ClientSideEvents>
                                     </cc1:JQGrid>
                                     <br />
                                     <div style="font-size: 14px" align="center">
