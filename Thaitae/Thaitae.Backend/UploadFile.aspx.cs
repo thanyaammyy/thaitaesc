@@ -59,31 +59,35 @@ namespace Thaitae.Backend
                     var serverPath = Server.MapPath(folderName) + "\\" + _fileIdName + ".jpg";
                     var thumbPath = Server.MapPath(folderName) + "\\Thumbs\\" + _fileIdName + "_thumb.jpg";
                     FileUpload1.PostedFile.SaveAs(tempPath);
-                    var myimg = System.Drawing.Image.FromFile(tempPath);
-                    if (_fileType.Equals("news"))
+                    using (var fs = new FileStream(tempPath, FileMode.Open))
                     {
-                        myimg = myimg.GetThumbnailImage(520, 390, null, IntPtr.Zero);
-                        myimg.Save(serverPath, myimg.RawFormat);
-                        myimg = myimg.GetThumbnailImage(100, 74, null, IntPtr.Zero);
-                        myimg.Save(thumbPath, myimg.RawFormat);
-                        using (var dc = new ThaitaeDataDataContext())
+                        var myimg = System.Drawing.Image.FromStream(fs);
+                        if (_fileType.Equals("news"))
                         {
-                            var newsObject = dc.News.Single(item => item.newsId == Convert.ToInt32(_fileIdName));
-                            newsObject.picture = ConfigurationManager.AppSettings["ServerNewsPath"] + _fileIdName + ".jpg";
-                            dc.SubmitChanges();
+                            myimg = myimg.GetThumbnailImage(520, 390, null, IntPtr.Zero);
+                            myimg.Save(serverPath, myimg.RawFormat);
+                            myimg = myimg.GetThumbnailImage(100, 74, null, IntPtr.Zero);
+                            myimg.Save(thumbPath, myimg.RawFormat);
+                            using (var dc = new ThaitaeDataDataContext())
+                            {
+                                var newsObject = dc.News.Single(item => item.newsId == Convert.ToInt32(_fileIdName));
+                                newsObject.picture = ConfigurationManager.AppSettings["ServerNewsPath"] + _fileIdName + ".jpg";
+                                dc.SubmitChanges();
+                            }
+                        }
+                        else
+                        {
+                            myimg = myimg.GetThumbnailImage(70, 65, null, IntPtr.Zero);
+                            myimg.Save(serverPath, myimg.RawFormat);
+                            using (var dc = new ThaitaeDataDataContext())
+                            {
+                                var leagueObject = dc.Leagues.Single(item => item.LeagueId == Convert.ToInt32(_fileIdName));
+                                leagueObject.Picture = ConfigurationManager.AppSettings["ServerLeaguePath"] + _fileIdName + ".jpg";
+                                dc.SubmitChanges();
+                            }
                         }
                     }
-                    else
-                    {
-                        myimg = myimg.GetThumbnailImage(70, 65, null, IntPtr.Zero);
-                        myimg.Save(serverPath, myimg.RawFormat);
-                        using (var dc = new ThaitaeDataDataContext())
-                        {
-                            var leagueObject = dc.Leagues.Single(item => item.LeagueId == Convert.ToInt32(_fileIdName));
-                            leagueObject.Picture = ConfigurationManager.AppSettings["ServerLeaguePath"] + _fileIdName + ".jpg";
-                            dc.SubmitChanges();
-                        }
-                    }
+                    File.Delete(tempPath);
                     return "File uploaded successfully";
                 }
                 else

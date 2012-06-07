@@ -44,5 +44,10 @@ namespace thaitae.lib
                 return "Inactive";
             }
         }
+
+        public string ShowPictureThumb
+        {
+            get { return "<img width='100px' height='74px' src='" + Picture + "'/></div>"; }
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace thaitae.lib
         {
             newsTopic = "";
             newsContent = "";
-			picture = "http://admin.thaitaesc.com/NewsImages/noImage.jpg";
+            picture = "http://admin.thaitaesc.com/NewsImages/noImage.jpg";
         }
 
         public string NewsTypeName
@@ -38,27 +38,32 @@ namespace thaitae.lib
             }
         }
 
-		public string NewsThumb
-		{
-			get
-			{
-				var front = picture.Replace("http://admin.thaitaesc.com/NewsImages/", "http://admin.thaitaesc.com/NewsImages/Thumbs/");
-				var	thumb = front.Replace(".jpg", "_thumb.jpg");
-				return thumb;
-			}
-		}
+        public string NewsThumb
+        {
+            get
+            {
+                var front = picture.Replace("http://admin.thaitaesc.com/NewsImages/", "http://admin.thaitaesc.com/NewsImages/Thumbs/");
+                var thumb = front.Replace(".jpg", "_thumb.jpg");
+                return thumb;
+            }
+        }
 
-		public string NewsImageTopicContent
-    	{
-			get
-			{
-				return  "<div style='cursor:pointer;'><h2>" + newsTopic + "</h2><br/>" + NewsBrief+"</div>";
-			}
-    	}
+        public string NewsImageTopicContent
+        {
+            get
+            {
+                return "<div style='cursor:pointer;'><h2>" + newsTopic + "</h2><br/>" + NewsBrief + "</div>";
+            }
+        }
 
-    	public string NewsPicture
-    	{
-			get { return "<div style='cursor:pointer;'><img width='100px' height='74px' src='" + NewsThumb + "'/></div>"; }
-    	}
+        public string NewsPicture
+        {
+            get { return "<div style='cursor:pointer;'><img width='100px' height='74px' src='" + NewsThumb + "'/></div>"; }
+        }
+
+        public string ShowPictureThumb
+        {
+            get { return "<img width='100px' height='74px' src='" + NewsThumb + "'/></div>"; }
+        }
     }
 }
