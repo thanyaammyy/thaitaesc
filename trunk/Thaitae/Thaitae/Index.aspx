@@ -78,7 +78,7 @@
         }
     </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
     <div align="center">
         <table width="1000px" style="background-color: white">
             <tr>
@@ -102,6 +102,8 @@
                                 <img src="<%=news.NewsThumb%>" title="<%=news.newsTopic%>" alt="<%=news.NewsBrief%>" /></li>
                             <%}%>
                         </ul>
+                    </div>
+                    <div style="clear: both">
                     </div>
                     <div style="margin: auto" id="ScoopeBlog">
                         <h1 style="text-align: center">
@@ -177,8 +179,8 @@
                             <%}%>
                         </ul>
                         <div id="fixTab">
-                            <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" runat="server">
-                                <ContentTemplate>
+                            <asp:updatepanel id="UpdatePanel2" updatemode="Conditional" runat="server">
+                                <contenttemplate>
                                     <div style="font-size: 14px;" align="center">
                                         ตารางคะแนน
                                         <label class="setNameLabel" id="lbMatchResult">
@@ -245,11 +247,11 @@
                                         <ToolBarSettings ShowRefreshButton="True" />
                                         <AppearanceSettings ShowRowNumbers="true" />
                                     </cc1:JQGrid>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
+                                </contenttemplate>
+                            </asp:updatepanel>
                         </div>
                     </div>
             </tr>
         </table>
     </div>
-</asp:Content>
+</asp:content>
