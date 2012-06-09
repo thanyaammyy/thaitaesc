@@ -15,19 +15,19 @@
 <body style="width: 249px; height: 64px">
     <form id="form1" runat="server">
     <div>
-        <asp:fileupload id="FileUpload1" runat="server" width="250px" />
-        <asp:requiredfieldvalidator id="RequiredFieldValidator1" runat="server" controltovalidate="FileUpload1"
-            display="Dynamic" errormessage="Please specify an image file." setfocusonerror="True"
-            validationgroup="Group1">
-        </asp:requiredfieldvalidator>
-        <asp:regularexpressionvalidator id="RegularExpressionValidator1" runat="server" controltovalidate="FileUpload1"
-            errormessage="Please specify an image file." setfocusonerror="True" validationexpression="^.+\.((jpg)|(gif)|(jpeg)|(png)|(bmp))$"
-            display="Dynamic" validationgroup="Group1">
-        </asp:regularexpressionvalidator>
-        <asp:label id="lblMessage" runat="server" width="416px" font-size="10" font-name="verdana">
-        </asp:label><br />
-        <asp:button id="btnSave" runat="server" text="Upload" validationgroup="Group1" onclick="btnSave_Click">
-        </asp:button>
+        <asp:FileUpload ID="FileUpload1" runat="server" Width="250px" />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="FileUpload1"
+            Display="Dynamic" ErrorMessage="Please specify an image file." SetFocusOnError="True"
+            ValidationGroup="Group1">
+        </asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="FileUpload1"
+            ErrorMessage="Please specify an image file." SetFocusOnError="True" ValidationExpression="^.+\.((jpg)|(JPG)|(GIF)|(PNG)|(JPEG)|(BMP)|(gif)|(jpeg)|(png)|(bmp))$"
+            Display="Dynamic" ValidationGroup="Group1">
+        </asp:RegularExpressionValidator>
+        <asp:Label ID="lblMessage" runat="server" Width="416px" Font-Size="10" font-name="verdana">
+        </asp:Label><br />
+        <asp:Button ID="btnSave" runat="server" Text="Upload" ValidationGroup="Group1" OnClick="btnSave_Click">
+        </asp:Button>
     </div>
     </form>
 </body>

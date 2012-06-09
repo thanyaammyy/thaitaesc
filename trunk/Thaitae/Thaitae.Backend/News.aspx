@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         function bindFileUpload() {
-            $('#Picture').bind('click', function () {
+            $('#ShowPictureThumb').bind('click', function () {
                 var grid = $("#<%=JqgridNews.ClientID%>");
                 var rowid = grid.jqGrid('getGridParam', 'selrow');
                 var page = 'UploadFile.aspx?newsid=' + rowid;
@@ -13,13 +13,17 @@
                 .html('<iframe scrolling="no" style="border: 0px; " src="' + page + '" width="100%" height="100%"></iframe>')
                 .dialog({
                     autoOpen: false,
-                    modal: true,
+                    modal: false,
                     height: 200,
                     width: 300,
                     title: "Upload File"
                 });
                 $dialog.dialog('open');
             });
+        }
+
+        function disableFileUpload() {
+            $('#ShowPictureThumb').hide();
         }
 
         function createTextArea(value, editOptions) {
@@ -48,7 +52,7 @@
         }
     </script>
 </asp:Content>
-<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>
         News Management
     </h2>
@@ -74,7 +78,7 @@
             LeftOffset="300" Height="300" CloseAfterAdding="True" Caption="Add News"></AddDialogSettings>
         <EditDialogSettings Width="700" Modal="True" TopOffset="180" LeftOffset="300" Height="300"
             CloseAfterEditing="True" Caption="Edit News"></EditDialogSettings>
-        <ClientSideEvents AfterEditDialogShown="bindFileUpload" AfterAddDialogShown="bindFileUpload">
+        <ClientSideEvents AfterEditDialogShown="bindFileUpload" AfterAddDialogShown="disableFileUpload">
         </ClientSideEvents>
     </cc1:JQGrid>
-</asp:content>
+</asp:Content>

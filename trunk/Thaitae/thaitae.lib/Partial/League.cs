@@ -47,7 +47,7 @@ namespace thaitae.lib
 
         public string ShowPictureThumb
         {
-            get { return "<img width='100px' height='74px' src='" + Picture + "'/></div>"; }
+            get { return "<img width='70px' height='65px' src='" + Picture + "'/></div>"; }
         }
     }
 }

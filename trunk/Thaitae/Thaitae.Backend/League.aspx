@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         function bindFileUpload() {
-            $('#Picture').bind('click', function () {
+            $('#ShowPictureThumb').bind('click', function () {
                 var grid = $("#<%=JqgridLeague1.ClientID%>");
                 var rowid = grid.jqGrid('getGridParam', 'selrow');
                 var page = 'UploadFile.aspx?leagueid=' + rowid;
@@ -13,7 +13,7 @@
                 .html('<iframe scrolling="no" style="border: 0px; " src="' + page + '" width="100%" height="100%"></iframe>')
                 .dialog({
                     autoOpen: false,
-                    modal: true,
+                    modal: false,
                     height: 200,
                     width: 300,
                     title: "Upload File"
@@ -21,6 +21,11 @@
                 $dialog.dialog('open');
             });
         }
+
+        function disableFileUpload() {
+            $('#ShowPictureThumb').hide();
+        }
+
         function createFile(value, editOptions) {
             var file = $("<input>", { type: "button", id: "filePicture", value: "Upload File" });
             return file;
@@ -30,7 +35,7 @@
         }
     </script>
 </asp:Content>
-<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>
         League Management</h2>
     <cc1:JQGrid ID="JqgridLeague1" runat="server" AutoWidth="True" OnRowEditing="JqgridLeague1_RowEditing"
@@ -58,7 +63,7 @@
             CloseAfterAdding="True" Caption="Add League" ClearAfterAdding="True"></AddDialogSettings>
         <EditDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
             CloseAfterEditing="True" Caption="Edit League"></EditDialogSettings>
-        <ClientSideEvents AfterEditDialogShown="bindFileUpload" AfterAddDialogShown="bindFileUpload">
+        <ClientSideEvents AfterEditDialogShown="bindFileUpload" AfterAddDialogShown="disableFileUpload">
         </ClientSideEvents>
     </cc1:JQGrid>
-</asp:content>
+</asp:Content>

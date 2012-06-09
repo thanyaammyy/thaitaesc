@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using thaitae.lib;
+using Image = System.Drawing.Image;
 
 namespace Thaitae.Backend
 {
@@ -53,7 +55,7 @@ namespace Thaitae.Backend
             }
             try
             {
-                if (FileUpload1.PostedFile.ContentLength <= 2048000)
+                if (FileUpload1.PostedFile.ContentLength <= 8192000)
                 {
                     var tempPath = Server.MapPath(folderName) + "\\Temp\\" + _fileIdName + "_" + fileName;
                     var serverPath = Server.MapPath(folderName) + "\\" + _fileIdName + ".jpg";
@@ -64,10 +66,10 @@ namespace Thaitae.Backend
                         var myimg = System.Drawing.Image.FromStream(fs);
                         if (_fileType.Equals("news"))
                         {
-                            myimg = myimg.GetThumbnailImage(520, 390, null, IntPtr.Zero);
-                            myimg.Save(serverPath, myimg.RawFormat);
-                            myimg = myimg.GetThumbnailImage(100, 74, null, IntPtr.Zero);
-                            myimg.Save(thumbPath, myimg.RawFormat);
+                            var resizedImg = Resize(myimg, 520, 390);
+                            resizedImg.Save(serverPath, myimg.RawFormat);
+                            var thumbImg = myimg.GetThumbnailImage(100, 74, null, IntPtr.Zero);
+                            thumbImg.Save(thumbPath, myimg.RawFormat);
                             using (var dc = new ThaitaeDataDataContext())
                             {
                                 var newsObject = dc.News.Single(item => item.newsId == Convert.ToInt32(_fileIdName));
@@ -107,6 +109,20 @@ namespace Thaitae.Backend
             var strMessage = uploadFile(strFilename, _savePath);
             lblMessage.Text = strMessage;
             lblMessage.ForeColor = Color.Red;
+        }
+
+        public Image Resize(Image img, int width, int height)
+        {
+            Image cropedImage = new Bitmap(width, height);
+            using (Graphics G = Graphics.FromImage(cropedImage))
+            {
+                G.SmoothingMode = SmoothingMode.HighQuality;
+                G.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                G.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                G.DrawImage(img, 0, 0, width, height);
+            }
+
+            return cropedImage;
         }
     }
 }
