@@ -126,7 +126,7 @@ ul.thumbs li
 
 ul.thumbs li.show
 {
-    border: 2px solid #000;
+    border: 2px solid brown;
 }
 
 ul.thumbs img
@@ -221,8 +221,8 @@ ul.slideshow img
 .NewsImage
 {
     text-align: center;
-    width: 400px;
-    height: 350px;
+    width: 520px;
+    height: 390px;
     padding: 2px;
     border: brown ridge;
 }

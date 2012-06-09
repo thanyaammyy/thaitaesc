@@ -61,8 +61,8 @@
             $('#slideshow-caption p').html($('ul.slideshow li.show').find('img').attr('alt'));
             showNext(); //loads first image
             $('ul.thumbs li').bind('click', function (e) {
-                var count = $(this).attr('rel');
-                showImage(parseInt(count) - 1);
+                var count = $(this).index();
+                showImage(parseInt(count));
             });
         });
 
@@ -80,7 +80,7 @@
         function matchDetail() {
             var grid = $("#<%=JQGridMatches.ClientID%>");
             var matchid = grid.jqGrid('getGridParam', 'selrow');
-            $(grid.find("tr[id="+matchid+"]")).qtip({
+            $(grid.find("tr[id=" + matchid + "]")).qtip({
                 content: {
                     url: 'PlayerMatchResult.aspx',
                     data: { MatchId: matchid },
@@ -114,7 +114,7 @@
         }
     </script>
 </asp:Content>
-<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div align="center">
         <table width="1000px" style="background-color: white">
             <tr>
@@ -215,8 +215,8 @@
                             <%}%>
                         </ul>
                         <div id="fixTab">
-                            <asp:updatepanel id="UpdatePanel2" updatemode="Conditional" runat="server">
-                                <contenttemplate>
+                            <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" runat="server">
+                                <ContentTemplate>
                                     <div style="font-size: 14px;" align="center">
                                         ตารางคะแนน
                                         <label class="setNameLabel" id="lbMatchResult">
@@ -284,11 +284,11 @@
                                         <ToolBarSettings ShowRefreshButton="True" />
                                         <AppearanceSettings ShowRowNumbers="true" />
                                     </cc1:JQGrid>
-                                </contenttemplate>
-                            </asp:updatepanel>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
                         </div>
                     </div>
             </tr>
         </table>
     </div>
-</asp:content>
+</asp:Content>
