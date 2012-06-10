@@ -25,7 +25,7 @@ div#menu {
     padding-left: 6px;
     background: url(images/left.png) no-repeat;
     _background: url(images/left.gif) no-repeat;
-    width:auto;
+    width:1000px;
 }
 
 div#menu ul {

@@ -170,19 +170,19 @@
                         <%}%>
                     </div>
                 </td>
-                <td style="text-align: center">
+                <td class="Banners">
                     <a href="https://www.facebook.com/pages/Red-Seed-Fan-Page/191171527608027?ref=ts&amp;sk=wall">
                         <img src="/Styles/images/B-Redseed.png" width="200" height="75" align="middle" /></a>
                 </td>
             </tr>
             <tr>
-                <td style="text-align: center">
+                <td class="Banners">
                     <a href="http://www.tamudosports.com/">
                         <img src="/Styles/images/B-tamudo.png" width="220" height="75" align="middle" /></a>
                 </td>
             </tr>
             <tr>
-                <td style="text-align: center" height="77">
+                <td class="Banners">
                     <a href="http://www.b-ingready.com/">
                         <img src="/Styles/images/B-Bing.png" width="220" height="75" /></a>
                 </td>
