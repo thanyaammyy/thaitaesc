@@ -227,3 +227,11 @@ ul.slideshow img
     border: brown ridge;
 }
 /*News Template*/
+
+/*Banner*/
+.Banners {
+	text-align: center;
+	border: brown dashed;
+	margin: 0;
+}
+/*Banner*/

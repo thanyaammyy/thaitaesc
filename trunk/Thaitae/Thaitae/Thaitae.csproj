@@ -61,7 +61,6 @@
     <Content Include="ChampionLeague.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="FACup.aspx" />
-    <Content Include="Gallery.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="LeagueTemplate.aspx" />
     <Content Include="News.aspx" />
@@ -267,13 +266,6 @@
     </Compile>
     <Compile Include="FACup.aspx.designer.cs">
       <DependentUpon>FACup.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Gallery.aspx.cs">
-      <DependentUpon>Gallery.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Gallery.aspx.designer.cs">
-      <DependentUpon>Gallery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

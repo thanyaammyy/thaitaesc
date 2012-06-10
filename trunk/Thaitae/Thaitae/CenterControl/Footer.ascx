@@ -13,7 +13,7 @@
   </p>
   
     <p align="center" style="font-family: Helvetica; font-size:10px; color:white">
-    Copyright 2012  Thaitaesc.Com Tel.089-1172882,086-6662794  E-mail: Webmaster@thaitaesc.com 
+    Copyright 2012  Thaitaesc.Com Tel.089-1172882,086-6662794  E-mail: thaitae_sc@hotmail.com
     </p>
 
 </div>
