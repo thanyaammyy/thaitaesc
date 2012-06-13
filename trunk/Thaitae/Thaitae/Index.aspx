@@ -118,11 +118,17 @@
     <div align="center">
         <table width="1000px" style="background-color: white">
             <tr>
-                <td style="vertical-align: top" colspan="2" rowspan="4">
+                <td colspan="2" style="text-align: center">
+                    <img src="Styles/images/hotnews.png"/>
+                </td>
+                <td class="Banners">
+                    <a href="https://www.facebook.com/pages/Red-Seed-Fan-Page/191171527608027?ref=ts&amp;sk=wall">
+                        <img src="/Styles/images/B-Redseed.png" width="200" height="75" align="middle" /></a>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top" colspan="2" rowspan="3">
                     <div id="hotnewsBlog">
-                        <h1 style="text-align: center">
-                            <strong>เกาะติด ขอบสนาม</strong>
-                        </h1>
                         <ul class="slideshow">
                             <%foreach (var news in ListHotNews)%>
                             <%{%>
@@ -143,7 +149,7 @@
                     </div>
                     <div style="margin: auto" id="ScoopeBlog">
                         <h1 style="text-align: center">
-                            <strong>ข่าวเด่นอื่นๆ</strong>
+                            <img src="Styles/images/scoop.png" style="text-align: center" />
                             <!------------------------------------- THE CONTENT ------------------------------------------------->
                         </h1>
                         <%foreach (var scoope in ListScoope)%>
@@ -171,15 +177,10 @@
                     </div>
                 </td>
                 <td class="Banners">
-                    <a href="https://www.facebook.com/pages/Red-Seed-Fan-Page/191171527608027?ref=ts&amp;sk=wall">
-                        <img src="/Styles/images/B-Redseed.png" width="200" height="75" align="middle" /></a>
-                </td>
-            </tr>
-            <tr>
-                <td class="Banners">
                     <a href="http://www.tamudosports.com/">
                         <img src="/Styles/images/B-tamudo.png" width="220" height="75" align="middle" /></a>
                 </td>
+                
             </tr>
             <tr>
                 <td class="Banners">
