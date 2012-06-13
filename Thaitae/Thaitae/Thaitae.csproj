@@ -107,6 +107,7 @@
     <Content Include="Styles\images\Header.gif" />
     <Content Include="Styles\images\header.png" />
     <Content Include="Styles\images\header1.png" />
+    <Content Include="Styles\images\hotnews.png" />
     <Content Include="Styles\images\Hpdear.jpg" />
     <Content Include="Styles\images\IMG_0487.jpeg" />
     <Content Include="Styles\images\IMG_0500.jpeg" />
@@ -149,6 +150,7 @@
     <Content Include="Styles\images\previous.png" />
     <Content Include="Styles\images\right.gif" />
     <Content Include="Styles\images\right.png" />
+    <Content Include="Styles\images\scoop.png" />
     <Content Include="Styles\images\selected-left-sub.png" />
     <Content Include="Styles\images\selected-right-sub.png" />
     <Content Include="Styles\images\spinner.gif" />
