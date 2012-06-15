@@ -183,28 +183,40 @@ namespace Thaitae.Backend
                 team.TeamGoalFor = Convert.ToInt32(e.RowData["TeamGoalFor"]);
                 team.TeamRedCard = Convert.ToInt32(e.RowData["TeamRedCard"]);
                 team.TeamYellowCard = Convert.ToInt32(e.RowData["TeamYellowCard"]);
-                team.TeamEdited = 1;
-                var teamAgainst = dc.TeamMatches.Single(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 0);
-                teamAgainst.TeamGoalAgainst = Convert.ToInt32(e.RowData["TeamGoalFor"]);
-                if (teamAgainst.TeamEdited == 1)
+                if (team.TeamGoalFor == -1 && team.TeamRedCard == -1 && team.TeamYellowCard == -1)
                 {
-                    if (team.TeamGoalFor < teamAgainst.TeamGoalFor)
+                    team.TeamEdited = 0;
+                    team.TeamStatus = 0;
+                    team.TeamGoalAgainst = 0;
+                    team.TeamGoalFor = 0;
+                    team.TeamRedCard = 0;
+                    team.TeamYellowCard = 0;
+                }
+                else
+                {
+                    team.TeamEdited = 1;
+                    var teamAgainst = dc.TeamMatches.Single(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 0);
+                    teamAgainst.TeamGoalAgainst = Convert.ToInt32(e.RowData["TeamGoalFor"]);
+                    if (teamAgainst.TeamEdited == 1)
                     {
-                        team.TeamStatus = 3;
-                        teamAgainst.TeamStatus = 1;
+                        if (team.TeamGoalFor < teamAgainst.TeamGoalFor)
+                        {
+                            team.TeamStatus = 3;
+                            teamAgainst.TeamStatus = 1;
+                        }
+                        else if (team.TeamGoalFor > teamAgainst.TeamGoalFor)
+                        {
+                            team.TeamStatus = 1;
+                            teamAgainst.TeamStatus = 3;
+                        }
+                        else
+                        {
+                            team.TeamStatus = 2;
+                            teamAgainst.TeamStatus = 2;
+                        }
+                        dc.SubmitChanges();
+                        CalculateTeamResult(team, teamAgainst);
                     }
-                    else if (team.TeamGoalFor > teamAgainst.TeamGoalFor)
-                    {
-                        team.TeamStatus = 1;
-                        teamAgainst.TeamStatus = 3;
-                    }
-                    else
-                    {
-                        team.TeamStatus = 2;
-                        teamAgainst.TeamStatus = 2;
-                    }
-                    dc.SubmitChanges();
-                    CalculateTeamResult(team, teamAgainst);
                 }
                 dc.SubmitChanges();
                 var removePlayerList =
