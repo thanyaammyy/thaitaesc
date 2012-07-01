@@ -111,6 +111,7 @@
                 TextAlign="Center" />
         </Columns>
         <HierarchySettings HierarchyMode="Child" />
+        <PagerSettings PageSize="100"></PagerSettings>
     </cc1:JQGrid>
     <cc1:JQGrid ID="JqgridAwayTeam" runat="server" OnDataRequesting="JqgridAwayTeam_DataRequesting"
         Height="100%" Width="465" OnRowEditing="JqgridAwayTeam_RowEditing">
@@ -145,6 +146,7 @@
                 Editable="True" TextAlign="Center" />
         </Columns>
         <HierarchySettings HierarchyMode="Child" />
+        <PagerSettings PageSize="100"></PagerSettings>
     </cc1:JQGrid>
     <asp:ObjectDataSource ID="LeagueDataSource" DataObjectTypeName="thaitae.lib.League"
         SelectMethod="SelectLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server">
