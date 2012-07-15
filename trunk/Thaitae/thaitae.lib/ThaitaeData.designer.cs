@@ -22,7 +22,7 @@ namespace thaitae.lib
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Thaitae")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="thaitaeDB")]
 	public partial class ThaitaeDataDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -60,6 +60,9 @@ namespace thaitae.lib
     partial void InsertNew(New instance);
     partial void UpdateNew(New instance);
     partial void DeleteNew(New instance);
+    partial void InsertFAMatch(FAMatch instance);
+    partial void UpdateFAMatch(FAMatch instance);
+    partial void DeleteFAMatch(FAMatch instance);
     #endregion
 		
 		public ThaitaeDataDataContext() : 
@@ -169,6 +172,14 @@ namespace thaitae.lib
 			get
 			{
 				return this.GetTable<New>();
+			}
+		}
+		
+		public System.Data.Linq.Table<FAMatch> FAMatches
+		{
+			get
+			{
+				return this.GetTable<FAMatch>();
 			}
 		}
 	}
@@ -2805,6 +2816,236 @@ namespace thaitae.lib
 					this._newsType = value;
 					this.SendPropertyChanged("newsType");
 					this.OnnewsTypeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="thaitae.FAMatch")]
+	public partial class FAMatch : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _FAMatchId;
+		
+		private System.Nullable<System.DateTime> _FAMatchDate;
+		
+		private string _TeamHomeName;
+		
+		private string _TeamAwayName;
+		
+		private System.Nullable<int> _TeamHomeScore;
+		
+		private string _TeamAwayScore;
+		
+		private System.Nullable<int> _HasResult;
+		
+		private string _TeamWin;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFAMatchIdChanging(int value);
+    partial void OnFAMatchIdChanged();
+    partial void OnFAMatchDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnFAMatchDateChanged();
+    partial void OnTeamHomeNameChanging(string value);
+    partial void OnTeamHomeNameChanged();
+    partial void OnTeamAwayNameChanging(string value);
+    partial void OnTeamAwayNameChanged();
+    partial void OnTeamHomeScoreChanging(System.Nullable<int> value);
+    partial void OnTeamHomeScoreChanged();
+    partial void OnTeamAwayScoreChanging(string value);
+    partial void OnTeamAwayScoreChanged();
+    partial void OnHasResultChanging(System.Nullable<int> value);
+    partial void OnHasResultChanged();
+    partial void OnTeamWinChanging(string value);
+    partial void OnTeamWinChanged();
+    #endregion
+		
+		public FAMatch()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FAMatchId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int FAMatchId
+		{
+			get
+			{
+				return this._FAMatchId;
+			}
+			set
+			{
+				if ((this._FAMatchId != value))
+				{
+					this.OnFAMatchIdChanging(value);
+					this.SendPropertyChanging();
+					this._FAMatchId = value;
+					this.SendPropertyChanged("FAMatchId");
+					this.OnFAMatchIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FAMatchDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FAMatchDate
+		{
+			get
+			{
+				return this._FAMatchDate;
+			}
+			set
+			{
+				if ((this._FAMatchDate != value))
+				{
+					this.OnFAMatchDateChanging(value);
+					this.SendPropertyChanging();
+					this._FAMatchDate = value;
+					this.SendPropertyChanged("FAMatchDate");
+					this.OnFAMatchDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamHomeName", DbType="NVarChar(MAX)")]
+		public string TeamHomeName
+		{
+			get
+			{
+				return this._TeamHomeName;
+			}
+			set
+			{
+				if ((this._TeamHomeName != value))
+				{
+					this.OnTeamHomeNameChanging(value);
+					this.SendPropertyChanging();
+					this._TeamHomeName = value;
+					this.SendPropertyChanged("TeamHomeName");
+					this.OnTeamHomeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamAwayName", DbType="NVarChar(MAX)")]
+		public string TeamAwayName
+		{
+			get
+			{
+				return this._TeamAwayName;
+			}
+			set
+			{
+				if ((this._TeamAwayName != value))
+				{
+					this.OnTeamAwayNameChanging(value);
+					this.SendPropertyChanging();
+					this._TeamAwayName = value;
+					this.SendPropertyChanged("TeamAwayName");
+					this.OnTeamAwayNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamHomeScore", DbType="Int")]
+		public System.Nullable<int> TeamHomeScore
+		{
+			get
+			{
+				return this._TeamHomeScore;
+			}
+			set
+			{
+				if ((this._TeamHomeScore != value))
+				{
+					this.OnTeamHomeScoreChanging(value);
+					this.SendPropertyChanging();
+					this._TeamHomeScore = value;
+					this.SendPropertyChanged("TeamHomeScore");
+					this.OnTeamHomeScoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamAwayScore", DbType="NChar(10)")]
+		public string TeamAwayScore
+		{
+			get
+			{
+				return this._TeamAwayScore;
+			}
+			set
+			{
+				if ((this._TeamAwayScore != value))
+				{
+					this.OnTeamAwayScoreChanging(value);
+					this.SendPropertyChanging();
+					this._TeamAwayScore = value;
+					this.SendPropertyChanged("TeamAwayScore");
+					this.OnTeamAwayScoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HasResult", DbType="Int")]
+		public System.Nullable<int> HasResult
+		{
+			get
+			{
+				return this._HasResult;
+			}
+			set
+			{
+				if ((this._HasResult != value))
+				{
+					this.OnHasResultChanging(value);
+					this.SendPropertyChanging();
+					this._HasResult = value;
+					this.SendPropertyChanged("HasResult");
+					this.OnHasResultChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamWin", DbType="NVarChar(MAX)")]
+		public string TeamWin
+		{
+			get
+			{
+				return this._TeamWin;
+			}
+			set
+			{
+				if ((this._TeamWin != value))
+				{
+					this.OnTeamWinChanging(value);
+					this.SendPropertyChanging();
+					this._TeamWin = value;
+					this.SendPropertyChanged("TeamWin");
+					this.OnTeamWinChanged();
 				}
 			}
 		}
