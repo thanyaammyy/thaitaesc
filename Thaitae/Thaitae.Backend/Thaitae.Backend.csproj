@@ -104,6 +104,7 @@
     <Content Include="LeagueImages\8.png" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="MatchFAManagement.aspx" />
     <Content Include="MatchManagement.aspx" />
     <Content Include="News.aspx" />
     <Content Include="NewsImages\1.jpg" />
@@ -241,6 +242,13 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatchFAManagement.aspx.cs">
+      <DependentUpon>MatchFAManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatchFAManagement.aspx.designer.cs">
+      <DependentUpon>MatchFAManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="MatchManagement.aspx.cs">
       <DependentUpon>MatchManagement.aspx</DependentUpon>
