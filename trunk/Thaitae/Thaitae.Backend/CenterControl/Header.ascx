@@ -19,6 +19,7 @@
                     <li><a href="/Season.aspx" class="parent"><span>Season Management</span></a></li>
                     <li><a href="/TeamManagement.aspx" class="parent"><span>Team Management</span></a></li>
                     <li><a href="/MatchManagement.aspx" class="parent"><span>Match Management</span></a></li>
+                    <li><a href="/MatchFAManagement.aspx" class="parent"><span>FA Match Management</span></a></li>
                 </ul>
             </div>
         </loggedintemplate>
