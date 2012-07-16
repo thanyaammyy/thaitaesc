@@ -134,7 +134,7 @@
       <Column Name="TeamHomeName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="TeamAwayName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="TeamHomeScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TeamAwayScore" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="TeamAwayScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="HasResult" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TeamWin" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </Type>

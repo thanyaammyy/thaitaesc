@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true"
-    CodeBehind="News.aspx.cs" Inherits="Thaitae.Backend.News" %>
+﻿<%@ Page ValidateRequest="false" Title="" Language="C#" MasterPageFile="~/Backend.Master"
+    AutoEventWireup="true" CodeBehind="News.aspx.cs" Inherits="Thaitae.Backend.News" %>
 
 <%@ Register Assembly="Trirand.Web" Namespace="Trirand.Web.UI.WebControls" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

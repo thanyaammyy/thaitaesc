@@ -2857,7 +2857,7 @@ namespace thaitae.lib
 		
 		private System.Nullable<int> _TeamHomeScore;
 		
-		private string _TeamAwayScore;
+		private System.Nullable<int> _TeamAwayScore;
 		
 		private System.Nullable<int> _HasResult;
 		
@@ -2877,7 +2877,7 @@ namespace thaitae.lib
     partial void OnTeamAwayNameChanged();
     partial void OnTeamHomeScoreChanging(System.Nullable<int> value);
     partial void OnTeamHomeScoreChanged();
-    partial void OnTeamAwayScoreChanging(string value);
+    partial void OnTeamAwayScoreChanging(System.Nullable<int> value);
     partial void OnTeamAwayScoreChanged();
     partial void OnHasResultChanging(System.Nullable<int> value);
     partial void OnHasResultChanged();
@@ -2990,8 +2990,8 @@ namespace thaitae.lib
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamAwayScore", DbType="NChar(10)")]
-		public string TeamAwayScore
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeamAwayScore", DbType="Int")]
+		public System.Nullable<int> TeamAwayScore
 		{
 			get
 			{

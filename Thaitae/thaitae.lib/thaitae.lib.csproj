@@ -50,8 +50,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v9.2, Version=9.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpo.v9.2, Version=9.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
@@ -64,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\Mailhelper.cs" />
+    <Compile Include="Page\FAMatchHelper.cs" />
     <Compile Include="Page\MatchHelper.cs" />
     <Compile Include="Page\LeagueHelper.cs" />
     <Compile Include="Page\NewsHelper.cs" />
@@ -71,6 +70,7 @@
     <Compile Include="Page\SeasonHelper.cs" />
     <Compile Include="Page\TeamHelper.cs" />
     <Compile Include="Page\TeamSeasonHelper.cs" />
+    <Compile Include="Partial\FAMatch.cs" />
     <Compile Include="Partial\League.cs" />
     <Compile Include="Partial\Match.cs" />
     <Compile Include="Partial\New.cs" />
