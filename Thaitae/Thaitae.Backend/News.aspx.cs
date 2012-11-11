@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using thaitae.lib;
 
 namespace Thaitae.Backend
@@ -19,7 +13,7 @@ namespace Thaitae.Backend
 
         protected void JqgridNews_RowAdding(object sender, Trirand.Web.UI.WebControls.JQGridRowAddEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var news = new New
                         {
@@ -34,7 +28,7 @@ namespace Thaitae.Backend
 
         protected void JqgridNews_RowDeleting(object sender, Trirand.Web.UI.WebControls.JQGridRowDeleteEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var news = dc.News.Single(item => item.newsId == Convert.ToInt32(e.RowKey));
                 dc.News.DeleteOnSubmit(news);
@@ -44,7 +38,7 @@ namespace Thaitae.Backend
 
         protected void JqgridNews_RowEditing(object sender, Trirand.Web.UI.WebControls.JQGridRowEditEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var news = dc.News.Single(item => item.newsId == Convert.ToInt32(e.RowKey));
                 news.newsTopic = e.RowData["newsTopic"];
@@ -56,7 +50,7 @@ namespace Thaitae.Backend
 
         private void JqgridNewsBinding()
         {
-            var dc = new ThaitaeDataDataContext().News;
+            var dc = ThaitaeDataDataContext.Create().News;
             var seasonList = dc.ToList();
             JqgridNews.DataSource = seasonList;
             JqgridNews.DataBind();

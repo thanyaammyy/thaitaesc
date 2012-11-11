@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using thaitae.lib;
 
 namespace Thaitae
@@ -18,7 +15,7 @@ namespace Thaitae
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Request.QueryString["MatchId"]))
-                using (var dc = new ThaitaeDataDataContext())
+                using (var dc = ThaitaeDataDataContext.Create())
                 {
                     var match =
                         dc.Matches.Single(item => item.MatchId == Convert.ToInt32(Request.QueryString["MatchId"]));

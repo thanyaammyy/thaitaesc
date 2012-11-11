@@ -229,9 +229,10 @@ ul.slideshow img
 /*News Template*/
 
 /*Banner*/
-.Banners {
-	text-align: center;
-	border: brown dashed;
-	margin: 0;
+.Banners
+{
+    text-align: center;
+    border: brown dashed;
+    margin: 0;
 }
 /*Banner*/

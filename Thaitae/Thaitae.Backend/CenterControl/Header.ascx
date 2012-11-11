@@ -1,9 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Header.ascx.cs" Inherits="Thaitae.Backend.CenterControl.Header" %>
 <div style="background-color: rgb(74, 81, 85)" align="center">
-    <asp:loginview runat="server" enableviewstate="False">
-        <anonymoustemplate>
-        </anonymoustemplate>
-        <loggedintemplate>
+    <asp:LoginView runat="server" EnableViewState="False">
+        <AnonymousTemplate>
+        </AnonymousTemplate>
+        <LoggedInTemplate>
             <div align="right">
                 <span class="LoginHeader">Welcome :
                     <asp:LoginName ID="HeadLoginName" runat="server" />
@@ -22,6 +22,6 @@
                     <li><a href="/MatchFAManagement.aspx" class="parent"><span>FA Match Management</span></a></li>
                 </ul>
             </div>
-        </loggedintemplate>
-    </asp:loginview>
+        </LoggedInTemplate>
+    </asp:LoginView>
 </div>

@@ -3,23 +3,23 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>
         Forget password</h2>
-    <asp:panel id="Panel1" runat="server" defaultbutton="btnSubmit">
+    <asp:Panel ID="Panel1" runat="server" DefaultButton="btnSubmit">
         <div>
             Please enter email :
-            <asp:textbox id="txtEmail" runat="server" width="200px">
-            </asp:textbox>
-            <asp:regularexpressionvalidator id="validatorCheckValidEmail" runat="server" cssclass="IconValidationNew"
-                errormessage="RegularExpressionValidator" controltovalidate="txtEmail" validationexpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">Please enter valid email.</asp:regularexpressionvalidator>
+            <asp:TextBox ID="txtEmail" runat="server" Width="200px">
+            </asp:TextBox>
+            <asp:RegularExpressionValidator ID="validatorCheckValidEmail" runat="server" CssClass="IconValidationNew"
+                ErrorMessage="RegularExpressionValidator" ControlToValidate="txtEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">Please enter valid email.</asp:RegularExpressionValidator>
         </div>
         <div>
-            <asp:button id="btnSubmit" runat="server" text="Send" onclick="btnSubmit_Click" />
+            <asp:Button ID="btnSubmit" runat="server" Text="Send" OnClick="btnSubmit_Click" />
         </div>
         <div>
-            <asp:label id="lblResult" runat="server" text="Email has been sent." visible="False">
-            </asp:label>
+            <asp:Label ID="lblResult" runat="server" Text="Email has been sent." Visible="False">
+            </asp:Label>
         </div>
-    </asp:panel>
-</asp:content>
+    </asp:Panel>
+</asp:Content>

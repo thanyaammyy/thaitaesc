@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 
 namespace thaitae.lib.Page
 {
@@ -10,13 +9,13 @@ namespace thaitae.lib.Page
     {
         public static IEnumerable<Match> SelectItems()
         {
-            var dc = new ThaitaeDataDataContext();
+            var dc = ThaitaeDataDataContext.Create();
             return dc.Matches;
         }
 
         public static void Insert(Match objMatch)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 dc.Matches.InsertOnSubmit(objMatch);
                 try
@@ -35,7 +34,7 @@ namespace thaitae.lib.Page
 
         public static void Update(Match objMatch)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 Match linqMatch = (from dataItem in dc.Matches
                                    where dataItem.MatchId == objMatch.MatchId
@@ -58,7 +57,7 @@ namespace thaitae.lib.Page
 
         public static void Delete(Match objMatch)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 dc.Matches.DeleteOnSubmit(objMatch);
                 dc.SubmitChanges();
@@ -69,7 +68,7 @@ namespace thaitae.lib.Page
         {
             IEnumerable<Match> matches = null;
             var matchFilteredList = new List<Match>();
-            var dc = new ThaitaeDataDataContext();
+            var dc = ThaitaeDataDataContext.Create();
             var league = dc.Leagues.Single(items => items.LeagueId == leagueId);
             var seasoncount = dc.Seasons.Count(items => items.LeagueId == league.LeagueId);
             if (seasoncount > 0)

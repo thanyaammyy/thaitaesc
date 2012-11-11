@@ -6,7 +6,8 @@ namespace IConcepts.Net.Serialization
     [Serializable]
     public class JsonSerializationWrapper<T> : ISerializable
     {
-        readonly T _item;
+        private readonly T _item;
+
         public T Item
         {
             get { return _item; }
@@ -16,6 +17,7 @@ namespace IConcepts.Net.Serialization
         {
             _item = item;
         }
+
         protected JsonSerializationWrapper(SerializationInfo info, StreamingContext context)
         {
             string text = info.GetString("Item");

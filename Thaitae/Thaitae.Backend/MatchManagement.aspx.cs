@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using thaitae.lib;
 using Trirand.Web.UI.WebControls;
@@ -37,7 +36,7 @@ namespace Thaitae.Backend
 
         protected void JqgridMatch1_RowEditing(object sender, JQGridRowEditEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var match = dc.Matches.Single(item => item.MatchId == Convert.ToInt32(e.RowKey));
                 match.MatchDate = Convert.ToDateTime(e.RowData["MatchDate"]);
@@ -47,7 +46,7 @@ namespace Thaitae.Backend
 
         private void JqgridMatchBinding(int seasonId)
         {
-            var dc = new ThaitaeDataDataContext().Matches;
+            var dc = ThaitaeDataDataContext.Create().Matches;
             var matchSeasonList = dc.Where(item => item.SeasonId == seasonId).ToList();
             JqgridMatch1.DataSource = matchSeasonList;
             JqgridMatch1.DataBind();
@@ -55,14 +54,14 @@ namespace Thaitae.Backend
 
         protected void JqgridAwayTeam_DataRequesting(object sender, JQGridDataRequestEventArgs e)
         {
-            var teamAwayMatchList = new ThaitaeDataDataContext().TeamMatches.Where(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 0).ToList();
+            var teamAwayMatchList = ThaitaeDataDataContext.Create().TeamMatches.Where(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 0).ToList();
             JqgridAwayTeam.DataSource = teamAwayMatchList;
             JqgridAwayTeam.DataBind();
         }
 
         protected void JqgridHomeTeam_DataRequesting(object sender, JQGridDataRequestEventArgs e)
         {
-            var teamHomeMatchList = new ThaitaeDataDataContext().TeamMatches.Where(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 1).ToList();
+            var teamHomeMatchList = ThaitaeDataDataContext.Create().TeamMatches.Where(item => item.MatchId == Convert.ToInt32(e.ParentRowKey) && item.TeamHome == 1).ToList();
             JqgridHomeTeam.DataSource = teamHomeMatchList;
             JqgridHomeTeam.DataBind();
         }
@@ -76,7 +75,7 @@ namespace Thaitae.Backend
 
         public void GenerateMatch(int seasonId)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var teamSeasonList = dc.TeamSeasons.Join(dc.Teams, teamSeason => teamSeason.TeamId, team => team.TeamId, (teamSeason, team) => new { teamSeason.SeasonId, team.TeamId }).Where(teamSeason => teamSeason.SeasonId == seasonId).ToList();
                 for (var i = 0; i < teamSeasonList.Count; i++)
@@ -150,11 +149,11 @@ namespace Thaitae.Backend
         protected void JqgridHomePlayer_DataRequesting(object sender, JQGridDataRequestEventArgs e)
         {
             List<PlayerMatch> playerTeamList;
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 int teamMatchid = Convert.ToInt32(e.ParentRowKey);
                 var team = dc.TeamMatches.Single(item => item.TeamMatchId == teamMatchid);
-                playerTeamList = new ThaitaeDataDataContext().PlayerMatches.Where(
+                playerTeamList = ThaitaeDataDataContext.Create().PlayerMatches.Where(
                         item => item.TeamId == team.TeamId && item.MatchId == team.MatchId && item.SeasonId == team.SeasonId).ToList();
             }
             JqgridHomePlayer.DataSource = playerTeamList;
@@ -164,11 +163,11 @@ namespace Thaitae.Backend
         protected void JqgridAwayPlayer_DataRequesting(object sender, JQGridDataRequestEventArgs e)
         {
             List<PlayerMatch> playerTeamList;
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 int teamMatchid = Convert.ToInt32(e.ParentRowKey);
                 var team = dc.TeamMatches.Single(item => item.TeamMatchId == teamMatchid);
-                playerTeamList = new ThaitaeDataDataContext().PlayerMatches.Where(
+                playerTeamList = ThaitaeDataDataContext.Create().PlayerMatches.Where(
                         item => item.TeamId == team.TeamId && item.MatchId == team.MatchId && item.SeasonId == team.SeasonId).ToList();
             }
             JqgridAwayPlayer.DataSource = playerTeamList;
@@ -177,7 +176,7 @@ namespace Thaitae.Backend
 
         protected void JqgridHomeTeam_RowEditing(object sender, JQGridRowEditEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var team = dc.TeamMatches.Single(item => item.TeamMatchId == Convert.ToInt32(e.RowKey));
                 team.TeamGoalFor = Convert.ToInt32(e.RowData["TeamGoalFor"]);
@@ -246,7 +245,7 @@ namespace Thaitae.Backend
 
         protected void JqgridAwayTeam_RowEditing(object sender, JQGridRowEditEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var team = dc.TeamMatches.Single(item => item.TeamMatchId == Convert.ToInt32(e.RowKey));
                 team.TeamGoalFor = Convert.ToInt32(e.RowData["TeamGoalFor"]);
@@ -334,7 +333,7 @@ namespace Thaitae.Backend
         public Player CalculatePlayerMatch(int playerMatchId, int playerNumber, string playerName)
         {
             Player playerUpdate = null;
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var playerMatch = dc.PlayerMatches.Single(item => item.PlayerMatchId == playerMatchId);
                 var playerCheck =
@@ -379,7 +378,7 @@ namespace Thaitae.Backend
 
         public void CalculateTeamResult(TeamMatch team, TeamMatch teamAgainst)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var teamUpdate = dc.TeamSeasons.Single(item => item.TeamId == team.TeamId);
                 teamUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && item.TeamStatus != 0);
@@ -429,7 +428,7 @@ namespace Thaitae.Backend
         {
             if (Session["seasonid"] == null) return;
             if (Convert.ToInt32(Session["seasonid"]) == 0) return;
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var seasonid = Convert.ToInt32(Session["seasonid"]);
                 var teamSeasonList = dc.TeamSeasons.Where(item => item.SeasonId == seasonid).ToList();
@@ -462,7 +461,7 @@ namespace Thaitae.Backend
 
         public void CalculatePlayerResult(Player player)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var playerUpdate = dc.Players.Single(item => item.PlayerId == player.PlayerId);
                 playerUpdate.PlayerGoal =

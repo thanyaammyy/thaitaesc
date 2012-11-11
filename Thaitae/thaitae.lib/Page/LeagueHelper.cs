@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace thaitae.lib.Page
 {
@@ -9,7 +7,7 @@ namespace thaitae.lib.Page
     {
         public static IEnumerable<League> SelectLeagueItems()
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var leagueList = new List<League> { new League() { LeagueId = 0, LeagueName = "Select League" } };
                 leagueList.AddRange(dc.Leagues.ToList());
@@ -20,7 +18,7 @@ namespace thaitae.lib.Page
         public static IEnumerable<League> SelectLeague()
         {
             IEnumerable<League> leagues = new List<League>();
-            var dc = new ThaitaeDataDataContext();
+            var dc = ThaitaeDataDataContext.Create();
             var leagueCount = dc.Leagues.Count();
             if (leagueCount > 0) leagues = dc.Leagues.Where(item => item.Active == 1).ToList();
             return leagues;
@@ -28,7 +26,7 @@ namespace thaitae.lib.Page
 
         public static League GetLeague(int leagueId)
         {
-            var dc = new ThaitaeDataDataContext();
+            var dc = ThaitaeDataDataContext.Create();
             var league = dc.Leagues.Single(item => item.LeagueId == leagueId);
             return league;
         }

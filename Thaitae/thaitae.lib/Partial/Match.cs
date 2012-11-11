@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 
 namespace thaitae.lib
 {
@@ -11,7 +8,7 @@ namespace thaitae.lib
         {
             get
             {
-                using (var dc = new ThaitaeDataDataContext())
+                using (var dc = ThaitaeDataDataContext.Create())
                 {
                     var teamName = dc.Teams.Single(item => item.TeamId == TeamHomeId);
                     var teamMatchEdited = dc.TeamMatches.Single(item => item.TeamId == TeamHomeId && item.MatchId == MatchId).TeamEdited;
@@ -29,7 +26,7 @@ namespace thaitae.lib
         {
             get
             {
-                using (var dc = new ThaitaeDataDataContext())
+                using (var dc = ThaitaeDataDataContext.Create())
                 {
                     var teamName = dc.Teams.Single(item => item.TeamId == TeamAwayId);
                     var teamMatchEdited = dc.TeamMatches.Single(item => item.TeamId == TeamAwayId && item.MatchId == MatchId).TeamEdited;
@@ -47,7 +44,7 @@ namespace thaitae.lib
         {
             get
             {
-                using (var dc = new ThaitaeDataDataContext())
+                using (var dc = ThaitaeDataDataContext.Create())
                 {
                     var teamName = dc.Teams.Single(item => item.TeamId == TeamHomeId);
                     return teamName.TeamName;
@@ -59,7 +56,7 @@ namespace thaitae.lib
         {
             get
             {
-                using (var dc = new ThaitaeDataDataContext())
+                using (var dc = ThaitaeDataDataContext.Create())
                 {
                     var teamName = dc.Teams.Single(item => item.TeamId == TeamAwayId);
                     return teamName.TeamName;
@@ -71,7 +68,7 @@ namespace thaitae.lib
         {
             get
             {
-                using (var dc = new ThaitaeDataDataContext())
+                using (var dc = ThaitaeDataDataContext.Create())
                 {
                     var teamAwayGoal = dc.TeamMatches.Single(item => item.TeamId == TeamAwayId && item.MatchId == MatchId).TeamGoalFor;
                     var teamHomeGaol = dc.TeamMatches.Single(item => item.TeamId == TeamHomeId && item.MatchId == MatchId).TeamGoalFor;
