@@ -66,7 +66,7 @@ namespace thaitae.lib
     #endregion
 		
 		public ThaitaeDataDataContext() : 
-				base(global::thaitae.lib.Properties.Settings.Default.ThaitaeConnectionString1, mappingSource)
+				base(global::thaitae.lib.Properties.Settings.Default.ThaitaeConnection, mappingSource)
 		{
 			OnCreated();
 		}

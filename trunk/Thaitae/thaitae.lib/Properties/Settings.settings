@@ -2,13 +2,12 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="thaitae.lib.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ThaitaeConnectionString1" Type="(Connection string)" Scope="Application">
+    <Setting Name="ThaitaeConnection" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=MAIL6ENT\MSSQLSERVER2008;Initial Catalog=thaitaeDB;Persist Security Info=True;User ID=thaitae;Password=p@ssw0rd&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+  &lt;ConnectionString&gt;Data Source=www.thaitaesc.com;Integrated Security=false;Initial Catalog=thaitaeDB;Persist Security Info=True;User ID=thaitae;Password=p@ssw0rd ;Application Name=Thaitae&lt;/ConnectionString&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=MAIL6ENT\MSSQLSERVER2008;Initial Catalog=thaitaeDB;Persist Security Info=True;User ID=thaitae;Password=p@ssw0rd</Value>
+      <Value Profile="(Default)">Data Source=www.thaitaesc.com;Integrated Security=false;Initial Catalog=thaitaeDB;Persist Security Info=True;User ID=thaitae;Password=p@ssw0rd ;Application Name=Thaitae</Value>
     </Setting>
   </Settings>
 </SettingsFile>
