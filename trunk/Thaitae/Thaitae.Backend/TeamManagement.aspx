@@ -4,19 +4,19 @@
 <%@ Register Assembly="Trirand.Web" Namespace="Trirand.Web.UI.WebControls" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:content id="Content2" contentplaceholderid="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>
         Team Management</h2>
-    <asp:updatepanel id="updateTeamPanel" updatemode="Conditional" runat="server">
-        <contenttemplate>
+    <asp:UpdatePanel ID="updateTeamPanel" UpdateMode="Conditional" runat="server">
+        <ContentTemplate>
             <asp:DropDownList runat="server" ID="ddlLeague" DataSourceID="LeagueDataSource" DataTextField="LeagueName"
                 DataValueField="LeagueId" AutoPostBack="True" OnSelectedIndexChanged="ddlLeague_SelectedIndexChanged">
             </asp:DropDownList>
             <asp:DropDownList runat="server" ID="ddlSeason" DataSourceID="SeasonDataSource" DataTextField="SeasonName"
                 DataValueField="SeasonId" AutoPostBack="True" OnSelectedIndexChanged="ddlSeason_SelectedIndexChanged">
             </asp:DropDownList>
-            <cc1:JQGrid ID="JqgridTeam" AutoWidth="True" runat="server" OnRowDeleting="JqgridTeam_RowDeleting" Height="100%"
-                OnRowEditing="JqgridTeam_RowEditing" OnRowAdding="JqgridTeam_RowAdding">
+            <cc1:JQGrid ID="JqgridTeam" AutoWidth="True" runat="server" OnRowDeleting="JqgridTeam_RowDeleting"
+                Height="100%" OnRowEditing="JqgridTeam_RowEditing" OnRowAdding="JqgridTeam_RowAdding">
                 <Columns>
                     <cc1:JQGridColumn DataField="TeamId" Visible="False" />
                     <cc1:JQGridColumn DataField="SeasonId" Visible="False" />
@@ -41,22 +41,22 @@
                 <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
                     ShowRefreshButton="True" ShowSearchButton="True" />
                 <AppearanceSettings ShowRowNumbers="true" />
-				<DeleteDialogSettings LeftOffset="497" TopOffset="241"></DeleteDialogSettings>
-				<AddDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
-					CloseAfterAdding="True" Caption="Add Team" ClearAfterAdding="True"></AddDialogSettings>
-				<EditDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
-					CloseAfterEditing="True" Caption="Edit Team"></EditDialogSettings>
+                <DeleteDialogSettings LeftOffset="497" TopOffset="241"></DeleteDialogSettings>
+                <AddDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
+                    CloseAfterAdding="True" Caption="Add Team" ClearAfterAdding="True"></AddDialogSettings>
+                <EditDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"
+                    CloseAfterEditing="True" Caption="Edit Team"></EditDialogSettings>
                 <PagerSettings PageSize="20"></PagerSettings>
             </cc1:JQGrid>
-        </contenttemplate>
-    </asp:updatepanel>
-    <asp:objectdatasource id="LeagueDataSource" dataobjecttypename="thaitae.lib.League"
-        selectmethod="SelectLeagueItems" typename="thaitae.lib.Page.LeagueHelper" runat="server">
-    </asp:objectdatasource>
-    <asp:objectdatasource id="SeasonDataSource" dataobjecttypename="thaitae.lib.Season"
-        selectmethod="ListSeasonItems" typename="thaitae.lib.Page.SeasonHelper" runat="server">
-        <selectparameters>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <asp:ObjectDataSource ID="LeagueDataSource" DataObjectTypeName="thaitae.lib.League"
+        SelectMethod="SelectLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server">
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="SeasonDataSource" DataObjectTypeName="thaitae.lib.Season"
+        SelectMethod="ListSeasonItems" TypeName="thaitae.lib.Page.SeasonHelper" runat="server">
+        <SelectParameters>
             <asp:SessionParameter Name="LeagueId" SessionField="LeagueId" Type="Int32" />
-        </selectparameters>
-    </asp:objectdatasource>
-</asp:content>
+        </SelectParameters>
+    </asp:ObjectDataSource>
+</asp:Content>

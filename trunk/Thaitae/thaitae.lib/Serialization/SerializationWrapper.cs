@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.Serialization;
-using IConcepts.Net.Serialization;
 
 namespace IConcepts.Net.Serialization
 {
     [Serializable]
     public class SerializationWrapper : ISerializable
     {
-        object _item;
-        Type _type;
-        public object Item {
+        private object _item;
+        private Type _type;
+
+        public object Item
+        {
             get { return _item; }
             set
             {

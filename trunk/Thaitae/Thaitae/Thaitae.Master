@@ -73,10 +73,10 @@
     <div id="MainContanter">
         <uc1:Header ID="header1" runat="server" />
         <form id="form1" runat="server">
-        <asp:scriptmanager id="ScriptManager1" runat="server" />
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
         <div align="center" style="background-color: white; width: 1000px; margin: auto;">
-            <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
-            </asp:contentplaceholder>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
         </div>
         </form>
         <uc2:Footer ID="footer1" runat="server" />

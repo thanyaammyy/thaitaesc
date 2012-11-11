@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using thaitae.lib;
 using Image = System.Drawing.Image;
 
@@ -70,7 +65,7 @@ namespace Thaitae.Backend
                             resizedImg.Save(serverPath, myimg.RawFormat);
                             var thumbImg = myimg.GetThumbnailImage(100, 74, null, IntPtr.Zero);
                             thumbImg.Save(thumbPath, myimg.RawFormat);
-                            using (var dc = new ThaitaeDataDataContext())
+                            using (var dc = ThaitaeDataDataContext.Create())
                             {
                                 var newsObject = dc.News.Single(item => item.newsId == Convert.ToInt32(_fileIdName));
                                 newsObject.picture = ConfigurationManager.AppSettings["ServerNewsPath"] + _fileIdName + ".jpg";
@@ -81,7 +76,7 @@ namespace Thaitae.Backend
                         {
                             myimg = myimg.GetThumbnailImage(70, 65, null, IntPtr.Zero);
                             myimg.Save(serverPath, myimg.RawFormat);
-                            using (var dc = new ThaitaeDataDataContext())
+                            using (var dc = ThaitaeDataDataContext.Create())
                             {
                                 var leagueObject = dc.Leagues.Single(item => item.LeagueId == Convert.ToInt32(_fileIdName));
                                 leagueObject.Picture = ConfigurationManager.AppSettings["ServerLeaguePath"] + _fileIdName + ".jpg";

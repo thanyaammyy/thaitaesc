@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using thaitae.lib;
 using Trirand.Web.UI.WebControls;
 
@@ -21,7 +17,7 @@ namespace Thaitae.Backend
 
         private void JqgridFAMatchBinding()
         {
-            var dc = new ThaitaeDataDataContext().FAMatches;
+            var dc = ThaitaeDataDataContext.Create().FAMatches;
             var faMatchList = dc.ToList();
             JqgridMatch1.DataSource = faMatchList;
             JqgridMatch1.DataBind();
@@ -29,7 +25,7 @@ namespace Thaitae.Backend
 
         protected void JqgridMatch1_RowDeleting(object sender, JQGridRowDeleteEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var faMatch = dc.FAMatches.Single(item => item.FAMatchId == Convert.ToInt32(e.RowKey));
                 dc.FAMatches.DeleteOnSubmit(faMatch);
@@ -70,7 +66,7 @@ namespace Thaitae.Backend
                                   TeamWin = teamWin,
                                   HasResult = hasResult
                               };
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 dc.FAMatches.InsertOnSubmit(faMatch);
                 dc.SubmitChanges();
@@ -100,7 +96,7 @@ namespace Thaitae.Backend
                 teamWin = "<b style='color: blue'>" + e.RowData["TeamAwayName"] + "</b>";
                 hasResult = 1;
             }
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var faMatch = dc.FAMatches.Single(item => item.FAMatchId == Convert.ToInt32(e.RowKey));
                 faMatch.FAMatchDate = date;

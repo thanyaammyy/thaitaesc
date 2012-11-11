@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 
 namespace thaitae.lib.Page
 {
@@ -10,13 +8,13 @@ namespace thaitae.lib.Page
     {
         public static IEnumerable<Season> SelectSeasonItems(int leagueId)
         {
-            var dc = new ThaitaeDataDataContext().Seasons;
+            var dc = ThaitaeDataDataContext.Create().Seasons;
             return dc.Where(item => item.LeagueId == leagueId).ToList();
         }
 
         public static IEnumerable<Season> ListSeasonItems(int leagueId)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var seasonList = new List<Season> { new Season { SeasonId = 0, SeasonName = "Select Season" } };
                 seasonList.AddRange(dc.Seasons.Where(item => item.LeagueId == leagueId).ToList());
@@ -26,7 +24,7 @@ namespace thaitae.lib.Page
 
         public static void InsertSeason(Season objSeason)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 dc.Seasons.InsertOnSubmit(objSeason);
                 try
@@ -45,7 +43,7 @@ namespace thaitae.lib.Page
 
         public static void UpdateSeason(Season objSeason)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 Season linqSeason = (from dataItem in dc.Seasons
                                      where dataItem.SeasonId == objSeason.SeasonId
@@ -69,7 +67,7 @@ namespace thaitae.lib.Page
 
         public static void DeleteSeason(Season objSeason)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 Season linqSeason = (from dataItem in dc.Seasons
                                      where dataItem.SeasonId == objSeason.SeasonId

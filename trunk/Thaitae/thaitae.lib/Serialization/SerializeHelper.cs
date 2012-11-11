@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.Serialization;
 using System.IO;
+using System.Runtime.Serialization;
 using System.Xml;
 
 namespace IConcepts.Net.Serialization
@@ -14,6 +12,7 @@ namespace IConcepts.Net.Serialization
         {
             return Serialize(typeof(T), graph, types);
         }
+
         public static string Serialize(Type type, object graph, IEnumerable<Type> types = null)
         {
             using (var writer = new StringWriter())
@@ -24,10 +23,12 @@ namespace IConcepts.Net.Serialization
                 return writer.ToString();
             }
         }
+
         public static T Deserialize<T>(string xml, IEnumerable<Type> types = null) where T : class
         {
             return Deserialize(typeof(T), xml, types) as T;
         }
+
         public static object Deserialize(Type type, string xml, IEnumerable<Type> types = null)
         {
             using (var reader = new StringReader(xml))

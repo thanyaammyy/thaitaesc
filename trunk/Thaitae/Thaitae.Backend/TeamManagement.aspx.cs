@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using thaitae.lib;
 
@@ -43,7 +40,7 @@ namespace Thaitae.Backend
 
         protected void JqgridTeam_RowDeleting(object sender, Trirand.Web.UI.WebControls.JQGridRowDeleteEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var teamSeason = dc.TeamSeasons.Single(item => item.TeamSeasonId == Convert.ToInt32(e.RowKey));
                 var team = dc.Teams.Single(item => item.TeamId == teamSeason.TeamId);
@@ -55,7 +52,7 @@ namespace Thaitae.Backend
 
         protected void JqgridTeam_RowEditing(object sender, Trirand.Web.UI.WebControls.JQGridRowEditEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var teamSeason = dc.TeamSeasons.Single(item => item.TeamSeasonId == Convert.ToInt32(e.RowKey));
                 var team = dc.Teams.Single(item => item.TeamId == teamSeason.TeamId);
@@ -70,7 +67,7 @@ namespace Thaitae.Backend
         {
             if (Session["seasonid"] == null) return;
             if (Convert.ToInt32(Session["seasonid"]) == 0) return;
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var objTeam = new Team
                                   {
@@ -92,7 +89,7 @@ namespace Thaitae.Backend
 
         private void JqgridTeamBinding(int seasonId)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var teamSeasonList = dc.TeamSeasons.Join(dc.Teams, teamSeason => teamSeason.TeamId, team => team.TeamId, (teamSeason, team) => new { teamSeason.SeasonId, team.TeamId, team.TeamName, team.TeamDesc, team.ActiveName, teamSeason.TeamSeasonId, teamSeason.TeamDrew, teamSeason.TeamGoalAgainst, teamSeason.TeamGoalDiff, teamSeason.TeamGoalFor, teamSeason.TeamLoss, teamSeason.TeamMatchPlayed, teamSeason.TeamPts, teamSeason.TeamWon, teamSeason.TeamYellowCard, teamSeason.TeamRedCard }).Where(teamSeason => teamSeason.SeasonId == seasonId).OrderByDescending(item => item.TeamPts).ThenByDescending(item => item.TeamGoalDiff).ThenByDescending(item => item.TeamGoalFor).ToList();
                 JqgridTeam.DataSource = teamSeasonList;

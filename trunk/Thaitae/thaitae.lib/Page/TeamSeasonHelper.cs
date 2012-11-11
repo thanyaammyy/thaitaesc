@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace thaitae.lib.Page
 {
@@ -9,7 +7,7 @@ namespace thaitae.lib.Page
     {
         public static IEnumerable<object> MatchResult(int leagueId)
         {
-            var dc = new ThaitaeDataDataContext();
+            var dc = ThaitaeDataDataContext.Create();
             IEnumerable<object> teamSeasonList = null;
             var league = dc.Leagues.Single(items => items.LeagueId == leagueId);
             var leagueName = league.LeagueName;
@@ -27,7 +25,7 @@ namespace thaitae.lib.Page
 
         public static IEnumerable<Player> SulvoStar(int leagueId)
         {
-            var dc = new ThaitaeDataDataContext();
+            var dc = ThaitaeDataDataContext.Create();
             var sulvoList = new List<Player>();
             var league = dc.Leagues.Single(items => items.LeagueId == leagueId);
             var seasoncount = dc.Seasons.Count(items => items.LeagueId == league.LeagueId);

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using thaitae.lib;
 
 namespace Thaitae
@@ -14,7 +10,7 @@ namespace Thaitae
         {
             if (!IsPostBack)
             {
-                var dc = new ThaitaeDataDataContext().FAMatches.OrderByDescending(item => item.FAMatchDate);
+                var dc = ThaitaeDataDataContext.Create().FAMatches.OrderByDescending(item => item.FAMatchDate);
                 var faMatchList = dc.ToList();
                 JqgridMatch1.DataSource = faMatchList;
                 JqgridMatch1.DataBind();

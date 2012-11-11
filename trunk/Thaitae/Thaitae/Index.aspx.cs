@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using thaitae.lib;
 using thaitae.lib.Page;
 
@@ -10,14 +9,14 @@ namespace Thaitae
     public partial class index : System.Web.UI.Page
     {
         public IEnumerable<League> ListLeague = new List<League>();
-		public IEnumerable<New> ListScoope= new List<New>(); 
-		public IEnumerable<New> ListHotNews=new List<New>(); 
+        public IEnumerable<New> ListScoope = new List<New>();
+        public IEnumerable<New> ListHotNews = new List<New>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             ListLeague = LeagueHelper.SelectLeague();
-        	ListScoope = NewsHelper.ScoopeList();
-        	ListHotNews = NewsHelper.HotNewsList();
+            ListScoope = NewsHelper.ScoopeList();
+            ListHotNews = NewsHelper.HotNewsList();
             if (!IsPostBack)
             {
                 var httpCookie = Request.Cookies["LeagueId"];

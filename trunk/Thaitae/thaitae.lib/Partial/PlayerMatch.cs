@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 
 namespace thaitae.lib
 {
@@ -44,7 +41,7 @@ namespace thaitae.lib
             {
                 if (PlayerId == null)
                     return "";
-                using (var dc = new ThaitaeDataDataContext())
+                using (var dc = ThaitaeDataDataContext.Create())
                 {
                     var playerNumber = dc.Players.Single(item => item.PlayerId == PlayerId).PlayerNumber;
                     return playerNumber.ToString();
@@ -58,10 +55,10 @@ namespace thaitae.lib
             {
                 if (PlayerId == null)
                     return "";
-                using (var dc = new ThaitaeDataDataContext())
+                using (var dc = ThaitaeDataDataContext.Create())
                 {
                     var playerName = dc.Players.Single(item => item.PlayerId == PlayerId).PlayerName;
-                    return playerName.ToString();
+                    return playerName;
                 }
             }
         }

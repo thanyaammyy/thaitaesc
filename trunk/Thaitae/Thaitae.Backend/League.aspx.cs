@@ -1,7 +1,5 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using thaitae.lib;
 
 namespace Thaitae.Backend
@@ -10,14 +8,14 @@ namespace Thaitae.Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var dc = new ThaitaeDataDataContext();
+            var dc = ThaitaeDataDataContext.Create();
             JqgridLeague1.DataSource = dc.Leagues;
             JqgridLeague1.DataBind();
         }
 
         protected void JqgridLeague1_RowEditing(object sender, Trirand.Web.UI.WebControls.JQGridRowEditEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var league = dc.Leagues.Single(item => item.LeagueId == Convert.ToInt32(e.RowKey));
                 league.LeagueName = e.RowData["LeagueName"];
@@ -30,7 +28,7 @@ namespace Thaitae.Backend
 
         protected void JqgridLeague1_RowDeleting(object sender, Trirand.Web.UI.WebControls.JQGridRowDeleteEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 Session.Remove("leagueid");
                 var league = dc.Leagues.Single(item => item.LeagueId == Convert.ToInt32(e.RowKey));
@@ -68,7 +66,7 @@ namespace Thaitae.Backend
 
         protected void JqgridLeague1_RowAdding(object sender, Trirand.Web.UI.WebControls.JQGridRowAddEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var league = new thaitae.lib.League
                 {

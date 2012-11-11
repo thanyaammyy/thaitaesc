@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 
 namespace thaitae.lib
 {
@@ -19,7 +16,7 @@ namespace thaitae.lib
         {
             get
             {
-                using (var dc = new ThaitaeDataDataContext())
+                using (var dc = ThaitaeDataDataContext.Create())
                 {
                     var teamName = dc.Teams.SingleOrDefault(item => item.TeamId == TeamId);
                     if (teamName != null) return teamName.TeamName;

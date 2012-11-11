@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Web;
 using System.Web.Caching;
 
@@ -35,13 +32,13 @@ namespace thaitae.lib
 
         public static void WriteLog(string message)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
-                var error = new ErrorLog()
-                {
-                    ErrorMessage = message,
-                    ErrorDate = DateTime.Now
-                };
+                var error = new ErrorLog
+                                {
+                                    ErrorMessage = message,
+                                    ErrorDate = DateTime.Now
+                                };
                 dc.ErrorLogs.InsertOnSubmit(error);
                 dc.SubmitChanges();
             }

@@ -119,7 +119,7 @@
         <table width="1000px" style="background-color: white">
             <tr>
                 <td colspan="2" style="text-align: center">
-                    <img src="Styles/images/hotnews.png"/>
+                    <img src="Styles/images/hotnews.png" />
                 </td>
                 <td class="Banners">
                     <a href="https://www.facebook.com/pages/Red-Seed-Fan-Page/191171527608027?ref=ts&amp;sk=wall">
@@ -180,7 +180,6 @@
                     <a href="http://www.tamudosports.com/">
                         <img src="/Styles/images/B-tamudo.png" width="220" height="75" align="middle" /></a>
                 </td>
-                
             </tr>
             <tr>
                 <td class="Banners">

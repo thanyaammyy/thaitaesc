@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using thaitae.lib;
 
 namespace Thaitae.Backend
@@ -34,7 +30,7 @@ namespace Thaitae.Backend
         {
             if (Session["leagueid"] == null) return;
             if (Convert.ToInt32(Session["leagueid"]) == 0) return;
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 dc.Seasons.InsertOnSubmit(new thaitae.lib.Season
                 {
@@ -48,7 +44,7 @@ namespace Thaitae.Backend
 
         protected void JqgridSeason_RowDeleting(object sender, Trirand.Web.UI.WebControls.JQGridRowDeleteEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var season = dc.Seasons.Single(item => item.SeasonId == Convert.ToInt32(e.RowKey));
                 dc.Seasons.DeleteOnSubmit(season);
@@ -58,7 +54,7 @@ namespace Thaitae.Backend
 
         protected void JqgridSeason_RowEditing(object sender, Trirand.Web.UI.WebControls.JQGridRowEditEventArgs e)
         {
-            using (var dc = new ThaitaeDataDataContext())
+            using (var dc = ThaitaeDataDataContext.Create())
             {
                 var season = dc.Seasons.Single(item => item.SeasonId == Convert.ToInt32(e.RowKey));
                 season.SeasonName = e.RowData["SeasonName"];
@@ -69,7 +65,7 @@ namespace Thaitae.Backend
 
         private void JqgridSeasonBinding(int leagueId)
         {
-            var dc = new ThaitaeDataDataContext().Seasons;
+            var dc = ThaitaeDataDataContext.Create().Seasons;
             var seasonList = dc.Where(item => item.LeagueId == leagueId).ToList();
             JqgridSeason.DataSource = seasonList;
             JqgridSeason.DataBind();
