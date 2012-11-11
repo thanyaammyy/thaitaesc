@@ -90,6 +90,7 @@
     <Compile Include="Serialization\JsonSerializationWrapper.cs" />
     <Compile Include="Serialization\SerializationWrapper.cs" />
     <Compile Include="Serialization\SerializeHelper.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="ThaitaeData.designer.cs">
       <AutoGen>True</AutoGen>
