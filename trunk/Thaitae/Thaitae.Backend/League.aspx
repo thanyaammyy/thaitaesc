@@ -45,7 +45,7 @@
             <cc1:JQGridColumn HeaderText="League Name" DataField="LeagueName" Editable="True"
                 TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="League Type" EditType="DropDown" DataField="LeagueTypeName"
-                EditValues="4:Normal" Editable="True" TextAlign="Center" />
+                EditValues="4:Normal;8:Champion.L" Editable="True" TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="Description" DataField="LeagueDesc" Editable="True"
                 TextAlign="Center" />
             <cc1:JQGridColumn HeaderText="Status" DataField="ActiveName" Editable="True" EditType="DropDown"
@@ -57,6 +57,7 @@
         <ToolBarSettings ShowEditButton="True" ShowDeleteButton="true" ShowAddButton="True"
             ShowRefreshButton="True" ShowSearchButton="True" />
         <AppearanceSettings ShowRowNumbers="true" />
+        <PagerSettings PageSize="30"></PagerSettings>
         <DeleteDialogSettings Width="516" LeftOffset="497" TopOffset="241" DeleteMessage="ถ้าคุณลบ League ข้อมูล team, season, match ของลีคนี้จะถูกลบทั้งหมด คุณยังต้องการลบ League นี้หรือไม่">
         </DeleteDialogSettings>
         <AddDialogSettings Width="300" Modal="True" TopOffset="250" LeftOffset="500" Height="300"

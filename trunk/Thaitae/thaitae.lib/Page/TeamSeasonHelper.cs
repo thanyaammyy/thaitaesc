@@ -43,5 +43,28 @@ namespace thaitae.lib.Page
             }
             return sulvoList.OrderByDescending(item => item.PlayerGoal);
         }
+
+        public static List<TeamSeason> GetChampionsLeagueFinalTeamList(int seasonId)
+        {
+            List<TeamSeason> team;
+            using (var dc = ThaitaeDataDataContext.Create())
+            {
+                team = dc.TeamSeasons.Where(item => item.SeasonId == seasonId)
+                    .OrderByDescending(item => item.TeamPts).ThenByDescending(item => item.TeamGoalDiff).ThenByDescending(item => item.TeamGoalFor)
+                    .Take(2).ToList();
+            }
+            return team;
+        }
+
+        public static TeamSeason GetChampionsLeagueFinalTeamFromGroupSeasonId(int groupSeasonId, int teamId)
+        {
+            TeamSeason team;
+            using (var dc = ThaitaeDataDataContext.Create())
+            {
+                team =
+                    dc.TeamSeasons.SingleOrDefault(item => item.GroupSeasonId == groupSeasonId && item.TeamId == teamId);
+            }
+            return team;
+        }
     }
 }

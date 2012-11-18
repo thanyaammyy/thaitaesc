@@ -71,6 +71,7 @@
                 <AppearanceSettings ShowRowNumbers="true" />
                 <ClientSideEvents RowSelect="bindCalendarDialog" SubGridRowExpanded="showSubGrids" />
                 <HierarchySettings HierarchyMode="Parent" />
+                <PagerSettings PageSize="100"></PagerSettings>
             </cc1:JQGrid>
         </ContentTemplate>
     </asp:UpdatePanel>

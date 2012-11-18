@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using thaitae.lib;
+using thaitae.lib.Page;
 
 namespace Thaitae.Backend
 {
@@ -30,15 +31,43 @@ namespace Thaitae.Backend
         {
             if (Session["leagueid"] == null) return;
             if (Convert.ToInt32(Session["leagueid"]) == 0) return;
+            var league = LeagueHelper.GetLeague(Convert.ToInt32(Session["leagueid"]));
             using (var dc = ThaitaeDataDataContext.Create())
             {
-                dc.Seasons.InsertOnSubmit(new thaitae.lib.Season
+                if (league.LeagueType == 1)
                 {
-                    LeagueId = Convert.ToInt32(Session["leagueid"]),
-                    SeasonName = e.RowData["SeasonName"],
-                    SeasonDesc = e.RowData["SeasonDesc"]
-                });
-                dc.SubmitChanges();
+                    var season = new thaitae.lib.Season
+                                     {
+                                         LeagueId = Convert.ToInt32(Session["leagueid"]),
+                                         SeasonName = e.RowData["SeasonName"],
+                                         SeasonDesc = e.RowData["SeasonDesc"]
+                                     };
+                    dc.Seasons.InsertOnSubmit(season);
+                    dc.SubmitChanges();
+                    var leagueList = LeagueHelper.GetChampionsLeagueGroupList();
+                    foreach (var championGroup in leagueList)
+                    {
+                        var seasonGroup = new thaitae.lib.Season
+                        {
+                            LeagueId = championGroup.LeagueId,
+                            SeasonName = e.RowData["SeasonName"],
+                            SeasonDesc = e.RowData["SeasonDesc"],
+                            ChampionLeagueSeasonId = season.SeasonId
+                        };
+                        dc.Seasons.InsertOnSubmit(seasonGroup);
+                    }
+                    dc.SubmitChanges();
+                }
+                else
+                {
+                    dc.Seasons.InsertOnSubmit(new thaitae.lib.Season
+                    {
+                        LeagueId = Convert.ToInt32(Session["leagueid"]),
+                        SeasonName = e.RowData["SeasonName"],
+                        SeasonDesc = e.RowData["SeasonDesc"]
+                    });
+                    dc.SubmitChanges();
+                }
             }
         }
 
@@ -47,7 +76,9 @@ namespace Thaitae.Backend
             using (var dc = ThaitaeDataDataContext.Create())
             {
                 var season = dc.Seasons.Single(item => item.SeasonId == Convert.ToInt32(e.RowKey));
+                var seasonGroup = dc.Seasons.Where(item => item.ChampionLeagueSeasonId == Convert.ToInt32(e.RowKey));
                 dc.Seasons.DeleteOnSubmit(season);
+                dc.Seasons.DeleteAllOnSubmit(seasonGroup);
                 dc.SubmitChanges();
             }
         }
@@ -57,8 +88,14 @@ namespace Thaitae.Backend
             using (var dc = ThaitaeDataDataContext.Create())
             {
                 var season = dc.Seasons.Single(item => item.SeasonId == Convert.ToInt32(e.RowKey));
+                var seasonGroupList = dc.Seasons.Where(item => item.ChampionLeagueSeasonId == Convert.ToInt32(e.RowKey));
                 season.SeasonName = e.RowData["SeasonName"];
                 season.SeasonDesc = e.RowData["SeasonDesc"];
+                foreach (var seasonGroup in seasonGroupList)
+                {
+                    seasonGroup.SeasonName = e.RowData["SeasonName"];
+                    seasonGroup.SeasonDesc = e.RowData["SeasonDesc"];
+                }
                 dc.SubmitChanges();
             }
         }
