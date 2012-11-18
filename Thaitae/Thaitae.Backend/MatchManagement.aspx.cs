@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using thaitae.lib;
+using thaitae.lib.Helper;
+using thaitae.lib.Page;
 using Trirand.Web.UI.WebControls;
 
 namespace Thaitae.Backend
@@ -77,62 +79,219 @@ namespace Thaitae.Backend
         {
             using (var dc = ThaitaeDataDataContext.Create())
             {
-                var teamSeasonList = dc.TeamSeasons.Join(dc.Teams, teamSeason => teamSeason.TeamId, team => team.TeamId, (teamSeason, team) => new { teamSeason.SeasonId, team.TeamId }).Where(teamSeason => teamSeason.SeasonId == seasonId).ToList();
-                for (var i = 0; i < teamSeasonList.Count; i++)
+                var isChampionLeagueFinal = dc.Leagues.Any(item => item.LeagueId == Convert.ToInt32(Session["leagueid"]) && item.LeagueType == 1);
+                var isFinished = SeasonHelper.CheckGroupSeasonIsFinnish(seasonId);
+
+                if (isChampionLeagueFinal)
                 {
-                    for (var j = 0; j < teamSeasonList.Count; j++)
+                    if (dc.Matches.Count(item => item.SeasonId == seasonId) == 0)
                     {
-                        if (teamSeasonList[i].TeamId != teamSeasonList[j].TeamId)
+                        var teamChampionFinalList =
+                        dc.TeamSeasons.Where(item => item.SeasonId == seasonId).OrderBy(item => item.GroupSeasonId).ToList();
+                        if (teamChampionFinalList.Count != 16)
                         {
-                            Match match = null;
-                            var matchExist = dc.Matches.Count(
-                                item => item.SeasonId == seasonId && item.TeamHomeId == teamSeasonList[i].TeamId && item.TeamAwayId == teamSeasonList[j].TeamId);
-                            if (matchExist == 0)
+                            JavaScriptHelper.Alert("ต้องมีทีมครบ 16 ทีมก่อนนะครับ");
+                            return;
+                        }
+                        for (var i = 0; i < teamChampionFinalList.Count; i++)
+                        {
+                            int matching = 1;
+                            var filterOut = new int[] { 2, 3, 6, 7, 10, 11, 14, 15 };
+                            var forFirstTeam = new int[] { 0, 4, 8, 12 };
+                            if (filterOut.Contains(i)) continue;
+                            if (forFirstTeam.Contains(i)) matching = 3;
+                            Match matchExist =
+                                dc.Matches.SingleOrDefault(
+                                    item =>
+                                    item.SeasonId == seasonId && item.TeamHomeId == teamChampionFinalList[i].TeamId &&
+                                    item.TeamAwayId == teamChampionFinalList[i + matching].TeamId);
+                            if (matchExist == null)
                             {
-                                match = new Match
+                                matchExist = new Match
                                 {
                                     SeasonId = seasonId,
                                     MatchDate = DateTime.Now,
-                                    TeamHomeId = teamSeasonList[i].TeamId,
-                                    TeamAwayId = teamSeasonList[j].TeamId
+                                    TeamHomeId = teamChampionFinalList[i].TeamId,
+                                    TeamAwayId = teamChampionFinalList[i + matching].TeamId
                                 };
-                                dc.Matches.InsertOnSubmit(match);
+                                dc.Matches.InsertOnSubmit(matchExist);
                                 dc.SubmitChanges();
-                            }
-                            else
-                            {
-                                match = dc.Matches.Single(
-                                item => item.SeasonId == seasonId && item.TeamHomeId == teamSeasonList[i].TeamId && item.TeamAwayId == teamSeasonList[j].TeamId);
                             }
                             var teamHomeExist =
-                                    dc.TeamMatches.Count(
-                                        item => item.MatchId == match.MatchId && item.TeamId == match.TeamHomeId);
-                            if (teamHomeExist == 0)
+                                            dc.TeamMatches.SingleOrDefault(
+                                                item => item.MatchId == matchExist.MatchId && item.TeamId == matchExist.TeamHomeId);
+                            if (teamHomeExist == null)
                             {
-                                var teamHomeMatch = new TeamMatch
+                                teamHomeExist = new TeamMatch
                                 {
-                                    MatchId = match.MatchId,
-                                    TeamId = match.TeamHomeId,
+                                    MatchId = matchExist.MatchId,
+                                    TeamId = matchExist.TeamHomeId,
                                     TeamHome = 1,
-                                    SeasonId = match.SeasonId
+                                    SeasonId = matchExist.SeasonId
                                 };
-                                dc.TeamMatches.InsertOnSubmit(teamHomeMatch);
+                                dc.TeamMatches.InsertOnSubmit(teamHomeExist);
                                 dc.SubmitChanges();
                             }
+
                             var teamAwayExist =
-                                dc.TeamMatches.Count(
-                                    item => item.MatchId == match.MatchId && item.TeamId == match.TeamAwayId);
-                            if (teamAwayExist == 0)
+                                            dc.TeamMatches.SingleOrDefault(
+                                                item => item.MatchId == matchExist.MatchId && item.TeamId == matchExist.TeamAwayId);
+                            if (teamAwayExist == null)
                             {
-                                var teamAwayMatch = new TeamMatch
+                                teamAwayExist = new TeamMatch
                                 {
-                                    MatchId = match.MatchId,
-                                    TeamId = match.TeamAwayId,
+                                    MatchId = matchExist.MatchId,
+                                    TeamId = matchExist.TeamAwayId,
                                     TeamHome = 0,
-                                    SeasonId = match.SeasonId
+                                    SeasonId = matchExist.SeasonId
                                 };
-                                dc.TeamMatches.InsertOnSubmit(teamAwayMatch);
+                                dc.TeamMatches.InsertOnSubmit(teamAwayExist);
                                 dc.SubmitChanges();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (!isFinished) return;
+                        int count = 0;
+                        if (dc.Matches.Count(item => item.SeasonId == seasonId) == 8)
+                        {
+                            count = 1;
+                        }
+                        else if (dc.Matches.Count(item => item.SeasonId == seasonId) == 12)
+                        {
+                            count = 2;
+                        }
+                        else if (dc.Matches.Count(item => item.SeasonId == seasonId) == 14)
+                        {
+                            count = 3;
+                        }
+                        else if (dc.Matches.Count(item => item.SeasonId == seasonId) == 15)
+                        {
+                            count = 4;
+                        }
+                        var teamChampionFinalList =
+                        dc.TeamSeasons.Where(item => item.SeasonId == seasonId && item.TeamWon == count).OrderBy(item => item.GroupSeasonId).ToList();
+                        if (teamChampionFinalList.Count == 1)
+                        {
+                            JavaScriptHelper.Alert("จบการแข่งขัน Champions League : ทีม " + teamChampionFinalList[0].Team.TeamName + "เป็นผู้คว้าแชมไปครอง");
+                            return;
+                        }
+                        for (var i = 0; i < teamChampionFinalList.Count; i++)
+                        {
+                            const int matching = 1;
+                            var filterOut = new int[] { 1, 3, 5, 7 };
+                            if (filterOut.Contains(i)) continue;
+                            Match matchExist =
+                                dc.Matches.SingleOrDefault(
+                                    item =>
+                                    item.SeasonId == seasonId && item.TeamHomeId == teamChampionFinalList[i].TeamId &&
+                                    item.TeamAwayId == teamChampionFinalList[i + matching].TeamId);
+                            if (matchExist == null)
+                            {
+                                matchExist = new Match
+                                {
+                                    SeasonId = seasonId,
+                                    MatchDate = DateTime.Now,
+                                    TeamHomeId = teamChampionFinalList[i].TeamId,
+                                    TeamAwayId = teamChampionFinalList[i + matching].TeamId
+                                };
+                                dc.Matches.InsertOnSubmit(matchExist);
+                                dc.SubmitChanges();
+                            }
+                            var teamHomeExist =
+                                            dc.TeamMatches.SingleOrDefault(
+                                                item => item.MatchId == matchExist.MatchId && item.TeamId == matchExist.TeamHomeId);
+                            if (teamHomeExist == null)
+                            {
+                                teamHomeExist = new TeamMatch
+                                {
+                                    MatchId = matchExist.MatchId,
+                                    TeamId = matchExist.TeamHomeId,
+                                    TeamHome = 1,
+                                    SeasonId = matchExist.SeasonId
+                                };
+                                dc.TeamMatches.InsertOnSubmit(teamHomeExist);
+                                dc.SubmitChanges();
+                            }
+
+                            var teamAwayExist =
+                                            dc.TeamMatches.SingleOrDefault(
+                                                item => item.MatchId == matchExist.MatchId && item.TeamId == matchExist.TeamAwayId);
+                            if (teamAwayExist == null)
+                            {
+                                teamAwayExist = new TeamMatch
+                                {
+                                    MatchId = matchExist.MatchId,
+                                    TeamId = matchExist.TeamAwayId,
+                                    TeamHome = 0,
+                                    SeasonId = matchExist.SeasonId
+                                };
+                                dc.TeamMatches.InsertOnSubmit(teamAwayExist);
+                                dc.SubmitChanges();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    var teamSeasonList = dc.TeamSeasons.Join(dc.Teams, teamSeason => teamSeason.TeamId, team => team.TeamId, (teamSeason, team) => new { teamSeason.SeasonId, team.TeamId }).Where(teamSeason => teamSeason.SeasonId == seasonId).ToList();
+                    for (var i = 0; i < teamSeasonList.Count; i++)
+                    {
+                        for (var j = 0; j < teamSeasonList.Count; j++)
+                        {
+                            if (teamSeasonList[i].TeamId != teamSeasonList[j].TeamId)
+                            {
+                                Match match = null;
+                                var matchExist = dc.Matches.Count(
+                                    item => item.SeasonId == seasonId && item.TeamHomeId == teamSeasonList[i].TeamId && item.TeamAwayId == teamSeasonList[j].TeamId);
+                                if (matchExist == 0)
+                                {
+                                    match = new Match
+                                    {
+                                        SeasonId = seasonId,
+                                        MatchDate = DateTime.Now,
+                                        TeamHomeId = teamSeasonList[i].TeamId,
+                                        TeamAwayId = teamSeasonList[j].TeamId
+                                    };
+                                    dc.Matches.InsertOnSubmit(match);
+                                    dc.SubmitChanges();
+                                }
+                                else
+                                {
+                                    match = dc.Matches.Single(
+                                    item => item.SeasonId == seasonId && item.TeamHomeId == teamSeasonList[i].TeamId && item.TeamAwayId == teamSeasonList[j].TeamId);
+                                }
+                                var teamHomeExist =
+                                        dc.TeamMatches.Count(
+                                            item => item.MatchId == match.MatchId && item.TeamId == match.TeamHomeId);
+                                if (teamHomeExist == 0)
+                                {
+                                    var teamHomeMatch = new TeamMatch
+                                    {
+                                        MatchId = match.MatchId,
+                                        TeamId = match.TeamHomeId,
+                                        TeamHome = 1,
+                                        SeasonId = match.SeasonId
+                                    };
+                                    dc.TeamMatches.InsertOnSubmit(teamHomeMatch);
+                                    dc.SubmitChanges();
+                                }
+                                var teamAwayExist =
+                                    dc.TeamMatches.Count(
+                                        item => item.MatchId == match.MatchId && item.TeamId == match.TeamAwayId);
+                                if (teamAwayExist == 0)
+                                {
+                                    var teamAwayMatch = new TeamMatch
+                                    {
+                                        MatchId = match.MatchId,
+                                        TeamId = match.TeamAwayId,
+                                        TeamHome = 0,
+                                        SeasonId = match.SeasonId
+                                    };
+                                    dc.TeamMatches.InsertOnSubmit(teamAwayMatch);
+                                    dc.SubmitChanges();
+                                }
                             }
                         }
                     }
@@ -214,7 +373,7 @@ namespace Thaitae.Backend
                             teamAgainst.TeamStatus = 2;
                         }
                         dc.SubmitChanges();
-                        CalculateTeamResult(team, teamAgainst);
+                        CalculateTeamResult(team, teamAgainst, Convert.ToInt32(Session["seasonid"]));
                     }
                 }
                 dc.SubmitChanges();
@@ -283,7 +442,7 @@ namespace Thaitae.Backend
                             teamAgainst.TeamStatus = 2;
                         }
                         dc.SubmitChanges();
-                        CalculateTeamResult(team, teamAgainst);
+                        CalculateTeamResult(team, teamAgainst, Convert.ToInt32(Session["seasonid"]));
                     }
                 }
                 dc.SubmitChanges();
@@ -376,50 +535,72 @@ namespace Thaitae.Backend
             return playerUpdate;
         }
 
-        public void CalculateTeamResult(TeamMatch team, TeamMatch teamAgainst)
+        public void CalculateTeamResult(TeamMatch team, TeamMatch teamAgainst, int seasonId)
         {
             using (var dc = ThaitaeDataDataContext.Create())
             {
-                var teamUpdate = dc.TeamSeasons.Single(item => item.TeamId == team.TeamId);
+                var teamUpdate = dc.TeamSeasons.Single(item => item.TeamId == team.TeamId && item.SeasonId == seasonId);
                 teamUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && item.TeamStatus != 0);
                 teamUpdate.TeamDrew = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && item.TeamStatus == 2);
                 var teamgoalAgainstSum =
-                    dc.TeamMatches.Where(item => item.TeamId == team.TeamId && item.TeamStatus != 0).Sum(
+                    dc.TeamMatches.Where(item => item.TeamId == team.TeamId && item.SeasonId == seasonId && item.TeamStatus != 0).Sum(
                         item => item.TeamGoalAgainst);
                 if (teamgoalAgainstSum != null)
                     teamUpdate.TeamGoalAgainst = (int)teamgoalAgainstSum;
 
                 var teamgoalForSum =
-                    dc.TeamMatches.Where(item => item.TeamId == team.TeamId && item.TeamStatus != 0).Sum(
+                    dc.TeamMatches.Where(item => item.TeamId == team.TeamId && item.SeasonId == seasonId && item.TeamStatus != 0).Sum(
                         item => item.TeamGoalFor);
                 if (teamgoalForSum != null)
                     teamUpdate.TeamGoalFor = (int)teamgoalForSum;
                 teamUpdate.TeamGoalDiff = teamUpdate.TeamGoalFor - teamUpdate.TeamGoalAgainst;
-                teamUpdate.TeamLoss = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && item.TeamStatus == 3);
-                teamUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && item.TeamStatus == 1);
+                teamUpdate.TeamLoss = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && item.SeasonId == seasonId && item.TeamStatus == 3);
+                teamUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == team.TeamId && item.SeasonId == seasonId && item.TeamStatus == 1);
                 teamUpdate.TeamPts = (teamUpdate.TeamWon * 3) + (teamUpdate.TeamDrew);
-                teamUpdate.TeamYellowCard = dc.Players.Where(item => item.TeamId == teamUpdate.TeamId && item.SeasonId == teamUpdate.SeasonId).Sum(item => item.PlayerYellowCard);
-                teamUpdate.TeamRedCard = dc.Players.Where(item => item.TeamId == teamUpdate.TeamId && item.SeasonId == teamUpdate.SeasonId).Sum(item => item.PlayerRedCard);
-                var teamAgainstUpdate = dc.TeamSeasons.Single(item => item.TeamId == teamAgainst.TeamId);
-                teamAgainstUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus != 0);
-                teamAgainstUpdate.TeamDrew = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus == 2);
+
+                var teamUpdateYellowCard = 0;
+                var teamUpdateRedCard = 0;
+                var playersUpdate = dc.Players.Where(item => item.TeamId == teamUpdate.TeamId && item.SeasonId == teamUpdate.SeasonId);
+                if (playersUpdate.Count() != 0)
+                {
+                    teamUpdateYellowCard = playersUpdate.Sum(item => item.PlayerYellowCard);
+                    teamUpdateRedCard = playersUpdate.Sum(item => item.PlayerRedCard);
+                }
+
+                teamUpdate.TeamYellowCard = teamUpdateYellowCard;
+                teamUpdate.TeamRedCard = teamUpdateRedCard;
+                var teamAgainstUpdate = dc.TeamSeasons.Single(item => item.TeamId == teamAgainst.TeamId && item.SeasonId == seasonId);
+                teamAgainstUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.SeasonId == seasonId && item.TeamStatus != 0);
+                teamAgainstUpdate.TeamDrew = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.SeasonId == seasonId && item.TeamStatus == 2);
                 var teamAgainstgoalAgainstSum =
-                    dc.TeamMatches.Where(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus != 0).Sum(
+                    dc.TeamMatches.Where(item => item.TeamId == teamAgainst.TeamId && item.SeasonId == seasonId && item.TeamStatus != 0).Sum(
                         item => item.TeamGoalAgainst);
                 if (teamAgainstgoalAgainstSum != null)
                     teamAgainstUpdate.TeamGoalAgainst = (int)teamAgainstgoalAgainstSum;
 
                 var teamAgainstgoalForSum =
-                    dc.TeamMatches.Where(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus != 0).Sum(
+                    dc.TeamMatches.Where(item => item.TeamId == teamAgainst.TeamId && item.SeasonId == seasonId && item.TeamStatus != 0).Sum(
                         item => item.TeamGoalFor);
                 if (teamAgainstgoalForSum != null)
                     teamAgainstUpdate.TeamGoalFor = (int)teamAgainstgoalForSum;
                 teamAgainstUpdate.TeamGoalDiff = teamAgainstUpdate.TeamGoalFor - teamAgainstUpdate.TeamGoalAgainst;
-                teamAgainstUpdate.TeamLoss = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus == 3);
-                teamAgainstUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.TeamStatus == 1);
+                teamAgainstUpdate.TeamLoss = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.SeasonId == seasonId && item.TeamStatus == 3);
+                teamAgainstUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == teamAgainst.TeamId && item.SeasonId == seasonId && item.TeamStatus == 1);
                 teamAgainstUpdate.TeamPts = (teamAgainstUpdate.TeamWon * 3) + (teamAgainstUpdate.TeamDrew);
-                teamAgainstUpdate.TeamYellowCard = dc.Players.Where(item => item.TeamId == teamAgainstUpdate.TeamId && item.SeasonId == teamAgainstUpdate.SeasonId).Sum(item => item.PlayerYellowCard);
-                teamAgainstUpdate.TeamRedCard = dc.Players.Where(item => item.TeamId == teamAgainstUpdate.TeamId && item.SeasonId == teamAgainstUpdate.SeasonId).Sum(item => item.PlayerRedCard);
+
+                var teamAgainstYellowCard = 0;
+                var teamAgainstRedCard = 0;
+                var playersAgainst =
+                    dc.Players.Where(
+                        item => item.TeamId == teamAgainstUpdate.TeamId && item.SeasonId == teamAgainstUpdate.SeasonId);
+                if (playersAgainst.Count() != 0)
+                {
+                    teamAgainstYellowCard = playersAgainst.Sum(item => item.PlayerYellowCard);
+                    teamAgainstRedCard = playersAgainst.Sum(item => item.PlayerRedCard);
+                }
+
+                teamAgainstUpdate.TeamYellowCard = teamAgainstYellowCard;
+                teamAgainstUpdate.TeamRedCard = teamAgainstRedCard;
                 dc.SubmitChanges();
             }
         }
@@ -434,49 +615,64 @@ namespace Thaitae.Backend
                 var teamSeasonList = dc.TeamSeasons.Where(item => item.SeasonId == seasonid).ToList();
                 foreach (var teamSeason in teamSeasonList)
                 {
-                    var teamUpdate = dc.TeamSeasons.Single(item => item.TeamId == teamSeason.TeamId);
-                    teamUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.TeamStatus != 0);
-                    teamUpdate.TeamDrew = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.TeamStatus == 2);
+                    var teamUpdate = dc.TeamSeasons.Single(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid);
+                    teamUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid && item.TeamStatus != 0);
+                    teamUpdate.TeamDrew = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid && item.TeamStatus == 2);
                     var teamgoalAgainstSum =
-                        dc.TeamMatches.Where(item => item.TeamId == teamSeason.TeamId && item.TeamStatus != 0).Sum(
+                        dc.TeamMatches.Where(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid && item.TeamStatus != 0).Sum(
                             item => item.TeamGoalAgainst);
                     if (teamgoalAgainstSum != null)
                         teamUpdate.TeamGoalAgainst = (int)teamgoalAgainstSum;
 
                     var teamgoalForSum =
-                        dc.TeamMatches.Where(item => item.TeamId == teamSeason.TeamId && item.TeamStatus != 0).Sum(
+                        dc.TeamMatches.Where(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid && item.TeamStatus != 0).Sum(
                             item => item.TeamGoalFor);
                     if (teamgoalForSum != null)
                         teamUpdate.TeamGoalFor = (int)teamgoalForSum;
                     teamUpdate.TeamGoalDiff = teamUpdate.TeamGoalFor - teamUpdate.TeamGoalAgainst;
-                    teamUpdate.TeamLoss = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.TeamStatus == 3);
-                    teamUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.TeamStatus == 1);
-                    teamUpdate.TeamYellowCard = dc.Players.Where(item => item.TeamId == teamUpdate.TeamId && item.SeasonId == teamUpdate.SeasonId).Sum(item => item.PlayerYellowCard);
-                    teamUpdate.TeamRedCard = dc.Players.Where(item => item.TeamId == teamUpdate.TeamId && item.SeasonId == teamUpdate.SeasonId).Sum(item => item.PlayerRedCard);
+                    teamUpdate.TeamLoss = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid && item.TeamStatus == 3);
+                    teamUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid && item.TeamStatus == 1);
+                    var teamUpdateYellowCard = 0;
+                    var teamUpdateRedCard = 0;
+                    var playersAgainst =
+                        dc.Players.Where(
+                            item => item.TeamId == teamUpdate.TeamId && item.SeasonId == teamUpdate.SeasonId);
+                    if (playersAgainst.Count() != 0)
+                    {
+                        teamUpdateYellowCard = playersAgainst.Sum(item => item.PlayerYellowCard);
+                        teamUpdateRedCard = playersAgainst.Sum(item => item.PlayerRedCard);
+                    }
+                    teamUpdate.TeamYellowCard = teamUpdateYellowCard;
+                    teamUpdate.TeamRedCard = teamUpdateRedCard;
                     teamUpdate.TeamPts = (teamUpdate.TeamWon * 3) + (teamUpdate.TeamDrew);
                     dc.SubmitChanges();
                 }
             }
         }
 
-        public void CalculatePlayerResult(Player player)
+        public void CalculatePlayerResult(Player playerInput)
         {
             using (var dc = ThaitaeDataDataContext.Create())
             {
-                var playerUpdate = dc.Players.Single(item => item.PlayerId == player.PlayerId);
-                playerUpdate.PlayerGoal =
-                    dc.PlayerMatches.Count(
-                        item =>
-                        item.PlayerGoal == 1 && item.PlayerId == player.PlayerId && item.TeamId == player.TeamId && item.SeasonId == player.SeasonId);
-                playerUpdate.PlayerRedCard =
-                    dc.PlayerMatches.Count(
-                        item =>
-                        item.PlayerRedCard == 1 && item.PlayerId == player.PlayerId && item.TeamId == player.TeamId && item.SeasonId == player.SeasonId);
-                playerUpdate.PlayerYellowCard =
-                    dc.PlayerMatches.Count(
-                        item =>
-                        item.PlayerYellowCard == 1 && item.PlayerId == player.PlayerId && item.TeamId == player.TeamId && item.SeasonId == player.SeasonId);
-                dc.SubmitChanges();
+                var playerTeamList =
+                    dc.Players.Where(item => item.SeasonId == playerInput.SeasonId && item.TeamId == playerInput.TeamId).ToList();
+                foreach (var player in playerTeamList)
+                {
+                    var playerUpdate = dc.Players.Single(item => item.PlayerId == player.PlayerId);
+                    playerUpdate.PlayerGoal =
+                        dc.PlayerMatches.Count(
+                            item =>
+                            item.PlayerGoal == 1 && item.PlayerId == player.PlayerId && item.TeamId == player.TeamId && item.SeasonId == player.SeasonId);
+                    playerUpdate.PlayerRedCard =
+                        dc.PlayerMatches.Count(
+                            item =>
+                            item.PlayerRedCard == 1 && item.PlayerId == player.PlayerId && item.TeamId == player.TeamId && item.SeasonId == player.SeasonId);
+                    playerUpdate.PlayerYellowCard =
+                        dc.PlayerMatches.Count(
+                            item =>
+                            item.PlayerYellowCard == 1 && item.PlayerId == player.PlayerId && item.TeamId == player.TeamId && item.SeasonId == player.SeasonId);
+                    dc.SubmitChanges();
+                }
             }
         }
 

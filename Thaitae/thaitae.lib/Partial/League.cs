@@ -6,6 +6,7 @@
         {
             LeagueName = "";
             LeagueDesc = "";
+            Picture = "http://admin.thaitaesc.com/LeagueImages/noimage.png";
         }
 
         public string LeagueTypeName

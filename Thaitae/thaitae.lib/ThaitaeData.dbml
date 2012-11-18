@@ -18,6 +18,7 @@
       <Column Name="LeagueId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SeasonName" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="SeasonDesc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChampionLeagueSeasonId" Type="System.Int32" CanBeNull="true" />
       <Association Name="Season_TeamSeason" Member="TeamSeasons" ThisKey="SeasonId" OtherKey="SeasonId" Type="TeamSeason" />
       <Association Name="Season_Match" Member="Matches" ThisKey="SeasonId" OtherKey="SeasonId" Type="Match" />
       <Association Name="League_Season" Member="League" ThisKey="LeagueId" OtherKey="LeagueId" Type="League" IsForeignKey="true" />
@@ -38,6 +39,8 @@
       <Column Name="TeamGoalDiff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TeamYellowCard" Type="System.Int32" CanBeNull="false" />
       <Column Name="TeamRedCard" Type="System.Int32" CanBeNull="false" />
+      <Column Name="GroupSeasonId" Type="System.Int32" CanBeNull="true" />
+      <Column Name="GroupSeasonOrder" Type="System.Int32" CanBeNull="true" />
       <Association Name="Team_TeamSeason" Member="Team" ThisKey="TeamId" OtherKey="TeamId" Type="Team" IsForeignKey="true" />
       <Association Name="Season_TeamSeason" Member="Season" ThisKey="SeasonId" OtherKey="SeasonId" Type="Season" IsForeignKey="true" />
     </Type>

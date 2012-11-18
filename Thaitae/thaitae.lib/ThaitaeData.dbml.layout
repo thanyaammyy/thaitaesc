@@ -8,16 +8,16 @@
         <elementListCompartment Id="94d0816d-4f9c-44ec-847e-a72dacf9195c" absoluteBounds="0.51500000000000012, 3.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="8ffa28b9-2487-4d5b-9f9a-ea046a0ecf0d" absoluteBounds="3.25, 2.75, 2, 1.5785953776041666">
+    <classShape Id="8ffa28b9-2487-4d5b-9f9a-ea046a0ecf0d" absoluteBounds="3.25, 2.75, 2, 1.7708968098958327">
       <DataClassMoniker Name="/ThaitaeDataDataContext/Season" />
       <nestedChildShapes>
-        <elementListCompartment Id="734b4d6f-916f-4666-84f6-92100cec3dc1" absoluteBounds="3.265, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="734b4d6f-916f-4666-84f6-92100cec3dc1" absoluteBounds="3.265, 3.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="112d38bf-e4aa-4e49-b295-e61a21488972" absoluteBounds="3.25, 4.875, 2, 3.3093082682291666">
+    <classShape Id="112d38bf-e4aa-4e49-b295-e61a21488972" absoluteBounds="3.25, 4.875, 2, 3.6939111328125005">
       <DataClassMoniker Name="/ThaitaeDataDataContext/TeamSeason" />
       <nestedChildShapes>
-        <elementListCompartment Id="100e9681-3293-4542-8222-0699169a299c" absoluteBounds="3.2649999999999997, 5.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="100e9681-3293-4542-8222-0699169a299c" absoluteBounds="3.2649999999999997, 5.335, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="db827dc2-ade7-4522-87d9-9dcf7bb23bca" absoluteBounds="6.25, 0.5, 2, 1.7708968098958331">
@@ -44,7 +44,7 @@
         <elementListCompartment Id="c144ef9e-f135-444d-b267-abaaf946e166" absoluteBounds="9.265, 3.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.25 : 6.78929768880208); (5.25 : 6.78929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(6.25 : 6.78929768880208); (5.25 : 6.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ThaitaeDataDataContext/Team/Team_TeamSeason" />
       <nodes>
         <classShapeMoniker Id="5ff93f5a-af84-40cc-806a-afe4811a7d3e" />
@@ -64,14 +64,14 @@
         <classShapeMoniker Id="20995532-3b53-4d15-8ef6-a79375c64efd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.25 : 4.32859537760417); (4.25 : 4.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.25 : 4.52089680989583); (4.25 : 4.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ThaitaeDataDataContext/Season/Season_TeamSeason" />
       <nodes>
         <classShapeMoniker Id="8ffa28b9-2487-4d5b-9f9a-ea046a0ecf0d" />
         <classShapeMoniker Id="112d38bf-e4aa-4e49-b295-e61a21488972" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 3.53929768880208); (3.25 : 3.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 3.63544840494792); (3.25 : 3.63544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ThaitaeDataDataContext/League/League_Season" />
       <nodes>
         <classShapeMoniker Id="62a40102-7e38-4f60-ab10-1939a131a480" />

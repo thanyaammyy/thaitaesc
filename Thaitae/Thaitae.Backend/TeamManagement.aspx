@@ -15,6 +15,8 @@
             <asp:DropDownList runat="server" ID="ddlSeason" DataSourceID="SeasonDataSource" DataTextField="SeasonName"
                 DataValueField="SeasonId" AutoPostBack="True" OnSelectedIndexChanged="ddlSeason_SelectedIndexChanged">
             </asp:DropDownList>
+            <asp:Button ID="GenTeam" ClientIDMode="Static" Visible="False" runat="server" OnClick="GenTeam_Click"
+                Text="Generate 16 Teams Champion League"></asp:Button>
             <cc1:JQGrid ID="JqgridTeam" AutoWidth="True" runat="server" OnRowDeleting="JqgridTeam_RowDeleting"
                 Height="100%" OnRowEditing="JqgridTeam_RowEditing" OnRowAdding="JqgridTeam_RowAdding">
                 <Columns>

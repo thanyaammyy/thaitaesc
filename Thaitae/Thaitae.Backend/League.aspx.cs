@@ -9,7 +9,7 @@ namespace Thaitae.Backend
         protected void Page_Load(object sender, EventArgs e)
         {
             var dc = ThaitaeDataDataContext.Create();
-            JqgridLeague1.DataSource = dc.Leagues;
+            JqgridLeague1.DataSource = dc.Leagues.Where(item => item.LeagueType != 1);
             JqgridLeague1.DataBind();
         }
 

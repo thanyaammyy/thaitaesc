@@ -116,12 +116,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div align="center">
-        <table width="1000px" style="background-color: white">
+        <table width="1000" style="background-color: white; table-layout: fixed">
             <tr>
                 <td colspan="2" style="text-align: center">
                     <img src="Styles/images/hotnews.png" />
                 </td>
-                <td class="Banners">
+                <td class="Banners" style="width: 250px">
                     <a href="https://www.facebook.com/pages/Red-Seed-Fan-Page/191171527608027?ref=ts&amp;sk=wall">
                         <img src="/Styles/images/B-Redseed.png" width="200" height="75" align="middle" /></a>
                 </td>

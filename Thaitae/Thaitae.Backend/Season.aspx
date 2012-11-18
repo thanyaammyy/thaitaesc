@@ -36,6 +36,6 @@
         </ContentTemplate>
     </asp:UpdatePanel>
     <asp:ObjectDataSource ID="LeagueDataSource" DataObjectTypeName="thaitae.lib.League"
-        SelectMethod="SelectLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server">
-    </asp:ObjectDataSource>
+        SelectMethod="SelectLeagueItemsWithGroupingChampionsLeague" TypeName="thaitae.lib.Page.LeagueHelper"
+        runat="server"></asp:ObjectDataSource>
 </asp:Content>

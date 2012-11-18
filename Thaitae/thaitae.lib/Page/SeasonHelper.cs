@@ -76,5 +76,29 @@ namespace thaitae.lib.Page
                 dc.SubmitChanges();
             }
         }
+
+        public static List<Season> GetChampionLeagueGroupSeasonList(int championsFinalSeasonId)
+        {
+            List<Season> championsGroupSeasonList;
+            using (var dc = ThaitaeDataDataContext.Create())
+            {
+                championsGroupSeasonList =
+                    dc.Seasons.Where(item => item.ChampionLeagueSeasonId == championsFinalSeasonId).ToList();
+            }
+            return championsGroupSeasonList;
+        }
+
+        public static bool CheckGroupSeasonIsFinnish(int seasonId)
+        {
+            bool checkSesson = false;
+            using (var dc = ThaitaeDataDataContext.Create())
+            {
+                if (dc.TeamMatches.Count(item => item.SeasonId == seasonId) != 0)
+                {
+                    checkSesson = !dc.TeamMatches.Any(item => item.SeasonId == seasonId && item.TeamEdited == 0);
+                }
+            }
+            return checkSesson;
+        }
     }
 }

@@ -40,6 +40,15 @@ namespace Thaitae.Backend {
         protected global::System.Web.UI.WebControls.DropDownList ddlSeason;
         
         /// <summary>
+        /// GenTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GenTeam;
+        
+        /// <summary>
         /// JqgridTeam control.
         /// </summary>
         /// <remarks>

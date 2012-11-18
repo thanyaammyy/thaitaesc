@@ -73,8 +73,11 @@ namespace thaitae.lib.Page
             var seasoncount = dc.Seasons.Count(items => items.LeagueId == league.LeagueId);
             if (seasoncount > 0)
             {
-                var seasons = dc.Seasons.OrderByDescending(item => item.SeasonId).First(items => items.LeagueId == league.LeagueId);
-                matches = dc.Matches.OrderByDescending(item => item.MatchDate).Where(item => item.SeasonId == seasons.SeasonId && item.MatchDate < DateTime.Now.AddDays(1)).ToList();
+                var seasons =
+                    dc.Seasons.OrderByDescending(item => item.SeasonId).First(items => items.LeagueId == league.LeagueId);
+                matches =
+                    dc.Matches.OrderByDescending(item => item.MatchDate).Where(
+                        item => item.SeasonId == seasons.SeasonId && item.MatchDate < DateTime.Now.AddDays(1)).ToList();
                 foreach (var match in matches)
                 {
                     var checkNotEdited = false;
