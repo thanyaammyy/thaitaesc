@@ -48,7 +48,7 @@
             </asp:DropDownList>
             <asp:Button ID="GenMatch" ClientIDMode="Static" runat="server" OnClick="Button1_Click"
                 Text="Generate Match"></asp:Button>
-            <asp:Button ID="ForceUpdate" ClientIDMode="Static" runat="server" OnClick="ForceUpdate_Click"
+            <asp:Button ID="ForceUpdate" ClientIDMode="Static" runat="server" OnClick="ForceUpdateClick"
                 Text="Force Calculate Match"></asp:Button>
             <cc1:JQGrid ID="JqgridMatch1" runat="server" AutoWidth="True" OnRowEditing="JqgridMatch1_RowEditing"
                 OnSearching="JqgridMatch1_Searching" Height="100%">

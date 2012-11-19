@@ -350,7 +350,7 @@ namespace Thaitae.Backend
 
         public Player CalculatePlayerMatch(int playerMatchId, int playerNumber, string playerName)
         {
-            Player playerUpdate = null;
+            Player playerUpdate;
             using (var dc = ThaitaeDataDataContext.Create())
             {
                 var playerMatch = dc.PlayerMatches.Single(item => item.PlayerMatchId == playerMatchId);
@@ -464,33 +464,30 @@ namespace Thaitae.Backend
             }
         }
 
-        public void ForceUpdateTeamResult()
+        public void ForceUpdateTeamResult(int seasonId)
         {
-            if (Session["seasonid"] == null) return;
-            if (Convert.ToInt32(Session["seasonid"]) == 0) return;
             using (var dc = ThaitaeDataDataContext.Create())
             {
-                var seasonid = Convert.ToInt32(Session["seasonid"]);
-                var teamSeasonList = dc.TeamSeasons.Where(item => item.SeasonId == seasonid).ToList();
+                var teamSeasonList = dc.TeamSeasons.Where(item => item.SeasonId == seasonId).ToList();
                 foreach (var teamSeason in teamSeasonList)
                 {
-                    var teamUpdate = dc.TeamSeasons.Single(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid);
-                    teamUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid && item.TeamStatus != 0);
-                    teamUpdate.TeamDrew = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid && item.TeamStatus == 2);
+                    var teamUpdate = dc.TeamSeasons.Single(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonId);
+                    teamUpdate.TeamMatchPlayed = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonId && item.TeamStatus != 0);
+                    teamUpdate.TeamDrew = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonId && item.TeamStatus == 2);
                     var teamgoalAgainstSum =
-                        dc.TeamMatches.Where(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid && item.TeamStatus != 0).Sum(
+                        dc.TeamMatches.Where(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonId && item.TeamStatus != 0).Sum(
                             item => item.TeamGoalAgainst);
                     if (teamgoalAgainstSum != null)
                         teamUpdate.TeamGoalAgainst = (int)teamgoalAgainstSum;
 
                     var teamgoalForSum =
-                        dc.TeamMatches.Where(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid && item.TeamStatus != 0).Sum(
+                        dc.TeamMatches.Where(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonId && item.TeamStatus != 0).Sum(
                             item => item.TeamGoalFor);
                     if (teamgoalForSum != null)
                         teamUpdate.TeamGoalFor = (int)teamgoalForSum;
                     teamUpdate.TeamGoalDiff = teamUpdate.TeamGoalFor - teamUpdate.TeamGoalAgainst;
-                    teamUpdate.TeamLoss = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid && item.TeamStatus == 3);
-                    teamUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonid && item.TeamStatus == 1);
+                    teamUpdate.TeamLoss = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonId && item.TeamStatus == 3);
+                    teamUpdate.TeamWon = dc.TeamMatches.Count(item => item.TeamId == teamSeason.TeamId && item.SeasonId == seasonId && item.TeamStatus == 1);
                     var teamUpdateYellowCard = 0;
                     var teamUpdateRedCard = 0;
                     var playersAgainst =
@@ -535,9 +532,12 @@ namespace Thaitae.Backend
             }
         }
 
-        protected void ForceUpdate_Click(object sender, EventArgs e)
+        protected void ForceUpdateClick(object sender, EventArgs e)
         {
-            ForceUpdateTeamResult();
+            if (Session["seasonid"] == null) return;
+            if (Convert.ToInt32(Session["seasonid"]) == 0) return;
+            var seasonId = Convert.ToInt32(Session["seasonid"]);
+            ForceUpdateTeamResult(seasonId);
         }
     }
 }
