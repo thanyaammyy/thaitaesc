@@ -100,5 +100,19 @@ namespace thaitae.lib.Page
             }
             return checkSesson;
         }
+
+        public static int CheckIsEuropaSeasonId(int seasonId)
+        {
+            Season season;
+            using (var dc = ThaitaeDataDataContext.Create())
+            {
+                var seasonCheck = dc.Seasons.SingleOrDefault(item => item.SeasonId == seasonId && item.LeagueId == 31);
+                if (seasonCheck != null)
+                {
+                    return 14;
+                }
+                return seasonId;
+            }
+        }
     }
 }

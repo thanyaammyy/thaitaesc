@@ -56,6 +56,18 @@ namespace thaitae.lib.Page
             return team;
         }
 
+        public static List<TeamSeason> GetEuropaLeagueFinalTeamList(int seasonId)
+        {
+            List<TeamSeason> team;
+            using (var dc = ThaitaeDataDataContext.Create())
+            {
+                team = dc.TeamSeasons.Where(item => item.SeasonId == seasonId)
+                    .OrderBy(item => item.TeamPts).ThenBy(item => item.TeamGoalDiff).ThenBy(item => item.TeamGoalFor)
+                    .Take(2).ToList();
+            }
+            return team;
+        }
+
         public static TeamSeason GetChampionsLeagueFinalTeamFromGroupSeasonId(int groupSeasonId, int teamId)
         {
             TeamSeason team;

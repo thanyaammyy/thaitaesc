@@ -79,163 +79,14 @@ namespace Thaitae.Backend
         {
             using (var dc = ThaitaeDataDataContext.Create())
             {
-                var isChampionLeagueFinal = dc.Leagues.Any(item => item.LeagueId == Convert.ToInt32(Session["leagueid"]) && item.LeagueType == 1);
-                var isFinished = SeasonHelper.CheckGroupSeasonIsFinnish(seasonId);
-
-                if (isChampionLeagueFinal)
+                var isChampionLeagueFinal = dc.Leagues.Any(item => item.LeagueId == Convert.ToInt32(Session["leagueid"]) && (item.LeagueType == 1 || item.LeagueType == 2));
+                if (!isChampionLeagueFinal)
                 {
-                    if (dc.Matches.Count(item => item.SeasonId == seasonId) == 0)
-                    {
-                        var teamChampionFinalList =
-                        dc.TeamSeasons.Where(item => item.SeasonId == seasonId).OrderBy(item => item.GroupSeasonId).ToList();
-                        if (teamChampionFinalList.Count != 16)
-                        {
-                            JavaScriptHelper.Alert("ต้องมีทีมครบ 16 ทีมก่อนนะครับ");
-                            return;
-                        }
-                        for (var i = 0; i < teamChampionFinalList.Count; i++)
-                        {
-                            int matching = 1;
-                            var filterOut = new int[] { 2, 3, 6, 7, 10, 11, 14, 15 };
-                            var forFirstTeam = new int[] { 0, 4, 8, 12 };
-                            if (filterOut.Contains(i)) continue;
-                            if (forFirstTeam.Contains(i)) matching = 3;
-                            Match matchExist =
-                                dc.Matches.SingleOrDefault(
-                                    item =>
-                                    item.SeasonId == seasonId && item.TeamHomeId == teamChampionFinalList[i].TeamId &&
-                                    item.TeamAwayId == teamChampionFinalList[i + matching].TeamId);
-                            if (matchExist == null)
-                            {
-                                matchExist = new Match
-                                {
-                                    SeasonId = seasonId,
-                                    MatchDate = DateTime.Now,
-                                    TeamHomeId = teamChampionFinalList[i].TeamId,
-                                    TeamAwayId = teamChampionFinalList[i + matching].TeamId
-                                };
-                                dc.Matches.InsertOnSubmit(matchExist);
-                                dc.SubmitChanges();
-                            }
-                            var teamHomeExist =
-                                            dc.TeamMatches.SingleOrDefault(
-                                                item => item.MatchId == matchExist.MatchId && item.TeamId == matchExist.TeamHomeId);
-                            if (teamHomeExist == null)
-                            {
-                                teamHomeExist = new TeamMatch
-                                {
-                                    MatchId = matchExist.MatchId,
-                                    TeamId = matchExist.TeamHomeId,
-                                    TeamHome = 1,
-                                    SeasonId = matchExist.SeasonId
-                                };
-                                dc.TeamMatches.InsertOnSubmit(teamHomeExist);
-                                dc.SubmitChanges();
-                            }
-
-                            var teamAwayExist =
-                                            dc.TeamMatches.SingleOrDefault(
-                                                item => item.MatchId == matchExist.MatchId && item.TeamId == matchExist.TeamAwayId);
-                            if (teamAwayExist == null)
-                            {
-                                teamAwayExist = new TeamMatch
-                                {
-                                    MatchId = matchExist.MatchId,
-                                    TeamId = matchExist.TeamAwayId,
-                                    TeamHome = 0,
-                                    SeasonId = matchExist.SeasonId
-                                };
-                                dc.TeamMatches.InsertOnSubmit(teamAwayExist);
-                                dc.SubmitChanges();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (!isFinished) return;
-                        int count = 0;
-                        if (dc.Matches.Count(item => item.SeasonId == seasonId) == 8)
-                        {
-                            count = 1;
-                        }
-                        else if (dc.Matches.Count(item => item.SeasonId == seasonId) == 12)
-                        {
-                            count = 2;
-                        }
-                        else if (dc.Matches.Count(item => item.SeasonId == seasonId) == 14)
-                        {
-                            count = 3;
-                        }
-                        else if (dc.Matches.Count(item => item.SeasonId == seasonId) == 15)
-                        {
-                            count = 4;
-                        }
-                        var teamChampionFinalList =
-                        dc.TeamSeasons.Where(item => item.SeasonId == seasonId && item.TeamWon == count).OrderBy(item => item.GroupSeasonId).ToList();
-                        if (teamChampionFinalList.Count == 1)
-                        {
-                            JavaScriptHelper.Alert("จบการแข่งขัน Champions League : ทีม " + teamChampionFinalList[0].Team.TeamName + "เป็นผู้คว้าแชมไปครอง");
-                            return;
-                        }
-                        for (var i = 0; i < teamChampionFinalList.Count; i++)
-                        {
-                            const int matching = 1;
-                            var filterOut = new int[] { 1, 3, 5, 7 };
-                            if (filterOut.Contains(i)) continue;
-                            Match matchExist =
-                                dc.Matches.SingleOrDefault(
-                                    item =>
-                                    item.SeasonId == seasonId && item.TeamHomeId == teamChampionFinalList[i].TeamId &&
-                                    item.TeamAwayId == teamChampionFinalList[i + matching].TeamId);
-                            if (matchExist == null)
-                            {
-                                matchExist = new Match
-                                {
-                                    SeasonId = seasonId,
-                                    MatchDate = DateTime.Now,
-                                    TeamHomeId = teamChampionFinalList[i].TeamId,
-                                    TeamAwayId = teamChampionFinalList[i + matching].TeamId
-                                };
-                                dc.Matches.InsertOnSubmit(matchExist);
-                                dc.SubmitChanges();
-                            }
-                            var teamHomeExist =
-                                            dc.TeamMatches.SingleOrDefault(
-                                                item => item.MatchId == matchExist.MatchId && item.TeamId == matchExist.TeamHomeId);
-                            if (teamHomeExist == null)
-                            {
-                                teamHomeExist = new TeamMatch
-                                {
-                                    MatchId = matchExist.MatchId,
-                                    TeamId = matchExist.TeamHomeId,
-                                    TeamHome = 1,
-                                    SeasonId = matchExist.SeasonId
-                                };
-                                dc.TeamMatches.InsertOnSubmit(teamHomeExist);
-                                dc.SubmitChanges();
-                            }
-
-                            var teamAwayExist =
-                                            dc.TeamMatches.SingleOrDefault(
-                                                item => item.MatchId == matchExist.MatchId && item.TeamId == matchExist.TeamAwayId);
-                            if (teamAwayExist == null)
-                            {
-                                teamAwayExist = new TeamMatch
-                                {
-                                    MatchId = matchExist.MatchId,
-                                    TeamId = matchExist.TeamAwayId,
-                                    TeamHome = 0,
-                                    SeasonId = matchExist.SeasonId
-                                };
-                                dc.TeamMatches.InsertOnSubmit(teamAwayExist);
-                                dc.SubmitChanges();
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    var teamSeasonList = dc.TeamSeasons.Join(dc.Teams, teamSeason => teamSeason.TeamId, team => team.TeamId, (teamSeason, team) => new { teamSeason.SeasonId, team.TeamId }).Where(teamSeason => teamSeason.SeasonId == seasonId).ToList();
+                    var teamSeasonList =
+                        dc.TeamSeasons.Join(dc.Teams, teamSeason => teamSeason.TeamId, team => team.TeamId,
+                                            (teamSeason, team) => new { teamSeason.SeasonId, team.TeamId })
+                          .Where(teamSeason => teamSeason.SeasonId == seasonId)
+                          .ToList();
                     for (var i = 0; i < teamSeasonList.Count; i++)
                     {
                         for (var j = 0; j < teamSeasonList.Count; j++)
@@ -244,36 +95,40 @@ namespace Thaitae.Backend
                             {
                                 Match match = null;
                                 var matchExist = dc.Matches.Count(
-                                    item => item.SeasonId == seasonId && item.TeamHomeId == teamSeasonList[i].TeamId && item.TeamAwayId == teamSeasonList[j].TeamId);
+                                    item =>
+                                    item.SeasonId == seasonId && item.TeamHomeId == teamSeasonList[i].TeamId &&
+                                    item.TeamAwayId == teamSeasonList[j].TeamId);
                                 if (matchExist == 0)
                                 {
                                     match = new Match
-                                    {
-                                        SeasonId = seasonId,
-                                        MatchDate = DateTime.Now,
-                                        TeamHomeId = teamSeasonList[i].TeamId,
-                                        TeamAwayId = teamSeasonList[j].TeamId
-                                    };
+                                        {
+                                            SeasonId = seasonId,
+                                            MatchDate = DateTime.Now,
+                                            TeamHomeId = teamSeasonList[i].TeamId,
+                                            TeamAwayId = teamSeasonList[j].TeamId
+                                        };
                                     dc.Matches.InsertOnSubmit(match);
                                     dc.SubmitChanges();
                                 }
                                 else
                                 {
                                     match = dc.Matches.Single(
-                                    item => item.SeasonId == seasonId && item.TeamHomeId == teamSeasonList[i].TeamId && item.TeamAwayId == teamSeasonList[j].TeamId);
+                                        item =>
+                                        item.SeasonId == seasonId && item.TeamHomeId == teamSeasonList[i].TeamId &&
+                                        item.TeamAwayId == teamSeasonList[j].TeamId);
                                 }
                                 var teamHomeExist =
-                                        dc.TeamMatches.Count(
-                                            item => item.MatchId == match.MatchId && item.TeamId == match.TeamHomeId);
+                                    dc.TeamMatches.Count(
+                                        item => item.MatchId == match.MatchId && item.TeamId == match.TeamHomeId);
                                 if (teamHomeExist == 0)
                                 {
                                     var teamHomeMatch = new TeamMatch
-                                    {
-                                        MatchId = match.MatchId,
-                                        TeamId = match.TeamHomeId,
-                                        TeamHome = 1,
-                                        SeasonId = match.SeasonId
-                                    };
+                                        {
+                                            MatchId = match.MatchId,
+                                            TeamId = match.TeamHomeId,
+                                            TeamHome = 1,
+                                            SeasonId = match.SeasonId
+                                        };
                                     dc.TeamMatches.InsertOnSubmit(teamHomeMatch);
                                     dc.SubmitChanges();
                                 }
@@ -283,18 +138,22 @@ namespace Thaitae.Backend
                                 if (teamAwayExist == 0)
                                 {
                                     var teamAwayMatch = new TeamMatch
-                                    {
-                                        MatchId = match.MatchId,
-                                        TeamId = match.TeamAwayId,
-                                        TeamHome = 0,
-                                        SeasonId = match.SeasonId
-                                    };
+                                        {
+                                            MatchId = match.MatchId,
+                                            TeamId = match.TeamAwayId,
+                                            TeamHome = 0,
+                                            SeasonId = match.SeasonId
+                                        };
                                     dc.TeamMatches.InsertOnSubmit(teamAwayMatch);
                                     dc.SubmitChanges();
                                 }
                             }
                         }
                     }
+                }
+                else
+                {
+                    var isFinished = SeasonHelper.CheckGroupSeasonIsFinnish(seasonId);
                 }
             }
         }

@@ -5,8 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>
-        Team Management</h2>
+    <h2>Team Management</h2>
     <asp:UpdatePanel ID="updateTeamPanel" UpdateMode="Conditional" runat="server">
         <ContentTemplate>
             <asp:DropDownList runat="server" ID="ddlLeague" DataSourceID="LeagueDataSource" DataTextField="LeagueName"
@@ -53,8 +52,7 @@
         </ContentTemplate>
     </asp:UpdatePanel>
     <asp:ObjectDataSource ID="LeagueDataSource" DataObjectTypeName="thaitae.lib.League"
-        SelectMethod="SelectLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server">
-    </asp:ObjectDataSource>
+        SelectMethod="SelectLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server"></asp:ObjectDataSource>
     <asp:ObjectDataSource ID="SeasonDataSource" DataObjectTypeName="thaitae.lib.Season"
         SelectMethod="ListSeasonItems" TypeName="thaitae.lib.Page.SeasonHelper" runat="server">
         <SelectParameters>
