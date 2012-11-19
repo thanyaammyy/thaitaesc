@@ -8,10 +8,12 @@ namespace Thaitae.CenterControl
     public partial class Header : System.Web.UI.UserControl
     {
         public IEnumerable<League> ListLeague = new List<League>();
+        public IEnumerable<League> ListChampionsLeague = new List<League>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListLeague = LeagueHelper.SelectLeague();
+            ListLeague = LeagueHelper.SelectNormalLeague();
+            ListChampionsLeague = LeagueHelper.SelectChampionsLeague();
         }
     }
 }

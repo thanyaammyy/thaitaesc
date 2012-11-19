@@ -13,8 +13,17 @@ namespace Thaitae.Backend
             {
                 if (Session["leagueid"] == null) return;
                 if (Convert.ToInt32(Session["leagueid"]) == 0) return;
-                ddlLeague.SelectedValue = (string)Session["leagueid"];
-                JqgridSeasonBinding(Convert.ToInt32(Session["leagueid"]));
+                var league = LeagueHelper.GetLeague(Convert.ToInt32(Session["leagueid"]));
+                if (league.LeagueType == 8 || league.LeagueType == 2)
+                {
+                    ddlLeague.SelectedValue = "14";
+                    JqgridSeasonBinding(Convert.ToInt32(Session["leagueid"]));
+                }
+                else
+                {
+                    ddlLeague.SelectedValue = (string)Session["leagueid"];
+                    JqgridSeasonBinding(Convert.ToInt32(Session["leagueid"]));
+                }
             }
         }
 
@@ -52,7 +61,7 @@ namespace Thaitae.Backend
                             LeagueId = championGroup.LeagueId,
                             SeasonName = e.RowData["SeasonName"],
                             SeasonDesc = e.RowData["SeasonDesc"],
-                            ChampionLeagueSeasonId = season.SeasonId
+                            ChampionLeagueSeasonId = championGroup.LeagueType == 2 ? (int?)null : season.SeasonId
                         };
                         dc.Seasons.InsertOnSubmit(seasonGroup);
                     }

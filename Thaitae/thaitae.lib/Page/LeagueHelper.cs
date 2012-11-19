@@ -33,7 +33,25 @@ namespace thaitae.lib.Page
             IEnumerable<League> leagues = new List<League>();
             var dc = ThaitaeDataDataContext.Create();
             var leagueCount = dc.Leagues.Count();
-            if (leagueCount > 0) leagues = dc.Leagues.Where(item => item.LeagueType != 1).ToList();
+            if (leagueCount > 0) leagues = dc.Leagues.Where(item => item.LeagueType != 1 && item.LeagueType != 2 && item.Active == 1).ToList();
+            return leagues;
+        }
+
+        public static IEnumerable<League> SelectNormalLeague()
+        {
+            IEnumerable<League> leagues = new List<League>();
+            var dc = ThaitaeDataDataContext.Create();
+            var leagueCount = dc.Leagues.Count();
+            if (leagueCount > 0) leagues = dc.Leagues.Where(item => item.LeagueType == 4).ToList();
+            return leagues;
+        }
+
+        public static IEnumerable<League> SelectChampionsLeague()
+        {
+            IEnumerable<League> leagues = new List<League>();
+            var dc = ThaitaeDataDataContext.Create();
+            var leagueCount = dc.Leagues.Count();
+            if (leagueCount > 0) leagues = dc.Leagues.Where(item => item.LeagueType == 1 || item.LeagueType == 2 || item.LeagueType == 8).ToList();
             return leagues;
         }
 
@@ -49,7 +67,7 @@ namespace thaitae.lib.Page
             List<League> leagueList;
             using (var dc = ThaitaeDataDataContext.Create())
             {
-                leagueList = dc.Leagues.Where(item => item.LeagueType == 8 && item.Active == 1).ToList();
+                leagueList = dc.Leagues.Where(item => (item.LeagueType == 8 || item.LeagueType == 2) && item.Active == 1).ToList();
             }
             return leagueList;
         }

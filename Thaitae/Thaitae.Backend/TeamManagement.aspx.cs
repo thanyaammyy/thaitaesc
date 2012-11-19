@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
 using thaitae.lib;
@@ -41,7 +42,7 @@ namespace Thaitae.Backend
             }
             var leagueId = Convert.ToInt32(Session["leagueid"]);
             var league = LeagueHelper.GetLeague(leagueId);
-            GenTeam.Visible = league.LeagueType == 1;
+            GenTeam.Visible = (league.LeagueType == 1 || league.LeagueType == 2);
         }
 
         protected void ddlSeason_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,8 +118,7 @@ namespace Thaitae.Backend
         {
             if (Session["seasonid"] == null) return;
             if (Convert.ToInt32(Session["seasonid"]) == 0) return;
-
-            var seasonList = SeasonHelper.GetChampionLeagueGroupSeasonList(Convert.ToInt32(Session["seasonid"]));
+            var seasonList = SeasonHelper.GetChampionLeagueGroupSeasonList(SeasonHelper.CheckIsEuropaSeasonId(Convert.ToInt32(Session["seasonid"])));
             foreach (var season in seasonList)
             {
                 var isFinished = SeasonHelper.CheckGroupSeasonIsFinnish(season.SeasonId);
@@ -131,8 +131,20 @@ namespace Thaitae.Backend
 
             foreach (var season in seasonList)
             {
-                var teamSeasonList = TeamSeasonHelper.GetChampionsLeagueFinalTeamList(season.SeasonId);
-                var i = 1;
+                List<TeamSeason> teamSeasonList;
+                var leagueId = Convert.ToInt32(Session["leagueid"]);
+                int i;
+                if (leagueId == 14)
+                {
+                    teamSeasonList = TeamSeasonHelper.GetChampionsLeagueFinalTeamList(season.SeasonId);
+                    i = 1;
+                }
+                else
+                {
+                    teamSeasonList = TeamSeasonHelper.GetEuropaLeagueFinalTeamList(season.SeasonId);
+                    i = 2;
+                }
+
                 foreach (var teamSeason in teamSeasonList)
                 {
                     using (var dc = ThaitaeDataDataContext.Create())
@@ -155,7 +167,7 @@ namespace Thaitae.Backend
                                 TeamWon = 0,
                                 TeamYellowCard = 0,
                                 GroupSeasonId = 0,
-                                GroupSeasonOrder = i++,
+                                GroupSeasonOrder = leagueId == 14 ? i++ : i--,
                                 TeamId = teamSeason.TeamId,
                                 SeasonId = Convert.ToInt32(Session["seasonid"])
                             };
@@ -163,7 +175,7 @@ namespace Thaitae.Backend
                         }
                         else
                         {
-                            teamFinalSelected.GroupSeasonOrder = i++;
+                            teamFinalSelected.GroupSeasonOrder = leagueId == 14 ? i++ : i--;
                         }
 
                         dc.SubmitChanges();

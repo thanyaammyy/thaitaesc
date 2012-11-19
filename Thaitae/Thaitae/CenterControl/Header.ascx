@@ -29,8 +29,27 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="../ChampionLeague.aspx" id="championsLeague"><span>&nbsp;&nbsp;Champions
-                            League&nbsp;&nbsp;</span></a></li>
+                        <li><a href="#" class="parent" id="championsLeague"><span>&nbsp;&nbsp;Champions
+                            League&nbsp;&nbsp;</span></a>
+                            <div>
+                                <ul>
+                                    <%foreach (var league in ListChampionsLeague)%>
+                                    <%{%>
+                                    <%if(league.LeagueType == 1){%>
+                                    <li><a href="javascript:void(0);" id="<%=league.LeagueId%>" rel="<%=league.LeagueName%>"
+                                        onclick="window.location='ChampionsLeagueFinal.aspx?leagueId=<%=league.LeagueId%>'">
+                                        <%=league.LeagueName%>
+                                    </a></li>
+                                    <%}else{%>
+                                    <li><a href="javascript:void(0);" id="<%=league.LeagueId%>" rel="<%=league.LeagueName%>"
+                                        onclick="window.location='LeagueTemplate.aspx?leagueId=<%=league.LeagueId%>'">
+                                        <%=league.LeagueName%>
+                                    </a></li>
+                                    <%}%>
+                                    <%}%>
+                                </ul>
+                            </div>
+                        </li>
                         <li><a href="../FACup.aspx" id="faCup"><span>&nbsp;&nbsp;FA Cup&nbsp;&nbsp;</span></a></li>
                         <li class="last"><a href="../ContactUs.aspx" id="contactUsH"><span>&nbsp;&nbsp;Contact
                             us&nbsp;&nbsp;</span></a></li>
