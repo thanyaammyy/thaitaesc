@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 
@@ -109,7 +110,11 @@ namespace thaitae.lib.Page
                 var seasonCheck = dc.Seasons.SingleOrDefault(item => item.SeasonId == seasonId && item.LeagueId == 31);
                 if (seasonCheck != null)
                 {
-                    return 14;
+                    var championLeagueSeason = dc.Seasons.SingleOrDefault(item => item.LeagueId == 14);
+                    if (championLeagueSeason != null)
+                    {
+                        return championLeagueSeason.SeasonId;
+                    }
                 }
                 return seasonId;
             }

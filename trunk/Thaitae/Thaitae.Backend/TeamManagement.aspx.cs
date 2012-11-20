@@ -24,7 +24,7 @@ namespace Thaitae.Backend
                 ddlSeason.SelectedValue = Convert.ToString(Session["seasonid"]);
                 var leagueId = Convert.ToInt32(Session["leagueid"]);
                 var league = LeagueHelper.GetLeague(leagueId);
-                GenTeam.Visible = league.LeagueType == 1;
+                GenTeam.Visible = (league.LeagueType == 1 || league.LeagueType == 2);
                 JqgridTeamBinding(Convert.ToInt32(Session["seasonid"]));
             }
         }
