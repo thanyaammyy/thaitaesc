@@ -104,7 +104,6 @@ namespace thaitae.lib.Page
 
         public static int CheckIsEuropaSeasonId(int seasonId)
         {
-            Season season;
             using (var dc = ThaitaeDataDataContext.Create())
             {
                 var seasonCheck = dc.Seasons.SingleOrDefault(item => item.SeasonId == seasonId && item.LeagueId == 31);
