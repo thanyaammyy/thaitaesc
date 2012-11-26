@@ -36,7 +36,7 @@ namespace thaitae.lib.Page
                 foreach (
                     var sulvos in
                         teamList.Select(
-                            t => dc.Players.Where(item => item.SeasonId == seasons.SeasonId && item.TeamId == t.TeamId && item.PlayerNumber != -1).ToList()))
+                            t => dc.Players.Where(item => item.SeasonId == seasons.SeasonId && item.TeamId == t.TeamId && item.PlayerNumber != -1 && item.PlayerGoal != 0).ToList()))
                 {
                     sulvoList.AddRange(sulvos);
                 }
