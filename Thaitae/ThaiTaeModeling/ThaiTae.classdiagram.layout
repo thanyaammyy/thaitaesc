@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ThaiTae">
+  <logicalClassDesignerModelMoniker Id="995a98e5-d9a3-4298-8376-e82e572c7971" />
+  <nestedChildShapes>
+    <classShape Id="cc308121-4ae8-4ad0-bebe-2d81033860dd" absoluteBounds="0.5, 0.5, 2.625, 2.148773089647293" hideQualifiedName="false" increaseHeight="0.17411457836627961" customColor="181, 193, 223">
+      <classMoniker Id="243df7ea-3881-479c-8e08-4ccf05e2c911" LastKnownName="LeagueHelper" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="72d3ea45-5199-4460-8066-c2e5ad301e03" absoluteBounds="0.515, 1.0153356393178306, 2.5949999999999998, 0.2011718675494194" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="0c0e4d91-d873-4cd1-ade5-ea4a62486945" absoluteBounds="0.515, 1.2265075068672497, 2.5949999999999998, 1.3222655827800431" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="73cba4b5-c2eb-43d3-8512-be6b1b6608eb" absoluteBounds="3.625, 0.5, 2.625, 1.8284605995814003" hideQualifiedName="false" increaseHeight="0.17411457836627961" customColor="181, 193, 223">
+      <classMoniker Id="60884722-7312-447b-9117-172ebd407857" LastKnownName="MatchHelper" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="0dfbde66-3a1b-4a5f-9c30-eb23781305c7" absoluteBounds="3.64, 1.0153356393178306, 2.5949999999999998, 0.2011718675494194" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="0e8c101f-9877-446b-93c0-54c84744097b" absoluteBounds="3.64, 1.2265075068672497, 2.5949999999999998, 1.0019530927141509" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>

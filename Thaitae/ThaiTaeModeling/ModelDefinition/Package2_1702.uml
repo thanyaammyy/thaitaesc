@@ -1,0 +1,1142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="af65aa03-e12e-4e66-b8dd-719e12d35d55"
+  name="Page"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="e05bdd31-8218-488a-a2c5-f324f2d07e53"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dthaitae.lib.Page"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="5263e543-f853-41e8-9394-a526cc68f484"
+        name="LeagueHelper"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="42f582fa-7cdc-4a15-80d5-378d3f22881b"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DLeagueHelper"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="d0a5ddd6-a7a3-4f92-b822-1370fc94a51f"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f3000ac9-0e37-4f5c-b217-aecd6b8f76a2">
+                <propertyInstance
+                  Id="52ad2372-d28f-4ef8-9633-7748b71e750c"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="530c4186-e64b-43e2-a0df-7e7dd4513b6b">
+                <propertyInstance
+                  Id="88ed1473-427f-47bb-a5d7-e703862e2ae6"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fb206d4c-b48e-41f8-b284-23450fb1238e">
+                <propertyInstance
+                  Id="98effb63-a430-4f6d-adcb-9c307e9dc8ca"
+                  name="IsStatic"
+                  value="True" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1d966f01-3759-4540-8fd3-bf5bbe6e468b">
+                <propertyInstance
+                  Id="9fc5f6dd-6037-4dbd-8967-25602d5beb53"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6ec291dd-97f6-45c9-8149-8970bb3a5edf">
+                <propertyInstance
+                  Id="73506247-4eba-4d06-b3e3-22703ff7c284"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="9b0abd87-aafa-4156-b0aa-ca4f3152ea87"
+            name="GetLeague"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="cd5c962e-b862-4522-9964-ff62ed3cbdb2"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DLeagueHelper Member%3D(Name%3DGetLeague OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="50d66f30-c475-42e8-87cc-1bf0bae6e3d2"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b4ebe228-bac0-4d07-a003-c6fb5e2261dd">
+                    <propertyInstance
+                      Id="17cd57d8-cb26-4fef-a6ce-193f6b4a7673"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="96a1d8d8-5268-4f13-b476-b0b0a46ecfee">
+                    <propertyInstance
+                      Id="8bc22d82-aa26-4d17-b9d4-111dbef9a2f1"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="df932e6b-d27d-4963-8a00-4ca8b3a17ce0">
+                    <propertyInstance
+                      Id="3bd31464-ad0d-49c7-942e-8ce59d327f0a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bf993ca7-cf71-45df-8e22-016afc894908">
+                    <propertyInstance
+                      Id="c581ad1e-6edd-4c6b-8a48-47f23d610b43"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="70915d01-528c-44bf-b860-8f178a37a5ec">
+                    <propertyInstance
+                      Id="c75c4646-a8fa-4753-82c3-c09277d4eeac"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc1cc872-b221-4ebe-bc6e-345162eea945">
+                    <propertyInstance
+                      Id="56508d9d-503c-4388-9178-8ecb16933f42"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="480c1e91-58fa-4c8b-9785-5660588d490d"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="5788bc43-3e28-48da-88c0-14c00f664b0c"
+                      LastKnownName="League"
+                      LastKnownLocation="Package1_1702.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="78a66ff1-1d85-40ba-afa2-f705352fc6ea"
+                  name="leagueId"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="1268631e-c401-4b24-a5d4-1b6339b94281"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DLeagueHelper Member%3D(Name%3DGetLeague OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DleagueId"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ThaiTaeModeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="efcb7b38-30a4-4391-b69c-767d21d1c4dd"
+            name="GetChampionsLeagueGroupList"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="3d71b4e2-290c-45a3-9b96-bac2e1e4bbfa"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DLeagueHelper Member%3DGetChampionsLeagueGroupList"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5555d0e4-83e2-4313-8a7f-2f065775c5db"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c8f85160-f538-45b7-81af-714de18815cb">
+                    <propertyInstance
+                      Id="ae8ebea5-ce1d-4143-84d2-087ec48e82e9"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7912418e-3087-46c2-864e-c7f753c65698">
+                    <propertyInstance
+                      Id="30096221-674c-4922-bd1a-ebc9e928a13f"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="07469930-e5cf-4011-b0ee-6f3ec70106b5">
+                    <propertyInstance
+                      Id="648f7642-a803-4eab-a02c-52d1b6d00b2b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0b19c3f8-303e-4120-a427-1da2a33d2721">
+                    <propertyInstance
+                      Id="edbbab49-763f-4f31-be98-9119269c7afe"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1893de62-d937-4ded-9178-50bd015aed33">
+                    <propertyInstance
+                      Id="eb13909d-5243-4976-b97d-49df8ae95730"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75d2062f-6101-4a65-b551-7be90a7e80bd">
+                    <propertyInstance
+                      Id="4dcd3d83-312a-4e49-bc8e-ab09ef618869"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8b0885cc-2ef8-4cd8-b42b-a5faaedd1aaa"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="338d6963-1475-4db5-9906-28dd21996a8e"
+                      LastKnownName="List&lt;League‎&gt;"
+                      LastKnownLocation="Package5_1702.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="185d14c5-d438-474c-b0dd-a586c77c6138"
+            name="SelectChampionsLeague"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="cfcd28b6-6a25-4267-a9fe-907cfc8a0f26"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DLeagueHelper Member%3DSelectChampionsLeague"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1b866d8d-0f8a-48d3-a3c9-4fc746f362cd"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1e40971a-99a2-40b4-bb15-e2b7c274055a">
+                    <propertyInstance
+                      Id="c077f9cf-69cb-45d0-93d2-b37fb0dc20a7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="90430d9c-162a-4a98-ab80-81395d85e815">
+                    <propertyInstance
+                      Id="acb88fc4-10b0-4c5e-8f4d-8bc62192e9ed"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3b6060de-d411-41e2-9138-883a5890c5c1">
+                    <propertyInstance
+                      Id="c05744a3-54cd-499b-971c-54d410f963a6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ff5abe72-996d-4475-bf86-e277a4ef3b5c">
+                    <propertyInstance
+                      Id="c794e8e7-4c9b-473f-aef7-52eedea918e7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="35f50b2c-8ee2-40c2-b680-7d5208e881e5">
+                    <propertyInstance
+                      Id="d01c8eb0-116a-46a0-b50d-be90ff25b505"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="962194ea-8590-4d29-a751-9a99b8f3a4a1">
+                    <propertyInstance
+                      Id="cfcc7ee8-b689-4034-a325-daf030f70ee4"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bad48fee-4efc-483d-ac13-45e7a6e14c2a"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="408d7286-4f02-4a49-8cbe-cc710478a610"
+                      LastKnownName="IEnumerable&lt;League‎&gt;"
+                      LastKnownLocation="Package5_1702.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c2f41e69-e2e0-408b-a9c4-d6383618645c"
+            name="SelectLeague"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9ac1afc3-92e9-4669-a445-5fafa75a6317"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DLeagueHelper Member%3DSelectLeague"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7349fcfc-d672-4ac4-be88-c164ac978e45"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c870e503-3ce6-4223-9653-2743bcec3dfa">
+                    <propertyInstance
+                      Id="3b8dd8c0-5433-42a3-b140-c09cd948960b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ab18a6c1-acf1-469e-9ff3-48aa7a709833">
+                    <propertyInstance
+                      Id="d461a5a0-623d-44ab-afec-c70dacf40742"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3bbd9758-3275-4e82-bd1a-9642aa1f1136">
+                    <propertyInstance
+                      Id="80c377a5-ced7-48d3-84d8-75dc4417e16b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2093dd0d-dce0-4b42-9721-73101236dd15">
+                    <propertyInstance
+                      Id="6217a060-963e-4453-8024-0734519aa060"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2df3fd86-21b0-443f-8cdf-b7447e18c69f">
+                    <propertyInstance
+                      Id="6d3fb765-8967-40aa-b2f2-6b138cb7fa02"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5126d8b7-9b24-420e-964e-48d1d75fa8be">
+                    <propertyInstance
+                      Id="1c7be9e6-5465-451b-857f-71c2614309d5"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4b4fd1e0-dbcf-4c0c-bc32-d1346c622ee0"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="408d7286-4f02-4a49-8cbe-cc710478a610"
+                      LastKnownName="IEnumerable&lt;League‎&gt;"
+                      LastKnownLocation="Package5_1702.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3cec7620-479a-499a-9e74-f28f24ca382e"
+            name="SelectLeagueItems"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d1c1b099-064d-4f4e-a16a-49365c8d4c30"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DLeagueHelper Member%3DSelectLeagueItems"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="07cbd541-d60c-4b30-92cc-c0bd8f764cda"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a7d16c85-e821-4255-9c56-ece30b2e52e7">
+                    <propertyInstance
+                      Id="e5df2742-8fa5-4ad0-9f50-f084b5556427"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1695551d-80c9-47db-b456-643a94ee2203">
+                    <propertyInstance
+                      Id="80d852de-6b37-4d96-9611-8c83d6716c83"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="528e1ea2-e596-4220-ad11-b29d6a63460f">
+                    <propertyInstance
+                      Id="acd65e31-c1a6-4ca7-94a3-8379a9c7a202"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1c4bcff9-0da7-4538-806c-0a40688ebdeb">
+                    <propertyInstance
+                      Id="cc5878e8-0591-48f8-90b7-5f0a6e524519"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ab4805e-9c92-4d05-a9a1-d31bdf8115d8">
+                    <propertyInstance
+                      Id="abd1bc1f-1fce-46e7-9b0e-2ff1904aba8d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b99ea75a-448f-4c3c-91ec-6ec0b522c65e">
+                    <propertyInstance
+                      Id="25264b17-bb29-4256-8180-fc337a357c4d"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b907aa2a-fa32-46a7-8599-be34fe3da6a8"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="408d7286-4f02-4a49-8cbe-cc710478a610"
+                      LastKnownName="IEnumerable&lt;League‎&gt;"
+                      LastKnownLocation="Package5_1702.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f58c8cbd-23c0-4940-91c4-5274b1cdeb85"
+            name="SelectLeagueItemsWithGroupingChampionsLeague"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="aee3a4d5-c570-465a-8d3d-33f56ff091f4"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DLeagueHelper Member%3DSelectLeagueItemsWithGroupingChampionsLeague"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6a348683-63a1-440e-8d42-611a61571c9f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2d4ca14b-4b93-43bd-9b1a-9ca3fd296916">
+                    <propertyInstance
+                      Id="25faf765-e03d-495e-b1c7-3ea265900b38"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b49b6103-405d-4bb9-8dac-3eeda541325d">
+                    <propertyInstance
+                      Id="639c927e-1295-477e-8fcf-0ab1ba843653"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dc57de8d-5763-49a0-8b5a-d10c47d7c31d">
+                    <propertyInstance
+                      Id="6a381776-8e6a-4343-a375-ec39451b0ac6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="74d24b6c-6d7c-4e7f-a5bd-f028d78d7448">
+                    <propertyInstance
+                      Id="7f2970e2-c20b-45f1-9000-17c9703f1df6"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2fb88a84-5b59-4ab7-835e-fc7b8dc4f3cd">
+                    <propertyInstance
+                      Id="e9f74164-8188-40ec-b1ad-733e2c1a698a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="050f942b-1c4d-4ae0-9de4-19716ed01314">
+                    <propertyInstance
+                      Id="8545d42b-4c1f-48ce-a44a-e79e32125c3e"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5f8b7aa4-c3fc-46f1-beb0-e9d9d53059c4"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="408d7286-4f02-4a49-8cbe-cc710478a610"
+                      LastKnownName="IEnumerable&lt;League‎&gt;"
+                      LastKnownLocation="Package5_1702.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b66cf73d-8b29-4a2d-9ba3-71e31b76d3f3"
+            name="SelectNormalLeague"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="bbf51a41-bea8-4a44-a4be-877917ead0b5"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DLeagueHelper Member%3DSelectNormalLeague"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e1524a41-1cc9-4edd-ad64-1784fd0edc09"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54120b33-eb92-4a10-b01c-d2714c573a43">
+                    <propertyInstance
+                      Id="395f4148-70f6-43b4-bccc-173598c2743b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2560947b-5984-497f-9a18-552703d97752">
+                    <propertyInstance
+                      Id="7be3f6a4-64f6-4420-b60d-9f6a02dbd409"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b006c03f-3273-453d-ba8a-444dff1e5163">
+                    <propertyInstance
+                      Id="21bc627b-c373-417a-8887-35f38ffc17fc"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="05ea3bf6-e05f-4a3d-90d9-f29a77bf8646">
+                    <propertyInstance
+                      Id="45bcdddf-71f5-4f11-ba92-789cc5e07e42"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a16fa39f-c392-42f9-913a-902d2ebc9322">
+                    <propertyInstance
+                      Id="6d72c859-5172-42cf-ae2a-edb63e88c07a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e8a1ae2-5c93-408a-bef6-3d8143a71855">
+                    <propertyInstance
+                      Id="6e2ed80e-4ee4-4461-926a-6c26845784d0"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d7dee37c-0cea-46c3-89d8-5d136d4f6a7a"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="408d7286-4f02-4a49-8cbe-cc710478a610"
+                      LastKnownName="IEnumerable&lt;League‎&gt;"
+                      LastKnownLocation="Package5_1702.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="17019869-cac5-423a-a071-a234e69b168b"
+        name="MatchHelper"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="b44d836d-30c9-4794-b870-fe33abdfc131"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DMatchHelper"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="47795af7-8cf3-4cd0-8a3b-b860a9949a1d"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3b113b0a-a2ae-4a87-bdd9-573f991c431d">
+                <propertyInstance
+                  Id="8cafe520-1707-4193-87a1-c5d7db90c9a9"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="566c1768-3546-43eb-bdeb-a3eb546b4436">
+                <propertyInstance
+                  Id="94fad1c7-d9b0-4d46-a451-464db5bbecae"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="73d38454-2626-4777-8531-3d36e706088d">
+                <propertyInstance
+                  Id="62d6902e-b87b-4f0c-ac6a-c87088b8c250"
+                  name="IsStatic"
+                  value="True" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a349cc03-e945-4dc4-955d-c82b338243fc">
+                <propertyInstance
+                  Id="91ef5658-5432-434e-9e42-8eb51304f478"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b2c8e055-342e-4c4d-8727-f9e4385a4687">
+                <propertyInstance
+                  Id="12a29772-c8a0-4e7c-a713-e08af4ab79d7"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="906323c3-b7fa-423d-b8e6-de3fae68ead8"
+            name="Delete"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="26ea83cc-3743-4c84-bdcb-810d98b37fb0"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DMatchHelper Member%3D(Name%3DDelete OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib Type%3DMatch)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="dabeff6b-f293-4c50-a300-e1cb1dcf2451"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fad7e64d-4218-40f3-a158-4bd3021ac423">
+                    <propertyInstance
+                      Id="dc59c23f-cb35-4332-87d2-f173ea9e7cb5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a0b3e28d-8f56-4729-ae29-b15a31a1fc67">
+                    <propertyInstance
+                      Id="21843b5c-7aae-4d03-9ba7-d76102af9bd2"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="434a374f-882c-4e35-8ba8-7e55662c5406">
+                    <propertyInstance
+                      Id="1ee170b3-ba6b-42dc-8fc7-bfce88746bc3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d74d565-3b80-4c24-9fad-d2d93e24e771">
+                    <propertyInstance
+                      Id="36e4cf03-1ee1-4569-87f8-4d0f7e2a485e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8388f6e4-eb33-48ea-9ebf-8d7b83382763">
+                    <propertyInstance
+                      Id="44c0d0f3-93bc-4386-bb4e-75d0b8753967"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="34aba05c-d2cc-47e3-83f7-96e04be4b025">
+                    <propertyInstance
+                      Id="908e35eb-432e-4289-bdd5-10388fc01de6"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a39b8e19-5046-4d28-b75c-65610f88704a"
+                  name="objMatch"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="0ea95355-54f4-486d-a14c-f735dd3afec1"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DMatchHelper Member%3D(Name%3DDelete OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib Type%3DMatch)]) ParameterIdentifier%3DobjMatch"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1d281d1d-cc67-4d7a-9db1-544938099eef"
+                      LastKnownName="Match"
+                      LastKnownLocation="Package1_1702.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="9bee3e8b-9413-4d32-b0c3-e0f324754dca"
+            name="Insert"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="6d131806-f70a-4ffd-98b8-e2369c1dde5d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DMatchHelper Member%3D(Name%3DInsert OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib Type%3DMatch)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="44488193-460c-4e52-a099-ed8ef96b7574"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1e26edb-47c6-404a-ba15-38dddba15189">
+                    <propertyInstance
+                      Id="4929dfd2-f942-4ed2-9ad1-db8b4eb4a6c8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="64af5f8f-23b2-4da4-9755-ef916ad6392c">
+                    <propertyInstance
+                      Id="33ecc99c-22e0-45ef-9df3-bd6847c62140"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e5110f4f-8fdf-452f-8b0a-1f89a1dc52de">
+                    <propertyInstance
+                      Id="19b3e1b2-f8b9-4911-b203-d87c34de92c8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b67d6024-d626-4bd5-9682-91c9f6fea608">
+                    <propertyInstance
+                      Id="c1a0d6af-20b1-438e-8eee-fad2e195c074"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20f27650-0d5c-4365-8eb1-d533e2824c93">
+                    <propertyInstance
+                      Id="4552da07-60a9-4b35-a45d-7c8b416df0e0"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0c40eac8-7527-40e7-9d15-0a1af7a897c7">
+                    <propertyInstance
+                      Id="c3b6015d-6cae-4196-b839-57d0b5a06e91"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="846adc3c-3d79-416e-8fd0-c85b13abd247"
+                  name="objMatch"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f26f5699-96b1-4cde-a22b-462168ca55ec"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DMatchHelper Member%3D(Name%3DInsert OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib Type%3DMatch)]) ParameterIdentifier%3DobjMatch"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1d281d1d-cc67-4d7a-9db1-544938099eef"
+                      LastKnownName="Match"
+                      LastKnownLocation="Package1_1702.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1e28768b-15bf-4668-9fb2-5c0319a562db"
+            name="MatcheShowing"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e5d58acc-fd9a-42f1-a06d-1f54b74d67a8"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DMatchHelper Member%3D(Name%3DMatcheShowing OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="cb903005-13ca-4a9e-947b-dadf7ab496a5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e932f088-b357-42a9-824f-ac9956af973f">
+                    <propertyInstance
+                      Id="ab13fa9e-c5d8-421a-bfc3-2cb2d4e7d921"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9727addc-f120-4c14-a60f-520afa88669b">
+                    <propertyInstance
+                      Id="84a06807-b0b2-44c3-bdc7-07120047dac1"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2fd0f388-b77b-4a3e-9df1-89bea4c0482a">
+                    <propertyInstance
+                      Id="007aa4da-4b93-4201-9795-dc6f50472bbb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="56eb4eff-5358-4184-928c-1d80e670aff6">
+                    <propertyInstance
+                      Id="ae431386-bb85-4797-be25-3828cec4b036"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="920b440c-e35c-4ea7-90c4-f82164d37f2f">
+                    <propertyInstance
+                      Id="b5c0cb08-847a-4af7-badf-00a76c28763b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bbefb69e-9eed-466f-b67d-c1fb96e9012f">
+                    <propertyInstance
+                      Id="849c341c-4769-457d-b9c1-2d049d01544b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e6c44893-c746-4a73-830c-ddc481621789"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="2e1a37ce-9618-40ad-a30f-471904dab260"
+                      LastKnownName="IEnumerable&lt;Match‎&gt;"
+                      LastKnownLocation="Package5_1702.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="721a8dfb-a8fb-4de7-aab2-36eeafa3f276"
+                  name="leagueId"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="99021707-72ee-4341-8c50-3af80fdd7c52"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DMatchHelper Member%3D(Name%3DMatcheShowing OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DleagueId"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ThaiTaeModeling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d30a3552-9ca0-4307-abe7-a4b6160264c3"
+            name="Update"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="552bb6b1-f9ea-49b1-b7c2-6f262e973018"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DMatchHelper Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib Type%3DMatch)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d00b72cb-4c7a-49c7-b58d-0c9c6f81aa81"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="768888b9-721a-48dd-a374-c11cf35dbe82">
+                    <propertyInstance
+                      Id="b488934a-00d2-4114-9a6c-0198994672a8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9da7a0a2-b4c2-4a33-9481-fc9e8c83c542">
+                    <propertyInstance
+                      Id="d92a7046-8eaa-4d61-9ef6-661f72a823f2"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1fff142a-687f-49a4-a559-f99d7fdad09c">
+                    <propertyInstance
+                      Id="f0fcc7f2-9e25-4e11-aeef-f752dc0cb16b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f38a5c34-47ba-44d4-a874-f4ebff5429ce">
+                    <propertyInstance
+                      Id="937bc08f-5d50-40e8-94a1-c7f52688f405"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4510ca72-ffdb-4871-83ba-7b2c3adf2ebc">
+                    <propertyInstance
+                      Id="d022b09d-73ad-40f1-bdf2-9d25414b8b2a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8152d0e4-c6fd-4faf-869f-9c4c964229f0">
+                    <propertyInstance
+                      Id="95fdec42-2893-47c2-b94f-d85f813d9d9f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="709f437b-c2df-40fb-abac-e7d6da9cf5ac"
+                  name="objMatch"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="27f46512-0f8b-46c0-ad3e-1f72d740503c"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DMatchHelper Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib Type%3DMatch)]) ParameterIdentifier%3DobjMatch"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1d281d1d-cc67-4d7a-9db1-544938099eef"
+                      LastKnownName="Match"
+                      LastKnownLocation="Package1_1702.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="17df6f7a-72eb-499f-aab5-1c60421de9fa"
+            name="SelectItems"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1525620f-0a7c-411e-a579-f92ba96631d9"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib.Page Type%3DMatchHelper Member%3DSelectItems"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="dc0862c4-c16d-4ac8-92ba-c2e13e146b0e"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bc3dce70-f144-442c-82dd-e084fe63915e">
+                    <propertyInstance
+                      Id="bc66701b-b846-424c-938e-fcd992542e4b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9c284955-1320-4ed5-ba81-97f2ce614828">
+                    <propertyInstance
+                      Id="8b11dbba-1caa-4bb2-b5ca-f5e6c4b90c52"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ea5718a7-5b2c-42e5-bd62-1802c3a9b561">
+                    <propertyInstance
+                      Id="00e4f0c8-e948-420f-a7b7-c9859e063dbd"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8814bae2-fe7e-42db-8636-495924014d9d">
+                    <propertyInstance
+                      Id="ae898d71-f87a-4a6e-90fc-9577dd438fab"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="00eb26cc-7f04-43b6-9ab4-4572db59c5da">
+                    <propertyInstance
+                      Id="b37dcbae-5f1e-464e-821c-4631de3af13f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5c157a88-db48-4ce1-bc98-d90948f500f1">
+                    <propertyInstance
+                      Id="a92ffd14-b9fe-4dbc-b669-df097f8b2284"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1e7a57e2-7f6e-4f0d-999a-d01959f775fa"
+                  direction="Return">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="2e1a37ce-9618-40ad-a30f-471904dab260"
+                      LastKnownName="IEnumerable&lt;Match‎&gt;"
+                      LastKnownLocation="Package5_1702.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

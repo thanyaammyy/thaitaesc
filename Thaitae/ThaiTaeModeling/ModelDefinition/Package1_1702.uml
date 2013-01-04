@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="e7b01d46-541c-4c63-b597-aab30f6f6721"
+  name="lib"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="c5b7a432-8f24-482d-b125-423df2c2964e"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dthaitae.lib"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="af65aa03-e12e-4e66-b8dd-719e12d35d55"
+        LastKnownName="Page"
+        LastKnownLocation="Package2_1702.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5788bc43-3e28-48da-88c0-14c00f664b0c"
+        name="League"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="805154b4-c878-42f8-96d7-5cc8223baa25"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib Type%3DLeague"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="7cee5a87-3936-465a-b8ca-ef0bea23e897"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cc7d4034-f382-45e1-9057-df029fa39ffb">
+                <propertyInstance
+                  Id="28689d50-3f06-4d8c-8691-847db85c264c"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c5d0ce49-7c22-4ced-b066-7ab036628b26">
+                <propertyInstance
+                  Id="12be29a3-9eb8-43a8-b8b8-df26e4bb955f"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="30d26f7d-f800-452c-8271-722c7718c747">
+                <propertyInstance
+                  Id="89fc27f6-2c64-4f9c-b1c1-596194d2536d"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f3ecd56f-cecf-4d0b-b019-d4602ed562f1">
+                <propertyInstance
+                  Id="e26affe0-875d-433d-9d0f-c9b2546ba823"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="55155878-dc37-4714-95d4-8fca376ae276">
+                <propertyInstance
+                  Id="ed6d0fc6-fde1-4ea6-b7a1-f2b83c360c89"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1d281d1d-cc67-4d7a-9db1-544938099eef"
+        name="Match"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="16470df9-501a-4a23-a385-3433ce4ca5e4"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FTamujinz%2FDesktop%2Fthaitaesc%2FThaitae%2Fthaitae.lib%2Fbin%2FDebug%2Fthaitae.lib.dll Namespace%3Dthaitae.lib Type%3DMatch"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="0758ea74-d453-4fab-8be9-abd401ae0d83"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1488f962-2446-4fc7-a13b-4cefca0f3b7b">
+                <propertyInstance
+                  Id="32ae42e2-d8e4-4f2a-97fb-98135c63f0c6"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3556dd23-ff2f-4ef2-b392-bca0245b39e0">
+                <propertyInstance
+                  Id="04d2ad0a-3189-47fc-a425-b077b384b549"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e29284a2-0eb6-445f-a5ea-d1c8b89066a8">
+                <propertyInstance
+                  Id="b3b68721-66f3-4823-8a29-e5fd00d8fa14"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a3a6a569-880e-4fbf-b178-3dd4b3a0f0c3">
+                <propertyInstance
+                  Id="a6b43000-4b75-44af-a28d-0de3f5f1dbf2"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3eed767e-dedb-4421-b32e-c2ea492ec475">
+                <propertyInstance
+                  Id="5020a634-1e4c-4a66-8aeb-1eb65117e19d"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
