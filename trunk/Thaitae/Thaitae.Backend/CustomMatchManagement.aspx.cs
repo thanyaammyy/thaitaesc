@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Trirand.Web.UI.WebControls;
 using thaitae.lib;
+using Trirand.Web.UI.WebControls;
 
 namespace Thaitae.Backend
 {
@@ -17,9 +17,12 @@ namespace Thaitae.Backend
             {
                 if (Session["seasonid"] != null && Session["leagueid"] != null)
                 {
-                    ddlLeague.SelectedValue = (string)Session["leagueid"];
-                    ddlSeason.SelectedValue = (string)Session["seasonid"];
-                    JqgridMatchBinding(Convert.ToInt32(Session["seasonid"]));
+                    if ((string)Session["leagueid"] == "14" || (string)Session["leagueid"] == "31")
+                    {
+                        ddlLeague.SelectedValue = (string)Session["leagueid"];
+                        ddlSeason.SelectedValue = (string)Session["seasonid"];
+                        JqgridMatchBinding(Convert.ToInt32(Session["seasonid"]));
+                    }
                 }
             }
         }
@@ -100,8 +103,6 @@ namespace Thaitae.Backend
                     MatchId = match1.MatchId
                 };
 
-                
-                
                 var teamHome2 = new TeamMatch
                 {
                     TeamId = awayId,
@@ -127,7 +128,6 @@ namespace Thaitae.Backend
                 dc.TeamMatches.InsertOnSubmit(teamAway2);
                 dc.SubmitChanges();
             }
-     
         }
 
         protected void JqgridMatch1_RowEditing(object sender, JQGridRowEditEventArgs e)

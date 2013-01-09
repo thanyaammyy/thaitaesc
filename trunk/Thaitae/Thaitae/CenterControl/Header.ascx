@@ -35,12 +35,15 @@
                                 <ul>
                                     <%foreach (var league in ListChampionsLeague)%>
                                     <%{%>
-                                    <%if(league.LeagueType == 1){%>
+                                    <%if (league.LeagueType == 1 || league.LeagueType == 2)
+                                      {%>
                                     <li><a href="javascript:void(0);" id="<%=league.LeagueId%>" rel="<%=league.LeagueName%>"
-                                        onclick="window.location='ChampionsLeagueFinal.aspx?leagueId=<%=league.LeagueId%>'">
+                                        onclick="window.location='CustomLeagueFinal.aspx?leagueId=<%=league.LeagueId%>'">
                                         <%=league.LeagueName%>
                                     </a></li>
-                                    <%}else{%>
+                                    <%}
+                                      else
+                                      {%>
                                     <li><a href="javascript:void(0);" id="<%=league.LeagueId%>" rel="<%=league.LeagueName%>"
                                         onclick="window.location='LeagueTemplate.aspx?leagueId=<%=league.LeagueId%>'">
                                         <%=league.LeagueName%>

@@ -71,7 +71,7 @@ namespace thaitae.lib.Page
             IEnumerable<League> leagues = new List<League>();
             var dc = ThaitaeDataDataContext.Create();
             var leagueCount = dc.Leagues.Count();
-            if (leagueCount > 0) leagues = dc.Leagues.Where(item => item.LeagueType == 1 || item.LeagueType == 2 || item.LeagueType == 8).ToList();
+            if (leagueCount > 0) leagues = dc.Leagues.Where(item => item.LeagueType == 1 || item.LeagueType == 2 || item.LeagueType == 8).OrderByDescending(item => item.LeagueType).ThenBy(item => item.LeagueId).ToList();
             return leagues;
         }
 
