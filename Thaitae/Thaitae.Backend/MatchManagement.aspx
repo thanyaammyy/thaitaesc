@@ -150,7 +150,7 @@
         <PagerSettings PageSize="100"></PagerSettings>
     </cc1:JQGrid>
     <asp:ObjectDataSource ID="LeagueDataSource" DataObjectTypeName="thaitae.lib.League"
-        SelectMethod="SelectLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server">
+        SelectMethod="SelectNormalLeagueItems" TypeName="thaitae.lib.Page.LeagueHelper" runat="server">
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="TeamDataSource" DataObjectTypeName="" SelectMethod="ListTeamItems"
         TypeName="thaitae.lib.Page.TeamHelper" runat="server">

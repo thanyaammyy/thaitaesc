@@ -64,6 +64,59 @@ namespace thaitae.lib
             }
         }
 
+        public int TeamHomeScore
+        {
+            get
+            {
+                using (var dc = ThaitaeDataDataContext.Create())
+                {
+                    var team = dc.TeamMatches.Single(item => item.TeamId == TeamHomeId && item.MatchId == MatchId);
+                    return team.TeamGoalFor ?? 0;
+                }
+            }
+        }
+
+        public int TeamHomePScore
+        {
+            get
+            {
+                using (var dc = ThaitaeDataDataContext.Create())
+                {
+                    var team = dc.TeamMatches.Single(item => item.TeamId == TeamHomeId && item.MatchId == MatchId);
+                    return team.TeamGoalPenalty ?? 0;
+                }
+            }
+        }
+
+        public int TeamAwayScore
+        {
+            get
+            {
+                using (var dc = ThaitaeDataDataContext.Create())
+                {
+                    var team = dc.TeamMatches.Single(item => item.TeamId == TeamAwayId && item.MatchId == MatchId);
+                    return team.TeamGoalFor ?? 0;
+                }
+            }
+        }
+
+        public int TeamAwayPScore
+        {
+            get
+            {
+                using (var dc = ThaitaeDataDataContext.Create())
+                {
+                    var team = dc.TeamMatches.Single(item => item.TeamId == TeamAwayId && item.MatchId == MatchId);
+                    return team.TeamGoalPenalty ?? 0;
+                }
+            }
+        }
+
+        public string Dash
+        {
+            get { return " - "; }
+        }
+
         public string MatchScore
         {
             get

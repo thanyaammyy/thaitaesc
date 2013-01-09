@@ -15,6 +15,26 @@ namespace thaitae.lib.Page
             }
         }
 
+        public static IEnumerable<League> SelectNormalLeagueItems()
+        {
+            using (var dc = ThaitaeDataDataContext.Create())
+            {
+                var leagueList = new List<League> { new League() { LeagueId = 0, LeagueName = "Select League" } };
+                leagueList.AddRange(dc.Leagues.Where(item => item.LeagueType == 4 || item.LeagueType == 8).ToList());
+                return leagueList;
+            }
+        }
+
+        public static IEnumerable<League> SelectCustomLeagueItems()
+        {
+            using (var dc = ThaitaeDataDataContext.Create())
+            {
+                var leagueList = new List<League> { new League() { LeagueId = 0, LeagueName = "Select League" } };
+                leagueList.AddRange(dc.Leagues.Where(item => item.LeagueType == 1 || item.LeagueType == 2).ToList());
+                return leagueList;
+            }
+        }
+
         public static IEnumerable<League> SelectLeagueItemsWithGroupingChampionsLeague()
         {
             using (var dc = ThaitaeDataDataContext.Create())

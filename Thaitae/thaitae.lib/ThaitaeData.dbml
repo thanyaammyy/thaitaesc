@@ -70,6 +70,7 @@
       <Column Name="TeamHome" Type="System.Int32" CanBeNull="false" />
       <Column Name="SeasonId" Type="System.Int32" CanBeNull="false" />
       <Column Name="TeamEdited" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TeamGoalPenalty" Type="System.Int32" CanBeNull="true" />
       <Association Name="Match_TeamMatch" Member="Match" ThisKey="MatchId" OtherKey="MatchId" Type="Match" IsForeignKey="true" />
       <Association Name="Team_TeamMatch" Member="Team" ThisKey="TeamId" OtherKey="TeamId" Type="Team" IsForeignKey="true" />
     </Type>

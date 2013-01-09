@@ -19,6 +19,10 @@
     </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
     <UpgradeBackupLocation />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,6 +66,7 @@
   <ItemGroup>
     <Content Include="CenterControl\Footer.ascx" />
     <Content Include="CenterControl\Header.ascx" />
+    <Content Include="CustomMatchManagement.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Images\Green-Background.jpg" />
@@ -213,6 +218,13 @@
     </Compile>
     <Compile Include="CenterControl\Header.ascx.designer.cs">
       <DependentUpon>Header.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomMatchManagement.aspx.cs">
+      <DependentUpon>CustomMatchManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomMatchManagement.aspx.designer.cs">
+      <DependentUpon>CustomMatchManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="ForgetPassword.aspx.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
