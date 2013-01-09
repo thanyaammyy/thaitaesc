@@ -313,6 +313,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Backend.Master" />
+    <None Include="Properties\PublishProfiles\Publish_ThaitaeBackend.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

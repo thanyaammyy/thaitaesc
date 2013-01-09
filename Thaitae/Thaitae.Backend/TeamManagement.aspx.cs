@@ -133,9 +133,11 @@ namespace Thaitae.Backend
             {
                 var checkRecord = dc.TeamSeasons.Any(item => item.SeasonId == Convert.ToInt32(Session["seasonid"]));
                 if (checkRecord)
-                    JavaScriptHelper.Alert("ต้องลบทีมออกให้หมดก่อนถึงจะกดปุ่มนี้ได้");  return;
+                {
+                    JavaScriptHelper.Alert("ต้องลบทีมออกให้หมดก่อนถึงจะกดปุ่มนี้ได้"); return;
+                }
+                    
             }
-
             foreach (var season in seasonList)
             {
                 List<TeamSeason> teamSeasonList;

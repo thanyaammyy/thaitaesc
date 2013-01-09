@@ -16,9 +16,12 @@ namespace Thaitae.Backend
             {
                 if (Session["seasonid"] != null && Session["leagueid"] != null)
                 {
-                    ddlLeague.SelectedValue = (string)Session["leagueid"];
-                    ddlSeason.SelectedValue = (string)Session["seasonid"];
-                    JqgridMatchBinding(Convert.ToInt32(Session["seasonid"]));
+                    if ((string)Session["leagueid"] != "14" && (string)Session["leagueid"] != "31")
+                    {
+                        ddlLeague.SelectedValue = (string)Session["leagueid"];
+                        ddlSeason.SelectedValue = (string)Session["seasonid"];
+                        JqgridMatchBinding(Convert.ToInt32(Session["seasonid"]));
+                    }
                 }
             }
         }
