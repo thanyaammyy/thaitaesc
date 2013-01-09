@@ -68,7 +68,7 @@
     <Content Include="CenterControl\Footer.ascx" />
     <Content Include="CenterControl\Header.ascx" />
     <Content Include="ChampionLeague.aspx" />
-    <Content Include="ChampionsLeagueFinal.aspx" />
+    <Content Include="CustomLeagueFinal.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="FACup.aspx" />
     <Content Include="Index.aspx" />
@@ -267,12 +267,12 @@
     <Compile Include="ChampionLeague.aspx.designer.cs">
       <DependentUpon>ChampionLeague.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ChampionsLeagueFinal.aspx.cs">
-      <DependentUpon>ChampionsLeagueFinal.aspx</DependentUpon>
+    <Compile Include="CustomLeagueFinal.aspx.cs">
+      <DependentUpon>CustomLeagueFinal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ChampionsLeagueFinal.aspx.designer.cs">
-      <DependentUpon>ChampionsLeagueFinal.aspx</DependentUpon>
+    <Compile Include="CustomLeagueFinal.aspx.designer.cs">
+      <DependentUpon>CustomLeagueFinal.aspx</DependentUpon>
     </Compile>
     <Compile Include="ContactUs.aspx.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
