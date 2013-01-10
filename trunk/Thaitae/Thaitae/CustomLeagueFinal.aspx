@@ -2,39 +2,66 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        ul.team li {
-            list-style-type: none;
+        .main
+        {
+            width: 100%;
+            text-align: center;
         }
 
-        .scorebox {
+        .scorebox
+        {
             background-color: darkkhaki;
             border-style: solid;
             border-width: 2px;
             border-color: darkgoldenrod;
+            width: 100%;
         }
 
-            .scorebox td {
+            .scorebox td
+            {
                 border-style: dashed;
                 border-width: 1px;
                 border-color: darkgoldenrod;
             }
+
+        .header
+        {
+            background: maroon;
+            font-weight: bold;
+            font-size: 16px;
+            color: white;
+        }
+
+        .borderInfo
+        {
+            border-width: 2px 2px 2px 2px;
+            border-style: solid;
+            border-color: maroon;
+            width: 25%;
+        }
+
+        .info
+        {
+            width: 100%;
+            height: 500px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h3>ผลการแข่งขัน Champion League Final</h3>
-    <table width="100%" class="main">
-        <tr style="background: maroon; font-weight: bold; color: white; text-align: center">
-            <td><b>First Knockout Round</b></td>
-            <td><b>Quarter Final</b></td>
-            <td><b>Semi Final</b></td>
-            <td><b>Final</b></td>
+    <table class="main">
+        <tr class="header">
+            <td>First Knockout Round</td>
+            <td>Quarter Final</td>
+            <td>Semi Final</td>
+            <td>Final</td>
         </tr>
-        <tr style="text-align: center">
-            <td style="border-width: 2px 2px 2px 2px; border-style: solid; border-color: maroon; width: 25%;">
-                <table width="100%" style="height: 500px;">
+        <tr>
+            <td class="borderInfo">
+                <table class="info">
                     <tr>
                         <td>
-                            <table width="100%" class="scorebox">
+                            <table class="scorebox">
                                 <tr>
                                     <td>team1</td>
                                     <td>2</td>
@@ -50,7 +77,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <table width="100%" class="scorebox">
+                            <table class="scorebox">
                                 <tr>
                                     <td>team1</td>
                                     <td>2</td>
@@ -66,7 +93,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <table width="100%" class="scorebox">
+                            <table class="scorebox">
                                 <tr>
                                     <td>team1</td>
                                     <td>2</td>
@@ -82,7 +109,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <table width="100%" class="scorebox">
+                            <table class="scorebox">
                                 <tr>
                                     <td>team1</td>
                                     <td>2</td>
@@ -98,7 +125,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <table width="100%" class="scorebox">
+                            <table class="scorebox">
                                 <tr>
                                     <td>team1</td>
                                     <td>2</td>
@@ -114,7 +141,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <table width="100%" class="scorebox">
+                            <table class="scorebox">
                                 <tr>
                                     <td>team1</td>
                                     <td>2</td>
@@ -130,7 +157,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <table width="100%" class="scorebox">
+                            <table class="scorebox">
                                 <tr>
                                     <td>team1</td>
                                     <td>2</td>
@@ -146,75 +173,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <table width="100%" class="scorebox">
-                                <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td style="width: 25%; border-width: 2px 2px 2px 2px; border-style: solid; border-color: maroon;">
-                <table width="100%" style="height: 500px">
-                    <tr>
-                        <td>
-                            <table width="100%" class="scorebox">
-                                <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table width="100%" class="scorebox">
-                                <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table width="100%" class="scorebox">
-                                <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table width="100%" class="scorebox">
+                            <table class="scorebox">
                                 <tr>
                                     <td>team1</td>
                                     <td>2</td>
@@ -230,11 +189,11 @@
                     </tr>
                 </table>
             </td>
-            <td style="width: 25%; border-width: 2px 2px 2px 2px; border-style: solid; border-color: maroon;">
-                <table width="100%" style="height: 500px">
+            <td class="borderInfo">
+                <table class="info">
                     <tr>
                         <td>
-                            <table width="100%" class="scorebox">
+                            <table class="scorebox">
                                 <tr>
                                     <td>team1</td>
                                     <td>2</td>
@@ -250,7 +209,39 @@
                     </tr>
                     <tr>
                         <td>
-                            <table width="100%" class="scorebox">
+                            <table class="scorebox">
+                                <tr>
+                                    <td>team1</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>tesm2</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="scorebox">
+                                <tr>
+                                    <td>team1</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>tesm2</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="scorebox">
                                 <tr>
                                     <td>team1</td>
                                     <td>2</td>
@@ -266,11 +257,47 @@
                     </tr>
                 </table>
             </td>
-            <td style="width: 25%; border-width: 2px 2px 2px 2px; border-style: solid; border-color: maroon;">
-                <table width="100%" style="height: 500px">
+            <td class="borderInfo">
+                <table class="info">
                     <tr>
                         <td>
-                            <table width="100%" class="scorebox">
+                            <table class="scorebox">
+                                <tr>
+                                    <td>team1</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>tesm2</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="scorebox">
+                                <tr>
+                                    <td>team1</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>tesm2</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="borderInfo">
+                <table class="info">
+                    <tr>
+                        <td>
+                            <table class="scorebox">
                                 <tr>
                                     <td>team1</td>
                                     <td>2</td>
