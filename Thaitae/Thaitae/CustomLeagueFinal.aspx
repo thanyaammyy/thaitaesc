@@ -2,14 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .main
-        {
+        .main {
             width: 100%;
             text-align: center;
         }
 
-        .scorebox
-        {
+        .scorebox {
             background-color: darkkhaki;
             border-style: solid;
             border-width: 2px;
@@ -17,38 +15,34 @@
             width: 100%;
         }
 
-            .scorebox td
-            {
+            .scorebox td {
                 border-style: dashed;
                 border-width: 1px;
                 border-color: darkgoldenrod;
             }
 
-        .header
-        {
+        .header {
             background: maroon;
             font-weight: bold;
             font-size: 16px;
             color: white;
         }
 
-        .borderInfo
-        {
+        .borderInfo {
             border-width: 2px 2px 2px 2px;
             border-style: solid;
             border-color: maroon;
             width: 25%;
         }
 
-        .info
-        {
+        .info {
             width: 100%;
             height: 500px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h3>ผลการแข่งขัน Champion League Final</h3>
+    <h3>ผลการแข่งขัน <%=League.LeagueName%></h3>
     <table class="main">
         <tr class="header">
             <td>First Knockout Round</td>
@@ -59,258 +53,179 @@
         <tr>
             <td class="borderInfo">
                 <table class="info">
+                    <% for (int i = 0; i < 8; i++)%>
+                    <%{%>
+                    <%if (Match[i] != null) %>
+                    <%{%>
                     <tr>
                         <td>
                             <table class="scorebox">
                                 <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
+                                    <td><%=Match[i].TeamHomeNameWithStatus%></td>
+                                    <td><%=Match[i].TeamHomeScore1%></td>
+                                    <td><%=Match[i].TeamHomeScore2%></td>
                                 </tr>
                                 <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
+                                    <td><%=Match[i].TeamAwayNameWithStatus%></td>
+                                    <td><%=Match[i].TeamAwayScore1%></td>
+                                    <td><%=Match[i].TeamAwayScore2%></td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
+                    <%}
+                      else
+                      {%>
                     <tr>
                         <td>
                             <table class="scorebox">
                                 <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
+                                    <td>ยังไม่มีข้อมูล</td>
+                                    <td>-</td>
+                                    <td>-</td>
                                 </tr>
                                 <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
+                                    <td>ยังไม่มีข้อมูล</td>
+                                    <td>-</td>
+                                    <td>-</td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <table class="scorebox">
-                                <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table class="scorebox">
-                                <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table class="scorebox">
-                                <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table class="scorebox">
-                                <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table class="scorebox">
-                                <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table class="scorebox">
-                                <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
+                    <%}%>
+                    <%}%>
                 </table>
             </td>
             <td class="borderInfo">
                 <table class="info">
+                    <% for (int i = 8; i < 12; i++)%>
+                    <%{%>
+                    <%if (Match[i] != null) %>
+                    <%{%>
                     <tr>
                         <td>
                             <table class="scorebox">
                                 <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
+                                    <td><%=Match[i].TeamHomeNameWithStatus%></td>
+                                    <td><%=Match[i].TeamHomeScore1%></td>
+                                    <td><%=Match[i].TeamHomeScore2%></td>
                                 </tr>
                                 <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
+                                    <td><%=Match[i].TeamAwayNameWithStatus%></td>
+                                    <td><%=Match[i].TeamAwayScore1%></td>
+                                    <td><%=Match[i].TeamAwayScore2%></td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
+                    <%}
+                      else
+                      {%>
                     <tr>
                         <td>
                             <table class="scorebox">
                                 <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
+                                    <td>ยังไม่มีข้อมูล</td>
+                                    <td>-</td>
+                                    <td>-</td>
                                 </tr>
                                 <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
+                                    <td>ยังไม่มีข้อมูล</td>
+                                    <td>-</td>
+                                    <td>-</td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <table class="scorebox">
-                                <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table class="scorebox">
-                                <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
+                    <%}%>
+                    <%}%>
                 </table>
             </td>
             <td class="borderInfo">
                 <table class="info">
+                    <% for (int i = 12; i < 14; i++)%>
+                    <%{%>
+                    <%if (Match[i] != null) %>
+                    <%{%>
                     <tr>
                         <td>
                             <table class="scorebox">
                                 <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
+                                    <td><%=Match[i].TeamHomeNameWithStatus%></td>
+                                    <td><%=Match[i].TeamHomeScore1%></td>
+                                    <td><%=Match[i].TeamHomeScore2%></td>
                                 </tr>
                                 <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
+                                    <td><%=Match[i].TeamAwayNameWithStatus%></td>
+                                    <td><%=Match[i].TeamAwayScore1%></td>
+                                    <td><%=Match[i].TeamAwayScore2%></td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
+                    <%}
+                      else
+                      {%>
                     <tr>
                         <td>
                             <table class="scorebox">
                                 <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
+                                    <td>ยังไม่มีข้อมูล</td>
+                                    <td>-</td>
+                                    <td>-</td>
                                 </tr>
                                 <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
+                                    <td>ยังไม่มีข้อมูล</td>
+                                    <td>-</td>
+                                    <td>-</td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
+                    <%}%>
+                    <%}%>
                 </table>
             </td>
             <td class="borderInfo">
                 <table class="info">
+                    <%if (Match[14] != null) %>
+                    <%{%>
                     <tr>
                         <td>
                             <table class="scorebox">
                                 <tr>
-                                    <td>team1</td>
-                                    <td>2</td>
-                                    <td>1</td>
+                                    <td><%=Match[15].TeamHomeNameWithStatus%></td>
+                                    <td><%=Match[15].TeamHomeScore1%></td>
+                                    <td><%=Match[15].TeamHomeScore2%></td>
                                 </tr>
                                 <tr>
-                                    <td>tesm2</td>
-                                    <td>1</td>
-                                    <td>1</td>
+                                    <td><%=Match[15].TeamAwayNameWithStatus%></td>
+                                    <td><%=Match[15].TeamAwayScore1%></td>
+                                    <td><%=Match[15].TeamAwayScore2%></td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
+                    <%}
+                      else
+                      {%>
+                    <tr>
+                        <td>
+                            <table class="scorebox">
+                                <tr>
+                                    <td>ยังไม่มีข้อมูล</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>ยังไม่มีข้อมูล</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <%}%>
                 </table>
             </td>
         </tr>
