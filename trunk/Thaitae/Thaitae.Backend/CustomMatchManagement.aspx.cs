@@ -161,29 +161,30 @@ namespace Thaitae.Backend
                 teamAway.TeamGoalPenalty = awayPScore;
                 if (teamHome.TeamGoalFor == teamAway.TeamGoalFor)
                 {
-                    if (teamHome.TeamGoalFor + teamHome.TeamGoalPenalty >
-                        teamAway.TeamGoalFor + teamAway.TeamGoalPenalty)
-                    {
-                        teamHome.TeamEdited = 1;
-                        teamHome.TeamStatus = 1;
-                        teamAway.TeamEdited = 1;
-                        teamAway.TeamStatus = 3;
-                    }
-                    else if (teamHome.TeamGoalFor + teamHome.TeamGoalPenalty <
-                             teamAway.TeamGoalFor + teamAway.TeamGoalPenalty)
-                    {
-                        teamHome.TeamEdited = 1;
-                        teamHome.TeamStatus = 3;
-                        teamAway.TeamEdited = 1;
-                        teamAway.TeamStatus = 1;
-                    }
-                    else
-                    {
-                        teamHome.TeamEdited = 1;
-                        teamHome.TeamStatus = 2;
-                        teamAway.TeamEdited = 1;
-                        teamAway.TeamStatus = 2;
-                    }
+                    //if (teamHome.TeamGoalFor + teamHome.TeamGoalPenalty >
+                    //    teamAway.TeamGoalFor + teamAway.TeamGoalPenalty)
+                    //{
+                    //    teamHome.TeamEdited = 1;
+                    //    teamHome.TeamStatus = 1;
+                    //    teamAway.TeamEdited = 1;
+                    //    teamAway.TeamStatus = 3;
+                    //}
+                    //else if (teamHome.TeamGoalFor + teamHome.TeamGoalPenalty <
+                    //         teamAway.TeamGoalFor + teamAway.TeamGoalPenalty)
+                    //{
+                    //    teamHome.TeamEdited = 1;
+                    //    teamHome.TeamStatus = 3;
+                    //    teamAway.TeamEdited = 1;
+                    //    teamAway.TeamStatus = 1;
+                    //}
+                    //else
+                    //{
+                    teamHome.TeamEdited = 1;
+                    teamHome.TeamStatus = 2;
+                    teamAway.TeamEdited = 1;
+                    teamAway.TeamStatus = 2;
+
+                    //}
                 }
                 else if (teamHome.TeamGoalFor > teamAway.TeamGoalFor)
                 {
@@ -212,6 +213,43 @@ namespace Thaitae.Backend
                     teamAway.TeamStatus = 0;
                 }
                 dc.SubmitChanges();
+                var mirrorMatchId =
+                        dc.Matches.Single(
+                            item =>
+                            item.TeamHomeId == match.TeamAwayId && item.TeamAwayId == match.TeamHomeId && item.SeasonId == match.SeasonId).MatchId;
+                var mirrorTeamHome =
+                    dc.TeamMatches.Single(item => item.MatchId == mirrorMatchId && item.TeamHome == 1);
+                var mirrorTeamAway =
+                    dc.TeamMatches.Single(item => item.MatchId == mirrorMatchId && item.TeamHome == 0);
+                if (mirrorMatchId < match.MatchId && mirrorTeamHome.TeamEdited == 1 && mirrorTeamAway.TeamEdited == 1 && teamHome.TeamEdited == 1 && teamAway.TeamEdited == 1)
+                {
+                    var totalScoreHome = teamHome.TeamGoalFor + mirrorTeamAway.TeamGoalFor;
+                    var totalScoreAway = teamAway.TeamGoalFor + mirrorTeamHome.TeamGoalFor;
+                    if (totalScoreHome > totalScoreAway)
+                    {
+                        teamHome.TeamStatus = 1;
+                        teamAway.TeamStatus = 3;
+                    }
+                    else if (totalScoreHome < totalScoreAway)
+                    {
+                        teamHome.TeamStatus = 3;
+                        teamAway.TeamStatus = 1;
+                    }
+                    else
+                    {
+                        if (teamHome.TeamGoalPenalty > teamAway.TeamGoalPenalty)
+                        {
+                            teamHome.TeamStatus = 1;
+                            teamAway.TeamStatus = 3;
+                        }
+                        else
+                        {
+                            teamHome.TeamStatus = 3;
+                            teamAway.TeamStatus = 1;
+                        }
+                    }
+                    dc.SubmitChanges();
+                }
             }
         }
 
