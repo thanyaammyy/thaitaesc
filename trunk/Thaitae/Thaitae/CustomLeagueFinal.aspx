@@ -194,14 +194,14 @@
                         <td>
                             <table class="scorebox">
                                 <tr>
-                                    <td><%=Match[15].TeamHomeNameWithStatus%></td>
-                                    <td><%=Match[15].TeamHomeScore1%></td>
-                                    <td><%=Match[15].TeamHomeScore2%></td>
+                                    <td><%=Match[14].TeamHomeNameWithStatus%></td>
+                                    <td><%=Match[14].TeamHomeScore1%></td>
+                                    <td><%=Match[14].TeamHomeScore2%></td>
                                 </tr>
                                 <tr>
-                                    <td><%=Match[15].TeamAwayNameWithStatus%></td>
-                                    <td><%=Match[15].TeamAwayScore1%></td>
-                                    <td><%=Match[15].TeamAwayScore2%></td>
+                                    <td><%=Match[14].TeamAwayNameWithStatus%></td>
+                                    <td><%=Match[14].TeamAwayScore1%></td>
+                                    <td><%=Match[14].TeamAwayScore2%></td>
                                 </tr>
                             </table>
                         </td>
