@@ -131,7 +131,7 @@ namespace thaitae.lib
                     if (teamMatchHomeEdited.Length == 2)
                     {
                         if (teamMatchHomeEdited[1].TeamStatus == 1)
-                            teamStatus = "<span style='color: red'>[เข้ารอบ]</span>";
+                            teamStatus = "<span style='color: red'>[เป็นผู้ชนะ]</span>";
                     }
                     return teamName.TeamName + teamStatus;
                 }
@@ -155,7 +155,7 @@ namespace thaitae.lib
                     if (teamMatchAwayEdited.Length == 2)
                     {
                         if (teamMatchAwayEdited[0].TeamStatus == 1)
-                            teamStatus = "<span style='color: red'>[เข้ารอบ]</span>";
+                            teamStatus = "<span style='color: red'>[เป็นผู้ชนะ]</span>";
                     }
                     return teamName.TeamName + teamStatus;
                 }
