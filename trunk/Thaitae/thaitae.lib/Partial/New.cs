@@ -1,4 +1,6 @@
-﻿namespace thaitae.lib
+﻿using System.Configuration;
+
+namespace thaitae.lib
 {
     public partial class New
     {
@@ -6,7 +8,7 @@
         {
             newsTopic = "";
             newsContent = "";
-            picture = "http://admin.thaitaesc.com/NewsImages/noImage.jpg";
+            picture = ConfigurationManager.AppSettings["BackendUrl"] + "/NewsImages/noImage.jpg";
         }
 
         public string NewsTypeName
@@ -37,7 +39,7 @@
         {
             get
             {
-                var front = picture.Replace("http://admin.thaitaesc.com/NewsImages/", "http://admin.thaitaesc.com/NewsImages/Thumbs/");
+                var front = picture.Replace("/NewsImages/", "/NewsImages/Thumbs/");
                 var thumb = front.Replace(".jpg", "_thumb.jpg");
                 return thumb;
             }

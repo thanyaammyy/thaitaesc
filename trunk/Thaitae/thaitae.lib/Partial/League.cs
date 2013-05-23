@@ -1,4 +1,6 @@
-﻿namespace thaitae.lib
+﻿using System.Configuration;
+
+namespace thaitae.lib
 {
     public partial class League
     {
@@ -6,7 +8,7 @@
         {
             LeagueName = "";
             LeagueDesc = "";
-            Picture = "http://admin.thaitaesc.com/LeagueImages/noimage.png";
+            Picture = ConfigurationManager.AppSettings["BackendUrl"] + "/LeagueImages/noimage.png";
         }
 
         public string LeagueTypeName
@@ -43,7 +45,7 @@
 
         public string ShowPictureThumb
         {
-            get { return "<img width='70px' height='65px' src='" + Picture + "'/></div>"; }
+            get { return "<img width='70px' height='65px' src='" + ConfigurationManager.AppSettings["BackendUrl"] + Picture + "'/></div>"; }
         }
     }
 }
