@@ -21,14 +21,14 @@ namespace Thaitae.Backend
             if (!string.IsNullOrEmpty(Request.QueryString["newsid"]))
             {
                 _fileIdName = Request.QueryString["newsid"];
-                _savePath = ConfigurationManager.AppSettings["newsFolderPath"];
+                _savePath = ConfigurationManager.AppSettings["BackendUrl"] + ConfigurationManager.AppSettings["newsFolderPath"];
                 _fileType = "news";
             }
 
             if (!string.IsNullOrEmpty(Request.QueryString["leagueid"]))
             {
                 _fileIdName = Request.QueryString["leagueid"];
-                _savePath = ConfigurationManager.AppSettings["leagueFolderPath"];
+                _savePath = ConfigurationManager.AppSettings["BackendUrl"] + ConfigurationManager.AppSettings["leagueFolderPath"];
                 _fileType = "league";
             }
         }

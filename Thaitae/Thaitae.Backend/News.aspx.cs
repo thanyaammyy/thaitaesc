@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using thaitae.lib;
+using thaitae.lib.Page;
 
 namespace Thaitae.Backend
 {
@@ -50,9 +51,7 @@ namespace Thaitae.Backend
 
         private void JqgridNewsBinding()
         {
-            var dc = ThaitaeDataDataContext.Create().News;
-            var seasonList = dc.ToList();
-            JqgridNews.DataSource = seasonList;
+            JqgridNews.DataSource = NewsHelper.ListNews();
             JqgridNews.DataBind();
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 
 namespace thaitae.lib.Page
@@ -54,6 +55,10 @@ namespace thaitae.lib.Page
             var dc = ThaitaeDataDataContext.Create();
             var leagueCount = dc.Leagues.Count();
             if (leagueCount > 0) leagues = dc.Leagues.Where(item => item.LeagueType != 1 && item.LeagueType != 2 && item.Active == 1).ToList();
+            foreach (var league in leagues)
+            {
+                league.Picture = ConfigurationManager.AppSettings["BackendUrl"] + league.Picture;
+            }
             return leagues;
         }
 
@@ -72,6 +77,10 @@ namespace thaitae.lib.Page
             var dc = ThaitaeDataDataContext.Create();
             var leagueCount = dc.Leagues.Count();
             if (leagueCount > 0) leagues = dc.Leagues.Where(item => item.LeagueType == 1 || item.LeagueType == 2 || item.LeagueType == 8).OrderByDescending(item => item.LeagueType).ThenBy(item => item.LeagueId).ToList();
+            foreach (var league in leagues)
+            {
+                league.Picture = ConfigurationManager.AppSettings["BackendUrl"] + league.Picture;
+            }
             return leagues;
         }
 
@@ -79,6 +88,7 @@ namespace thaitae.lib.Page
         {
             var dc = ThaitaeDataDataContext.Create();
             var league = dc.Leagues.Single(item => item.LeagueId == leagueId);
+            league.Picture = ConfigurationManager.AppSettings["BackendUrl"] + league.Picture;
             return league;
         }
 
