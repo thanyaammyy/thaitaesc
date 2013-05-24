@@ -21,14 +21,14 @@ namespace Thaitae.Backend
             if (!string.IsNullOrEmpty(Request.QueryString["newsid"]))
             {
                 _fileIdName = Request.QueryString["newsid"];
-                _savePath = ConfigurationManager.AppSettings["BackendUrl"] + ConfigurationManager.AppSettings["newsFolderPath"];
+                _savePath = ConfigurationManager.AppSettings["newsFolderPath"];
                 _fileType = "news";
             }
 
             if (!string.IsNullOrEmpty(Request.QueryString["leagueid"]))
             {
                 _fileIdName = Request.QueryString["leagueid"];
-                _savePath = ConfigurationManager.AppSettings["BackendUrl"] + ConfigurationManager.AppSettings["leagueFolderPath"];
+                _savePath = ConfigurationManager.AppSettings["leagueFolderPath"];
                 _fileType = "league";
             }
         }
@@ -52,9 +52,10 @@ namespace Thaitae.Backend
             {
                 if (FileUpload1.PostedFile.ContentLength <= 8192000)
                 {
-                    var tempPath = Server.MapPath(folderName) + "\\Temp\\" + _fileIdName + "_" + fileName;
-                    var serverPath = Server.MapPath(folderName) + "\\" + _fileIdName + ".jpg";
-                    var thumbPath = Server.MapPath(folderName) + "\\Thumbs\\" + _fileIdName + "_thumb.jpg";
+                    var webPath = AppDomain.CurrentDomain.BaseDirectory;
+                    var tempPath = Path.Combine(webPath, folderName + "\\Temp\\" + _fileIdName + "_" + fileName);
+                    var serverPath = Path.Combine(webPath, folderName + "\\" + _fileIdName + ".jpg");
+                    var thumbPath = Path.Combine(webPath, folderName + "\\Thumbs\\" + _fileIdName + "_thumb.jpg");
                     FileUpload1.PostedFile.SaveAs(tempPath);
                     using (var fs = new FileStream(tempPath, FileMode.Open))
                     {

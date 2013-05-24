@@ -8,7 +8,7 @@ namespace thaitae.lib
         {
             newsTopic = "";
             newsContent = "";
-            picture = ConfigurationManager.AppSettings["BackendUrl"] + "/NewsImages/noImage.jpg";
+            picture = "/NewsImages/noImage.jpg";
         }
 
         public string NewsTypeName
